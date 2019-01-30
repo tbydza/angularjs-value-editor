@@ -1,18 +1,21 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
-module.exports = {
+module.exports = (env, {mode}) => ({
     mode: 'none',
 
-    entry: {
+    entry: mode === 'production' ? {
+        'angularjs-value-editor.min': ['./src/value-editor/value-editor.module.ts']
+    } : {
         'angularjs-value-editor': ['./src/value-editor/value-editor.module.ts']
     },
 
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
-        library: 'Slider',
+        library: 'angularjs-value-editor',
         libraryTarget: 'umd'
     },
 
@@ -136,18 +139,23 @@ module.exports = {
 
     devtool: 'source-map',
 
-    plugins: [
-        new ExtractTextPlugin({filename: '[name].css', disable: false, allChunks: true}),
-        new CleanWebpackPlugin(
-            ['dist/*.*'],
-            {
-                root: path.resolve(__dirname),
-                verbose: true,
-                exclude: ['.gitkeep']
-            }
-        )
-    ]
-};
+    plugins: (function () {
+        const plugins = [new ExtractTextPlugin({filename: '[name].css', disable: false, allChunks: true}),
+            new CleanWebpackPlugin(
+                ['dist/*.*'],
+                {
+                    root: path.resolve(__dirname),
+                    verbose: true,
+                    exclude: ['.gitkeep']
+                }
+            )];
+        if (mode === 'production') {
+            plugins.push(new UnminifiedWebpackPlugin());
+        }
+
+        return plugins;
+    })()
+});
 
 function isVendor({resource}) {
     return resource &&

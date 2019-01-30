@@ -39,7 +39,11 @@
         "html-loader": "latest",
         "clean-webpack-plugin": "latest",
         "css-loader": "latest",
+        "dgeni": "latest",
+        "dgeni-alive": "latest",
         "extract-text-webpack-plugin": "next",
+        "grunt": "latest",
+        "grunt-cli": "latest",
         "less": "latest",
         "less-loader": "latest",
         "pug-html-loader": "latest",
@@ -53,11 +57,17 @@
         "webpack": "latest",
         "webpack-cli": "latest",
         "webpack-dev-server": "latest",
-        "html-webpack-plugin": "latest"
+        "html-webpack-plugin": "latest",
+        "webpack-shell-plugin": "latest",
+        "unminified-webpack-plugin": "latest",
+        "write-file-webpack-plugin": "latest"
     },
     "scripts": {
         "lib:prod": "webpack --config webpack.module.config.js --mode production --progress",
         "lib:devel": "webpack --config webpack.module.config.js --mode development --watch --progress",
-        "demo": "webpack-dev-server --config webpack.demo.config.js --progress"
+        "demo": "webpack-dev-server --config webpack.demo.config.js --progress",
+        "docs:build": "webpack --config docs/webpack.documentation.config.js --progress",
+        "docs:serve": "webpack-dev-server --config ./docs/webpack.documentation.config.js --progress",
+        "docs:grunt": "grunt --gruntfile ./docs/GruntFile.js --base . docs"
     }
 }
