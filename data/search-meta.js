@@ -1,0 +1,1 @@
+[{"name":"angularjs-value-editor","path":"api/angularjs-value-editor","type":"module","size":1},{"name":"data/config.js","type":"config-data","size":6}]
