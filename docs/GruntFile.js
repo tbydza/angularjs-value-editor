@@ -1,4 +1,6 @@
 module.exports = (grunt) => {
+    const pkg = grunt.file.readJSON("package.json");
+
     grunt.initConfig({
         'dgeni-alive': {
             options: {
@@ -28,7 +30,7 @@ module.exports = (grunt) => {
             },
             api: {
                 title: 'AngularJS Value Editor Doc',
-                version: '1.0',
+                version: pkg.version,
                 expand: false,
                 dest: 'dist/docs',
                 src: [
