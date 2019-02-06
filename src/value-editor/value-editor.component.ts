@@ -71,15 +71,15 @@ export default class ValueEditorComponent {
     };
 
     public bindings = {
-        id: '@',
-        name: '@',
-        placeholder: '@',
+        id: '@?',
+        name: '@?',
+        placeholder: '@?',
         type: '<',
-        disabled: '<',
-        visible: '<',
-        validations: '<',
-        options: '<',
-        status: '='
+        disabled: '<?',
+        visible: '<?',
+        validations: '<?',
+        options: '<?',
+        status: '=?'
     };
 
     public controller = ValueEditorComponentController;
