@@ -19,8 +19,8 @@ module.exports = (grunt) => {
                     examples: {
                         commonFiles: {
                             scripts: [
-	                            '/angularjs-value-editor.documentation.vendors.js',
-	                            '/angularjs-value-editor.documentation.js'
+	                            `${process.env.EXAMPLES_SCRIPTS_URL_PREFIX || ''}/angularjs-value-editor.documentation.vendors.js`,
+	                            `${process.env.EXAMPLES_SCRIPTS_URL_PREFIX || ''}/angularjs-value-editor.documentation.js`
                             ],
                             stylesheets: []
                         }

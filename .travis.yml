@@ -17,7 +17,7 @@ install:
 script:
   - npm run lib:prod
   - npm test
-  - npm run docs:build
+  - EXAMPLES_SCRIPTS_URL_PREFIX="https://dostaltomas.github.io/angularjs-value-editor" npm run docs:build
 
 #deploy:
 #  provider: npm
