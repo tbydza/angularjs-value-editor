@@ -19,3 +19,27 @@ input(  ng-if="$ctrl.options.type === 'text'"
 
         data-main-input
     )
+
+// TEXTAREA
+textarea(
+        ng-if="$ctrl.options.type === 'textarea'"
+
+        id="{{$ctrl.valueEditorController.id}}"
+        name="{{$ctrl.valueEditorController.name}}"
+        placeholder="{{$ctrl.valueEditorController.placeholder}}"
+        rows="{{$ctrl.getNumberOfRows()}}"
+        ng-class="$ctrl.options.cssClasses"
+
+        ng-model="$ctrl.model"
+        ng-model-options="{ getterSetter: true}"
+        ng-trim="false"
+
+        ng-disabled="$ctrl.valueEditorController.disabled"
+
+        ng-required="$ctrl.valueEditorController.validations.required"
+        ng-minlength="$ctrl.valueEditorController.validations.minlength"
+        ng-maxlength="$ctrl.valueEditorController.validations.maxlength"
+        ng-pattern="$ctrl.valueEditorController.validations.pattern"
+
+        data-main-input
+)

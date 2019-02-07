@@ -61,7 +61,7 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
  * @description
  * Generic value editor depends on type:
  *
- * - `text`, `number`, `textarea`, `rich-textarea`: {@link component:textValueEditor}
+ * - `text`, `textarea`, `rich-textarea`: {@link component:textValueEditor}
  */
 export default class ValueEditorComponent {
     public static componentName = 'kpValueEditor';
