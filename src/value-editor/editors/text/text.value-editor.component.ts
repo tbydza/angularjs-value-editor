@@ -16,7 +16,31 @@ export class TextValueEditorComponentController extends NgModelConnector<string>
     public options: TextValueEditorOptions;
 
     public $postLink(): void {
-        this.options = Object.assign({}, this.valueEditorController.options, DEFAULT_OPTIONS);
+        this.options = Object.assign({}, DEFAULT_OPTIONS, this.valueEditorController.options);
+    }
+
+    /**
+     * Get number of rows between nim and max range.
+     */
+    public getNumberOfRows(minRows: number = 1, maxRows: number = 10): number {
+        if (this.model) {
+            return Math.min(Math.max(this.countRowsInString(this.model), minRows), maxRows);
+        }
+
+        return minRows;
+    }
+
+    /**
+     * Try to count rows in string. if string is without `\n`, it tries to estimate number of rows. Always return value greater then 0.
+     */
+    private countRowsInString(str: string = ''): number {
+        const rowsCount = ((str.match(/\n/g) || []).length) + 1;
+
+        if (rowsCount === 1) {
+            return Math.floor(str.length / 60) + 1;
+        }
+
+        return rowsCount;
     }
 }
 
@@ -34,10 +58,6 @@ export class TextValueEditorComponentController extends NgModelConnector<string>
  * - `text`
  *
  *      Common text input.
- *
- * - `number`
- *
- *      Value editor for numbers.
  *
  * - `textarea`
  *
@@ -73,18 +93,20 @@ export default class TextValueEditorComponent {
     public controller = TextValueEditorComponentController;
 }
 
-type TTextValueEditorType = 'text' | 'number' | 'textarea' | 'rich-textarea';
+type TTextValueEditorType = 'text' | 'textarea' | 'rich-textarea';
 
 export interface TextValueEditorOptions extends ValueEditorOptions {
     type?: TTextValueEditorType;
 }
+
 export interface TextValueEditorValidations extends ValueEditorValidations {
     minlength?: number;
     maxlength?: number;
     pattern?: string | RegExp;
 }
 
-export interface TextValueEditorBindings extends ValueEditorBindings<TextValueEditorOptions, TextValueEditorValidations> {}
+export interface TextValueEditorBindings extends ValueEditorBindings<TextValueEditorOptions, TextValueEditorValidations> {
+}
 
 /**
  * @ngdoc type
