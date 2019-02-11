@@ -14,15 +14,6 @@ module.exports = {
         filename: '[name].js'
     },
 
-    externals: {
-        "angularjs-register": {
-            commonjs: 'angularjs-register',
-            commonjs2: 'angularjs-register',
-            amd: 'angularjs-register',
-            root: 'angularjs-register'
-        }
-    },
-
     module: {
         rules: [
             {
@@ -48,17 +39,7 @@ module.exports = {
                                 'angularjs-annotate'
                             ],
                             presets: [
-                                [
-                                    'env',
-                                    {
-                                        'targets': {
-                                            'browsers': [
-                                                'last 2 versions',
-                                                'not ie < 11 '
-                                            ]
-                                        }
-                                    }
-                                ]
+                                '@babel/preset-env'
                             ]
                         }
                     },

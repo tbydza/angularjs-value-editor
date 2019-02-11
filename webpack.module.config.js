@@ -20,24 +20,15 @@ module.exports = (env, {mode}) => ({
     },
 
     externals: {
-        angular: {
-            commonjs: 'angular',
-            commonjs2: 'angular',
-            amd: 'angular',
-            root: 'angular'
+        angular: 'angular',
+        '@kpsys/angularjs-register': {
+            commonjs: '@kpsys/angularjs-register',
+            commonjs2: '@kpsys/angularjs-register',
+            amd: '@kpsys/angularjs-register',
+            root: 'register'
         },
-        'angularjs-register': {
-            commonjs: 'angularjs-register',
-            commonjs2: 'angularjs-register',
-            amd: 'angularjs-register',
-            root: 'angularjs-register'
-        },
-        '@kpsys/angular-ui-bootstrap': {
-            commonjs: '@kpsys/angular-ui-bootstrap',
-            commonjs2: '@kpsys/angular-ui-bootstrap',
-            amd: '@kpsys/angular-ui-bootstrap',
-            root: '@kpsys/angular-ui-bootstrap'
-        }
+        '@kpsys/angular-ui-bootstrap': '@kpsys/angular-ui-bootstrap',
+        'angular-ui-ace': 'angular-ui-ace'
     },
 
     module: {
@@ -59,17 +50,7 @@ module.exports = (env, {mode}) => ({
                                 'angularjs-annotate'
                             ],
                             presets: [
-                                [
-                                    'env',
-                                    {
-                                        'targets': {
-                                            'browsers': [
-                                                'last 2 versions',
-                                                'not ie < 11 '
-                                            ]
-                                        }
-                                    }
-                                ]
+                                '@babel/preset-env'
                             ]
                         }
                     },
