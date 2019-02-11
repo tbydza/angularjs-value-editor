@@ -22,7 +22,9 @@ module.exports = (grunt) => {
 	                            `${process.env.EXAMPLES_SCRIPTS_URL_PREFIX || ''}/angularjs-value-editor.documentation.vendors.js`,
 	                            `${process.env.EXAMPLES_SCRIPTS_URL_PREFIX || ''}/angularjs-value-editor.documentation.js`
                             ],
-                            stylesheets: []
+                            stylesheets: [
+                                `${process.env.EXAMPLES_SCRIPTS_URL_PREFIX || ''}/angularjs-value-editor.documentation.css`
+                            ]
                         }
                     }
                 }],

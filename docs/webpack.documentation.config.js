@@ -1,6 +1,7 @@
 const path = require('path');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -33,17 +34,7 @@ module.exports = {
                                 'angularjs-annotate'
                             ],
                             presets: [
-                                [
-                                    'env',
-                                    {
-                                        'targets': {
-                                            'browsers': [
-                                                'last 2 versions',
-                                                'not ie < 11 '
-                                            ]
-                                        }
-                                    }
-                                ]
+                                '@babel/preset-env'
                             ]
                         }
                     },
@@ -62,8 +53,24 @@ module.exports = {
                 loader: 'null-loader'
             },
             {
-                test: /(\.less$)|(\.css$)|(\.sass$)|(\.scss$)/,
-                loader: 'null-loader'
+                test: /(\.less$)|(\.css$)/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ],
+                    fallback: 'style-loader'
+                })
             },
             {
                 test: /\.html$/,
@@ -110,7 +117,8 @@ module.exports = {
         new WriteFilePlugin(),
         new WebpackShellPlugin({
             onBuildExit: ['npm run docs:grunt']
-        })
+        }),
+        new ExtractTextPlugin({filename: '[name].css', disable: false, allChunks: true})
     ],
 
     optimization: {
