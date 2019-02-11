@@ -19,19 +19,19 @@ script:
   - npm test
   - EXAMPLES_SCRIPTS_URL_PREFIX="https://dostaltomas.github.io/angularjs-value-editor" npm run docs:build
 
-#deploy:
-#  provider: npm
-#  email: "tomas.dostal@kpsys.cz"
-#  api_key: $NPM_TOKEN
-#  skip_cleanup: true
-#  on:
-#    branch: master
-
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  local_dir: "dist/docs"
-  on:
-    branch: master
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GH_TOKEN
+    keep-history: true
+    local_dir: "dist/docs"
+    on:
+      branch: master
+
+  - provider: npm
+    email: "tomas.dostal@kpsys.cz"
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true
