@@ -6,8 +6,12 @@ html
 
     body(ng-app="app")
         h1 Value Editor Demo
-        main(ng-controller="demoController as dc")
-            kp-value-editor(ng-model="value" type="'text'" status="status" options="{type: 'textarea'}")
+        main(ng-controller="demoController as dc" ng-init="disabled = false")
+            kp-value-editor(ng-model="value" editor-id="ajdy" type="'text'" status="status" options="{type: 'rich-textarea'}" disabled="true")
             hr
+            div
+                label Disabled:
+                    input(type="checkbox" ng-model="disabled")
+
             input(type="text" ng-model="value")
-            span {{status | json}}
+            div {{status | json}}

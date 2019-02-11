@@ -1,15 +1,19 @@
-import {IFormController, INgModelController, IOnInit} from 'angular';
+import {IFormController, INgModelController, IOnChanges, IOnInit, IScope} from 'angular';
 import NgModelConnector from './editors/ng-model-connector';
 import {generateUuid} from './utils/uuid-generator';
 
 export type TValueEditorType = 'text' | 'number' | 'text-area' | 'rich-textarea';
 
+export const EVENTS = Object.freeze({
+    disabled: 'value-editor:disabled'
+});
+
 export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS extends ValueEditorOptions = ValueEditorOptions, EDITORVALIDATIONS extends ValueEditorValidations = ValueEditorValidations>
     extends NgModelConnector<MODEL>
-    implements ValueEditorBindings<EDITOROPTS, EDITORVALIDATIONS>, IOnInit {
+    implements ValueEditorBindings<EDITOROPTS, EDITORVALIDATIONS>, IOnInit, IOnChanges {
 
     /* Bindings */
-    public id: string;
+    public editorId: string;
     public name: string;
     public type: TValueEditorType;
     public placeholder: string;
@@ -28,6 +32,11 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
         //
     }
 
+    /*@ngInject*/
+    constructor(private $scope: IScope) {
+        super();
+    }
+
     public $onInit(): void {
         super.$onInit();
 
@@ -36,8 +45,14 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
         }
     }
 
+    public $onChanges(onChangesObj: angular.IOnChangesObject): void {
+        if (onChangesObj.disabled) {
+            this.$scope.$broadcast(EVENTS.disabled, {disabled: onChangesObj.disabled.currentValue});
+        }
+    }
+
     private generateEditorName(): string {
-        return this.id || `${this.type}_${generateUuid()}`;
+        return this.editorId || `${this.type}_${generateUuid()}`;
     }
 }
 
@@ -48,7 +63,7 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
  *
  * @requires ng.type.ngModel.NgModelController
  *
- * @param {string} id Input id.
+ * @param {string} editorId Input id.
  * @param {string} name Input name.
  * @param {string} placeholder Placeholder.
  * @param {string} type ValueEditor type. <.
@@ -71,7 +86,7 @@ export default class ValueEditorComponent {
     };
 
     public bindings = {
-        id: '@?',
+        editorId: '@?',
         name: '@?',
         placeholder: '@?',
         type: '<',
@@ -96,7 +111,7 @@ export interface ValueEditorOptions {
 }
 
 export interface ValueEditorBindings<EDITOROPTS extends ValueEditorOptions = ValueEditorOptions, EDITORVALIDATIONS extends ValueEditorValidations = ValueEditorValidations> {
-    id?: string;
+    editorId?: string;
     name?: string;
     type?: TValueEditorType;
     placeholder?: string;

@@ -1,22 +1,43 @@
+import './text-value-editor.less';
 import NgModelConnector from '../ng-model-connector';
 import ValueEditorComponent, {
+    EVENTS,
     ValueEditorBindings,
     ValueEditorComponentController,
     ValueEditorOptions,
     ValueEditorValidations
 } from '../../value-editor.component';
-import {IPostLink} from 'angular';
+import {IPostLink, IScope} from 'angular';
+import {Ace} from 'ace-builds';
+import angular = require('angular');
 
 const DEFAULT_OPTIONS: TextValueEditorOptions = {
-    type: 'text'
+    type: 'text',
+    aceOptions: {
+        useWrapMode: false,
+        showGutter: true
+    }
 };
 
 export class TextValueEditorComponentController extends NgModelConnector<string> implements IPostLink {
     public valueEditorController: ValueEditorComponentController<string, TextValueEditorOptions, TextValueEditorValidations>;
     public options: TextValueEditorOptions;
+    private aceEditor: Ace.Editor;
+
+    /*@ngInject*/
+    constructor(private $scope: IScope) {
+        super();
+    }
 
     public $postLink(): void {
-        this.options = Object.assign({}, DEFAULT_OPTIONS, this.valueEditorController.options);
+        this.options = angular.merge({}, DEFAULT_OPTIONS, this.valueEditorController.options);
+
+        if (this.options.type === 'rich-textarea') {
+            this.options.aceOptions.onLoad = (ace) => {
+                this.aceEditor = ace;
+                this.initACE();
+            };
+        }
     }
 
     /**
@@ -42,6 +63,20 @@ export class TextValueEditorComponentController extends NgModelConnector<string>
 
         return rowsCount;
     }
+
+    private initACE() {
+        // Original directive doesn't sets model to touched if ACE editor is blurred. This fixes it.
+        this.aceEditor.on('blur', () => {
+            this.valueEditorController.status.$setTouched();
+            this.$scope.$apply();
+        });
+
+        // Propagate disabled -> set Ace to readonly
+        this.aceEditor.setReadOnly(this.valueEditorController.disabled);
+        this.$scope.$on(EVENTS.disabled, (event, {disabled}: {disabled: boolean}) => {
+            this.aceEditor.setReadOnly(disabled);
+        });
+    }
 }
 
 /**
@@ -66,6 +101,10 @@ export class TextValueEditorComponentController extends NgModelConnector<string>
  * - `rich-textarea`.
  *
  *      [ACE editor](https://ace.c9.io).
+ *
+ * Supported options: {@link type:TextValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
  *
  * @example
  * <example name="textValueEditorExample" module="textValueEditorExample" frame-no-resize="true">
@@ -93,10 +132,11 @@ export default class TextValueEditorComponent {
     public controller = TextValueEditorComponentController;
 }
 
-type TTextValueEditorType = 'text' | 'textarea' | 'rich-textarea';
+export type TTextValueEditorType = 'text' | 'textarea' | 'rich-textarea';
 
 export interface TextValueEditorOptions extends ValueEditorOptions {
     type?: TTextValueEditorType;
+    aceOptions?: any;
 }
 
 export interface TextValueEditorValidations extends ValueEditorValidations {
@@ -113,10 +153,21 @@ export interface TextValueEditorBindings extends ValueEditorBindings<TextValueEd
  * @name TextValueEditorOptions
  * @module angularjs-value-editor
  *
- * @property {string} type Input type. Possible values are `text`, `number`, `textarea`, `rich-textarea`.
+ * @property {string} type Input type. Possible values are `text`, `textarea`, `rich-textarea`.
+ * @property {object} aceOptions Options for ACE editor. Applicable only if `type` is `'rich-textarea'`.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
+ * Default value:
+ * ```javascript
+ *  {
+ *      type: 'text',
+ *      aceOptions: {
+ *          useWrapMode: false,
+ *          showGutter: true
+ *      }
+ *  }
+ * ```
  */
 
 /**
