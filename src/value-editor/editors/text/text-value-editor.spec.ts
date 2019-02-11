@@ -2,6 +2,7 @@ import valueEditorModule from '../../value-editor.module';
 import * as angular from 'angular';
 import ValueEditorMocker, {ScopeWithBindings} from '../../../../test/utils/value-editor-mocker';
 import {TextValueEditorBindings} from './text.value-editor.component';
+import 'ace-builds';
 
 describe('text-value-editor', () => {
 
@@ -245,4 +246,111 @@ describe('text-value-editor', () => {
         });
     });
 
+    describe('type: rich-textarea', () => {
+
+        beforeEach(() => {
+            angular.mock.module(valueEditorModule);
+
+            inject(($compile, $rootScope) => {
+                $scope = $rootScope.$new();
+                valueEditorMocker = new ValueEditorMocker<TextValueEditorBindings>($compile, $scope);
+            });
+        });
+
+        it('should be div with ace editor', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}});
+            const inputElement = valueEditorMocker.getInputElement<HTMLTextAreaElement>();
+
+            expect(inputElement.tagName.toLowerCase()).toBe('div');
+            expect(inputElement.classList).toContain('ace-editor');
+        });
+
+        it('should change model on input', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('hello');
+
+            $scope.$apply();
+
+            expect($scope.model).toBe('hello');
+        });
+
+        it('should change value if model is changed', () => {
+            valueEditorMocker.create('text');
+
+            $scope.model = 'hello';
+            $scope.$apply();
+
+            const inputValue = valueEditorMocker.getInputElement<HTMLTextAreaElement>().value;
+
+            expect(inputValue).toBe('hello');
+        });
+
+        it('should has working required validation', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}, validations: {required: true}});
+
+            expect($scope.status.$error).toEqual({required: true});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('hello');
+            $scope.$apply();
+
+            expect($scope.status.$error).toEqual({});
+        });
+
+        it('should has working minlength validation', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}, validations: {minlength: 3}});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('h');
+            $scope.$apply();
+
+            expect($scope.status.$error).toEqual({minlength: true});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('hello');
+            $scope.$apply();
+
+            expect($scope.status.$error).toEqual({});
+        });
+
+        it('should has working maxlength validation', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}, validations: {maxlength: 3}});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('hello');
+            $scope.$apply();
+
+            expect($scope.status.$error).toEqual({maxlength: true});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('hel');
+            $scope.$apply();
+
+            expect($scope.status.$error).toEqual({});
+        });
+
+        it('should has working pattern validation', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}, validations: {pattern: '[0-9]*'}});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('hello');
+            $scope.$apply();
+
+            expect($scope.status.$error).toEqual({pattern: true});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('1234');
+            $scope.$apply();
+
+            expect($scope.status.$error).toEqual({});
+        });
+
+        it('should add additional classes to input element', () => {
+            valueEditorMocker.create('text', {options: {type: 'textarea', cssClasses: ['clazz']}});
+
+            expect(valueEditorMocker.getInputElement().classList).toContain('clazz');
+        });
+
+        it('should has working input disabling', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}, disabled: true});
+
+            const aceEditorTextarea = valueEditorMocker.getInputElement<HTMLDivElement>().querySelector('textarea');
+
+            expect(aceEditorTextarea.attributes.getNamedItem('readonly')).not.toBe(null);
+        });
+    });
 });
