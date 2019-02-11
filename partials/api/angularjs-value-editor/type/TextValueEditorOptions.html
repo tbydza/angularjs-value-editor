@@ -15,7 +15,16 @@
 
 
 <div class="api-profile-description">
-  <p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a></p>
+  <p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a>
+Default value:</p>
+<pre><code class="lang-javascript">{
+    type: &#39;text&#39;,
+    aceOptions: {
+        useWrapMode: false,
+        showGutter: true
+    }
+}
+</code></pre>
 
 </div>
 
@@ -40,7 +49,23 @@
     <table class="variables-matrix return-arguments">
   <tr>
     <td><span class="label type-hint type-hint-string"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" _target="blank">String</a></span></td>
-    <td><p>Input type. Possible values are <code>text</code>, <code>number</code>, <code>textarea</code>, <code>rich-textarea</code>.</p>
+    <td><p>Input type. Possible values are <code>text</code>, <code>textarea</code>, <code>rich-textarea</code>.</p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="aceOptions">
+    <h3 class="">
+      <span class="title"><code>aceOptions</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-object"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" _target="blank">Object</a></span></td>
+    <td><p>Options for ACE editor. Applicable only if <code>type</code> is <code>&#39;rich-textarea&#39;</code>.</p>
 </td>
   </tr>
 </table>

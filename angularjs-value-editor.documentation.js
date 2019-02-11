@@ -175,9 +175,15 @@ return /******/ (function(modules) { // webpackBootstrap
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angular */ "./node_modules/angular/index.js");
 /* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angular__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var angularjs_register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angularjs-register */ "./node_modules/angularjs-register/src/register.js");
-/* harmony import */ var _src_value_editor_value_editor_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/value-editor/value-editor.module */ "./src/value-editor/value-editor.module.ts");
-/* harmony import */ var _src_value_editor_value_editor_module__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_src_value_editor_value_editor_module__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _kpsys_angularjs_register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @kpsys/angularjs-register */ "./node_modules/@kpsys/angularjs-register/dist/register.js");
+/* harmony import */ var _kpsys_angularjs_register__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_kpsys_angularjs_register__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var angular_ui_ace__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular-ui-ace */ "./node_modules/angular-ui-ace/src/ui-ace.js");
+/* harmony import */ var angular_ui_ace__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angular_ui_ace__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _src_value_editor_value_editor_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/value-editor/value-editor.module */ "./src/value-editor/value-editor.module.ts");
+/* harmony import */ var _src_value_editor_value_editor_module__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_src_value_editor_value_editor_module__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
 
 
 
@@ -238,6 +244,17 @@ exports.default = NgModelConnector;
 
 /***/ }),
 
+/***/ "./src/value-editor/editors/text/text-value-editor.less":
+/*!**************************************************************!*\
+  !*** ./src/value-editor/editors/text/text-value-editor.less ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./src/value-editor/editors/text/text.value-editor.component.ts":
 /*!**********************************************************************!*\
   !*** ./src/value-editor/editors/text/text.value-editor.component.ts ***!
@@ -260,6 +277,8 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -268,29 +287,105 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+__webpack_require__(/*! ./text-value-editor.less */ "./src/value-editor/editors/text/text-value-editor.less");
+
 var ng_model_connector_1 = __webpack_require__(/*! ../ng-model-connector */ "./src/value-editor/editors/ng-model-connector.ts");
 
 var value_editor_component_1 = __webpack_require__(/*! ../../value-editor.component */ "./src/value-editor/value-editor.component.ts");
 
+var angular = __webpack_require__(/*! angular */ "./node_modules/angular/index.js");
+
 var DEFAULT_OPTIONS = {
-  type: 'text'
+  type: 'text',
+  aceOptions: {
+    useWrapMode: false,
+    showGutter: true
+  }
 };
 
 var TextValueEditorComponentController =
 /*#__PURE__*/
 function (_ng_model_connector_) {
+  TextValueEditorComponentController.$inject = ["$scope"];
+
   _inherits(TextValueEditorComponentController, _ng_model_connector_);
 
-  function TextValueEditorComponentController() {
+  /*@ngInject*/
+  function TextValueEditorComponentController($scope) {
+    var _this;
+
     _classCallCheck(this, TextValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, (TextValueEditorComponentController.__proto__ || Object.getPrototypeOf(TextValueEditorComponentController)).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TextValueEditorComponentController).call(this));
+    _this.$scope = $scope;
+    return _this;
   }
 
   _createClass(TextValueEditorComponentController, [{
     key: "$postLink",
     value: function $postLink() {
-      this.options = Object.assign({}, this.valueEditorController.options, DEFAULT_OPTIONS);
+      var _this2 = this;
+
+      this.options = angular.merge({}, DEFAULT_OPTIONS, this.valueEditorController.options);
+
+      if (this.options.type === 'rich-textarea') {
+        this.options.aceOptions.onLoad = function (ace) {
+          _this2.aceEditor = ace;
+
+          _this2.initACE();
+        };
+      }
+    }
+    /**
+     * Get number of rows between nim and max range.
+     */
+
+  }, {
+    key: "getNumberOfRows",
+    value: function getNumberOfRows() {
+      var minRows = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      var maxRows = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+
+      if (this.model) {
+        return Math.min(Math.max(this.countRowsInString(this.model), minRows), maxRows);
+      }
+
+      return minRows;
+    }
+    /**
+     * Try to count rows in string. if string is without `\n`, it tries to estimate number of rows. Always return value greater then 0.
+     */
+
+  }, {
+    key: "countRowsInString",
+    value: function countRowsInString() {
+      var str = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var rowsCount = (str.match(/\n/g) || []).length + 1;
+
+      if (rowsCount === 1) {
+        return Math.floor(str.length / 60) + 1;
+      }
+
+      return rowsCount;
+    }
+  }, {
+    key: "initACE",
+    value: function initACE() {
+      var _this3 = this;
+
+      // Original directive doesn't sets model to touched if ACE editor is blurred. This fixes it.
+      this.aceEditor.on('blur', function () {
+        _this3.valueEditorController.status.$setTouched();
+
+        _this3.$scope.$apply();
+      }); // Propagate disabled -> set Ace to readonly
+
+      this.aceEditor.setReadOnly(this.valueEditorController.disabled);
+      this.$scope.$on(value_editor_component_1.EVENTS.disabled, function (event, _ref) {
+        var disabled = _ref.disabled;
+
+        _this3.aceEditor.setReadOnly(disabled);
+      });
     }
   }]);
 
@@ -313,10 +408,6 @@ exports.TextValueEditorComponentController = TextValueEditorComponentController;
  *
  *      Common text input.
  *
- * - `number`
- *
- *      Value editor for numbers.
- *
  * - `textarea`
  *
  *      Textarea value editor.
@@ -324,6 +415,10 @@ exports.TextValueEditorComponentController = TextValueEditorComponentController;
  * - `rich-textarea`.
  *
  *      [ACE editor](https://ace.c9.io).
+ *
+ * Supported options: {@link type:TextValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
  *
  * @example
  * <example name="textValueEditorExample" module="textValueEditorExample" frame-no-resize="true">
@@ -357,10 +452,21 @@ exports.default = TextValueEditorComponent;
  * @name TextValueEditorOptions
  * @module angularjs-value-editor
  *
- * @property {string} type Input type. Possible values are `text`, `number`, `textarea`, `rich-textarea`.
+ * @property {string} type Input type. Possible values are `text`, `textarea`, `rich-textarea`.
+ * @property {object} aceOptions Options for ACE editor. Applicable only if `type` is `'rich-textarea'`.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
+ * Default value:
+ * ```javascript
+ *  {
+ *      type: 'text',
+ *      aceOptions: {
+ *          useWrapMode: false,
+ *          showGutter: true
+ *      }
+ *  }
+ * ```
  */
 
 /**
@@ -386,7 +492,7 @@ exports.default = TextValueEditorComponent;
 /***/ (function(module, exports) {
 
 var path = '/value-editor/editors/text/text.value-editor.tpl.pug';
-var html = "<!-- TEXT--><input ng-if=\"$ctrl.options.type === 'text'\" type=\"{{$ctrl.options.type}}\" id=\"{{$ctrl.valueEditorController.id}}\" name=\"{{$ctrl.valueEditorController.name}}\" placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-class=\"$ctrl.options.cssClasses\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" data-main-input=\"data-main-input\"/>";
+var html = "<!-- TEXT--><input ng-if=\"$ctrl.options.type === 'text'\" type=\"{{$ctrl.options.type}}\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.name}}\" placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-class=\"$ctrl.options.cssClasses\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" data-main-input=\"data-main-input\"/><!-- TEXTAREA--><textarea ng-if=\"$ctrl.options.type === 'textarea'\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.name}}\" placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" rows=\"{{$ctrl.getNumberOfRows()}}\" ng-class=\"$ctrl.options.cssClasses\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-trim=\"false\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" data-main-input=\"data-main-input\"></textarea><!-- ACE EDITOR--><div class=\"ace-editor\" ng-if=\"$ctrl.options.type === 'rich-textarea'\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.name}}\" ng-class=\"$ctrl.options.cssClasses\" ui-ace=\"$ctrl.options.aceOptions\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" data-main-input=\"data-main-input\"></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -459,30 +565,50 @@ var ng_model_connector_1 = __webpack_require__(/*! ./editors/ng-model-connector 
 
 var uuid_generator_1 = __webpack_require__(/*! ./utils/uuid-generator */ "./src/value-editor/utils/uuid-generator.ts");
 
+exports.EVENTS = Object.freeze({
+  disabled: 'value-editor:disabled'
+});
+
 var ValueEditorComponentController =
 /*#__PURE__*/
 function (_ng_model_connector_) {
+  ValueEditorComponentController.$inject = ["$scope"];
+
   _inherits(ValueEditorComponentController, _ng_model_connector_);
 
-  function ValueEditorComponentController() {
+  /*@ngInject*/
+  function ValueEditorComponentController($scope) {
+    var _this;
+
     _classCallCheck(this, ValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, (ValueEditorComponentController.__proto__ || Object.getPrototypeOf(ValueEditorComponentController)).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ValueEditorComponentController).call(this));
+    _this.$scope = $scope;
+    return _this;
   }
 
   _createClass(ValueEditorComponentController, [{
     key: "$onInit",
     value: function $onInit() {
-      _get(ValueEditorComponentController.prototype.__proto__ || Object.getPrototypeOf(ValueEditorComponentController.prototype), "$onInit", this).call(this);
+      _get(_getPrototypeOf(ValueEditorComponentController.prototype), "$onInit", this).call(this);
 
       if (!this.name) {
         this.name = this.generateEditorName();
       }
     }
   }, {
+    key: "$onChanges",
+    value: function $onChanges(onChangesObj) {
+      if (onChangesObj.disabled) {
+        this.$scope.$broadcast(exports.EVENTS.disabled, {
+          disabled: onChangesObj.disabled.currentValue
+        });
+      }
+    }
+  }, {
     key: "generateEditorName",
     value: function generateEditorName() {
-      return this.id || "".concat(this.type, "_").concat(uuid_generator_1.generateUuid());
+      return this.editorId || "".concat(this.type, "_").concat(uuid_generator_1.generateUuid());
     }
   }, {
     key: "status",
@@ -504,7 +630,7 @@ exports.ValueEditorComponentController = ValueEditorComponentController;
  *
  * @requires ng.type.ngModel.NgModelController
  *
- * @param {string} id Input id.
+ * @param {string} editorId Input id.
  * @param {string} name Input name.
  * @param {string} placeholder Placeholder.
  * @param {string} type ValueEditor type. <.
@@ -517,7 +643,7 @@ exports.ValueEditorComponentController = ValueEditorComponentController;
  * @description
  * Generic value editor depends on type:
  *
- * - `text`, `number`, `textarea`, `rich-textarea`: {@link component:textValueEditor}
+ * - `text`, `textarea`, `rich-textarea`: {@link component:textValueEditor}
  */
 
 var ValueEditorComponent = function ValueEditorComponent() {
@@ -527,15 +653,15 @@ var ValueEditorComponent = function ValueEditorComponent() {
     ngModelController: 'ngModel'
   };
   this.bindings = {
-    id: '@',
-    name: '@',
-    placeholder: '@',
+    editorId: '@?',
+    name: '@?',
+    placeholder: '@?',
     type: '<',
-    disabled: '<',
-    visible: '<',
-    validations: '<',
-    options: '<',
-    status: '='
+    disabled: '<?',
+    visible: '<?',
+    validations: '<?',
+    options: '<?',
+    status: '=?'
   };
   this.controller = ValueEditorComponentController;
   this.templateUrl = __webpack_require__(/*! ./value-editor.tpl.pug */ "./src/value-editor/value-editor.tpl.pug");
@@ -575,7 +701,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var angularjs_register_1 = __webpack_require__(/*! angularjs-register */ "./node_modules/angularjs-register/src/register.js");
+var angularjs_register_1 = __webpack_require__(/*! @kpsys/angularjs-register */ "./node_modules/@kpsys/angularjs-register/dist/register.js");
+
+__webpack_require__(/*! angular-ui-ace */ "./node_modules/angular-ui-ace/src/ui-ace.js");
 
 var value_editor_component_1 = __webpack_require__(/*! ./value-editor.component */ "./src/value-editor/value-editor.component.ts");
 
@@ -587,7 +715,7 @@ var text_value_editor_component_1 = __webpack_require__(/*! ./editors/text/text.
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor').component(value_editor_component_1.default.componentName, value_editor_component_1.default).component(text_value_editor_component_1.default.componentName, text_value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.ace']).component(value_editor_component_1.default.componentName, value_editor_component_1.default).component(text_value_editor_component_1.default.componentName, text_value_editor_component_1.default).name();
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController

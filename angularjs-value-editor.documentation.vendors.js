@@ -1,5 +1,356 @@
 (window["webpackJsonpangularjs_value_editor_documentation"] = window["webpackJsonpangularjs_value_editor_documentation"] || []).push([["angularjs-value-editor.documentation.vendors"],{
 
+/***/ "./node_modules/@kpsys/angularjs-register/dist/register.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@kpsys/angularjs-register/dist/register.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t(__webpack_require__(/*! angular */ "./node_modules/angular/index.js")):undefined}(window,function(e){return function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e,t){return new p(e,t)},t.Register=void 0;var r,o=(r=n(1))&&r.__esModule?r:{default:r};function i(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}var u=o.default.injector(["ng"]).get("$log"),p=function(){function e(t,n){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.moduleName=t,this.app={},n?this.app=o.default.module(t,n):!function(e){try{return o.default.module(e),!0}catch(e){return!1}}(t)?this.app=o.default.module(t,[]):this.app=o.default.module(t)}var t,n,r;return t=e,(n=[{key:"name",value:function(){return this.moduleName}},{key:"directive",value:function(e,t){(t=a(t)).prototype.compile||(t.prototype.compile=function(){});var n,r,o,i,p=(n=t.prototype.compile,function(){return n.apply(this,arguments)});r=t.prototype,i=function(){return function(){var n=p.apply(this,arguments);if(t.prototype.preLink&&(n={pre:t.prototype.preLink.bind(this)}),t.prototype.postLink&&(n.pre?n.post=t.prototype.postLink.bind(this):n={post:t.prototype.postLink.bind(this)}),t.prototype.link){if(!t.prototype.postLink)return t.prototype.preLink?{pre:t.prototype.preLink.bind(this),post:t.prototype.link.bind(this)}:t.prototype.link.bind(this);u.warn("Directive ".concat(e," already have postLink function. Skipping link() definition."))}return n}},r[o="compile"]=i(r[o]);var c=l(t);return this.app.directive(e,c),this}},{key:"controller",value:function(e,t){return this.app.controller(e,t),this}},{key:"service",value:function(e,t){return this.app.service(e,t),this}},{key:"provider",value:function(e,t){return this.app.provider(e,t),this}},{key:"factory",value:function(e,t){var n=l(t=a(t));return this.app.factory(e,n),this}},{key:"filter",value:function(e,t){return this.app.filter(e,t),this}},{key:"component",value:function(e,t){return this.app.component(e,new t),this}},{key:"constant",value:function(e,t){return this.app.constant(e,t),this}},{key:"value",value:function(e,t){return this.app.value(e,t),this}},{key:"config",value:function(e){return this.app.config(e),this}},{key:"run",value:function(e){return this.app.run(e),this}},{key:"decorator",value:function(e,t){return this.app.decorator(e,t),this}},{key:"module",value:function(){return this.app}}])&&i(t.prototype,n),r&&i(t,r),e}();function a(e){var t;if(e.constructor===Array){var n=e.slice(0,e.length-1);(t=e[e.length-1]).$inject=n}else t=e;return t}function l(e){var t=(e.$inject||[]).slice();return t.push(function(){for(var t=arguments.length,n=new Array(t),r=0;r<t;r++)n[r]=arguments[r];var o=new(Function.prototype.bind.apply(e,[null].concat(n)));for(var i in o)o[i]=o[i];return o}),t}t.Register=p},function(t,n){t.exports=e}])});
+
+/***/ }),
+
+/***/ "./node_modules/angular-ui-ace/src/ui-ace.js":
+/*!***************************************************!*\
+  !*** ./node_modules/angular-ui-ace/src/ui-ace.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Binds a ACE Editor widget
+ */
+angular.module('ui.ace', [])
+  .constant('uiAceConfig', {})
+  .directive('uiAce', ['uiAceConfig', function (uiAceConfig) {
+
+    if (angular.isUndefined(window.ace)) {
+      throw new Error('ui-ace need ace to work... (o rly?)');
+    }
+
+    /**
+     * Sets editor options such as the wrapping mode or the syntax checker.
+     *
+     * The supported options are:
+     *
+     *   <ul>
+     *     <li>showGutter</li>
+     *     <li>useWrapMode</li>
+     *     <li>onLoad</li>
+     *     <li>theme</li>
+     *     <li>mode</li>
+     *   </ul>
+     *
+     * @param acee
+     * @param session ACE editor session
+     * @param {object} opts Options to be set
+     */
+    var setOptions = function(acee, session, opts) {
+
+      // sets the ace worker path, if running from concatenated
+      // or minified source
+      if (angular.isDefined(opts.workerPath)) {
+        var config = window.ace.require('ace/config');
+        config.set('workerPath', opts.workerPath);
+      }
+      // ace requires loading
+      if (angular.isDefined(opts.require)) {
+        opts.require.forEach(function (n) {
+            window.ace.require(n);
+        });
+      }
+      // Boolean options
+      if (angular.isDefined(opts.showGutter)) {
+        acee.renderer.setShowGutter(opts.showGutter);
+      }
+      if (angular.isDefined(opts.useWrapMode)) {
+        session.setUseWrapMode(opts.useWrapMode);
+      }
+      if (angular.isDefined(opts.showInvisibles)) {
+        acee.renderer.setShowInvisibles(opts.showInvisibles);
+      }
+      if (angular.isDefined(opts.showIndentGuides)) {
+        acee.renderer.setDisplayIndentGuides(opts.showIndentGuides);
+      }
+      if (angular.isDefined(opts.useSoftTabs)) {
+        session.setUseSoftTabs(opts.useSoftTabs);
+      }
+      if (angular.isDefined(opts.showPrintMargin)) {
+        acee.setShowPrintMargin(opts.showPrintMargin);
+      }
+
+      // commands
+      if (angular.isDefined(opts.disableSearch) && opts.disableSearch) {
+        acee.commands.addCommands([
+          {
+            name: 'unfind',
+            bindKey: {
+              win: 'Ctrl-F',
+              mac: 'Command-F'
+            },
+            exec: function () {
+              return false;
+            },
+            readOnly: true
+          }
+        ]);
+      }
+
+      // Basic options
+      if (angular.isString(opts.theme)) {
+        acee.setTheme('ace/theme/' + opts.theme);
+      }
+      if (angular.isString(opts.mode)) {
+        session.setMode('ace/mode/' + opts.mode);
+      }
+      // Advanced options
+      if (angular.isDefined(opts.firstLineNumber)) {
+        if (angular.isNumber(opts.firstLineNumber)) {
+          session.setOption('firstLineNumber', opts.firstLineNumber);
+        } else if (angular.isFunction(opts.firstLineNumber)) {
+          session.setOption('firstLineNumber', opts.firstLineNumber());
+        }
+      }
+
+      // advanced options
+      var key, obj;
+      if (angular.isDefined(opts.advanced)) {
+          for (key in opts.advanced) {
+              // create a javascript object with the key and value
+              obj = { name: key, value: opts.advanced[key] };
+              // try to assign the option to the ace editor
+              acee.setOption(obj.name, obj.value);
+          }
+      }
+
+      // advanced options for the renderer
+      if (angular.isDefined(opts.rendererOptions)) {
+          for (key in opts.rendererOptions) {
+              // create a javascript object with the key and value
+              obj = { name: key, value: opts.rendererOptions[key] };
+              // try to assign the option to the ace editor
+              acee.renderer.setOption(obj.name, obj.value);
+          }
+      }
+
+      // onLoad callbacks
+      angular.forEach(opts.callbacks, function (cb) {
+        if (angular.isFunction(cb)) {
+          cb(acee);
+        }
+      });
+    };
+
+    return {
+      restrict: 'EA',
+      require: '?ngModel',
+      link: function (scope, elm, attrs, ngModel) {
+
+        /**
+         * Corresponds the uiAceConfig ACE configuration.
+         * @type object
+         */
+        var options = uiAceConfig.ace || {};
+
+        /**
+         * uiAceConfig merged with user options via json in attribute or data binding
+         * @type object
+         */
+        var opts = angular.extend({}, options, scope.$eval(attrs.uiAce));
+
+        /**
+         * ACE editor
+         * @type object
+         */
+        var acee = window.ace.edit(elm[0]);
+
+        /**
+         * ACE editor session.
+         * @type object
+         * @see [EditSession]{@link http://ace.c9.io/#nav=api&api=edit_session}
+         */
+        var session = acee.getSession();
+
+        /**
+         * Reference to a change listener created by the listener factory.
+         * @function
+         * @see listenerFactory.onChange
+         */
+        var onChangeListener;
+
+        /**
+         * Reference to a blur listener created by the listener factory.
+         * @function
+         * @see listenerFactory.onBlur
+         */
+        var onBlurListener;
+
+        /**
+         * Calls a callback by checking its existing. The argument list
+         * is variable and thus this function is relying on the arguments
+         * object.
+         * @throws {Error} If the callback isn't a function
+         */
+        var executeUserCallback = function () {
+
+          /**
+           * The callback function grabbed from the array-like arguments
+           * object. The first argument should always be the callback.
+           *
+           * @see [arguments]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments}
+           * @type {*}
+           */
+          var callback = arguments[0];
+
+          /**
+           * Arguments to be passed to the callback. These are taken
+           * from the array-like arguments object. The first argument
+           * is stripped because that should be the callback function.
+           *
+           * @see [arguments]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments}
+           * @type {Array}
+           */
+          var args = Array.prototype.slice.call(arguments, 1);
+
+          if (angular.isDefined(callback)) {
+            scope.$evalAsync(function () {
+              if (angular.isFunction(callback)) {
+                callback(args);
+              } else {
+                throw new Error('ui-ace use a function as callback.');
+              }
+            });
+          }
+        };
+
+        /**
+         * Listener factory. Until now only change listeners can be created.
+         * @type object
+         */
+        var listenerFactory = {
+          /**
+           * Creates a change listener which propagates the change event
+           * and the editor session to the callback from the user option
+           * onChange. It might be exchanged during runtime, if this
+           * happens the old listener will be unbound.
+           *
+           * @param callback callback function defined in the user options
+           * @see onChangeListener
+           */
+          onChange: function (callback) {
+            return function (e) {
+              var newValue = session.getValue();
+
+              if (ngModel && newValue !== ngModel.$viewValue &&
+                  // HACK make sure to only trigger the apply outside of the
+                  // digest loop 'cause ACE is actually using this callback
+                  // for any text transformation !
+                  !scope.$$phase && !scope.$root.$$phase) {
+                scope.$evalAsync(function () {
+                  ngModel.$setViewValue(newValue);
+                });
+              }
+
+              executeUserCallback(callback, e, acee);
+            };
+          },
+          /**
+           * Creates a blur listener which propagates the editor session
+           * to the callback from the user option onBlur. It might be
+           * exchanged during runtime, if this happens the old listener
+           * will be unbound.
+           *
+           * @param callback callback function defined in the user options
+           * @see onBlurListener
+           */
+          onBlur: function (callback) {
+            return function () {
+              executeUserCallback(callback, acee);
+            };
+          }
+        };
+
+        attrs.$observe('readonly', function (value) {
+          acee.setReadOnly(!!value || value === '');
+        });
+
+        // Value Blind
+        if (ngModel) {
+          ngModel.$formatters.push(function (value) {
+            if (angular.isUndefined(value) || value === null) {
+              return '';
+            }
+            else if (angular.isObject(value) || angular.isArray(value)) {
+              throw new Error('ui-ace cannot use an object or an array as a model');
+            }
+            return value;
+          });
+
+          ngModel.$render = function () {
+            session.setValue(ngModel.$viewValue);
+          };
+        }
+
+        // Listen for option updates
+        var updateOptions = function (current, previous) {
+          if (current === previous) return;
+          opts = angular.extend({}, options, scope.$eval(attrs.uiAce));
+
+          opts.callbacks = [ opts.onLoad ];
+          if (opts.onLoad !== options.onLoad) {
+            // also call the global onLoad handler
+            opts.callbacks.unshift(options.onLoad);
+          }
+
+          // EVENTS
+
+          // unbind old change listener
+          session.removeListener('change', onChangeListener);
+
+          // bind new change listener
+          onChangeListener = listenerFactory.onChange(opts.onChange);
+          session.on('change', onChangeListener);
+
+          // unbind old blur listener
+          //session.removeListener('blur', onBlurListener);
+          acee.removeListener('blur', onBlurListener);
+
+          // bind new blur listener
+          onBlurListener = listenerFactory.onBlur(opts.onBlur);
+          acee.on('blur', onBlurListener);
+
+          setOptions(acee, session, opts);
+        };
+
+        scope.$watch(attrs.uiAce, updateOptions, /* deep watch */ true);
+
+        // set the options here, even if we try to watch later, if this
+        // line is missing things go wrong (and the tests will also fail)
+        updateOptions(options);
+
+        elm.on('$destroy', function () {
+          acee.session.$stopWorker();
+          acee.destroy();
+        });
+
+        scope.$watch(function() {
+          return [elm[0].offsetWidth, elm[0].offsetHeight];
+        }, function() {
+          acee.resize();
+          acee.renderer.updateFull();
+        }, true);
+
+      }
+    };
+  }]);
+
+
+/***/ }),
+
 /***/ "./node_modules/angular/angular.js":
 /*!*****************************************!*\
   !*** ./node_modules/angular/angular.js ***!
@@ -36449,366 +36800,6 @@ $provide.value("$locale", {
 __webpack_require__(/*! ./angular */ "./node_modules/angular/angular.js");
 module.exports = angular;
 
-
-/***/ }),
-
-/***/ "./node_modules/angularjs-register/src/register.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/angularjs-register/src/register.js ***!
-  \*********************************************************/
-/*! exports provided: Register, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Register", function() { return Register; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return register; });
-/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angular */ "./node_modules/angular/index.js");
-/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angular__WEBPACK_IMPORTED_MODULE_0__);
-/**
- * Inspired by:
- * author: michaelbromley
- * Licence: MIT
- * url: https://github.com/michaelbromley/angular-es6
- */
-
-/**
- * @author DostalTomas
- */
-
-
-
-const $log = angular__WEBPACK_IMPORTED_MODULE_0___default.a.injector(['ng']).get('$log');
-
-class Register {
-
-	constructor(moduleName, dependencies) {
-		this.moduleName = moduleName;
-		this.app = {};
-
-		if (dependencies) {
-			this.app = angular__WEBPACK_IMPORTED_MODULE_0___default.a.module(moduleName, dependencies);
-		} else if (_moduleExist(moduleName)) {
-			this.app = angular__WEBPACK_IMPORTED_MODULE_0___default.a.module(moduleName);
-		} else {
-			this.app = angular__WEBPACK_IMPORTED_MODULE_0___default.a.module(moduleName, []);
-		}
-	}
-
-	/**
-	 * Return module name
-	 * @return {string}
-	 */
-	name() {
-		return this.moduleName;
-	}
-
-	/**
-	 * Register directive to module
-	 * Directive can have compile, preLink, postLink and generally link method. If postLink method is defined, link method doesn't make sense,
-	 * because it is in fact only alias and will be omitted with warning.
-	 * @param {string} directiveName
-	 * @param {Object} directiveClass
-	 * @return {Register}
-	 */
-	directive(directiveName, directiveClass) {
-
-		directiveClass = _normalizeConstructor(directiveClass);
-
-		if (!directiveClass.prototype.compile) {
-			// create an empty compile function if none was defined.
-			directiveClass.prototype.compile = () => {
-			};
-		}
-
-		const originalCompileFn = _cloneFunction(directiveClass.prototype.compile);
-
-		// Decorate the compile method to automatically return the link method (if it exists)
-		// and bind it to the context of the constructor (so `this` works correctly).
-		// This gets around the problem of a non-lexical 'this' which occurs when the directive class itself
-		// returns `this.link` from within the compile function.
-		_override(directiveClass.prototype, 'compile', function () {
-			/**
-			 * @this this
-			 */
-			return function () {
-				let compileReturnValue = originalCompileFn.apply(this, arguments);
-
-				if (directiveClass.prototype.preLink) {
-					compileReturnValue = {
-						pre: directiveClass.prototype.preLink.bind(this)
-					};
-				}
-
-				if (directiveClass.prototype.postLink) {
-					if (compileReturnValue.pre) {
-						compileReturnValue.post = directiveClass.prototype.postLink.bind(this)
-					} else {
-						compileReturnValue = {
-							post: directiveClass.prototype.postLink.bind(this)
-						};
-					}
-				}
-
-				if (directiveClass.prototype.link) {
-					if (directiveClass.prototype.postLink) {
-						$log.warn(`Directive ${directiveName} already have postLink function. Skipping link() definition.`);
-					} else if (directiveClass.prototype.preLink) {
-						return {
-							pre: directiveClass.prototype.preLink.bind(this),
-							post: directiveClass.prototype.link.bind(this)
-						}
-					} else {
-						return directiveClass.prototype.link.bind(this);
-					}
-				}
-
-				return compileReturnValue;
-			};
-		});
-
-		const factoryArray = _createFactoryArray(directiveClass);
-
-		this.app.directive(directiveName, factoryArray);
-		return this;
-	}
-
-	/**
-	 * Register controller to module
-	 * @param {string} controllerName Controller name
-	 * @param controllerClass Controller class
-	 * @return {Register}
-	 */
-	controller(controllerName, controllerClass) {
-		this.app.controller(controllerName, controllerClass);
-		return this;
-	}
-
-	/**
-	 * Register service to module
-	 * @param {string} serviceName Service name
-	 * @param serviceClass Service class
-	 * @return {Register}
-	 */
-	service(serviceName, serviceClass) {
-		this.app.service(serviceName, serviceClass);
-		return this;
-	}
-
-	/**
-	 * Register provider to module
-	 * @param {string} providerName Provider name
-	 * @param providerClass Provider class
-	 * @return {Register}
-	 */
-	provider(providerName, providerClass) {
-		this.app.provider(providerName, providerClass);
-		return this;
-	}
-
-	/**
-	 * Register factory to module
-	 * @param {string} factoryName Factory name
-	 * @param factoryClass Factory class
-	 * @return {Register}
-	 */
-	factory(factoryName, factoryClass) {
-		factoryClass = _normalizeConstructor(factoryClass);
-		const factoryArray = _createFactoryArray(factoryClass);
-		this.app.factory(factoryName, factoryArray);
-		return this;
-	}
-
-	/**
-	 * Register filter to module
-	 * @param {string} filterName Filter name
-	 * @param {function} filterFunction Filter function
-	 * @return {Register}
-	 */
-	filter(filterName, filterFunction) {
-		this.app.filter(filterName, filterFunction);
-		return this;
-	}
-
-	/**
-	 * Register component to module
-	 * @param {string} componentName Component name
-	 * @param componentClass Component class
-	 * @return {Register}
-	 */
-	component(componentName, componentClass) {
-		this.app.component(componentName, new componentClass());
-		return this;
-	}
-
-	/**
-	 * Register module constant
-	 * @param {string} name Constant name
-	 * @param {object} obj Constant value
-	 * @return {Register}
-	 */
-	constant(name, obj) {
-		this.app.constant(name, obj);
-		return this;
-	}
-
-	/**
-	 * Register module value
-	 * @param {string} name Value name
-	 * @param {object} obj Value value
-	 * @return {Register}
-	 */
-	value(name, obj) {
-		this.app.value(name, obj);
-		return this;
-	}
-
-	/**
-	 * Register config function
-	 * @param configFn
-	 * @returns {Register}
-	 */
-	config(configFn) {
-		this.app.config(configFn);
-		return this;
-	}
-
-	/**
-	 * Register initialization function
-	 * @param initializationFn
-	 * @returns {Register}
-	 */
-	run(initializationFn) {
-		this.app.run(initializationFn);
-		return this;
-	}
-
-	/**
-	 * Register decorator
-	 * @param {string} name
-	 * @param {function()} decoratorFn
-	 * @returns {Register}
-	 */
-	decorator(name, decoratorFn) {
-		this.app.decorator(name, decoratorFn);
-		return this;
-	}
-
-	/**
-	 * Get pure angular module
-	 * @returns {{}|*}
-	 */
-	module() {
-		return this.app;
-	}
-}
-
-/**
- * Polyfill function for Register class
- * @param {string} moduleName
- * @param {Array<string>=} dependencies
- * @return {Register}
- */
-function register(moduleName, dependencies) {
-	return new Register(moduleName, dependencies);
-}
-
-/**
- * Finds out whether module exist
- * @param {string} nameOfTheModule
- * @return {boolean}
- * @private
- */
-function _moduleExist(nameOfTheModule) {
-	try {
-		angular__WEBPACK_IMPORTED_MODULE_0___default.a.module(nameOfTheModule);
-		return true;
-	} catch (err) {
-		return false;
-	}
-}
-
-/**
- * If the constructorFn is an array of type ['dep1', 'dep2', ..., constructor() {}]
- * we need to pull out the array of dependencies and add it as an $inject property of the
- * actual constructor function.
- * @param input
- * @returns {*}
- * @private
- */
-function _normalizeConstructor(input) {
-	let constructorFn;
-
-	if (input.constructor === Array) {
-		//
-		const injected = input.slice(0, input.length - 1);
-		constructorFn = input[input.length - 1];
-		constructorFn.$inject = injected;
-	} else {
-		constructorFn = input;
-	}
-
-	return constructorFn;
-}
-
-/**
- * Convert a constructor function into a factory function which returns a new instance of that
- * constructor, with the correct dependencies automatically injected as arguments.
- *
- * In order to inject the dependencies, they must be attached to the constructor function with the
- * `$inject` property annotation.
- *
- * @param constructorFn
- * @returns {Array.<T>}
- * @private
- */
-function _createFactoryArray(constructorFn) {
-	// get the array of dependencies that are needed by this component (as contained in the `$inject` array)
-	const args = constructorFn.$inject || [];
-	// create a copy of the array
-	const factoryArray = args.slice();
-	// The factoryArray uses Angular's array notation whereby each element of the array is the name of a
-	// dependency, and the final item is the factory function itself.
-	/* eslint-disable no-shadow,guard-for-in */
-	factoryArray.push((...args) => {
-		//return new constructorFn(...args);
-		const instance = new constructorFn(...args);
-		for (const key in instance) {
-			//noinspection JSUnfilteredForInLoop
-			instance[key] = instance[key];
-		}
-		return instance;
-	});
-	/* eslint-enable */
-
-	return factoryArray;
-}
-
-/**
- * Clone a function
- * @param original
- * @returns {Function}
- * @private
- */
-function _cloneFunction(original) {
-	/**
-	 * @this this
-	 */
-	return function () {
-		return original.apply(this, arguments);
-	};
-}
-
-/**
- * Override an object's method with a new one specified by `callback`.
- * @param object
- * @param methodName
- * @param callback
- * @private
- */
-function _override(object, methodName, callback) {
-	object[methodName] = callback(object[methodName])
-}
 
 /***/ })
 

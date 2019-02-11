@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://angularjs-value-editor.documentation/./src/value-editor/editors/text/text-value-editor.less"],"names":[],"mappings":"AAAA;EAEQ;EACA;AAAR","file":"angularjs-value-editor.documentation.css","sourcesContent":["text-value-editor {\n    .ace-editor {\n        width: 600px;\n        height: 300px;\n    }\n}"],"sourceRoot":""}
