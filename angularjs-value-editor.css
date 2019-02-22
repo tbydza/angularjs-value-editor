@@ -3,3 +3,12 @@ text-value-editor .ace-editor {
   height: 300px;
 }
 
+number-value-editor input.hide-spinners {
+  -moz-appearance: textfield;
+}
+number-value-editor input.hide-spinners::-webkit-outer-spin-button,
+number-value-editor input.hide-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

@@ -1,6 +1,75 @@
 /**
+ * Abstract base class for general value-editor features.
+ */
+/**
+     * This method is called always, when value editor options is changed with old and new options object merged with default options.
+     * @param newOptions New options.
+     * @param oldOptions Old options.
+     *//**
  * Connects outer required ngModel with inner ngModel
  *//*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name numberValueEditor
+ * @module angularjs-value-editor
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for number input.
+ *
+ * Supported options: {@link type:NumberValueEditorOptions}
+ *
+ * Supported validations: {@link type:NumberValueEditorValidations}
+ *
+ * @example
+ * <example name="numberValueEditorExample" module="numberValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'number'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('numberValueEditorExample', ['angularjs-value-editor']);
+ *     </file>
+ * </example>
+ */
+/**
+ * @ngdoc type
+ * @name NumberValueEditorOptions
+ * @module angularjs-value-editor
+ *
+ * @property {boolean=} decimal Allow to input decimal numbers.
+ * @property {number=} step Step
+ * @property {boolean=} hideSpinners If true, number input hide spinner buttons.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ * Default value:
+ * ```javascript
+ *  {
+ *      decimal: false,
+ *      step: 1,
+ *      hideSpinners: false
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc type
+ * @name NumberValueEditorValidations
+ * @module angularjs-value-editor
+ *
+ * @property {number=} minlength Min length.
+ * @property {number=} maxlength Max length.
+ * @property {number=} min Minimum value.
+ * @property {number=} max Maximum value.
+ *
+ * @description
+ * Extends {@link type:ValueEditorValidations}
+ *//* working only in Firefox*//*@ngInject*/
 /**
      * Get number of rows between nim and max range.
      */
@@ -109,6 +178,7 @@
  * Generic value editor depends on type:
  *
  * - `text`, `textarea`, `rich-textarea`: {@link component:textValueEditor}
+ * - `number`: {@link component:numberValueEditor}
  */
 /**
  * @ngdoc type

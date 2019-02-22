@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-numberValueEditorExample</title>
+  <link href="https://dostaltomas.github.io/angularjs-value-editor/angularjs-value-editor.css" rel="stylesheet" type="text/css">
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.js"></script>
+  <script src="https://unpkg.com/@kpsys/angularjs-register@1.1.4/dist/register.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+  <script src="https://unpkg.com/angular-ui-ace@0.2.3/src/ui-ace.js"></script>
+  <script src="https://dostaltomas.github.io/angularjs-value-editor/angularjs-value-editor.js"></script>
+  <script src="/bower_components/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
+  <script src="script.js"></script>
+  
+
+  
+</head>
+<body ng-app="numberValueEditorExample">
+  <main>
+     <kp-value-editor type="'number'" ng-model="model"></kp-value-editor>
+     <div>{{model}}</div>
+</main>
+</body>
+</html>
