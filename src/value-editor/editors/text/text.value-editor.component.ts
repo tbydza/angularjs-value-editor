@@ -5,7 +5,7 @@ import ValueEditorComponent, {
     ValueEditorOptions,
     ValueEditorValidations
 } from '../../value-editor.component';
-import {IPostLink, IScope} from 'angular';
+import {IScope} from 'angular';
 import {Ace} from 'ace-builds';
 import AbstractValueEditor from '../abstract-value-editor';
 import angular = require('angular');
@@ -18,7 +18,7 @@ const DEFAULT_OPTIONS: TextValueEditorOptions = {
     }
 };
 
-export class TextValueEditorComponentController extends AbstractValueEditor<string, TextValueEditorOptions> implements IPostLink {
+export class TextValueEditorComponentController extends AbstractValueEditor<string, TextValueEditorOptions> {
     private aceEditor: Ace.Editor;
 
     /*@ngInject*/

@@ -4,7 +4,7 @@ import ValueEditorComponent, {
     ValueEditorOptions,
     ValueEditorValidations
 } from '../../value-editor.component';
-import {IPostLink, IScope} from 'angular';
+import {IScope} from 'angular';
 import AbstractValueEditor from '../abstract-value-editor';
 import angular = require('angular');
 
@@ -14,7 +14,7 @@ const DEFAULT_OPTIONS: NumberValueEditorOptions = {
     hideSpinners: false
 };
 
-export class NumberValueEditorComponentController extends AbstractValueEditor<number, NumberValueEditorOptions> implements IPostLink {
+export class NumberValueEditorComponentController extends AbstractValueEditor<number, NumberValueEditorOptions> {
 
     /*@ngInject*/
     constructor($scope: IScope) {

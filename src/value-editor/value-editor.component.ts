@@ -2,7 +2,7 @@ import {IFormController, INgModelController, IOnChanges, IOnInit, IScope} from '
 import NgModelConnector from './editors/ng-model-connector';
 import {generateUuid} from './utils/uuid-generator';
 
-export type TValueEditorType = 'text' | 'number';
+export type TValueEditorType = 'text' | 'number' | 'boolean';
 
 export const EVENTS = Object.freeze({
     disabled: 'value-editor:disabled',

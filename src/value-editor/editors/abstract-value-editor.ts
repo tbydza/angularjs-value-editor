@@ -1,5 +1,5 @@
 import NgModelConnector from './ng-model-connector';
-import {IPostLink, IScope} from 'angular';
+import {IOnInit, IPostLink, IScope} from 'angular';
 import {EVENTS, ValueEditorComponentController, ValueEditorOptions} from '../value-editor.component';
 import angular = require('angular');
 
@@ -11,18 +11,23 @@ export interface OptionsChangeEventObject<OPTIONS extends ValueEditorOptions = V
 /**
  * Abstract base class for general value-editor features.
  */
-export default abstract class AbstractValueEditor<MODEL, OPTIONS extends ValueEditorOptions> extends NgModelConnector<MODEL> implements IPostLink {
+export default abstract class AbstractValueEditor<MODEL, OPTIONS extends ValueEditorOptions> extends NgModelConnector<MODEL> implements IPostLink, IOnInit {
     private static $inject = ['$scope'];
 
     protected options: OPTIONS;
-    protected valueEditorController: ValueEditorComponentController;
+    protected valueEditorController: ValueEditorComponentController<MODEL, OPTIONS>;
 
     constructor(protected $scope: IScope, protected defaultOptions: OPTIONS) {
         super();
+        this.options = angular.merge({}, this.defaultOptions);
+    }
+
+    public $onInit(): void {
+        super.$onInit();
+        this.options = angular.merge({}, this.defaultOptions, this.valueEditorController.options);
     }
 
     public $postLink(): void {
-        this.options = angular.merge({}, this.defaultOptions, this.valueEditorController.options);
         this.onOptionsChange(this.options, undefined);
 
         this.$scope.$on(EVENTS.options, (event, data: OptionsChangeEventObject) => {

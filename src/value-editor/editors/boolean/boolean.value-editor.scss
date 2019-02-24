@@ -1,0 +1,14 @@
+@import '~pretty-checkbox/src/scss/variables';
+@import 'pretty-checkboxes-variables-override';
+
+@import '~pretty-checkbox/src/scss/core';
+
+@import '~pretty-checkbox/src/scss/elements/font-icon/general';
+@import '~pretty-checkbox/src/scss/elements/switch/general';
+
+@import '~pretty-checkbox/src/scss/extras/animation';
+@import '~pretty-checkbox/src/scss/extras/curve';
+@import '~pretty-checkbox/src/scss/extras/disabled';
+@import '~pretty-checkbox/src/scss/extras/colors';
+
+@import 'pretty-checkbox-redefinition';
