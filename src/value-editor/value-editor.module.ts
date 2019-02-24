@@ -3,6 +3,7 @@ import 'angular-ui-ace';
 import ValueEditorComponent from './value-editor.component';
 import TextValueEditorComponent from './editors/text/text.value-editor.component';
 import NumberValueEditorComponent from './editors/number/number.value-editor.component';
+import BooleanValueEditorComponent from './editors/boolean/boolean.value-editor.component';
 
 /**
  * @ngdoc module
@@ -14,6 +15,7 @@ export default register('angularjs-value-editor', ['ui.ace'])
     .component(ValueEditorComponent.componentName, ValueEditorComponent)
     .component(TextValueEditorComponent.componentName, TextValueEditorComponent)
     .component(NumberValueEditorComponent.componentName, NumberValueEditorComponent)
+    .component(BooleanValueEditorComponent.componentName, BooleanValueEditorComponent)
     .name();
 
 /**

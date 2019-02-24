@@ -1,0 +1,34 @@
+.#{$pretty--class-name}.p-smooth {
+  label:before,
+  label:after,
+  .icon,
+  .svg {
+    transition: all $pretty--smooth-transition-duration ease;
+  }
+
+  input:checked + .state {
+    label:after {
+      transition: all $pretty--smooth-transition-duration ease;
+    }
+
+    .icon,
+    .svg,
+    img {
+      animation: zoom 0.2s ease;
+    }
+  }
+
+  &.p-default input:checked + .state {
+    label:after {
+      animation: zoom 0.2s ease;
+    }
+  }
+
+  &.p-plain input:checked + .state {
+    label:before {
+      content: '';
+      transform: scale(0);
+      transition: all $pretty--smooth-transition-duration ease;
+    }
+  }
+}

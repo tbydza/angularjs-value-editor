@@ -1,0 +1,17 @@
+span.pretty.p-icon.p-smooth.p-curve
+        input(  type="checkbox"
+
+                id="{{$ctrl.valueEditorController.editorId}}"
+                name="{{$ctrl.valueEditorController.name}}"
+
+                ng-model="$ctrl.model"
+                ng-model-options="{ getterSetter: true}"
+
+                ng-disabled="$ctrl.valueEditorController.disabled"
+
+                data-main-input
+        )
+
+        .state.p-primary
+            i.icon.glyphicon.glyphicon-ok
+            label
