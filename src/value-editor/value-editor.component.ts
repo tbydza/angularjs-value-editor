@@ -1,6 +1,7 @@
-import {IFormController, INgModelController, IOnChanges, IOnInit, IScope} from 'angular';
+import {IDoCheck, IFormController, INgModelController, IOnChanges, IOnInit, IScope} from 'angular';
 import NgModelConnector from './editors/ng-model-connector';
 import {generateUuid} from './utils/uuid-generator';
+import angular = require('angular');
 
 export type TValueEditorType = 'text' | 'number' | 'boolean';
 
@@ -11,7 +12,7 @@ export const EVENTS = Object.freeze({
 
 export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS extends ValueEditorOptions = ValueEditorOptions, EDITORVALIDATIONS extends ValueEditorValidations = ValueEditorValidations>
     extends NgModelConnector<MODEL>
-    implements ValueEditorBindings<EDITOROPTS, EDITORVALIDATIONS>, IOnInit, IOnChanges {
+    implements ValueEditorBindings<EDITOROPTS, EDITORVALIDATIONS>, IOnInit, IOnChanges, IDoCheck {
 
     /* Bindings */
     public editorId: string;
@@ -19,11 +20,12 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
     public type: TValueEditorType;
     public placeholder: string;
     public disabled: boolean;
-    public visible: boolean;
+    public visible: boolean = true;
     public validations: EDITORVALIDATIONS;
     public options: EDITOROPTS;
     /* Internal */
     public form: IFormController;
+    private previousOptions: EDITOROPTS;
 
     public get status() {
         return this.form[this.name];
@@ -41,6 +43,8 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
     public $onInit(): void {
         super.$onInit();
 
+        this.previousOptions = angular.copy(this.options);
+
         if (!this.name) {
             this.name = this.generateEditorName();
         }
@@ -50,9 +54,15 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
         if (onChangesObj.disabled) {
             this.$scope.$broadcast(EVENTS.disabled, {disabled: onChangesObj.disabled.currentValue});
         }
+    }
 
-        if (onChangesObj.options) {
-            this.$scope.$broadcast(EVENTS.options, {newOptions: onChangesObj.options.currentValue, oldOptions: onChangesObj.options.previousValue});
+    /**
+     * Manually check options update. $onChanges is not applicable, because we need deep equals, which $onChanges does not perform.
+     */
+    public $doCheck(): void {
+        if (!angular.equals(this.options, this.previousOptions)) {
+            this.$scope.$broadcast(EVENTS.options, {newOptions: this.options, oldOptions: this.previousOptions});
+            this.previousOptions = angular.copy(this.options);
         }
     }
 
