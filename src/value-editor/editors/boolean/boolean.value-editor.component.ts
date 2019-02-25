@@ -4,39 +4,54 @@ import ValueEditorComponent, {
     ValueEditorOptions,
     ValueEditorValidations
 } from '../../value-editor.component';
-import {IOnInit, IScope} from 'angular';
+import {IAugmentedJQuery, IScope} from 'angular';
 import AbstractValueEditor from '../abstract-value-editor';
 import angular = require('angular');
 
 const DEFAULT_OPTIONS: BooleanValueEditorOptions = {
     type: 'checkbox',
-    trueValue: true,
-    falseValue: false
+    trueValue: undefined,
+    falseValue: undefined,
+    nullAsIndeterminate: false
 };
 
 export type TBooleanValueEditorType = 'checkbox' | 'switch';
 
-export class BooleanValueEditorComponentController<MODEL = boolean> extends AbstractValueEditor<MODEL, BooleanValueEditorOptions> implements IOnInit {
+export class BooleanValueEditorComponentController<MODEL = boolean> extends AbstractValueEditor<MODEL, BooleanValueEditorOptions> {
+    public inputElement: IAugmentedJQuery;
 
     /*@ngInject*/
     constructor($scope: IScope) {
         super($scope, DEFAULT_OPTIONS);
     }
 
-    public $onInit(): void {
-        super.$onInit();
-
-        if (this.valueEditorController.options && (this.valueEditorController.options.trueValue || this.valueEditorController.options.falseValue)) {
-            this.ngModelController.$formatters.push(this.formatValue.bind(this));
-            this.ngModelController.$parsers.push(this.parseValue.bind(this));
-        }
-    }
-
     protected onOptionsChange(newOptions: BooleanValueEditorOptions, oldOptions: BooleanValueEditorOptions) {
-        //
+        if (this.options.trueValue || this.options.falseValue) {
+            this.ngModelController.$formatters.push(this.formatToCustomValue.bind(this));
+            this.ngModelController.$parsers.push(this.parseFromCustomValue.bind(this));
+        }
+
+        if (this.options.nullAsIndeterminate) {
+            this.ngModelController.$parsers.push(this.parseIndeterminate.bind(this));
+            this.ngModelController.$formatters.push(this.formatIndeterminate.bind(this));
+        }
+
+        this.ngModelController.$processModelValue();
     }
 
-    private parseValue(value: boolean): MODEL | boolean {
+    private formatToCustomValue(value: MODEL): boolean {
+        if (value === this.options.trueValue && this.valueEditorController.options.trueValue !== undefined) {
+            return true;
+        }
+
+        if (value === this.options.falseValue && this.valueEditorController.options.falseValue !== undefined) {
+            return false;
+        }
+
+        return undefined;
+    }
+
+    private parseFromCustomValue(value: boolean): MODEL | boolean {
         if (value === true && this.valueEditorController.options.trueValue !== undefined) {
             return this.options.trueValue;
         }
@@ -48,16 +63,16 @@ export class BooleanValueEditorComponentController<MODEL = boolean> extends Abst
         return value;
     }
 
-    private formatValue(value: MODEL): boolean {
-        if (value === this.options.trueValue && this.valueEditorController.options.trueValue !== undefined) {
-            return true;
-        }
+    private parseIndeterminate<T>(value: T): T {
+        (this.inputElement[0] as HTMLInputElement).indeterminate = this.options.nullAsIndeterminate && value === null;
 
-        if (value === this.options.falseValue && this.valueEditorController.options.falseValue !== undefined) {
-            return false;
-        }
+        return value;
+    }
 
-        return undefined;
+    private formatIndeterminate<T>(value: T): T {
+        (this.inputElement[0] as HTMLInputElement).indeterminate = this.options.nullAsIndeterminate && value === null;
+
+        return value;
     }
 }
 
@@ -107,18 +122,21 @@ export default class BooleanValueEditorComponent {
  * @name BooleanValueEditorOptions
  * @module angularjs-value-editor
  *
- * @property {string=} type Type of display: `'checkbox'` or `'switch'`.
- * @property [trueValue] Custom value if editor is `true`.
- * @property [falseValue] Custom value if editor is `false`.
+ * @property {string} [type=checkbox] Type of display: `'checkbox'` or `'switch'`.
+ * @property [trueValue=undefined] Custom value if editor is `true`. If undefined, `true` is used.
+ * @property [falseValue=undefined] Custom value if editor is `false`. If undefined, `false` is used.
+ * @property {boolean} [nullAsIndeterminate=false] If true, `null` model value is displayed as indeterminate state.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
  * Default value:
  * ```javascript
+ *
  *  {
  *      type: 'checkbox',
- *      trueValue: true,
- *      falseValue: false
+ *      trueValue: undefined,
+ *      falseValue: undefined,
+ *      nullAsIndeterminate: false
  *  }
  * ```
  */
@@ -126,6 +144,7 @@ export interface BooleanValueEditorOptions extends ValueEditorOptions {
     type?: TBooleanValueEditorType;
     trueValue?: any;
     falseValue?: any;
+    nullAsIndeterminate?: boolean;
 }
 
 export interface BooleanValueEditorBindings extends ValueEditorBindings<BooleanValueEditorOptions, ValueEditorValidations> {
