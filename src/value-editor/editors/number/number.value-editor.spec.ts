@@ -2,7 +2,6 @@ import valueEditorModule from '../../value-editor.module';
 import * as angular from 'angular';
 import ValueEditorMocker, {ScopeWithBindings} from '../../../../test/utils/value-editor-mocker';
 import {NumberValueEditorBindings} from './number.value-editor.component';
-import 'ace-builds';
 
 describe('number-value-editor', () => {
 
