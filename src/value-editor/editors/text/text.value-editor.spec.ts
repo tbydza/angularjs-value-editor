@@ -351,6 +351,29 @@ describe('text-value-editor', () => {
             const aceEditorTextarea = valueEditorMocker.getInputElement<HTMLDivElement>().querySelector('textarea');
 
             expect(aceEditorTextarea.attributes.getNamedItem('readonly')).not.toBe(null);
+
+            $scope.disabled = false;
+            $scope.$apply();
+
+            expect(aceEditorTextarea.attributes.getNamedItem('readonly')).toBe(null);
+        });
+
+        it('should has working touched state', () => {
+            valueEditorMocker.create('text', {options: {type: 'rich-textarea'}});
+
+            const focusEvent = document.createEvent('HTMLEvents');
+            focusEvent.initEvent('focus', true, false);
+
+            valueEditorMocker.getInputElement<HTMLDivElement>().querySelector('textarea').dispatchEvent(focusEvent);
+
+            expect($scope.status.$touched).toBe(false);
+
+            const blurEvent = document.createEvent('HTMLEvents');
+            blurEvent.initEvent('blur', true, false);
+
+            valueEditorMocker.getInputElement<HTMLDivElement>().querySelector('textarea').dispatchEvent(blurEvent);
+
+            expect($scope.status.$touched).toBe(true);
         });
     });
 
