@@ -3,7 +3,7 @@ import NgModelConnector from './editors/ng-model-connector';
 import {generateUuid} from './utils/uuid-generator';
 import angular = require('angular');
 
-export type TValueEditorType = 'text' | 'number' | 'boolean';
+export type TValueEditorType = 'text' | 'number' | 'boolean' | 'hidden';
 
 export const EVENTS = Object.freeze({
     disabled: 'value-editor:disabled',
