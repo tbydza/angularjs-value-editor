@@ -54,7 +54,17 @@ module.exports = (config) => {
             dir: path.resolve(__dirname, '..', 'reports', 'coverage'),
             fixWebpackSourcePaths: true,
             combineBrowserReports: true,
-            'es-modules': true
+            'es-modules': true,
+            thresholds: {
+                emitWarning: false,
+
+                global: {
+                    statements: 90,
+                    lines: 90,
+                    branches: 90,
+                    functions: 90
+                }
+            }
         }
     });
 };
