@@ -43,7 +43,7 @@ module.exports = ({
                 test: /\.(js|ts)$/,
                 enforce: 'post',
                 loader: 'istanbul-instrumenter-loader',
-                exclude: [/(test|node_modules)/],
+                exclude: [/((\.spec\.)|test|node_modules)/],
                 query: {
                     esModules: true
                 }
