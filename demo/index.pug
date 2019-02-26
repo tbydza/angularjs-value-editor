@@ -7,10 +7,10 @@ html
 
     body(ng-app="app")
         h1 Value Editor Demo
-        main(ng-controller="demoController as dc" ng-init="disabled = false; value=null; idt=false")
+        main(ng-controller="demoController as dc" ng-init="disabled = false; value='ANO'; idt=false")
 
             label Hello
-                kp-value-editor(ng-model="value" editor-id="ajdy" type="'boolean'" status="status" disabled="disabled" options="{nullAsIndeterminate: idt}")
+                kp-value-editor(ng-model="value" editor-id="ajdy" type="'boolean'" status="status" disabled="disabled" options="{nullAsIndeterminate: idt, trueValue: 'ANO', falseValue: null}")
 
             hr
             div
@@ -20,7 +20,10 @@ html
                 label Null as indeterminate: {{idt | json}}
                     input(type="checkbox" ng-model="idt")
 
+
             button(type="button" ng-click="value = null") Set indeterminate
 
             div Model: {{value | json}}
             div {{status | json}}
+            ul
+                li(ng-repeat="(errorName, errorValue) in status.$error") {{errorName}}

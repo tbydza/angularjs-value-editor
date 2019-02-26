@@ -4,7 +4,7 @@ import ValueEditorComponent, {
     ValueEditorOptions,
     ValueEditorValidations
 } from '../../value-editor.component';
-import {IAugmentedJQuery, IScope} from 'angular';
+import {INgModelController, IPostLink, IScope} from 'angular';
 import AbstractValueEditor from '../abstract-value-editor';
 import angular = require('angular');
 
@@ -17,60 +17,58 @@ const DEFAULT_OPTIONS: BooleanValueEditorOptions = {
 
 export type TBooleanValueEditorType = 'checkbox' | 'switch';
 
-export class BooleanValueEditorComponentController<MODEL = boolean> extends AbstractValueEditor<MODEL, BooleanValueEditorOptions> {
-    public inputElement: IAugmentedJQuery;
+export class BooleanValueEditorComponentController<MODEL = boolean> extends AbstractValueEditor<MODEL, BooleanValueEditorOptions> implements IPostLink {
+    public inputElementModelController: INgModelController;
 
     /*@ngInject*/
     constructor($scope: IScope) {
         super($scope, DEFAULT_OPTIONS);
     }
 
+    public $postLink(): void {
+        super.$postLink();
+
+        this.ngModelController.$formatters.push(this.formatToCustomValue.bind(this));
+        this.ngModelController.$parsers.push(this.parseFromCustomValue.bind(this));
+
+        this.ngModelController.$parsers.push(this.adjustIndeterminateState.bind(this));
+        this.ngModelController.$formatters.push(this.adjustIndeterminateState.bind(this));
+    }
+
     protected onOptionsChange(newOptions: BooleanValueEditorOptions, oldOptions: BooleanValueEditorOptions) {
-        if (this.options.trueValue || this.options.falseValue) {
-            this.ngModelController.$formatters.push(this.formatToCustomValue.bind(this));
-            this.ngModelController.$parsers.push(this.parseFromCustomValue.bind(this));
-        }
-
-        if (this.options.nullAsIndeterminate) {
-            this.ngModelController.$parsers.push(this.parseIndeterminate.bind(this));
-            this.ngModelController.$formatters.push(this.formatIndeterminate.bind(this));
-        }
-
         this.ngModelController.$processModelValue();
     }
 
-    private formatToCustomValue(value: MODEL): boolean {
-        if (value === this.options.trueValue && this.valueEditorController.options.trueValue !== undefined) {
+    private formatToCustomValue(value: MODEL) {
+        if (this.options.trueValue !== undefined && value === this.options.trueValue) {
             return true;
         }
 
-        if (value === this.options.falseValue && this.valueEditorController.options.falseValue !== undefined) {
+        if (this.options.falseValue !== undefined && value === this.options.falseValue) {
             return false;
         }
 
-        return undefined;
+        return value;
     }
 
     private parseFromCustomValue(value: boolean): MODEL | boolean {
-        if (value === true && this.valueEditorController.options.trueValue !== undefined) {
+        if (this.options.trueValue !== undefined && value === true) {
             return this.options.trueValue;
         }
 
-        if (value === false && this.valueEditorController.options.falseValue !== undefined) {
+        if (this.options.falseValue !== undefined && value === false) {
             return this.options.falseValue;
         }
 
         return value;
     }
 
-    private parseIndeterminate<T>(value: T): T {
-        (this.inputElement[0] as HTMLInputElement).indeterminate = this.options.nullAsIndeterminate && value === null;
+    private adjustIndeterminateState<T>(value: T): T {
+        // @ts-ignore - $$element is not typed, because it's internal API
+        (this.inputElementModelController.$$element[0] as HTMLInputElement).indeterminate = this.options.nullAsIndeterminate && value === null;
 
-        return value;
-    }
-
-    private formatIndeterminate<T>(value: T): T {
-        (this.inputElement[0] as HTMLInputElement).indeterminate = this.options.nullAsIndeterminate && value === null;
+        const isInvalid = (this.valueEditorController.validations && this.valueEditorController.validations.required) && this.options.nullAsIndeterminate && (value === null || value === undefined);
+        this.inputElementModelController.$setValidity('required', !isInvalid);
 
         return value;
     }
@@ -90,6 +88,8 @@ export class BooleanValueEditorComponentController<MODEL = boolean> extends Abst
  * Supported options: {@link type:BooleanValueEditorOptions}
  *
  * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * This value editor supports custom model value substitution via options parameters `trueValue` and `falseValue`.
  *
  * @example
  * <example name="booleanValueEditorExample" module="booleanValueEditorExample" frame-no-resize="true">
