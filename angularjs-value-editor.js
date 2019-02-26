@@ -434,6 +434,8 @@ var text_value_editor_component_1 = __webpack_require__(10);
 var number_value_editor_component_1 = __webpack_require__(13);
 
 var boolean_value_editor_component_1 = __webpack_require__(16);
+
+var hidden_value_editor_component_1 = __webpack_require__(19);
 /**
  * @ngdoc module
  * @name angularjs-value-editor
@@ -441,7 +443,7 @@ var boolean_value_editor_component_1 = __webpack_require__(16);
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.ace']).component(value_editor_component_1.default.componentName, value_editor_component_1.default).component(text_value_editor_component_1.default.componentName, text_value_editor_component_1.default).component(number_value_editor_component_1.default.componentName, number_value_editor_component_1.default).component(boolean_value_editor_component_1.default.componentName, boolean_value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.ace']).component(value_editor_component_1.default.componentName, value_editor_component_1.default).component(text_value_editor_component_1.default.componentName, text_value_editor_component_1.default).component(number_value_editor_component_1.default.componentName, number_value_editor_component_1.default).component(boolean_value_editor_component_1.default.componentName, boolean_value_editor_component_1.default).component(hidden_value_editor_component_1.default.componentName, hidden_value_editor_component_1.default).name();
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController
@@ -489,7 +491,7 @@ exports.generateUuid = generateUuid;
 /***/ (function(module, exports) {
 
 var path = '/value-editor/value-editor.tpl.pug';
-var html = "<div ng-form=\"$ctrl.form\" ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor></div>";
+var html = "<div ng-form=\"$ctrl.form\" ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -986,6 +988,112 @@ exports.default = BooleanValueEditorComponent;
 
 var path = '/value-editor/editors/boolean/boolean.value-editor.tpl.pug';
 var html = "<span class=\"pretty p-icon p-smooth p-curve {{$ctrl.options.cssClasses.join(' ')}}\" ng-class=\"{'p-has-indeterminate': $ctrl.options.nullAsIndeterminate}\"><input type=\"checkbox\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.name}}\" ng-ref=\"$ctrl.inputElementModelController\" ng-ref-read=\"ngModel\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.disabled\" data-main-input=\"data-main-input\"/><div class=\"state\"><i class=\"icon glyphicon glyphicon-ok\"></i><label></label></div><div class=\"state p-is-indeterminate\"><i class=\"icon glyphicon glyphicon-minus\"></i><label></label></div></span>";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var value_editor_component_1 = __webpack_require__(0);
+
+var abstract_value_editor_1 = __webpack_require__(1);
+
+var HiddenValueEditorComponentController =
+/*#__PURE__*/
+function (_abstract_value_edito) {
+  _inherits(HiddenValueEditorComponentController, _abstract_value_edito);
+
+  function HiddenValueEditorComponentController() {
+    _classCallCheck(this, HiddenValueEditorComponentController);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(HiddenValueEditorComponentController).apply(this, arguments));
+  }
+
+  _createClass(HiddenValueEditorComponentController, [{
+    key: "onOptionsChange",
+    value: function onOptionsChange(newOptions, oldOptions) {//
+    }
+  }]);
+
+  return HiddenValueEditorComponentController;
+}(abstract_value_editor_1.default);
+
+exports.HiddenValueEditorComponentController = HiddenValueEditorComponentController;
+/**
+ * @ngdoc component
+ * @name hiddenValueEditor
+ * @module angularjs-value-editor
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for store any value.
+ *
+ * Supported options: {@link type:ValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="hiddenValueEditorExample" module="hiddenValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'hidden'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('hiddenValueEditorExample', ['angularjs-value-editor']);
+ *     </file>
+ * </example>
+ */
+
+var HiddenValueEditorComponent = function HiddenValueEditorComponent() {
+  _classCallCheck(this, HiddenValueEditorComponent);
+
+  this.require = {
+    ngModelController: 'ngModel',
+    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+  };
+  this.templateUrl = __webpack_require__(20);
+  this.controller = HiddenValueEditorComponentController;
+};
+
+HiddenValueEditorComponent.componentName = 'hiddenValueEditor';
+exports.default = HiddenValueEditorComponent;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+var path = '/value-editor/editors/hidden/hidden.value-editor.tpl.pug';
+var html = "<input type=\"hidden\" ng-attr-id=\"{{$ctrl.valueEditorController.editorId}}\" ng-attr-name=\"{{$ctrl.valueEditorController.name}}\" ng-class=\"$ctrl.options.cssClasses\" ng-value=\"$ctrl.model\" ng-disabled=\"$ctrl.valueEditorController.disabled\" data-main-input=\"data-main-input\"/>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 

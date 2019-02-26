@@ -59,6 +59,34 @@
  *      nullAsIndeterminate: false
  *  }
  * ```
+ *//**/
+/**
+ * @ngdoc component
+ * @name hiddenValueEditor
+ * @module angularjs-value-editor
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for store any value.
+ *
+ * Supported options: {@link type:ValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="hiddenValueEditorExample" module="hiddenValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'hidden'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('hiddenValueEditorExample', ['angularjs-value-editor']);
+ *     </file>
+ * </example>
  *//**
  * Connects outer required ngModel with inner ngModel
  *//*@ngInject*/

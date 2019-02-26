@@ -20,6 +20,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/component/booleanValueEditor"
               },
               {
+                "name": "hiddenValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor/component/hiddenValueEditor"
+              },
+              {
                 "name": "kpValueEditor",
                 "type": "component",
                 "href": "api/angularjs-value-editor/component/kpValueEditor"
