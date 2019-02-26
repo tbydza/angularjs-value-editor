@@ -5,7 +5,61 @@
      * This method is called always, when value editor options is changed with old and new options object merged with default options.
      * @param newOptions New options.
      * @param oldOptions Old options.
-     *//**
+     *//*@ngInject*/
+/* @ts-ignore - $$element is not typed, because it's internal API*/
+/**
+ * @ngdoc component
+ * @name booleanValueEditor
+ * @module angularjs-value-editor
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for boolean input.
+ *
+ * Supported options: {@link type:BooleanValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * This value editor supports custom model value substitution via options parameters `trueValue` and `falseValue`.
+ *
+ * @example
+ * <example name="booleanValueEditorExample" module="booleanValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'boolean'" ng-model="model"></kp-value-editor>
+ *              <div>{{model | json}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('booleanValueEditorExample', ['angularjs-value-editor']);
+ *     </file>
+ * </example>
+ */
+/**
+ * @ngdoc type
+ * @name BooleanValueEditorOptions
+ * @module angularjs-value-editor
+ *
+ * @property {string} [type=checkbox] Type of display: `'checkbox'` or `'switch'`.
+ * @property [trueValue=undefined] Custom value if editor is `true`. If undefined, `true` is used.
+ * @property [falseValue=undefined] Custom value if editor is `false`. If undefined, `false` is used.
+ * @property {boolean} [nullAsIndeterminate=false] If true, `null` model value is displayed as indeterminate state.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ * Default value:
+ * ```javascript
+ *
+ *  {
+ *      type: 'checkbox',
+ *      trueValue: undefined,
+ *      falseValue: undefined,
+ *      nullAsIndeterminate: false
+ *  }
+ * ```
+ *//**
  * Connects outer required ngModel with inner ngModel
  *//*@ngInject*/
 /**/
@@ -157,6 +211,9 @@
 /* Internal */
 /**/
 /*@ngInject*/
+/**
+     * Manually check options update. $onChanges is not applicable, because we need deep equals, which $onChanges does not perform.
+     */
 /**
  * @ngdoc component
  * @name kpValueEditor
