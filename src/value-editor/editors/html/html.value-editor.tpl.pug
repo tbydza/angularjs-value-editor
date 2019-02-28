@@ -1,0 +1,16 @@
+textarea(
+    ng-attr-id="{{$ctrl.valueEditorController.editorId}}"
+    ng-attr-name="{{$ctrl.valueEditorController.name}}"
+    ng-attr-placeholder="{{$ctrl.valueEditorController.placeholder}}"
+
+    ng-ref="$ctrl.container"
+
+    ng-class="$ctrl.options.cssClasses"
+
+    ng-model="$ctrl.model"
+    ng-model-options="{ getterSetter: true}"
+
+    ng-required="$ctrl.valueEditorController.validations.required"
+
+    data-main-input
+)

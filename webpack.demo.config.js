@@ -71,7 +71,11 @@ module.exports = {
             {
                 test: /\.tpl.pug$/,
                 loader: `ngtemplate-loader!html-loader!pug-html-loader`
-            }
+            },
+            {
+                test: /\.(svg|png)$/,
+                loader: 'file-loader?name=[name].[ext]'
+            },
         ]
     },
 
