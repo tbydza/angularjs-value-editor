@@ -1,8 +1,4 @@
-import ValueEditorComponent, {
-    ValueEditorBindings,
-    ValueEditorOptions,
-    ValueEditorValidations
-} from '../../value-editor.component';
+import ValueEditorComponent, {ValueEditorBindings, ValueEditorOptions} from '../../value-editor.component';
 import AbstractValueEditor from '../abstract-value-editor';
 import angular = require('angular');
 
@@ -26,7 +22,7 @@ export class HiddenValueEditorComponentController extends AbstractValueEditor<an
  *
  * Supported options: {@link type:ValueEditorOptions}
  *
- * Supported validations: {@link type:ValueEditorValidations}
+ * Supported validations: None
  *
  * @example
  * <example name="hiddenValueEditorExample" module="hiddenValueEditorExample" frame-no-resize="true">
@@ -54,5 +50,5 @@ export default class HiddenValueEditorComponent {
     public controller = HiddenValueEditorComponentController;
 }
 
-export interface HiddenValueEditorBindings extends ValueEditorBindings<ValueEditorOptions, ValueEditorValidations> {
+export interface HiddenValueEditorBindings extends ValueEditorBindings<ValueEditorOptions, never> {
 }

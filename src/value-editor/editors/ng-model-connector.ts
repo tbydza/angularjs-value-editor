@@ -5,7 +5,7 @@ import {INgModelController, IOnInit} from 'angular';
  */
 export default class NgModelConnector<MODEL = any> implements IOnInit {
     public ngModelController: INgModelController;
-    protected modelValue: MODEL;
+    private modelValue: MODEL;
 
     public set model(value: MODEL) {
         this.modelValue = value;
