@@ -3,19 +3,21 @@ doctype html
 html
     head
         title Value Editor Demo
-        link(rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
 
     body(ng-app="app")
         h1 Value Editor Demo
         main(ng-controller="demoController as dc" ng-init="disabled = false; value='ANO'")
 
-            label Hello
-                kp-value-editor(ng-model="value" editor-id="ajdy" type="'hidden'" status="status" disabled="disabled")
+            kp-value-editor(ng-model="value" editor-id="ajdy" type="'html'" status="status" disabled="disabled" validations="{required: true}" placeholder="Write some clever...")
 
             hr
             div
                 label Disabled:
                     input(type="checkbox" ng-model="disabled")
+
+            div Value:
+                input(ng-model="value")
 
             div Model: {{value | json}}
             div {{status | json}}
