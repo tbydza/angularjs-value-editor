@@ -1,0 +1,98 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">htmlValueEditor</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - component in module <a href="api/angularjs-value-editor">angularjs-value-editor</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Value editor for formatted text input.</p>
+<p>Component uses <a href="https://alex-d.github.io/Trumbowyg/documentation/#basic-options">Trumbowyg editor</a>,
+because it is lightweight, (almost) libraries agnostic with possibility to be, in near future, jQuery less.</p>
+<p>It is required to attach also table and colors plugins - more info how to do it can be find in Trumbowyg site.
+For attaching SVGs via webpack use this configuration:</p>
+<pre><code class="lang-javascript">$.trumbowyg.svgPath = require(&#39;trumbowyg/dist/ui/icons.svg&#39;);
+</code></pre>
+<p>Supported options: <a href="api/angularjs-value-editor/type/HtmlValueEditorOptions">HtmlValueEditorOptions</a></p>
+<p>Supported validations: <a href="api/angularjs-value-editor/type/ValueEditorValidations">ValueEditorValidations</a></p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+  <h2 id="dependencies">Dependencies</h2>
+  <ul>
+    <li><a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController" _target="blank">ngModel.NgModelController</a></li><li><a href="api/angularjs-value-editor/component/kpValueEditor">kpValueEditor</a></li><li><a href="http://jquery.com/">jQuery</a></li><li><a href="https://alex-d.github.io/Trumbowyg/documentation/#installation">Trumbowyg dependencies and plugins.</a></li>
+  </ul>
+  
+
+  
+  
+  <h2 id="usage">Usage</h2>
+  <div class="usage">
+  
+
+  
+  <pre><code>&lt;html-value-editor&gt;&#10;&lt;/html-value-editor&gt;</code></pre>
+  </div>
+  
+  
+  
+
+
+  
+  <h2 id="example">Example</h2><p>
+
+<plnkr-opener example-path="examples/example-htmlValueEditorExample"></plnkr-opener>
+<div class="runnable-example"
+    path="examples/example-htmlValueEditorExample"
+    frame-id="example-htmlValueEditorExample"
+    name="htmlValueEditorExample"
+    module="htmlValueEditorExample"
+    frame-no-resize="true">
+
+  <md-content>
+    <md-tabs md-dynamic-height="false" md-border-bottom>
+    
+      <md-tab label="index.html">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="index.html"language="html"type="html">
+          <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/ui/trumbowyg.min.css&quot;&gt;&#10;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/colors/ui/trumbowyg.colors.min.css&quot;&gt;&#10;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/ui/trumbowyg.table.min.css&quot;&gt;&#10;&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/trumbowyg.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/colors/trumbowyg.colors.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/trumbowyg.table.min.js&quot;&gt;&lt;/script&gt;&#10;&lt;main&gt;&#10;    &lt;em&gt;Example probably doesn&#39;t work, because jQuery is need to be load before angular. You can use &gt;&gt;Edit in Plunker&lt;&lt; button and prepend jQuery script tag before angular.&lt;/em&gt;&#10;    &lt;em&gt;Hmmm... It isn&#39;t all yet. You must load SVG icons, but plunker doesn&#39;t allow CORS requests. No help...&lt;/em&gt;&#10;     &lt;kp-value-editor type=&quot;&#39;html&#39;&quot; ng-model=&quot;model&quot;&gt;&lt;/kp-value-editor&gt;&#10;     &lt;div&gt;{{model}}&lt;/div&gt;&#10;&lt;/main&gt;</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+      <md-tab label="script.js">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="script.js"language="js"type="js">
+          <pre><code>angular.module(&#39;htmlValueEditorExample&#39;, [&#39;angularjs-value-editor&#39;]);&#10;$(document).ready(() =&gt; {&#10;    $.trumbowyg.svgPath = &#39;https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/ui/icons.svg&#39;;&#10;});</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+    </md-tabs>
+  </md-content>
+  <iframe class="runnable-example-frame" src="examples/example-htmlValueEditorExample/index.html" name="example-htmlValueEditorExample" id="example-htmlValueEditorExample"></iframe>
+</div>
+
+
+
+</p>
+
+</div>
+
+

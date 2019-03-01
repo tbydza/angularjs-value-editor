@@ -436,6 +436,8 @@ var number_value_editor_component_1 = __webpack_require__(13);
 var boolean_value_editor_component_1 = __webpack_require__(16);
 
 var hidden_value_editor_component_1 = __webpack_require__(19);
+
+var html_value_editor_component_1 = __webpack_require__(21);
 /**
  * @ngdoc module
  * @name angularjs-value-editor
@@ -443,7 +445,7 @@ var hidden_value_editor_component_1 = __webpack_require__(19);
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.ace']).component(value_editor_component_1.default.componentName, value_editor_component_1.default).component(text_value_editor_component_1.default.componentName, text_value_editor_component_1.default).component(number_value_editor_component_1.default.componentName, number_value_editor_component_1.default).component(boolean_value_editor_component_1.default.componentName, boolean_value_editor_component_1.default).component(hidden_value_editor_component_1.default.componentName, hidden_value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.ace']).component(value_editor_component_1.default.componentName, value_editor_component_1.default).component(text_value_editor_component_1.default.componentName, text_value_editor_component_1.default).component(number_value_editor_component_1.default.componentName, number_value_editor_component_1.default).component(boolean_value_editor_component_1.default.componentName, boolean_value_editor_component_1.default).component(hidden_value_editor_component_1.default.componentName, hidden_value_editor_component_1.default).component(html_value_editor_component_1.default.componentName, html_value_editor_component_1.default).name();
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController
@@ -491,7 +493,7 @@ exports.generateUuid = generateUuid;
 /***/ (function(module, exports) {
 
 var path = '/value-editor/value-editor.tpl.pug';
-var html = "<div ng-form=\"$ctrl.form\" ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor></div>";
+var html = "<div ng-form=\"$ctrl.form\" ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -1058,7 +1060,7 @@ exports.HiddenValueEditorComponentController = HiddenValueEditorComponentControl
  *
  * Supported options: {@link type:ValueEditorOptions}
  *
- * Supported validations: {@link type:ValueEditorValidations}
+ * Supported validations: None
  *
  * @example
  * <example name="hiddenValueEditorExample" module="hiddenValueEditorExample" frame-no-resize="true">
@@ -1094,6 +1096,191 @@ exports.default = HiddenValueEditorComponent;
 
 var path = '/value-editor/editors/hidden/hidden.value-editor.tpl.pug';
 var html = "<input type=\"hidden\" ng-attr-id=\"{{$ctrl.valueEditorController.editorId}}\" ng-attr-name=\"{{$ctrl.valueEditorController.name}}\" ng-class=\"$ctrl.options.cssClasses\" ng-value=\"$ctrl.model\" ng-disabled=\"$ctrl.valueEditorController.disabled\" data-main-input=\"data-main-input\"/>";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var value_editor_component_1 = __webpack_require__(0);
+
+var abstract_value_editor_1 = __webpack_require__(1);
+
+var DEFAULT_OPTIONS = {
+  editorOptions: {
+    btns: [['formatting'], ['bold', 'italic', 'underline', 'del', 'removeformat'], ['superscript', 'subscript'], ['foreColor', 'backColor'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'], ['unorderedList', 'orderedList'], ['table'], ['link', 'insertImage'], ['fullscreen', 'viewHTML']]
+  }
+};
+
+var HtmlValueEditorComponentController =
+/*#__PURE__*/
+function (_abstract_value_edito) {
+  HtmlValueEditorComponentController.$inject = ["$scope"];
+
+  _inherits(HtmlValueEditorComponentController, _abstract_value_edito);
+
+  /*@ngInject*/
+  function HtmlValueEditorComponentController($scope) {
+    _classCallCheck(this, HtmlValueEditorComponentController);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(HtmlValueEditorComponentController).call(this, $scope, DEFAULT_OPTIONS));
+  }
+
+  _createClass(HtmlValueEditorComponentController, [{
+    key: "$postLink",
+    value: function $postLink() {
+      _get(_getPrototypeOf(HtmlValueEditorComponentController.prototype), "$postLink", this).call(this);
+
+      this.$scope.$applyAsync(this.initTrumbowyg.bind(this));
+    }
+  }, {
+    key: "$onDestroy",
+    value: function $onDestroy() {
+      this.container.trumbowyg('destroy');
+
+      if (this.disabledEventDeregisterer) {
+        this.disabledEventDeregisterer();
+      }
+
+      this.container.off('tbwchange tbwpaste');
+    }
+  }, {
+    key: "onOptionsChange",
+    value: function onOptionsChange(newOptions, oldOptions) {//
+    }
+  }, {
+    key: "initTrumbowyg",
+    value: function initTrumbowyg() {
+      var _this = this;
+
+      var options = Object.assign({}, this.options.editorOptions, {
+        disabled: this.valueEditorController.disabled
+      });
+      this.container.trumbowyg(options);
+      this.container.on('tbwchange tbwpaste', function () {
+        return _this.container.triggerHandler('input');
+      });
+      var originalRender = this.ngModelController.$render;
+
+      this.ngModelController.$render = function () {
+        originalRender();
+
+        _this.container.trumbowyg('html', _this.model);
+      };
+
+      this.disabledEventDeregisterer = this.$scope.$on(value_editor_component_1.EVENTS.disabled, function (event, _ref) {
+        var disabled = _ref.disabled;
+        return _this.container.trumbowyg(disabled ? 'disable' : 'enable');
+      });
+    }
+  }]);
+
+  return HtmlValueEditorComponentController;
+}(abstract_value_editor_1.default);
+
+exports.HtmlValueEditorComponentController = HtmlValueEditorComponentController;
+/**
+ * @ngdoc component
+ * @name htmlValueEditor
+ * @module angularjs-value-editor
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ * @requires http://jquery.com/ jQuery
+ * @requires https://alex-d.github.io/Trumbowyg/documentation/#installation Trumbowyg dependencies and plugins.
+ *
+ * @description
+ * Value editor for formatted text input.
+ *
+ * Component uses <a href="https://alex-d.github.io/Trumbowyg/documentation/#basic-options">Trumbowyg editor</a>,
+ * because it is lightweight, (almost) libraries agnostic with possibility to be, in near future, jQuery less.
+ *
+ * It is required to attach also table and colors plugins - more info how to do it can be find in Trumbowyg site.
+ * For attaching SVGs via webpack use this configuration:
+ * ```javascript
+ *      $.trumbowyg.svgPath = require('trumbowyg/dist/ui/icons.svg');
+ * ```
+ *
+ * Supported options: {@link type:HtmlValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="htmlValueEditorExample" module="htmlValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/ui/trumbowyg.min.css">
+ *         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/colors/ui/trumbowyg.colors.min.css">
+ *         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/ui/trumbowyg.table.min.css">
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/trumbowyg.min.js"></script>
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/colors/trumbowyg.colors.min.js"></script>
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/trumbowyg.table.min.js"></script>
+ *         <main>
+ *             <em>Example probably doesn't work, because jQuery is need to be load before angular. You can use >>Edit in Plunker<< button and prepend jQuery script tag before angular.</em>
+ *             <em>Hmmm... It isn't all yet. You must load SVG icons, but plunker doesn't allow CORS requests. No help...</em>
+ *              <kp-value-editor type="'html'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('htmlValueEditorExample', ['angularjs-value-editor']);
+ *         $(document).ready(() => {
+ *             $.trumbowyg.svgPath = 'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/ui/icons.svg';
+ *         });
+ *     </file>
+ * </example>
+ */
+
+var HtmlValueEditorComponent = function HtmlValueEditorComponent() {
+  _classCallCheck(this, HtmlValueEditorComponent);
+
+  this.require = {
+    ngModelController: 'ngModel',
+    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+  };
+  this.templateUrl = __webpack_require__(22);
+  this.controller = HtmlValueEditorComponentController;
+};
+
+HtmlValueEditorComponent.componentName = 'htmlValueEditor';
+exports.default = HtmlValueEditorComponent;
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+var path = '/value-editor/editors/html/html.value-editor.tpl.pug';
+var html = "<textarea ng-attr-id=\"{{$ctrl.valueEditorController.editorId}}\" ng-attr-name=\"{{$ctrl.valueEditorController.name}}\" ng-attr-placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-ref=\"$ctrl.container\" ng-class=\"$ctrl.options.cssClasses\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-required=\"$ctrl.valueEditorController.validations.required\" data-main-input=\"data-main-input\"></textarea>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 

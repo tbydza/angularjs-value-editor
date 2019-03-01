@@ -25,6 +25,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/component/hiddenValueEditor"
               },
               {
+                "name": "htmlValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor/component/htmlValueEditor"
+              },
+              {
                 "name": "kpValueEditor",
                 "type": "component",
                 "href": "api/angularjs-value-editor/component/kpValueEditor"
@@ -50,6 +55,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "BooleanValueEditorOptions",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/BooleanValueEditorOptions"
+              },
+              {
+                "name": "HtmlValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/HtmlValueEditorOptions"
               },
               {
                 "name": "NumberValueEditorOptions",

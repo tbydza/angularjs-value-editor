@@ -73,7 +73,7 @@
  *
  * Supported options: {@link type:ValueEditorOptions}
  *
- * Supported validations: {@link type:ValueEditorValidations}
+ * Supported validations: None
  *
  * @example
  * <example name="hiddenValueEditorExample" module="hiddenValueEditorExample" frame-no-resize="true">
@@ -87,7 +87,99 @@
  *         angular.module('hiddenValueEditorExample', ['angularjs-value-editor']);
  *     </file>
  * </example>
- *//**
+ *//*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name htmlValueEditor
+ * @module angularjs-value-editor
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ * @requires http://jquery.com/ jQuery
+ * @requires https://alex-d.github.io/Trumbowyg/documentation/#installation Trumbowyg dependencies and plugins.
+ *
+ * @description
+ * Value editor for formatted text input.
+ *
+ * Component uses <a href="https://alex-d.github.io/Trumbowyg/documentation/#basic-options">Trumbowyg editor</a>,
+ * because it is lightweight, (almost) libraries agnostic with possibility to be, in near future, jQuery less.
+ *
+ * It is required to attach also table and colors plugins - more info how to do it can be find in Trumbowyg site.
+ * For attaching SVGs via webpack use this configuration:
+ * ```javascript
+ *      $.trumbowyg.svgPath = require('trumbowyg/dist/ui/icons.svg');
+ * ```
+ *
+ * Supported options: {@link type:HtmlValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="htmlValueEditorExample" module="htmlValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/ui/trumbowyg.min.css">
+ *         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/colors/ui/trumbowyg.colors.min.css">
+ *         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/ui/trumbowyg.table.min.css">
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/trumbowyg.min.js"></script>
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/colors/trumbowyg.colors.min.js"></script>
+ *         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/plugins/table/trumbowyg.table.min.js"></script>
+ *         <main>
+ *             <em>Example probably doesn't work, because jQuery is need to be load before angular. You can use >>Edit in Plunker<< button and prepend jQuery script tag before angular.</em>
+ *             <em>Hmmm... It isn't all yet. You must load SVG icons, but plunker doesn't allow CORS requests. No help...</em>
+ *              <kp-value-editor type="'html'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('htmlValueEditorExample', ['angularjs-value-editor']);
+ *         $(document).ready(() => {
+ *             $.trumbowyg.svgPath = 'https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.14.0/ui/icons.svg';
+ *         });
+ *     </file>
+ * </example>
+ */
+/**
+ * @ngdoc type
+ * @name HtmlValueEditorOptions
+ * @module angularjs-value-editor
+ *
+ * @property editorOptions <a href="https://alex-d.github.io/Trumbowyg/documentation/#basic-options">Trumbowyg options</a>
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ * Default value:
+ *
+ * ```javascript
+ * {
+ *      editorOptions: {
+ *          btns: [
+ *              ['formatting'],
+ *              ['bold', 'italic', 'underline', 'del', 'removeformat'],
+ *              ['superscript', 'subscript'],
+ *              ['foreColor', 'backColor'],
+ *              ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+ *              ['unorderedList', 'orderedList'],
+ *              ['table'],
+ *              ['link', 'insertImage'],
+ *              ['fullscreen', 'viewHTML']
+ *          ]
+ *      }
+ *  }
+ * ```
+ *//* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* tslint:disable-next-line:no-namespace*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*/
+/* noinspection JSUnusedLocalSymbols*//**
  * Connects outer required ngModel with inner ngModel
  *//*@ngInject*/
 /**/
