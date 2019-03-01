@@ -7,6 +7,7 @@ module.exports = (config) => {
         frameworks: ['jasmine'],
 
         files: [
+            path.resolve(__dirname, '..', 'node_modules', 'jquery', 'dist', 'jquery.js'),
             path.resolve(__dirname, '..', 'node_modules', 'angular', 'angular.js'),
             path.resolve(__dirname, '..', 'node_modules', 'angular-mocks', 'angular-mocks.js'),
             './src/**/*.spec.ts'
@@ -61,7 +62,7 @@ module.exports = (config) => {
                 global: {
                     statements: 90,
                     lines: 90,
-                    branches: 90,
+                    branches: 80,
                     functions: 90
                 }
             }
