@@ -40,7 +40,9 @@ export class HtmlValueEditorComponentController extends AbstractValueEditor<stri
 
     public $onDestroy(): void {
         this.container.trumbowyg('destroy');
-        this.disabledEventDeregisterer();
+        if (this.disabledEventDeregisterer) {
+            this.disabledEventDeregisterer();
+        }
         this.container.off('tbwchange tbwpaste');
     }
 
@@ -49,7 +51,9 @@ export class HtmlValueEditorComponentController extends AbstractValueEditor<stri
     }
 
     private initTrumbowyg() {
-        this.container.trumbowyg(this.options.editorOptions);
+        const options = {...this.options.editorOptions, disabled: this.valueEditorController.disabled};
+
+        this.container.trumbowyg(options);
 
         this.container.on('tbwchange tbwpaste', () => this.container.triggerHandler('input'));
 
