@@ -20,6 +20,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/component/booleanValueEditor"
               },
               {
+                "name": "dateValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor/component/dateValueEditor"
+              },
+              {
                 "name": "hiddenValueEditor",
                 "type": "component",
                 "href": "api/angularjs-value-editor/component/hiddenValueEditor"
@@ -57,6 +62,16 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/type/BooleanValueEditorOptions"
               },
               {
+                "name": "DateValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/DateValueEditorOptions"
+              },
+              {
+                "name": "DateValueEditorValidations",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/DateValueEditorValidations"
+              },
+              {
                 "name": "HtmlValueEditorOptions",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/HtmlValueEditorOptions"
@@ -70,6 +85,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "NumberValueEditorValidations",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/NumberValueEditorValidations"
+              },
+              {
+                "name": "TDateValueEditorGranularity",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/TDateValueEditorGranularity"
               },
               {
                 "name": "TextValueEditorOptions",

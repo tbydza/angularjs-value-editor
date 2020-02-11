@@ -59,7 +59,80 @@
  *      nullAsIndeterminate: false
  *  }
  * ```
- *//**/
+ *//*@ngInject*//*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name dateValueEditor
+ * @module angularjs-value-editor
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for date input.
+ *
+ * Supported options: {@link type:DateValueEditorOptions}
+ *
+ * Supported validations: {@link type:DateValueEditorValidations}
+ *
+ * @example
+ * <example name="dateValueEditorExample" module="dateValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'date'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         luxon.Settings.defaultLocale = luxon.DateTime.local().resolvedLocaleOpts().locale;
+ *         angular.module('dateValueEditorExample', ['angularjs-value-editor']);
+ *     </file>
+ * </example>
+ */
+/**
+ * @ngdoc type
+ * @name TDateValueEditorGranularity
+ * @module angularjs-value-editor
+ *
+ * @description
+ * Date picker maximum granularity.
+ *
+ * Possible values are: `'minute' | 'hour' | 'day' | 'month' | 'year'`.
+ */
+/**
+ * @ngdoc type
+ * @name DateValueEditorOptions
+ * @module angularjs-value-editor
+ *
+ * @property {TDateValueEditorGranularity=} maximumGranularity Set maximum date resolution.
+ * @property {string=} viewFormat How to format date in input.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ * Default value:
+ * ```javascript
+ *  {
+ *      maximumGranularity: 'day',
+ *      viewFormat: 'd.L.y'
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc type
+ * @name DateValueEditorValidations
+ * @module angularjs-value-editor
+ *
+ * @property {string=} minDate Minimum date in ISO format.
+ * @property {string=} maxDate Maximum date in ISO format.
+ *
+ * @description
+ * Extends {@link type:ValueEditorValidations}
+ *//* tslint:disable:variable-name */
+/* TODO: Write some more test, for example: Test for some settings options.*/
+/*@ngInject*//* current view type has higher granularity, e.g. I want day, but it's in year mode.*/
+/* current view type has lower granularity, e.g. I want year, but it's in day mode.*/
+/* tslint:disable-next-line:no-console*//**/
 /**
  * @ngdoc component
  * @name hiddenValueEditor
@@ -87,7 +160,7 @@
  *         angular.module('hiddenValueEditorExample', ['angularjs-value-editor']);
  *     </file>
  * </example>
- *//*@ngInject*/
+ *//*@ngInject*//*@ngInject*/
 /**/
 /**
  * @ngdoc component
@@ -168,7 +241,7 @@
  *      }
  *  }
  * ```
- *//* noinspection JSUnusedLocalSymbols*/
+ *//*@ngInject*//* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*/
@@ -243,7 +316,8 @@
  *
  * @description
  * Extends {@link type:ValueEditorValidations}
- *//* working only in Firefox*//*@ngInject*/
+ *//*@ngInject*/
+/* working only in Firefox*//*@ngInject*/
 /**
      * Get number of rows between nim and max range.
      */
@@ -324,7 +398,10 @@
  *
  * @description
  * Extends {@link type:ValueEditorValidations}
- *//**
+ *//*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//**
  * Generates random pseudo-UUID.
  */
 /* tslint:disable-next-line*//* Bindings */
