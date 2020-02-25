@@ -1,3 +1,54 @@
+acceptable-value-editor ul {
+  padding: 0;
+  margin: 0;
+}
+acceptable-value-editor ul,
+acceptable-value-editor li {
+  list-style-type: none;
+}
+acceptable-value-editor .ui-select-multiple .ui-select-search {
+  cursor: pointer;
+}
+acceptable-value-editor .av-item {
+  height: 32px;
+  line-height: 32px;
+}
+acceptable-value-editor .more-container {
+  position: relative;
+  height: auto;
+  border-top: 0;
+}
+acceptable-value-editor .more-label {
+  display: block;
+  width: 100%;
+  height: 32px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  transition: top 0.45s cubic-bezier(0.44, 0.99, 0.48, 1);
+  background-color: white;
+  z-index: 2;
+}
+acceptable-value-editor .more-checkbox {
+  position: absolute;
+  left: -9999px;
+}
+acceptable-value-editor .more-checkbox ~ ul {
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.45s cubic-bezier(0.44, 0.99, 0.48, 1);
+}
+acceptable-value-editor .more-checkbox:checked ~ ul {
+  max-height: 300px;
+}
+acceptable-value-editor .more-checkbox:checked + .more-label {
+  top: 100%;
+}
+acceptable-value-editor .with-more ul li:last-child {
+  margin-bottom: 32px;
+}
+
 text-value-editor .ace-editor {
   width: 600px;
   height: 300px;

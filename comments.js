@@ -1,11 +1,293 @@
 /**
+ * @ngdoc provider
+ * @name AbstractValueEditorLocalizationProvider
+ * @module angularjs-value-editor
+ *
+ * @abstract
+ *
+ * @description
+ * Generic provider for value editor localizations.
+ */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorLocalizationProvider#setLocalization
+     * @module angularjs-value-editor
+     *
+     * @param {string} code Message code.
+     * @param {string} message Localization message.
+     *
+     * @description
+     * Sets one localization message to given parameter.
+     */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorLocalizationProvider#setAll
+     * @module angularjs-value-editor
+     *
+     * @param {ValueEditorLocalizations} localizations
+     *
+     * @description
+     * Sets localizations at once.
+     */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorLocalizationProvider#getLocalization
+     * @module angularjs-value-editor
+     *
+     * @param {string} code Wanted localization code.
+     *
+     * @returns {string} Localization message.
+     *
+     * @description
+     * Returns specific localization message.
+     */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorLocalizationProvider#getAll
+     * @module angularjs-value-editor
+     *
+     * @returns {ValueEditorLocalizations} All messages.
+     *
+     * @description
+     * Returns all localization messages.
+     */
+/**
+ * @ngdoc type
+ * @name ValueEditorLocalizations
+ * @module angularjs-value-editor
+ *
+ * @description
+ * All value editor localizations must be object with all string typed properties.
+ *
+ * ```
+ *      interface ValueEditorLocalizations {
+ *          [key: string]: string;
+ *      }
+ * ```
+ */
+/**
+ * @ngdoc service
+ * @name AbstractValueEditorLocalizationService
+ * @module angularjs-value-editor
+ *
+ * @abstract
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationProvider}
+ *//**
  * Abstract base class for general value-editor features.
+ *
+ * @template OPTIONS
  */
 /**
      * This method is called always, when value editor options is changed with old and new options object merged with default options.
-     * @param newOptions New options.
-     * @param oldOptions Old options.
-     *//*@ngInject*/
+     * @param {OPTIONS} newOptions New options.
+     * @param {OPTIONS} oldOptions Old options.
+     * @param {OptionsChangeDetection<OPTIONS>} optionsChangeDetection Object whose keys are name of changed properties and value is boolean status of change.
+     */
+/* tslint:disable-next-line:no-unused-expression*/
+/* tslint:disable-next-line:no-unused-expression*//**
+ * @ngdoc provider
+ * @name acceptableValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * See {@link acceptableValueEditorLocalizationsService}
+ */
+/**
+ * @ngdoc service
+ * @name acceptableValueEditorLocalizationsService
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name AcceptableValueEditorLocalizations
+ * @module angularjs-value-editor.acceptable
+ *
+ * @property {string} allSelected `'All selected'`
+ *
+ * @description
+ *
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.acceptable
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * Acceptable value editor module.
+ *//*@ngInject*/
+/* TODO: Add some localizations and placeholder tests*//**
+ * @ngdoc constant
+ * @name acceptableValueEditorDefaultOptions
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * ```javascript
+ *  {
+ *      cssClasses: ['form-control'],
+ *      acceptableValues: [],
+ *      multiselectable: false,
+ *      searchable: true,
+ *      optionsTemplate: '{{$item}}',
+ *      singleSelectedValueTemplate: '{{$select.selected}}',
+ *      multiSelectedValueTemplate: '{{$item}}',
+ *      equalityComparator: angular.equals,
+ *      reorderable: false,
+ *      showFirstCount: 0,
+ *      selectedFirst: false,
+ *      sortComparator: undefined,
+ *      sortModel: false,
+ *      switchToCheckboxesThreshold: 13
+ *  }
+ * ```
+ */
+/*@ngInject*/
+/* trigger model sort by calling its setter and setting same value*/
+/**
+ * @ngdoc component
+ * @name acceptableValueEditor
+ * @module angularjs-value-editor.acceptable
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * This component is for selecting value from predefined values.
+ * It has two basic modes - single selectable and multi selectable - which are controlled by `multiselectable` option.
+ * Multi selectable mode has two visual sub-modes: select-based and checkbox-based which are controlled by `switchToCheckboxesThreshold` option.
+ *
+ * Supported options: {@link type:AcceptableValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="acceptableValueEditorExample" module="acceptableValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main ng-controller="demoController as $ctrl">
+ *              <kp-value-editor type="'acceptable'" ng-model="model" options="{
+ *                  acceptableValues: $ctrl.acceptableValues,
+ *                  multiselectable: $ctrl.multiselectable,
+ *                  optionsTemplate: $ctrl.optionsTemplate,
+ *                  singleSelectedValueTemplate: $ctrl.singleSelectedValueTemplate,
+ *                  multiSelectedValueTemplate: $ctrl.multiSelectedValueTemplate,
+ *                  searchable: $ctrl.searchable,
+ *                  reorderable: $ctrl.reorderable,
+ *                  showFirstCount: $ctrl.showFirstCount,
+ *                  selectedFirst: $ctrl.selectedFirst,
+ *                  sortModel: $ctrl.sortModel,
+ *                  switchToCheckboxesThreshold: $ctrl.switchToCheckboxesThreshold,
+ *                  sortComparator: $ctrl.sortComparator,
+ *                  equalityComparator: $ctrl.equalityComparator
+ *              }" placeholder="Select...">
+ *              </kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *              <hr>
+ *              Options:
+ *              <div>{{$ctrl.acceptableValues}}</div>
+ *              Settings:
+ *              <div>multiselectable: <input type="checkbox" ng-model="$ctrl.multiselectable"></div>
+ *              <div>optionsTemplate: <input type="text" ng-model="$ctrl.optionsTemplate"></div>
+ *              <div>singleSelectedValueTemplate: <input type="text" ng-model="$ctrl.singleSelectedValueTemplate"></div>
+ *              <div>multiSelectedValueTemplate: <input type="text" ng-model="$ctrl.multiSelectedValueTemplate"></div>
+ *              <div>searchable: <input type="checkbox" ng-model="$ctrl.searchable"></div>
+ *              <div>reorderable: <input type="checkbox" ng-model="$ctrl.reorderable"></div>
+ *              <div>showFirstCount: <input type="number" ng-model="$ctrl.showFirstCount"></div>
+ *              <div>selectedFirst: <input type="checkbox" ng-model="$ctrl.selectedFirst"></div>
+ *              <div>sortModel: <input type="checkbox" ng-model="$ctrl.sortModel"></div>
+ *              <div>switchToCheckboxesThreshold: <input type="number" ng-model="$ctrl.switchToCheckboxesThreshold"></div>
+ *              <div>sortComparator: <input type="text" ng-model="$ctrl.sortComparatorString" ng-change="$ctrl.evalComparators()"></div>
+ *              <div>equalityComparator: <input type="text" ng-model="$ctrl.equalityComparatorString" ng-change="$ctrl.evalComparators()"></div>
+ *              OPTS:
+ *              <div>{{$ctrl.multiselectable | json}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('acceptableValueEditorExample', ['angularjs-value-editor'])
+ *          .controller('demoController', ['acceptableValueEditorDefaultOptions', class {
+ *              multiselectable;
+ *              optionsTemplate;
+ *              singleSelectedValueTemplate;
+ *              multiSelectedValueTemplate;
+ *              searchable;
+ *              reorderable;
+ *              showFirstCount;
+ *              selectedFirst;
+ *              sortModel;
+ *              switchToCheckboxesThreshold;
+ *              sortComparatorString = '(e1, e2) => e1.x.localeCompare(e2.x)*-1';
+ *              equalityComparatorString = '(e1, e2) => e1.x === e2.x';
+ *
+ *              constructor(acceptableValueEditorDefaultOptions) {
+ *                  angular.merge(this, acceptableValueEditorDefaultOptions);
+ *                  this.acceptableValues = [{x: 'a'}, {x: 'b'}, {x: 'c'}, {x: 'd'}, {x: 'e'}, {x: 'f'}, {x: 'g'}, {x: 'h'}];
+ *                  this.evalComparators();
+ *              }
+ *
+ *              evalComparators() {
+ *                  let sortComparator = undefined;
+ *                  let equalityComparator = undefined;
+ *
+ *                  try {
+ *                      sortComparator = eval(this.sortComparatorString);
+ *                      equalityComparator = eval(this.equalityComparatorString);
+ *                  } catch (e) {
+ *                      console.error('Invalid syntax');
+ *                  }
+ *
+ *                  this.sortComparator = sortComparator;
+ *                  this.equalityComparator = equalityComparator;
+ *              }
+ *          }]);
+ *     </file>
+ * </example>
+ */
+/**
+ * @ngdoc type
+ * @name AcceptableValueEditorOptions
+ * @module angularjs-value-editor.acceptable
+ *
+ * @template VALUE
+ *
+ * @property {VALUE[]} acceptableValues Array of predefined values.
+ * @property {boolean} multiselectable If true, value editor will accept multiple values and init model as empty array if not.
+ * @property {string} optionsTemplate Angular template for displaying options. Current option is accessible via `$item` variable name.
+ * @property {string} singleSelectedValueTemplate Angular template for displaying selected value in single select mode. Current option is accessible via `$select.selected` variable name.
+ * @property {string} multiSelectedValueTemplate Angular template for displaying selected value in multiple select mode. Current option is accessible via `$item` variable name.
+ * @property {boolean} searchable If true, select component will have search input. Applicable only for select mode.
+ * @property {boolean} reorderable If true, multi-select component will have capability for manual ordering selected items. Applicable only for multiple select mode.
+ * @property {function(VALUE, VALUE): number} sortComparator If defined, options will be sorted using this comparator function.
+ * @property {boolean} sortModel It true, model will be sorted using `comparator`. Applicable only for multiselectable mode.
+ * @property {number} switchToCheckboxesThreshold If count of options is bigger then this threshold, value editor switches into checkbox mode. If threshold is `0`, value editor forces into checkbox mode. Applicable only for multiselectable, non-reorderable mode.
+ * @property {number} showFirstCount If count of options is bigger than this value, value editor shows only given count checkboxes and rest of options is hidden. Applicable only for multiselectable, checkbox mode.
+ * @property {boolean} selectedFirst If `true`, selected options will be moved on top of options. Applicable only for multiselectable, checkbox mode.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link acceptableValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc type
+ * @name AcceptableValueEditorValidations
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * Extends {@link type:ValueEditorValidations}
+ */
+/* tslint:disable-next-line:no-empty-interface*//**
+ * @ngdoc service
+ * @name uiSelectDecorator
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * This decorator modifies placeholder behaviour in multiselectable ui-select. In original, placeholder disappears if some values is selected,
+ * but empty space under items is confusing, so in terms of UX, it is better to leave placeholder visible always.
+ * If all items are selected, it shows `allSelected` localization from {@link AcceptableValueEditorLocalizations}
+ */
+/*@ngInject*//*@ngInject*/
 /* @ts-ignore - $$element is not typed, because it's internal API*/
 /**
  * @ngdoc component
@@ -402,15 +684,30 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*//**
+ * Make all properties required except properties of ValueEditorOptions
+ *//**
+ * Modified `angular.equals` function for support function check also.
+ *
+ * @param {any} o1
+ * @param {any} o2
+ *
+ * @returns {boolean}
+ */
+/* eslint-disable-next-line no-self-compare*/
+/* NaN === NaN*/
+/* tslint:disable-next-line:no-conditional-assignment*/
+/* || angular.isFunction(o1[key])*/
+/* &&
+                    !angular.isFunction(o2[key])*//**
  * Generates random pseudo-UUID.
  */
 /* tslint:disable-next-line*//* Bindings */
 /* Internal */
-/**/
 /*@ngInject*/
 /**
      * Manually check options update. $onChanges is not applicable, because we need deep equals, which $onChanges does not perform.
      */
+/**/
 /**
  * @ngdoc component
  * @name kpValueEditor

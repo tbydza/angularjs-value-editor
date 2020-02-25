@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-acceptableValueEditorExample</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://unpkg.com/@kpsys/angular-ui-bootstrap@2.5.5/dist/ui-bootstrap-csp.css" rel="stylesheet" type="text/css">
+  <link href="https://unpkg.com/@kpsys/angularjs-bootstrap-datetimepicker@2.1.1/dist/angularjs-bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
+  <link href="https://unpkg.com/ui-select@0.19.8/dist/select.css" rel="stylesheet" type="text/css">
+  <link href="https://kp-sys.github.io/angularjs-value-editor/angularjs-value-editor.css" rel="stylesheet" type="text/css">
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.js"></script>
+  <script src="https://unpkg.com/@kpsys/angularjs-register@1.1.4/dist/register.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2/ace.js"></script>
+  <script src="https://unpkg.com/angular-ui-ace@0.2.3/src/ui-ace.js"></script>
+  <script src="https://unpkg.com/luxon@1.22.0/build/global/luxon.min.js"></script>
+  <script src="https://unpkg.com/@kpsys/angularjs-date-parser@1.1.2/dist/angularjs-date-parser.js"></script>
+  <script src="https://unpkg.com/@kpsys/angularjs-bootstrap-datetimepicker@2.1.1/dist/angularjs-bootstrap-datetimepicker.js"></script>
+  <script src="https://unpkg.com/@kpsys/angular-ui-bootstrap@2.5.5/dist/ui-bootstrap-tpls.js"></script>
+  <script src="https://unpkg.com/angular-sanitize@1.7.9/angular-sanitize.js"></script>
+  <script src="https://unpkg.com/ui-select@0.19.8/dist/select.js"></script>
+  <script src="https://kp-sys.github.io/angularjs-value-editor/angularjs-value-editor.js"></script>
+  <script src="/bower_components/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
+  <script src="script.js"></script>
+  
+
+  
+</head>
+<body ng-app="acceptableValueEditorExample">
+  <main ng-controller="demoController as $ctrl">
+     <kp-value-editor type="'acceptable'" ng-model="model" options="{
+         acceptableValues: $ctrl.acceptableValues,
+         multiselectable: $ctrl.multiselectable,
+         optionsTemplate: $ctrl.optionsTemplate,
+         singleSelectedValueTemplate: $ctrl.singleSelectedValueTemplate,
+         multiSelectedValueTemplate: $ctrl.multiSelectedValueTemplate,
+         searchable: $ctrl.searchable,
+         reorderable: $ctrl.reorderable,
+         showFirstCount: $ctrl.showFirstCount,
+         selectedFirst: $ctrl.selectedFirst,
+         sortModel: $ctrl.sortModel,
+         switchToCheckboxesThreshold: $ctrl.switchToCheckboxesThreshold,
+         sortComparator: $ctrl.sortComparator,
+         equalityComparator: $ctrl.equalityComparator
+     }" placeholder="Select...">
+     </kp-value-editor>
+     <div>Model: {{model}}</div>
+     <hr>
+     Options:
+     <div>{{$ctrl.acceptableValues}}</div>
+     Settings:
+     <div>multiselectable: <input type="checkbox" ng-model="$ctrl.multiselectable"></div>
+     <div>optionsTemplate: <input type="text" ng-model="$ctrl.optionsTemplate"></div>
+     <div>singleSelectedValueTemplate: <input type="text" ng-model="$ctrl.singleSelectedValueTemplate"></div>
+     <div>multiSelectedValueTemplate: <input type="text" ng-model="$ctrl.multiSelectedValueTemplate"></div>
+     <div>searchable: <input type="checkbox" ng-model="$ctrl.searchable"></div>
+     <div>reorderable: <input type="checkbox" ng-model="$ctrl.reorderable"></div>
+     <div>showFirstCount: <input type="number" ng-model="$ctrl.showFirstCount"></div>
+     <div>selectedFirst: <input type="checkbox" ng-model="$ctrl.selectedFirst"></div>
+     <div>sortModel: <input type="checkbox" ng-model="$ctrl.sortModel"></div>
+     <div>switchToCheckboxesThreshold: <input type="number" ng-model="$ctrl.switchToCheckboxesThreshold"></div>
+     <div>sortComparator: <input type="text" ng-model="$ctrl.sortComparatorString" ng-change="$ctrl.evalComparators()"></div>
+     <div>equalityComparator: <input type="text" ng-model="$ctrl.equalityComparatorString" ng-change="$ctrl.evalComparators()"></div>
+     OPTS:
+     <div>{{$ctrl.multiselectable | json}}</div>
+</main>
+</body>
+</html>

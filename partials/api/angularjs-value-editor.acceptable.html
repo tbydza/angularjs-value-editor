@@ -1,0 +1,141 @@
+
+
+<h1>
+  <code>angularjs-value-editor.acceptable</code>
+</h1>
+
+<p>Acceptable value editor module.</p>
+
+
+
+<div class="component-breakdown">
+  <h2>Module Components</h2>
+  
+  <div>
+    <h3 class="component-heading" id="provider">Provider</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/provider/acceptableValueEditorLocalizationsServiceProvider">acceptableValueEditorLocalizationsServiceProvider</a></td>
+        <td><p>See <a href="api/angularjs-value-editor.acceptable/service/acceptableValueEditorLocalizationsService">acceptableValueEditorLocalizationsService</a></p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="service">Service</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/service/acceptableValueEditorLocalizationsService">acceptableValueEditorLocalizationsService</a></td>
+        <td><p>See <a href="api/angularjs-value-editor/service/AbstractValueEditorLocalizationService">AbstractValueEditorLocalizationService</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/service/uiSelectDecorator">uiSelectDecorator</a></td>
+        <td><p>This decorator modifies placeholder behaviour in multiselectable ui-select. In original, placeholder disappears if some values is selected,
+but empty space under items is confusing, so in terms of UX, it is better to leave placeholder visible always.
+If all items are selected, it shows <code>allSelected</code> localization from <a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorLocalizations">AcceptableValueEditorLocalizations</a></p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="type">Type</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorLocalizations">AcceptableValueEditorLocalizations</a></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorOptions">AcceptableValueEditorOptions</a></td>
+        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorValidations">AcceptableValueEditorValidations</a></td>
+        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorValidations">ValueEditorValidations</a></p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="constant">Constant</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/constant/acceptableValueEditorDefaultOptions">acceptableValueEditorDefaultOptions</a></td>
+        <td><pre><code class="lang-javascript">{
+    cssClasses: [&#39;form-control&#39;],
+    acceptableValues: [],
+    multiselectable: false,
+    searchable: true,
+    optionsTemplate: &#39;{{$item}}&#39;,
+    singleSelectedValueTemplate: &#39;{{$select.selected}}&#39;,
+    multiSelectedValueTemplate: &#39;{{$item}}&#39;,
+    equalityComparator: angular.equals,
+    reorderable: false,
+    showFirstCount: 0,
+    selectedFirst: false,
+    sortComparator: undefined,
+    sortModel: false,
+    switchToCheckboxesThreshold: 13
+}
+</code></pre>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="component">Component</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/component/acceptableValueEditor">acceptableValueEditor</a></td>
+        <td><p>This component is for selecting value from predefined values.
+It has two basic modes - single selectable and multi selectable - which are controlled by <code>multiselectable</code> option.
+Multi selectable mode has two visual sub-modes: select-based and checkbox-based which are controlled by <code>switchToCheckboxesThreshold</code> option.</p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+</div>
+
+
+
+
+

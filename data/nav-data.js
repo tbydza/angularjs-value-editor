@@ -52,6 +52,30 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           },
           {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor/provider",
+            "navItems": [
+              {
+                "name": "AbstractValueEditorLocalizationProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor/service",
+            "navItems": [
+              {
+                "name": "AbstractValueEditorLocalizationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor/service/AbstractValueEditorLocalizationService"
+              }
+            ]
+          },
+          {
             "name": "type",
             "type": "section",
             "href": "api/angularjs-value-editor/type",
@@ -102,6 +126,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/type/TextValueEditorValidations"
               },
               {
+                "name": "ValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/ValueEditorLocalizations"
+              },
+              {
                 "name": "ValueEditorOptions",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/ValueEditorOptions"
@@ -110,6 +139,88 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "ValueEditorValidations",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/ValueEditorValidations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.acceptable",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.acceptable",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable/component",
+            "navItems": [
+              {
+                "name": "acceptableValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.acceptable/component/acceptableValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable/constant",
+            "navItems": [
+              {
+                "name": "acceptableValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.acceptable/constant/acceptableValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable/provider",
+            "navItems": [
+              {
+                "name": "acceptableValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.acceptable/provider/acceptableValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable/service",
+            "navItems": [
+              {
+                "name": "acceptableValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.acceptable/service/acceptableValueEditorLocalizationsService"
+              },
+              {
+                "name": "uiSelectDecorator",
+                "type": "service",
+                "href": "api/angularjs-value-editor.acceptable/service/uiSelectDecorator"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable/type",
+            "navItems": [
+              {
+                "name": "AcceptableValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.acceptable/type/AcceptableValueEditorLocalizations"
+              },
+              {
+                "name": "AcceptableValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.acceptable/type/AcceptableValueEditorOptions"
+              },
+              {
+                "name": "AcceptableValueEditorValidations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.acceptable/type/AcceptableValueEditorValidations"
               }
             ]
           }
