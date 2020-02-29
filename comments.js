@@ -1,4 +1,69 @@
+/*@ngInject*/
+/*@ngInject*/
+/* try to change options via reference*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//**
+ * @ngdoc provider
+ * @name AbstractValueEditorConfigurationProvider
+ * @module angularjs-value-editor
+ *
+ * @template CONFIGURATION
+ *
+ * @description
+ * Abstract provider for configuring editors options.
+ *
+ * Generic parameter `CONFIGURATION` is current value editor options type.
+ */
 /**
+     * @ngdoc method
+     * @name AbstractValueEditorConfigurationProvider#setConfiguration
+     * @module angularjs-value-editor
+     *
+     * @param {Partial<CONFIGURATION>} configuration New value editor configuration.
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Complete new value editor configuration.
+     *
+     * @description
+     * Sets new value editor configuration.
+     */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorConfigurationProvider#getConfiguration
+     * @module angularjs-value-editor
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Current value editor options.
+     *
+     * @description
+     * Returns current value editor options.
+     */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorConfigurationProvider#getDefaults
+     * @module angularjs-value-editor
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Default value editor options.
+     *
+     * @description
+     * Returns default value editor options.
+     *
+     */
+/**
+ * @ngdoc service
+ * @name AbstractValueEditorConfigurationService
+ * @module angularjs-value-editor
+ *
+ * @abstract
+ *
+ * @description
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *//*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//**
  * @ngdoc provider
  * @name AbstractValueEditorLocalizationProvider
  * @module angularjs-value-editor
@@ -87,44 +152,38 @@
      */
 /* tslint:disable-next-line:no-unused-expression*/
 /* tslint:disable-next-line:no-unused-expression*//**
- * @ngdoc provider
- * @name acceptableValueEditorLocalizationsServiceProvider
- * @module angularjs-value-editor.acceptable
- *
- * @description
- * See {@link acceptableValueEditorLocalizationsService}
- */
-/**
- * @ngdoc service
- * @name acceptableValueEditorLocalizationsService
- * @module angularjs-value-editor.acceptable
- *
- * @description
- * See {@link AbstractValueEditorLocalizationService}
- */
-/**
  * @ngdoc type
- * @name AcceptableValueEditorLocalizations
+ * @name AcceptableValueEditorOptions
  * @module angularjs-value-editor.acceptable
  *
- * @property {string} allSelected `'All selected'`
+ * @template VALUE
+ *
+ * @property {VALUE[]} acceptableValues Array of predefined values.
+ * @property {boolean} multiselectable If true, value editor will accept multiple values and init model as empty array if not.
+ * @property {string} optionsTemplate Angular template for displaying options. Current option is accessible via `$item` variable name.
+ * @property {string} singleSelectedValueTemplate Angular template for displaying selected value in single select mode. Current option is accessible via `$select.selected` variable name.
+ * @property {string} multiSelectedValueTemplate Angular template for displaying selected value in multiple select mode. Current option is accessible via `$item` variable name.
+ * @property {boolean} searchable If true, select component will have search input. Applicable only for select mode.
+ * @property {boolean} reorderable If true, multi-select component will have capability for manual ordering selected items. Applicable only for multiple select mode.
+ * @property {function(VALUE, VALUE): number} sortComparator If defined, options will be sorted using this comparator function.
+ * @property {boolean} sortModel It true, model will be sorted using `comparator`. Applicable only for multiselectable mode.
+ * @property {number} switchToCheckboxesThreshold If count of options is bigger then this threshold, value editor switches into checkbox mode. If threshold is `0`, value editor forces into checkbox mode. Applicable only for multiselectable, non-reorderable mode.
+ * @property {number} showFirstCount If count of options is bigger than this value, value editor shows only given count checkboxes and rest of options is hidden. Applicable only for multiselectable, checkbox mode.
+ * @property {boolean} selectedFirst If `true`, selected options will be moved on top of options. Applicable only for multiselectable, checkbox mode.
  *
  * @description
+ * Extends {@link type:ValueEditorOptions}
  *
- *//**
- * @ngdoc module
- * @name angularjs-value-editor.acceptable
- * @module angularjs-value-editor.acceptable
- *
- * @description
- * Acceptable value editor module.
- *//*@ngInject*/
-/* TODO: Add some localizations and placeholder tests*//**
+ * Default value: {@link acceptableValueEditorDefaultOptions}
+ */
+/**
  * @ngdoc constant
  * @name acceptableValueEditorDefaultOptions
  * @module angularjs-value-editor.acceptable
  *
  * @description
+ * For description see {@link AcceptableValueEditorOptions}
+ *
  * ```javascript
  *  {
  *      cssClasses: ['form-control'],
@@ -144,7 +203,76 @@
  *  }
  * ```
  */
+/**
+ * @ngdoc provider
+ * @name acceptableValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link acceptableValueEditorDefaultOptions}
+ */
 /*@ngInject*/
+/**
+ * @ngdoc service
+ * @name acceptableValueEditorConfigurationService
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link acceptableValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name acceptableValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * See {@link acceptableValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name acceptableValueEditorLocalizationsService
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name AcceptableValueEditorLocalizations
+ * @module angularjs-value-editor.acceptable
+ *
+ * @property {string} allSelected
+ * @property {string} more
+ * @property {string} less
+ * @property {string} selectAll
+ * @property {string} deselectAll
+ *
+ * @description
+ * Default localizations: {@link acceptableValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name acceptableValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * ```
+ * {
+ *     allSelected: 'All selected',
+ *     more: 'More',
+ *     less: 'Less',
+ *     selectAll: 'Select all',
+ *     deselectAll: 'Deselect all'
+ * }
+ * ```
+ *//*@ngInject*/
+/* TODO: Add some localizations and placeholder tests*//*@ngInject*/
 /* trigger model sort by calling its setter and setting same value*/
 /**
  * @ngdoc component
@@ -246,31 +374,6 @@
  */
 /**
  * @ngdoc type
- * @name AcceptableValueEditorOptions
- * @module angularjs-value-editor.acceptable
- *
- * @template VALUE
- *
- * @property {VALUE[]} acceptableValues Array of predefined values.
- * @property {boolean} multiselectable If true, value editor will accept multiple values and init model as empty array if not.
- * @property {string} optionsTemplate Angular template for displaying options. Current option is accessible via `$item` variable name.
- * @property {string} singleSelectedValueTemplate Angular template for displaying selected value in single select mode. Current option is accessible via `$select.selected` variable name.
- * @property {string} multiSelectedValueTemplate Angular template for displaying selected value in multiple select mode. Current option is accessible via `$item` variable name.
- * @property {boolean} searchable If true, select component will have search input. Applicable only for select mode.
- * @property {boolean} reorderable If true, multi-select component will have capability for manual ordering selected items. Applicable only for multiple select mode.
- * @property {function(VALUE, VALUE): number} sortComparator If defined, options will be sorted using this comparator function.
- * @property {boolean} sortModel It true, model will be sorted using `comparator`. Applicable only for multiselectable mode.
- * @property {number} switchToCheckboxesThreshold If count of options is bigger then this threshold, value editor switches into checkbox mode. If threshold is `0`, value editor forces into checkbox mode. Applicable only for multiselectable, non-reorderable mode.
- * @property {number} showFirstCount If count of options is bigger than this value, value editor shows only given count checkboxes and rest of options is hidden. Applicable only for multiselectable, checkbox mode.
- * @property {boolean} selectedFirst If `true`, selected options will be moved on top of options. Applicable only for multiselectable, checkbox mode.
- *
- * @description
- * Extends {@link type:ValueEditorOptions}
- *
- * Default value: {@link acceptableValueEditorDefaultOptions}
- */
-/**
- * @ngdoc type
  * @name AcceptableValueEditorValidations
  * @module angularjs-value-editor.acceptable
  *
@@ -278,6 +381,13 @@
  * Extends {@link type:ValueEditorValidations}
  */
 /* tslint:disable-next-line:no-empty-interface*//**
+ * @ngdoc module
+ * @name angularjs-value-editor.acceptable
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * Acceptable value editor module.
+ *//**
  * @ngdoc service
  * @name uiSelectDecorator
  * @module angularjs-value-editor.acceptable
@@ -287,12 +397,74 @@
  * but empty space under items is confusing, so in terms of UX, it is better to leave placeholder visible always.
  * If all items are selected, it shows `allSelected` localization from {@link AcceptableValueEditorLocalizations}
  */
-/*@ngInject*//*@ngInject*/
+/*@ngInject*//**
+ * @ngdoc type
+ * @name TBooleanValueEditorType
+ * @module
+ *
+ * @description
+ * Possible values are: `'checkbox' | 'switch'`.
+ */
+/**
+ * @ngdoc type
+ * @name BooleanValueEditorOptions
+ * @module angularjs-value-editor.boolean
+ *
+ * @property {string} [type=checkbox] Type of display: `'checkbox'` or `'switch'`.
+ * @property [trueValue=undefined] Custom value if editor is `true`. If undefined, `true` is used.
+ * @property [falseValue=undefined] Custom value if editor is `false`. If undefined, `false` is used.
+ * @property {boolean} [nullAsIndeterminate=false] If true, `null` model value is displayed as indeterminate state.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Defaults: {@link booleanValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name booleanValueEditorDefaultOptions
+ * @module angularjs-value-editor.boolean
+ *
+ * @description
+ * For description see {@link BooleanValueEditorOptions}
+ *
+ * ```javascript
+ *  {
+ *      type: 'checkbox',
+ *      trueValue: undefined,
+ *      falseValue: undefined,
+ *      nullAsIndeterminate: false
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name booleanValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.boolean
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link booleanValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name booleanValueEditorConfigurationService
+ * @module angularjs-value-editor.boolean
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link booleanValueEditorDefaultOptions}
+ *//*@ngInject*/
 /* @ts-ignore - $$element is not typed, because it's internal API*/
 /**
  * @ngdoc component
  * @name booleanValueEditor
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.boolean
  *
  * @requires ng.type.ngModel.NgModelController
  * @requires component:kpValueEditor
@@ -318,35 +490,85 @@
  *         angular.module('booleanValueEditorExample', ['angularjs-value-editor']);
  *     </file>
  * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.boolean
+ * @module angularjs-value-editor.boolean
+ *
+ * @description
+ *
+ *//*@ngInject*//**
+ * @ngdoc type
+ * @name TDateValueEditorGranularity
+ * @module angularjs-value-editor.date
+ *
+ * @description
+ * Date picker maximum granularity.
+ *
+ * Possible values are: `'minute' | 'hour' | 'day' | 'month' | 'year'`.
  */
 /**
  * @ngdoc type
- * @name BooleanValueEditorOptions
- * @module angularjs-value-editor
+ * @name DateValueEditorOptions
+ * @module angularjs-value-editor.date
  *
- * @property {string} [type=checkbox] Type of display: `'checkbox'` or `'switch'`.
- * @property [trueValue=undefined] Custom value if editor is `true`. If undefined, `true` is used.
- * @property [falseValue=undefined] Custom value if editor is `false`. If undefined, `false` is used.
- * @property {boolean} [nullAsIndeterminate=false] If true, `null` model value is displayed as indeterminate state.
+ * @property {TDateValueEditorGranularity=} maximumGranularity Set maximum date resolution.
+ * @property {string=} viewFormat How to format date in input.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
  * Default value:
  * ```javascript
- *
  *  {
- *      type: 'checkbox',
- *      trueValue: undefined,
- *      falseValue: undefined,
- *      nullAsIndeterminate: false
+ *      maximumGranularity: 'day',
+ *      viewFormat: 'd.L.y'
  *  }
  * ```
- *//*@ngInject*//*@ngInject*/
+ */
+/**
+ * @ngdoc constant
+ * @name dateValueEditorDefaultOptions
+ * @module angularjs-value-editor.date
+ *
+ * @description
+ * For description see {@link DateValueEditorOptions}
+ *
+ * ```javascript
+ *  {
+ *      cssClasses: ['form-control'],
+ *      maximumGranularity: 'day',
+ *      viewFormat: 'd.L.y'
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name dateValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.date
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link dateValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name dateValueEditorConfigurationService
+ * @module angularjs-value-editor.date
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link dateValueEditorDefaultOptions}
+ *//*@ngInject*/
 /**/
 /**
  * @ngdoc component
  * @name dateValueEditor
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.date
  *
  * @requires ng.type.ngModel.NgModelController
  * @requires component:kpValueEditor
@@ -374,51 +596,28 @@
  */
 /**
  * @ngdoc type
- * @name TDateValueEditorGranularity
- * @module angularjs-value-editor
- *
- * @description
- * Date picker maximum granularity.
- *
- * Possible values are: `'minute' | 'hour' | 'day' | 'month' | 'year'`.
- */
-/**
- * @ngdoc type
- * @name DateValueEditorOptions
- * @module angularjs-value-editor
- *
- * @property {TDateValueEditorGranularity=} maximumGranularity Set maximum date resolution.
- * @property {string=} viewFormat How to format date in input.
- *
- * @description
- * Extends {@link type:ValueEditorOptions}
- * Default value:
- * ```javascript
- *  {
- *      maximumGranularity: 'day',
- *      viewFormat: 'd.L.y'
- *  }
- * ```
- */
-/**
- * @ngdoc type
  * @name DateValueEditorValidations
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.date
  *
  * @property {string=} minDate Minimum date in ISO format.
  * @property {string=} maxDate Maximum date in ISO format.
  *
  * @description
  * Extends {@link type:ValueEditorValidations}
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.date
+ * @module angularjs-value-editor.date
+ *
+ * @description
+ *
  *//* tslint:disable:variable-name */
 /* TODO: Write some more test, for example: Test for some settings options.*/
-/*@ngInject*//* current view type has higher granularity, e.g. I want day, but it's in year mode.*/
-/* current view type has lower granularity, e.g. I want year, but it's in day mode.*/
-/* tslint:disable-next-line:no-console*//**/
+/*@ngInject*//**/
 /**
  * @ngdoc component
  * @name hiddenValueEditor
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.hidden
  *
  * @requires ng.type.ngModel.NgModelController
  * @requires component:kpValueEditor
@@ -442,12 +641,81 @@
  *         angular.module('hiddenValueEditorExample', ['angularjs-value-editor']);
  *     </file>
  * </example>
- *//*@ngInject*//*@ngInject*/
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.hidden
+ * @module angularjs-value-editor.hidden
+ *
+ * @description
+ *
+ *//*@ngInject*//**
+ * @ngdoc type
+ * @name HtmlValueEditorOptions
+ * @module angularjs-value-editor.html-editor
+ *
+ * @property editorOptions <a href="https://alex-d.github.io/Trumbowyg/documentation/#basic-options">Trumbowyg options</a>
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Defaults: {@link htmlValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name htmlValueEditorDefaultOptions
+ * @module angularjs-value-editor.html-editor
+ *
+ * @description
+ * For description see {@link HtmlValueEditorOptions}
+ *
+ * Default value:
+ *
+ * ```javascript
+ * {
+ *      editorOptions: {
+ *          btns: [
+ *              ['formatting'],
+ *              ['bold', 'italic', 'underline', 'del', 'removeformat'],
+ *              ['superscript', 'subscript'],
+ *              ['foreColor', 'backColor'],
+ *              ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+ *              ['unorderedList', 'orderedList'],
+ *              ['table'],
+ *              ['link', 'insertImage'],
+ *              ['fullscreen', 'viewHTML']
+ *          ]
+ *      }
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name htmlValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.html-editor
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link htmlValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name htmlValueEditorConfigurationService
+ * @module angularjs-value-editor.html-editor
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link htmlValueEditorDefaultOptions}
+ *//*@ngInject*/
 /**/
 /**
  * @ngdoc component
  * @name htmlValueEditor
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.html-editor
  *
  * @requires ng.type.ngModel.NgModelController
  * @requires component:kpValueEditor
@@ -494,35 +762,13 @@
  *         });
  *     </file>
  * </example>
- */
-/**
- * @ngdoc type
- * @name HtmlValueEditorOptions
- * @module angularjs-value-editor
- *
- * @property editorOptions <a href="https://alex-d.github.io/Trumbowyg/documentation/#basic-options">Trumbowyg options</a>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.html-editor
+ * @module angularjs-value-editor.html-editor
  *
  * @description
- * Extends {@link type:ValueEditorOptions}
- * Default value:
  *
- * ```javascript
- * {
- *      editorOptions: {
- *          btns: [
- *              ['formatting'],
- *              ['bold', 'italic', 'underline', 'del', 'removeformat'],
- *              ['superscript', 'subscript'],
- *              ['foreColor', 'backColor'],
- *              ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
- *              ['unorderedList', 'orderedList'],
- *              ['table'],
- *              ['link', 'insertImage'],
- *              ['fullscreen', 'viewHTML']
- *          ]
- *      }
- *  }
- * ```
  *//*@ngInject*//* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*/
@@ -536,12 +782,65 @@
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*//**
  * Connects outer required ngModel with inner ngModel
+ *//**
+ * @ngdoc type
+ * @name NumberValueEditorOptions
+ * @module angularjs-value-editor.number
+ *
+ * @property {boolean=} decimal Allow to input decimal numbers.
+ * @property {number=} step Step
+ * @property {boolean=} hideSpinners If true, number input hide spinner buttons.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Defaults: {@link numberValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name numberValueEditorDefaultOptions
+ * @module angularjs-value-editor.number
+ *
+ * @description
+ * For description see {@link NumberValueEditorOptions}
+ *
+ * Default value:
+ * ```javascript
+ *  {
+ *      decimal: false,
+ *      step: 1,
+ *      hideSpinners: false
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name numberValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.number
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link numberValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name numberValueEditorConfigurationService
+ * @module angularjs-value-editor.number
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link numberValueEditorDefaultOptions}
  *//*@ngInject*/
 /**/
 /**
  * @ngdoc component
  * @name numberValueEditor
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.number
  *
  * @requires ng.type.ngModel.NgModelController
  * @requires component:kpValueEditor
@@ -568,26 +867,6 @@
  */
 /**
  * @ngdoc type
- * @name NumberValueEditorOptions
- * @module angularjs-value-editor
- *
- * @property {boolean=} decimal Allow to input decimal numbers.
- * @property {number=} step Step
- * @property {boolean=} hideSpinners If true, number input hide spinner buttons.
- *
- * @description
- * Extends {@link type:ValueEditorOptions}
- * Default value:
- * ```javascript
- *  {
- *      decimal: false,
- *      step: 1,
- *      hideSpinners: false
- *  }
- * ```
- */
-/**
- * @ngdoc type
  * @name NumberValueEditorValidations
  * @module angularjs-value-editor
  *
@@ -598,8 +877,83 @@
  *
  * @description
  * Extends {@link type:ValueEditorValidations}
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.number
+ * @module angularjs-value-editor.number
+ *
+ * @description
+ *
  *//*@ngInject*/
-/* working only in Firefox*//*@ngInject*/
+/* working only in Firefox*//**
+ * @ngdoc type
+ * @name TTextValueEditorType
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ * This type defines type of text editor.
+ *
+ * - `text`: Classic HTML input element.
+ * - `textarea`: Classic HTML textarea element.
+ * - `rich-textarea`: ACE editor with some syntax highlight.
+ *
+ * Possible values are: `'text' | 'textarea' | 'rich-textarea'`.
+ *
+ */
+/**
+ * @ngdoc type
+ * @name TextValueEditorOptions
+ * @module angularjs-value-editor.text
+ *
+ * @property {TTextValueEditorType} type Input type. Possible values are `text`, `textarea`, `rich-textarea`.
+ * @property {object} aceOptions Options for ACE editor. Applicable only if `type` is `'rich-textarea'`.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Defaults: {@link textValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name textValueEditorDefaultOptions
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ * For description see {@link TextValueEditorOptions}
+ *
+ * ```javascript
+ *  {
+ *      type: 'text',
+ *      aceOptions: {
+ *          useWrapMode: false,
+ *          showGutter: true
+ *      }
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name textValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link textValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name textValueEditorConfigurationService
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link textValueEditorDefaultOptions}
+ *//*@ngInject*/
 /**
      * Get number of rows between nim and max range.
      */
@@ -611,7 +965,7 @@
 /**
  * @ngdoc component
  * @name textValueEditor
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.text
  *
  * @requires ng.type.ngModel.NgModelController
  * @requires component:kpValueEditor
@@ -650,27 +1004,6 @@
  */
 /**
  * @ngdoc type
- * @name TextValueEditorOptions
- * @module angularjs-value-editor
- *
- * @property {string} type Input type. Possible values are `text`, `textarea`, `rich-textarea`.
- * @property {object} aceOptions Options for ACE editor. Applicable only if `type` is `'rich-textarea'`.
- *
- * @description
- * Extends {@link type:ValueEditorOptions}
- * Default value:
- * ```javascript
- *  {
- *      type: 'text',
- *      aceOptions: {
- *          useWrapMode: false,
- *          showGutter: true
- *      }
- *  }
- * ```
- */
-/**
- * @ngdoc type
  * @name TextValueEditorValidations
  * @module angularjs-value-editor
  *
@@ -680,6 +1013,13 @@
  *
  * @description
  * Extends {@link type:ValueEditorValidations}
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.text
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ *
  *//*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/

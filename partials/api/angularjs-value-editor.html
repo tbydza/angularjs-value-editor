@@ -19,8 +19,37 @@
       </tr>
       
       <tr>
+        <td><a href="api/angularjs-value-editor/provider/AbstractValueEditorConfigurationProvider">AbstractValueEditorConfigurationProvider</a></td>
+        <td><p>Abstract provider for configuring editors options.</p>
+</td>
+      </tr>
+      
+      <tr>
         <td><a href="api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider">AbstractValueEditorLocalizationProvider</a></td>
         <td><p>Generic provider for value editor localizations.</p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="service">Service</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor/service/AbstractValueEditorConfigurationService">AbstractValueEditorConfigurationService</a></td>
+        <td><p>See <a href="api/angularjs-value-editor/provider/AbstractValueEditorConfigurationProvider">AbstractValueEditorConfigurationProvider</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor/service/AbstractValueEditorLocalizationService">AbstractValueEditorLocalizationService</a></td>
+        <td><p>See <a href="api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider">AbstractValueEditorLocalizationProvider</a></p>
 </td>
       </tr>
       
@@ -42,75 +71,8 @@
       </tr>
       
       <tr>
-        <td><a href="api/angularjs-value-editor/type/BooleanValueEditorOptions">BooleanValueEditorOptions</a></td>
-        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a>
-Default value:
-<code>`</code>javascript</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/type/TDateValueEditorGranularity">TDateValueEditorGranularity</a></td>
-        <td><p>Date picker maximum granularity.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/type/DateValueEditorOptions">DateValueEditorOptions</a></td>
-        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a>
-Default value:</p>
-<pre><code class="lang-javascript">{
-    maximumGranularity: &#39;day&#39;,
-    viewFormat: &#39;d.L.y&#39;
-}
-</code></pre>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/type/DateValueEditorValidations">DateValueEditorValidations</a></td>
-        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorValidations">ValueEditorValidations</a></p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/type/HtmlValueEditorOptions">HtmlValueEditorOptions</a></td>
-        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a>
-Default value:</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/type/NumberValueEditorOptions">NumberValueEditorOptions</a></td>
-        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a>
-Default value:</p>
-<pre><code class="lang-javascript">{
-    decimal: false,
-    step: 1,
-    hideSpinners: false
-}
-</code></pre>
-</td>
-      </tr>
-      
-      <tr>
         <td><a href="api/angularjs-value-editor/type/NumberValueEditorValidations">NumberValueEditorValidations</a></td>
         <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorValidations">ValueEditorValidations</a></p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/type/TextValueEditorOptions">TextValueEditorOptions</a></td>
-        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a>
-Default value:</p>
-<pre><code class="lang-javascript">{
-    type: &#39;text&#39;,
-    aceOptions: {
-        useWrapMode: false,
-        showGutter: true
-    }
-}
-</code></pre>
 </td>
       </tr>
       
@@ -134,68 +96,11 @@ Default value:</p>
   </div>
   
   <div>
-    <h3 class="component-heading" id="service">Service</h3>
-    <table class="definition-table">
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/service/AbstractValueEditorLocalizationService">AbstractValueEditorLocalizationService</a></td>
-        <td><p>See <a href="api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider">AbstractValueEditorLocalizationProvider</a></p>
-</td>
-      </tr>
-      
-    </table>
-  </div>
-  
-  <div>
     <h3 class="component-heading" id="component">Component</h3>
     <table class="definition-table">
       <tr>
         <th>Name</th>
         <th>Description</th>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/component/booleanValueEditor">booleanValueEditor</a></td>
-        <td><p>Value editor for boolean input.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/component/dateValueEditor">dateValueEditor</a></td>
-        <td><p>Value editor for date input.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/component/hiddenValueEditor">hiddenValueEditor</a></td>
-        <td><p>Value editor for store any value.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/component/htmlValueEditor">htmlValueEditor</a></td>
-        <td><p>Value editor for formatted text input.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/component/numberValueEditor">numberValueEditor</a></td>
-        <td><p>Value editor for number input.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/component/textValueEditor">textValueEditor</a></td>
-        <td><p>Value editor for text input.
-Depending on type are four versions:</p>
-<ul>
-<li><code>text</code></li>
-</ul>
-</td>
       </tr>
       
       <tr>

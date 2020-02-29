@@ -12,48 +12,6 @@
   <h2>Module Components</h2>
   
   <div>
-    <h3 class="component-heading" id="provider">Provider</h3>
-    <table class="definition-table">
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor.acceptable/provider/acceptableValueEditorLocalizationsServiceProvider">acceptableValueEditorLocalizationsServiceProvider</a></td>
-        <td><p>See <a href="api/angularjs-value-editor.acceptable/service/acceptableValueEditorLocalizationsService">acceptableValueEditorLocalizationsService</a></p>
-</td>
-      </tr>
-      
-    </table>
-  </div>
-  
-  <div>
-    <h3 class="component-heading" id="service">Service</h3>
-    <table class="definition-table">
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor.acceptable/service/acceptableValueEditorLocalizationsService">acceptableValueEditorLocalizationsService</a></td>
-        <td><p>See <a href="api/angularjs-value-editor/service/AbstractValueEditorLocalizationService">AbstractValueEditorLocalizationService</a></p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor.acceptable/service/uiSelectDecorator">uiSelectDecorator</a></td>
-        <td><p>This decorator modifies placeholder behaviour in multiselectable ui-select. In original, placeholder disappears if some values is selected,
-but empty space under items is confusing, so in terms of UX, it is better to leave placeholder visible always.
-If all items are selected, it shows <code>allSelected</code> localization from <a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorLocalizations">AcceptableValueEditorLocalizations</a></p>
-</td>
-      </tr>
-      
-    </table>
-  </div>
-  
-  <div>
     <h3 class="component-heading" id="type">Type</h3>
     <table class="definition-table">
       <tr>
@@ -62,13 +20,14 @@ If all items are selected, it shows <code>allSelected</code> localization from <
       </tr>
       
       <tr>
-        <td><a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorLocalizations">AcceptableValueEditorLocalizations</a></td>
-        <td></td>
+        <td><a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorOptions">AcceptableValueEditorOptions</a></td>
+        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a></p>
+</td>
       </tr>
       
       <tr>
-        <td><a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorOptions">AcceptableValueEditorOptions</a></td>
-        <td><p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a></p>
+        <td><a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorLocalizations">AcceptableValueEditorLocalizations</a></td>
+        <td><p>Default localizations: <a href="api/angularjs-value-editor.acceptable/constant/acceptableValueEditorDefaultLocalizations">acceptableValueEditorDefaultLocalizations</a></p>
 </td>
       </tr>
       
@@ -91,23 +50,74 @@ If all items are selected, it shows <code>allSelected</code> localization from <
       
       <tr>
         <td><a href="api/angularjs-value-editor.acceptable/constant/acceptableValueEditorDefaultOptions">acceptableValueEditorDefaultOptions</a></td>
-        <td><pre><code class="lang-javascript">{
-    cssClasses: [&#39;form-control&#39;],
-    acceptableValues: [],
-    multiselectable: false,
-    searchable: true,
-    optionsTemplate: &#39;{{$item}}&#39;,
-    singleSelectedValueTemplate: &#39;{{$select.selected}}&#39;,
-    multiSelectedValueTemplate: &#39;{{$item}}&#39;,
-    equalityComparator: angular.equals,
-    reorderable: false,
-    showFirstCount: 0,
-    selectedFirst: false,
-    sortComparator: undefined,
-    sortModel: false,
-    switchToCheckboxesThreshold: 13
+        <td><p>For description see <a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorOptions">AcceptableValueEditorOptions</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/constant/acceptableValueEditorDefaultLocalizations">acceptableValueEditorDefaultLocalizations</a></td>
+        <td><pre><code>{
+    allSelected: &#39;All selected&#39;,
+    more: &#39;More&#39;,
+    less: &#39;Less&#39;,
+    selectAll: &#39;Select all&#39;,
+    deselectAll: &#39;Deselect all&#39;
 }
 </code></pre>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="provider">Provider</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/provider/acceptableValueEditorConfigurationServiceProvider">acceptableValueEditorConfigurationServiceProvider</a></td>
+        <td><p>See <a href="api/angularjs-value-editor/provider/AbstractValueEditorConfigurationProvider">AbstractValueEditorConfigurationProvider</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/provider/acceptableValueEditorLocalizationsServiceProvider">acceptableValueEditorLocalizationsServiceProvider</a></td>
+        <td><p>See <a href="api/angularjs-value-editor.acceptable/service/acceptableValueEditorLocalizationsService">acceptableValueEditorLocalizationsService</a></p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="service">Service</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/service/acceptableValueEditorConfigurationService">acceptableValueEditorConfigurationService</a></td>
+        <td><p>See <a href="api/angularjs-value-editor/provider/AbstractValueEditorConfigurationProvider">AbstractValueEditorConfigurationProvider</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/service/acceptableValueEditorLocalizationsService">acceptableValueEditorLocalizationsService</a></td>
+        <td><p>See <a href="api/angularjs-value-editor/service/AbstractValueEditorLocalizationService">AbstractValueEditorLocalizationService</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.acceptable/service/uiSelectDecorator">uiSelectDecorator</a></td>
+        <td><p>This decorator modifies placeholder behaviour in multiselectable ui-select. In original, placeholder disappears if some values is selected,
+but empty space under items is confusing, so in terms of UX, it is better to leave placeholder visible always.
+If all items are selected, it shows <code>allSelected</code> localization from <a href="api/angularjs-value-editor.acceptable/type/AcceptableValueEditorLocalizations">AcceptableValueEditorLocalizations</a></p>
 </td>
       </tr>
       
