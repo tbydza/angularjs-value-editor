@@ -564,7 +564,6 @@
  *
  * Default options: {@link dateValueEditorDefaultOptions}
  *//*@ngInject*/
-/**/
 /**
  * @ngdoc component
  * @name dateValueEditor
@@ -612,7 +611,7 @@
  * @description
  *
  *//* tslint:disable:variable-name */
-/* TODO: Write some more test, for example: Test for some settings options.*/
+/* TODO: Write some more test, for example: Test for some settings options and for min/max validations.*/
 /*@ngInject*//**/
 /**
  * @ngdoc component
@@ -868,7 +867,7 @@
 /**
  * @ngdoc type
  * @name NumberValueEditorValidations
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.number
  *
  * @property {number=} minlength Min length.
  * @property {number=} maxlength Max length.
@@ -1005,7 +1004,7 @@
 /**
  * @ngdoc type
  * @name TextValueEditorValidations
- * @module angularjs-value-editor
+ * @module angularjs-value-editor.text
  *
  * @property {number=} minlength Min length.
  * @property {number=} maxlength Max length.
@@ -1023,7 +1022,57 @@
  *//*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
-/*@ngInject*//**
+/*@ngInject*//**/
+/* console.log(retVal);*/
+/* console.log(isoDate);*/
+/* console.log(parsed);*/
+/**
+ * @ngdoc component
+ * @name yearValueEditor
+ * @module angularjs-value-editor.year
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for year input.
+ *
+ * Supported options: {@link type:YearValueEditorOptions}
+ *
+ * Supported validations: {@link type:YearValueEditorValidations}
+ *
+ * @example
+ * <example name="yearValueEditorExample" module="yearValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'year'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         luxon.Settings.defaultLocale = luxon.DateTime.local().resolvedLocaleOpts().locale;
+ *         angular.module('yearValueEditorExample', ['angularjs-value-editor']);
+ *     </file>
+ * </example>
+ */
+/**
+ * @ngdoc type
+ * @name YearValueEditorValidations
+ * @module angularjs-value-editor.year
+ *
+ * @property {number=} minDate Min year.
+ * @property {number=} maxDate Max year.
+ *
+ * @description
+ * Extends {@link type:ValueEditorValidations}
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.year
+ * @module angularjs-value-editor.year
+ *
+ * @description
+ *
+ *//*@ngInject*//**
  * Make all properties required except properties of ValueEditorOptions
  *//**
  * Modified `angular.equals` function for support function check also.
@@ -1047,7 +1096,6 @@
 /**
      * Manually check options update. $onChanges is not applicable, because we need deep equals, which $onChanges does not perform.
      */
-/**/
 /**
  * @ngdoc component
  * @name kpValueEditor
@@ -1063,7 +1111,6 @@
  * @param {boolean} visible If input is visible. <.
  * @param {ValueEditorValidations} validations ValueEditor validations. <.
  * @param {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type.
- * @param {ng.type.ngModel.NgModelController} status Status of input.
  *
  * @description
  * Generic value editor depends on type:

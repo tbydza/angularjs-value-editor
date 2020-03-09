@@ -61,16 +61,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor/type",
             "navItems": [
               {
-                "name": "NumberValueEditorValidations",
-                "type": "type",
-                "href": "api/angularjs-value-editor/type/NumberValueEditorValidations"
-              },
-              {
-                "name": "TextValueEditorValidations",
-                "type": "type",
-                "href": "api/angularjs-value-editor/type/TextValueEditorValidations"
-              },
-              {
                 "name": "ValueEditorLocalizations",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/ValueEditorLocalizations"
@@ -478,6 +468,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "NumberValueEditorOptions",
                 "type": "type",
                 "href": "api/angularjs-value-editor.number/type/NumberValueEditorOptions"
+              },
+              {
+                "name": "NumberValueEditorValidations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.number/type/NumberValueEditorValidations"
               }
             ]
           }
@@ -550,6 +545,42 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "TextValueEditorOptions",
                 "type": "type",
                 "href": "api/angularjs-value-editor.text/type/TextValueEditorOptions"
+              },
+              {
+                "name": "TextValueEditorValidations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.text/type/TextValueEditorValidations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.year",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.year",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.year/component",
+            "navItems": [
+              {
+                "name": "yearValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.year/component/yearValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.year/type",
+            "navItems": [
+              {
+                "name": "YearValueEditorValidations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.year/type/YearValueEditorValidations"
               }
             ]
           }
