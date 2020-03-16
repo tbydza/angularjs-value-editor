@@ -499,6 +499,157 @@
  *
  *//*@ngInject*//**
  * @ngdoc type
+ * @name CardNumberValueEditorAdditionalRequestParameters
+ * @module angularjs-value-editor.card-number
+ *
+ * @property {string} inputName Value editor name.
+ * @property {string} currentValue Current input value.
+ *
+ * @description
+ * Additional parameters for request function.
+ */
+/**
+ * @ngdoc type
+ * @name CardNumberValueEditorOptions
+ * @module angularjs-value-editor.card-number
+ *
+ * @property {string} inputSize Bootstrap input size.
+ * @property {Object} requestParameters Request parameters.
+ * @property {function} requestFunction Function providing generation of card number.
+ *  ```
+ *  function (requestParameters?: {}, additionalParameters?: CardNumberValueEditorAdditionalRequestParameters): PromiseLike<string>;
+ *  ```
+ *  - **requestParameters**: Parameters from {@link CardNumberValueEditorOptions}.requestParameters
+ *  - **additionalParameters**: Some {@link CardNumberValueEditorAdditionalRequestParameters additional parameters}.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Defaults: {@link cardNumberValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name cardNumberValueEditorDefaultOptions
+ * @module angularjs-value-editor.card-number
+ *
+ * @description
+ * For description see {@link CardNumberValueEditorOptions}
+ *
+ * ```javascript
+ *  {
+ *      inputSize: 'sm',
+ *      requestParameters: {},
+ *      requestFunction: (requestParameters, additionalParameters) => Promise.resolve(additionalParameters.currentValue)
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name cardNumberValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.card-number
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link cardNumberValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name cardNumberValueEditorConfigurationService
+ * @module angularjs-value-editor.card-number
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link cardNumberValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name cardNumberValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.card-number
+ *
+ * @description
+ * See {@link cardNumberValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name cardNumberValueEditorLocalizationsService
+ * @module angularjs-value-editor.card-number
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name CardNumberValueEditorLocalizations
+ * @module angularjs-value-editor.card-number
+ *
+ * @property {string} generate
+ *
+ * @description
+ * Default localizations: {@link cardNumberValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name cardNumberValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.card-number
+ *
+ * @description
+ * ```
+ * {
+ *     generate: 'Generate'
+ * }
+ * ```
+ *//*@ngInject*//*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name cardNumberValueEditor
+ * @module angularjs-value-editor.card-number
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for card-number input with possibility to generation from backend.
+ *
+ * Supported options: {@link type:CardNumberValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="cardNumberValueEditorExample" module="cardNumberValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main ng-controller="ctrl as $ctrl">
+ *              <kp-value-editor type="'card-number'" ng-model="model" options="{requestFunction: $ctrl.requestFunction}"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('cardNumberValueEditorExample', ['angularjs-value-editor'])
+ *          .controller('ctrl', class {
+ *              requestFunction() {
+ *                  return new Promise((resolve) => {
+ *                      setTimeout(() => {
+ *                          resolve('Generated')
+ *                      }, 1000);
+ *                  });
+ *              }
+ *          });
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.card-number
+ * @module angularjs-value-editor.card-number
+ *
+ * @description
+ *
+ *//**
+ * @ngdoc type
  * @name TDateValueEditorGranularity
  * @module angularjs-value-editor.date
  *

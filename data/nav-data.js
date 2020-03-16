@@ -244,6 +244,98 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.card-number",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.card-number",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.card-number/component",
+            "navItems": [
+              {
+                "name": "cardNumberValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.card-number/component/cardNumberValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.card-number/constant",
+            "navItems": [
+              {
+                "name": "cardNumberValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.card-number/constant/cardNumberValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "cardNumberValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.card-number/constant/cardNumberValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.card-number/provider",
+            "navItems": [
+              {
+                "name": "cardNumberValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.card-number/provider/cardNumberValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "cardNumberValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.card-number/provider/cardNumberValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.card-number/service",
+            "navItems": [
+              {
+                "name": "cardNumberValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.card-number/service/cardNumberValueEditorConfigurationService"
+              },
+              {
+                "name": "cardNumberValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.card-number/service/cardNumberValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.card-number/type",
+            "navItems": [
+              {
+                "name": "CardNumberValueEditorAdditionalRequestParameters",
+                "type": "type",
+                "href": "api/angularjs-value-editor.card-number/type/CardNumberValueEditorAdditionalRequestParameters"
+              },
+              {
+                "name": "CardNumberValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.card-number/type/CardNumberValueEditorLocalizations"
+              },
+              {
+                "name": "CardNumberValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.card-number/type/CardNumberValueEditorOptions"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.date",
         "type": "groups",
         "href": "api/angularjs-value-editor.date",
