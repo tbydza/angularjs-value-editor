@@ -115,13 +115,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -145,12 +149,12 @@ exports.EVENTS = Object.freeze({
   disabled: 'value-editor:disabled'
 });
 
-var ValueEditorComponentController =
-/*#__PURE__*/
-function (_ng_model_connector_) {
+var ValueEditorComponentController = /*#__PURE__*/function (_ng_model_connector_) {
   ValueEditorComponentController.$inject = ["$scope"];
 
   _inherits(ValueEditorComponentController, _ng_model_connector_);
+
+  var _super = _createSuper(ValueEditorComponentController);
 
   /*@ngInject*/
   function ValueEditorComponentController($scope) {
@@ -158,7 +162,7 @@ function (_ng_model_connector_) {
 
     _classCallCheck(this, ValueEditorComponentController);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ValueEditorComponentController).call(this));
+    _this = _super.call(this);
     _this.$scope = $scope;
     _this.visible = true;
     return _this;
@@ -273,13 +277,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -305,17 +313,17 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
  */
 
 
-var AbstractValueEditor =
-/*#__PURE__*/
-function (_ng_model_connector_) {
+var AbstractValueEditor = /*#__PURE__*/function (_ng_model_connector_) {
   _inherits(AbstractValueEditor, _ng_model_connector_);
+
+  var _super = _createSuper(AbstractValueEditor);
 
   function AbstractValueEditor($scope, configurationService) {
     var _this;
 
     _classCallCheck(this, AbstractValueEditor);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(AbstractValueEditor).call(this));
+    _this = _super.call(this);
     _this.$scope = $scope;
     _this.configurationService = configurationService;
     _this.options = angular.merge({}, _this.configurationService.getConfiguration());
@@ -365,15 +373,15 @@ function (_ng_model_connector_) {
 exports.default = AbstractValueEditor;
 AbstractValueEditor.$inject = ['$scope', 'emptyConfigurationService'];
 
-var EmptyConfigurationService =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var EmptyConfigurationService = /*#__PURE__*/function (_abstract_value_edito) {
   _inherits(EmptyConfigurationService, _abstract_value_edito);
+
+  var _super2 = _createSuper(EmptyConfigurationService);
 
   function EmptyConfigurationService() {
     _classCallCheck(this, EmptyConfigurationService);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(EmptyConfigurationService).call(this, {}));
+    return _super2.call(this, {});
   }
 
   return EmptyConfigurationService;
@@ -411,9 +419,7 @@ Object.defineProperty(exports, "__esModule", {
  * Generic parameter `CONFIGURATION` is current value editor options type.
  */
 
-var AbstractValueEditorConfigurationProvider =
-/*#__PURE__*/
-function () {
+var AbstractValueEditorConfigurationProvider = /*#__PURE__*/function () {
   function AbstractValueEditorConfigurationProvider(defaultConfiguration) {
     _classCallCheck(this, AbstractValueEditorConfigurationProvider);
 
@@ -543,9 +549,7 @@ Object.defineProperty(exports, "__esModule", {
  * Generic provider for value editor localizations.
  */
 
-var AbstractValueEditorLocalizationProvider =
-/*#__PURE__*/
-function () {
+var AbstractValueEditorLocalizationProvider = /*#__PURE__*/function () {
   function AbstractValueEditorLocalizationProvider(defaultLocalizations) {
     _classCallCheck(this, AbstractValueEditorLocalizationProvider);
 
@@ -651,9 +655,7 @@ Object.defineProperty(exports, "__esModule", {
  * Connects outer required ngModel with inner ngModel
  */
 
-var NgModelConnector =
-/*#__PURE__*/
-function () {
+var NgModelConnector = /*#__PURE__*/function () {
   function NgModelConnector() {
     _classCallCheck(this, NgModelConnector);
   }
@@ -966,9 +968,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -991,18 +997,18 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(6);
  */
 
 
-var AcceptableValueEditorLocalizationsProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var AcceptableValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
   AcceptableValueEditorLocalizationsProvider.$inject = ["acceptableValueEditorDefaultLocalizations"];
 
   _inherits(AcceptableValueEditorLocalizationsProvider, _abstract_value_edito);
+
+  var _super = _createSuper(AcceptableValueEditorLocalizationsProvider);
 
   /*@ngInject*/
   function AcceptableValueEditorLocalizationsProvider(acceptableValueEditorDefaultLocalizations) {
     _classCallCheck(this, AcceptableValueEditorLocalizationsProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AcceptableValueEditorLocalizationsProvider).call(this, acceptableValueEditorDefaultLocalizations));
+    return _super.call(this, acceptableValueEditorDefaultLocalizations);
   }
 
   return AcceptableValueEditorLocalizationsProvider;
@@ -1050,10 +1056,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function set(target, property, value, receiver) { if (typeof Reflect !== "undefined" && Reflect.set) { set = Reflect.set; } else { set = function set(target, property, value, receiver) { var base = _superPropBase(target, property); var desc; if (base) { desc = Object.getOwnPropertyDescriptor(base, property); if (desc.set) { desc.set.call(receiver, value); return true; } else if (!desc.writable) { return false; } } desc = Object.getOwnPropertyDescriptor(receiver, property); if (desc) { if (!desc.writable) { return false; } desc.value = value; Object.defineProperty(receiver, property, desc); } else { _defineProperty(receiver, property, value); } return true; }; } return set(target, property, value, receiver); }
 
 function _set(target, property, value, receiver, isStrict) { var s = set(target, property, value, receiver || target); if (!s && isStrict) { throw new Error('failed to set property'); } return value; }
@@ -1063,6 +1065,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
 
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -1084,12 +1094,12 @@ var uuid_generator_1 = __webpack_require__(5);
 
 var TEMPLATE_NAME_PREFIX = 'value-editor.acceptableValueEditor';
 
-var AcceptableValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   AcceptableValueEditorComponentController.$inject = ["$scope", "$interpolate", "$templateCache", "acceptableValueEditorLocalizationsService", "acceptableValueEditorConfigurationService"];
 
   _inherits(AcceptableValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(AcceptableValueEditorComponentController);
 
   /*@ngInject*/
   function AcceptableValueEditorComponentController($scope, $interpolate, $templateCache, acceptableValueEditorLocalizationsService, acceptableValueEditorConfigurationService) {
@@ -1097,7 +1107,7 @@ function (_abstract_value_edito) {
 
     _classCallCheck(this, AcceptableValueEditorComponentController);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(AcceptableValueEditorComponentController).call(this, $scope, acceptableValueEditorConfigurationService));
+    _this = _super.call(this, $scope, acceptableValueEditorConfigurationService);
     _this.$interpolate = $interpolate;
     _this.$templateCache = $templateCache;
     _this.acceptableValueEditorLocalizationsService = acceptableValueEditorLocalizationsService;
@@ -1434,9 +1444,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -1508,18 +1522,18 @@ exports.ACCEPTABLE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link acceptableValueEditorDefaultOptions}
  */
 
-var AcceptableValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var AcceptableValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   AcceptableValueEditorConfigurationProvider.$inject = ["acceptableValueEditorDefaultOptions"];
 
   _inherits(AcceptableValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(AcceptableValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function AcceptableValueEditorConfigurationProvider(acceptableValueEditorDefaultOptions) {
     _classCallCheck(this, AcceptableValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AcceptableValueEditorConfigurationProvider).call(this, acceptableValueEditorDefaultOptions));
+    return _super.call(this, acceptableValueEditorDefaultOptions);
   }
 
   return AcceptableValueEditorConfigurationProvider;
@@ -1567,9 +1581,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -1619,18 +1637,18 @@ exports.BOOLEAN_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link booleanValueEditorDefaultOptions}
  */
 
-var BooleanValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var BooleanValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   BooleanValueEditorConfigurationProvider.$inject = ["booleanValueEditorDefaultOptions"];
 
   _inherits(BooleanValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(BooleanValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function BooleanValueEditorConfigurationProvider(booleanValueEditorDefaultOptions) {
     _classCallCheck(this, BooleanValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BooleanValueEditorConfigurationProvider).call(this, booleanValueEditorDefaultOptions));
+    return _super.call(this, booleanValueEditorDefaultOptions);
   }
 
   return BooleanValueEditorConfigurationProvider;
@@ -1654,13 +1672,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -1678,18 +1700,18 @@ var value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(2);
 
-var BooleanValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var BooleanValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   BooleanValueEditorComponentController.$inject = ["$scope", "booleanValueEditorConfigurationService"];
 
   _inherits(BooleanValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(BooleanValueEditorComponentController);
 
   /*@ngInject*/
   function BooleanValueEditorComponentController($scope, booleanValueEditorConfigurationService) {
     _classCallCheck(this, BooleanValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BooleanValueEditorComponentController).call(this, $scope, booleanValueEditorConfigurationService));
+    return _super.call(this, $scope, booleanValueEditorConfigurationService);
   }
 
   _createClass(BooleanValueEditorComponentController, [{
@@ -1861,19 +1883,29 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__32__;
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -1893,18 +1925,18 @@ var abstract_value_editor_1 = __webpack_require__(2);
 
 var luxon_1 = __webpack_require__(9);
 
-var DateValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var DateValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   DateValueEditorComponentController.$inject = ["$scope", "dateValueEditorConfigurationService"];
 
   _inherits(DateValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(DateValueEditorComponentController);
 
   /*@ngInject*/
   function DateValueEditorComponentController($scope, dateValueEditorConfigurationService) {
     _classCallCheck(this, DateValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(DateValueEditorComponentController).call(this, $scope, dateValueEditorConfigurationService));
+    return _super.call(this, $scope, dateValueEditorConfigurationService);
   }
 
   _createClass(DateValueEditorComponentController, [{
@@ -1928,28 +1960,18 @@ function (_abstract_value_edito) {
         return;
       }
 
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+      var _iterator = _createForOfIteratorHelper(dates),
+          _step;
 
       try {
-        for (var _iterator = dates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var date = _step.value;
           date.selectable = (!minDate.isValid || minDate.startOf(view) <= date.dateTime.startOf(view)) && (!maxDate.isValid || date.dateTime.startOf(view) <= maxDate.startOf(view));
         }
       } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        _iterator.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+        _iterator.f();
       }
     }
   }, {
@@ -2039,9 +2061,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -2089,18 +2115,18 @@ exports.DATE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link dateValueEditorDefaultOptions}
  */
 
-var DateValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var DateValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   DateValueEditorConfigurationProvider.$inject = ["dateValueEditorDefaultOptions"];
 
   _inherits(DateValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(DateValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function DateValueEditorConfigurationProvider(dateValueEditorDefaultOptions) {
     _classCallCheck(this, DateValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(DateValueEditorConfigurationProvider).call(this, dateValueEditorDefaultOptions));
+    return _super.call(this, dateValueEditorDefaultOptions);
   }
 
   return DateValueEditorConfigurationProvider;
@@ -2150,9 +2176,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -2168,15 +2198,15 @@ var value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(2);
 
-var HiddenValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var HiddenValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   _inherits(HiddenValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(HiddenValueEditorComponentController);
 
   function HiddenValueEditorComponentController() {
     _classCallCheck(this, HiddenValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(HiddenValueEditorComponentController).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(HiddenValueEditorComponentController, [{
@@ -2290,13 +2320,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -2312,18 +2346,18 @@ var value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(2);
 
-var HtmlValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var HtmlValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   HtmlValueEditorComponentController.$inject = ["$scope", "htmlValueEditorConfigurationService"];
 
   _inherits(HtmlValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(HtmlValueEditorComponentController);
 
   /*@ngInject*/
   function HtmlValueEditorComponentController($scope, htmlValueEditorConfigurationService) {
     _classCallCheck(this, HtmlValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(HtmlValueEditorComponentController).call(this, $scope, htmlValueEditorConfigurationService));
+    return _super.call(this, $scope, htmlValueEditorConfigurationService);
   }
 
   _createClass(HtmlValueEditorComponentController, [{
@@ -2466,9 +2500,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -2528,18 +2566,18 @@ exports.HTML_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link htmlValueEditorDefaultOptions}
  */
 
-var HtmlValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var HtmlValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   HtmlValueEditorConfigurationProvider.$inject = ["htmlValueEditorDefaultOptions"];
 
   _inherits(HtmlValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(HtmlValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function HtmlValueEditorConfigurationProvider(htmlValueEditorDefaultOptions) {
     _classCallCheck(this, HtmlValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(HtmlValueEditorConfigurationProvider).call(this, htmlValueEditorDefaultOptions));
+    return _super.call(this, htmlValueEditorDefaultOptions);
   }
 
   return HtmlValueEditorConfigurationProvider;
@@ -2591,9 +2629,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -2611,18 +2653,18 @@ var value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(2);
 
-var NumberValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var NumberValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   NumberValueEditorComponentController.$inject = ["$scope", "numberValueEditorConfigurationService"];
 
   _inherits(NumberValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(NumberValueEditorComponentController);
 
   /*@ngInject*/
   function NumberValueEditorComponentController($scope, numberValueEditorConfigurationService) {
     _classCallCheck(this, NumberValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(NumberValueEditorComponentController).call(this, $scope, numberValueEditorConfigurationService));
+    return _super.call(this, $scope, numberValueEditorConfigurationService);
   }
 
   _createClass(NumberValueEditorComponentController, [{
@@ -2704,9 +2746,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -2755,18 +2801,18 @@ exports.NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link numberValueEditorDefaultOptions}
  */
 
-var NumberValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var NumberValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   NumberValueEditorConfigurationProvider.$inject = ["numberValueEditorDefaultOptions"];
 
   _inherits(NumberValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(NumberValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function NumberValueEditorConfigurationProvider(numberValueEditorDefaultOptions) {
     _classCallCheck(this, NumberValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(NumberValueEditorConfigurationProvider).call(this, numberValueEditorDefaultOptions));
+    return _super.call(this, numberValueEditorDefaultOptions);
   }
 
   return NumberValueEditorConfigurationProvider;
@@ -2826,9 +2872,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -2846,12 +2896,12 @@ var value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(2);
 
-var TextValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var TextValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   TextValueEditorComponentController.$inject = ["$scope", "textValueEditorConfigurationService"];
 
   _inherits(TextValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(TextValueEditorComponentController);
 
   /*@ngInject*/
   function TextValueEditorComponentController($scope, textValueEditorConfigurationService) {
@@ -2859,7 +2909,7 @@ function (_abstract_value_edito) {
 
     _classCallCheck(this, TextValueEditorComponentController);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(TextValueEditorComponentController).call(this, $scope, textValueEditorConfigurationService));
+    _this = _super.call(this, $scope, textValueEditorConfigurationService);
     _this.textValueEditorConfigurationService = textValueEditorConfigurationService;
     return _this;
   }
@@ -3019,9 +3069,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -3073,18 +3127,18 @@ exports.TEXT_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link textValueEditorDefaultOptions}
  */
 
-var TextValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var TextValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   TextValueEditorConfigurationProvider.$inject = ["textValueEditorDefaultOptions"];
 
   _inherits(TextValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(TextValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function TextValueEditorConfigurationProvider(textValueEditorDefaultOptions) {
     _classCallCheck(this, TextValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(TextValueEditorConfigurationProvider).call(this, textValueEditorDefaultOptions));
+    return _super.call(this, textValueEditorDefaultOptions);
   }
 
   return TextValueEditorConfigurationProvider;
@@ -3134,13 +3188,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -3158,15 +3216,15 @@ var abstract_value_editor_1 = __webpack_require__(2);
 
 var luxon_1 = __webpack_require__(9);
 
-var YearValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var YearValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   _inherits(YearValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(YearValueEditorComponentController);
 
   function YearValueEditorComponentController() {
     _classCallCheck(this, YearValueEditorComponentController);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(YearValueEditorComponentController).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(YearValueEditorComponentController, [{
@@ -3314,9 +3372,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -3366,18 +3428,18 @@ exports.CARD_NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link cardNumberValueEditorDefaultOptions}
  */
 
-var CardNumberValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var CardNumberValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   CardNumberValueEditorConfigurationProvider.$inject = ["cardNumberValueEditorDefaultOptions"];
 
   _inherits(CardNumberValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(CardNumberValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function CardNumberValueEditorConfigurationProvider(cardNumberValueEditorDefaultOptions) {
     _classCallCheck(this, CardNumberValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardNumberValueEditorConfigurationProvider).call(this, cardNumberValueEditorDefaultOptions));
+    return _super.call(this, cardNumberValueEditorDefaultOptions);
   }
 
   return CardNumberValueEditorConfigurationProvider;
@@ -3397,9 +3459,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -3422,18 +3488,18 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(6);
  */
 
 
-var CardNumberValueEditorLocalizationsProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var CardNumberValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
   CardNumberValueEditorLocalizationsProvider.$inject = ["cardNumberValueEditorDefaultLocalizations"];
 
   _inherits(CardNumberValueEditorLocalizationsProvider, _abstract_value_edito);
+
+  var _super = _createSuper(CardNumberValueEditorLocalizationsProvider);
 
   /*@ngInject*/
   function CardNumberValueEditorLocalizationsProvider(cardNumberValueEditorDefaultLocalizations) {
     _classCallCheck(this, CardNumberValueEditorLocalizationsProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardNumberValueEditorLocalizationsProvider).call(this, cardNumberValueEditorDefaultLocalizations));
+    return _super.call(this, cardNumberValueEditorDefaultLocalizations);
   }
 
   return CardNumberValueEditorLocalizationsProvider;
@@ -3477,9 +3543,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -3495,12 +3565,12 @@ var abstract_value_editor_1 = __webpack_require__(2);
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var CardNumberValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var CardNumberValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   CardNumberValueEditorComponentController.$inject = ["$scope", "cardNumberValueEditorConfigurationService", "cardNumberValueEditorLocalizationsService", "$timeout"];
 
   _inherits(CardNumberValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(CardNumberValueEditorComponentController);
 
   /*@ngInject*/
   function CardNumberValueEditorComponentController($scope, cardNumberValueEditorConfigurationService, cardNumberValueEditorLocalizationsService, $timeout) {
@@ -3508,7 +3578,7 @@ function (_abstract_value_edito) {
 
     _classCallCheck(this, CardNumberValueEditorComponentController);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(CardNumberValueEditorComponentController).call(this, $scope, cardNumberValueEditorConfigurationService));
+    _this = _super.call(this, $scope, cardNumberValueEditorConfigurationService);
     _this.cardNumberValueEditorLocalizationsService = cardNumberValueEditorLocalizationsService;
     _this.$timeout = $timeout;
     return _this;
@@ -3517,9 +3587,7 @@ function (_abstract_value_edito) {
   _createClass(CardNumberValueEditorComponentController, [{
     key: "generate",
     value: function () {
-      var _generate = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
+      var _generate = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var _this2 = this;
 
         var originalButtonCursor, value;
@@ -3717,13 +3785,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -3743,12 +3815,12 @@ var uuid_generator_1 = __webpack_require__(5);
 
 var TEMPLATE_NAME_PREFIX = 'value-editor.indexSelectionValueEditor';
 
-var IndexSelectionValueEditorComponentController =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var IndexSelectionValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   IndexSelectionValueEditorComponentController.$inject = ["$scope", "indexSelectionValueEditorConfigurationService", "$interpolate", "$templateCache"];
 
   _inherits(IndexSelectionValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(IndexSelectionValueEditorComponentController);
 
   /*@ngInject*/
   function IndexSelectionValueEditorComponentController($scope, indexSelectionValueEditorConfigurationService, $interpolate, $templateCache) {
@@ -3756,7 +3828,7 @@ function (_abstract_value_edito) {
 
     _classCallCheck(this, IndexSelectionValueEditorComponentController);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(IndexSelectionValueEditorComponentController).call(this, $scope, indexSelectionValueEditorConfigurationService));
+    _this = _super.call(this, $scope, indexSelectionValueEditorConfigurationService);
     _this.indexSelectionValueEditorConfigurationService = indexSelectionValueEditorConfigurationService;
     _this.$interpolate = $interpolate;
     _this.$templateCache = $templateCache;
@@ -3903,9 +3975,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -3957,18 +4033,18 @@ exports.INDEX_SELECTION_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link IndexSelectionValueEditorDefaultOptions}
  */
 
-var IndexSelectionValueEditorConfigurationProvider =
-/*#__PURE__*/
-function (_abstract_value_edito) {
+var IndexSelectionValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
   IndexSelectionValueEditorConfigurationProvider.$inject = ["indexSelectionValueEditorDefaultOptions"];
 
   _inherits(IndexSelectionValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(IndexSelectionValueEditorConfigurationProvider);
 
   /*@ngInject*/
   function IndexSelectionValueEditorConfigurationProvider(indexSelectionValueEditorDefaultOptions) {
     _classCallCheck(this, IndexSelectionValueEditorConfigurationProvider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(IndexSelectionValueEditorConfigurationProvider).call(this, indexSelectionValueEditorDefaultOptions));
+    return _super.call(this, indexSelectionValueEditorDefaultOptions);
   }
 
   return IndexSelectionValueEditorConfigurationProvider;
