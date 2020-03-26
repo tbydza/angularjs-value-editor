@@ -499,6 +499,73 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.index-selection",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.index-selection",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.index-selection/component",
+            "navItems": [
+              {
+                "name": "indexSelectionValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.index-selection/component/indexSelectionValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.index-selection/constant",
+            "navItems": [
+              {
+                "name": "indexSelectionValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.index-selection/constant/indexSelectionValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.index-selection/provider",
+            "navItems": [
+              {
+                "name": "IndexSelectionValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.index-selection/provider/IndexSelectionValueEditorConfigurationServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.index-selection/service",
+            "navItems": [
+              {
+                "name": "IndexSelectionValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.index-selection/service/IndexSelectionValueEditorConfigurationService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.index-selection/type",
+            "navItems": [
+              {
+                "name": "IndexSelectionValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.index-selection/type/IndexSelectionValueEditorOptions"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.number",
         "type": "groups",
         "href": "api/angularjs-value-editor.number",

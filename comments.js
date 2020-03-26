@@ -931,6 +931,120 @@
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*//**
+ * @ngdoc type
+ * @name IndexSelectionValueEditorOptions
+ * @module angularjs-value-editor.index-selection
+ *
+ * @template ID
+ * @template VALUE
+ *
+ * @property {VALUE[]} items Array of predefined values.
+ * @property {string} optionsTemplate Angular template for displaying options. Current option is accessible via `$item` variable name.
+ * @property {function(ID, VALUE): boolean} equalityComparator If defined, options will compared with this comparator. It is comparing model and selecting item.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link indexSelectionValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name indexSelectionValueEditorDefaultOptions
+ * @module angularjs-value-editor.index-selection
+ *
+ * @description
+ * For description see {@link IndexSelectionValueEditorOptions}
+ *
+ * ```javascript
+ *  {
+ *      items: [],
+ *      optionsTemplate: '{{$item}}',
+ *      equalityComparator: (model, item) => angular.equals(Array.isArray(model) ? model[0] : model, item.id)
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name IndexSelectionValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.index-selection
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link IndexSelectionValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name IndexSelectionValueEditorConfigurationService
+ * @module angularjs-value-editor.index-selection
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link IndexSelectionValueEditorDefaultOptions}
+ *//*@ngInject*/
+/* normalize model*/
+/**
+ * @ngdoc component
+ * @name indexSelectionValueEditor
+ * @module angularjs-value-editor.index-selection
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for index select.
+ *
+ * From some unknown reason, model is array.
+ *
+ * Supported options: {@link type:ValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="indexSelectionValueEditorExample" module="indexSelectionValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main ng-controller="demoController as dc">
+ *              <kp-value-editor type="'index-selection'" ng-model="model" options="{items: dc.items, optionsTemplate: '{{$item.text}}'}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('indexSelectionValueEditorExample', ['angularjs-value-editor'])
+ *         .controller('demoController', class {
+ *              items = [
+ *                {
+ *                    id: 1,
+ *                    text: 'one'
+ *                },
+ *                {
+ *                    id: 2,
+ *                    text: 'two'
+ *                },
+ *                {
+ *                    id: 3,
+ *                    text: 'three'
+ *                },
+ *                {
+ *                    id: 4,
+ *                    text: 'four'
+ *                }
+ *            ];
+ *         });
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.index-selection
+ * @module angularjs-value-editor.index-selection
+ *
+ * @description
+ *
+ *//*@ngInject*/
+/* @ts-ignore*//**
  * Connects outer required ngModel with inner ngModel
  *//**
  * @ngdoc type
