@@ -1,0 +1,89 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">AutocompleteValueEditorOptions</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - type in module <a href="api/angularjs-value-editor.autocomplete">angularjs-value-editor.autocomplete</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a></p>
+<p>Default value: <a href="api/angularjs-value-editor.autocomplete/constant/autocompleteValueEditorDefaultOptions">autocompleteValueEditorDefaultOptions</a></p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+
+  
+<h2>Properties</h2>
+<ul class="properties">
+  <li id="dataSource">
+    <h3 class="">
+      <span class="title"><code>dataSource</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">Promise&lt;string[]&gt; function(AutocompleteRequestParams): Promise.&lt;Array.&lt;string&gt;&gt;</a></span></td>
+    <td><pre><code>&lt;PARAMS extends AutocompleteRequestParams&gt; function(params?: PARAMS): Promise&lt;string[]&gt;
+</code></pre>
+<p>Function, which makes request and returns string array of values for autocomplete.</p>
+<p>Params are <a href="api/angularjs-value-editor.autocomplete/type/AutocompleteRequestParams">AutocompleteRequestParams</a> merged with <code>staticParams</code> from options.</p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="staticParams">
+    <h3 class="">
+      <span class="title"><code>staticParams</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-object"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" _target="blank">Object</a></span></td>
+    <td><p>Any static params, which are passed to <code>dataSource</code> function.</p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="minLength">
+    <h3 class="">
+      <span class="title"><code>minLength</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-string"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" _target="blank">String</a></span></td>
+    <td><p>Pull down popup input string length threshold.</p>
+</td>
+  </tr>
+</table>
+  </li>
+  </ul>
+
+  
+</div>
+
+

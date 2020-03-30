@@ -1,0 +1,92 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">autocompleteValueEditor</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - component in module <a href="api/angularjs-value-editor.autocomplete">angularjs-value-editor.autocomplete</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Value editor for autocompletion input.</p>
+<p>Supported options: <a href="api/angularjs-value-editor.autocomplete/type/AutocompleteValueEditorOptions">AutocompleteValueEditorOptions</a></p>
+<p>Supported validations: <a href="api/angularjs-value-editor/type/ValueEditorValidations">ValueEditorValidations</a></p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+  <h2 id="dependencies">Dependencies</h2>
+  <ul>
+    <li><a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController" _target="blank">ngModel.NgModelController</a></li><li><a href="api/angularjs-value-editor/component/kpValueEditor">kpValueEditor</a></li>
+  </ul>
+  
+
+  
+  
+  <h2 id="usage">Usage</h2>
+  <div class="usage">
+  
+
+  
+  <pre><code>&lt;autocomplete-value-editor&gt;&#10;&lt;/autocomplete-value-editor&gt;</code></pre>
+  </div>
+  
+  
+  
+
+
+  
+  <h2 id="example">Example</h2><p>
+
+<plnkr-opener example-path="examples/example-autocompleteValueEditorExample"></plnkr-opener>
+<div class="runnable-example"
+    path="examples/example-autocompleteValueEditorExample"
+    frame-id="example-autocompleteValueEditorExample"
+    name="autocompleteValueEditorExample"
+    module="autocompleteValueEditorExample"
+    frame-no-resize="true">
+
+  <md-content>
+    <md-tabs md-dynamic-height="false" md-border-bottom>
+    
+      <md-tab label="index.html">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="index.html"language="html"type="html">
+          <pre><code>&lt;main ng-controller=&quot;demoController as dc&quot;&gt;&#10;     &lt;kp-value-editor type=&quot;&#39;autocomplete&#39;&quot; ng-model=&quot;model&quot; options=&quot;{dataSource: dc.dataSource}&quot;&gt;&lt;/kp-value-editor&gt;&#10;     &lt;div&gt;Model: {{model}}&lt;/div&gt;&#10;&lt;/main&gt;</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+      <md-tab label="script.js">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="script.js"language="js"type="js">
+          <pre><code>angular.module(&#39;autocompleteValueEditorExample&#39;, [&#39;angularjs-value-editor&#39;])&#10;.controller(&#39;demoController&#39;, [&#39;$timeout&#39;, class {&#10;&#10;constructor($timeout) {&#10;    this.$timeout = $timeout;&#10;}&#10;&#10;items = [&#10;       &#39;one&#39;,&#10;       &#39;two&#39;,&#10;       &#39;three&#39;,&#10;       &#39;four&#39;&#10;   ];&#10;&#10;   dataSource = () =&gt; new Promise((resolve) =&gt; this.$timeout(resolve(this.items), 1000));&#10;}]);</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+    </md-tabs>
+  </md-content>
+  <iframe class="runnable-example-frame" src="examples/example-autocompleteValueEditorExample/index.html" name="example-autocompleteValueEditorExample" id="example-autocompleteValueEditorExample"></iframe>
+</div>
+
+
+
+</p>
+
+</div>
+
+

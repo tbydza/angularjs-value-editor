@@ -836,9 +836,25 @@ var card_number_value_editor_module_1 = __webpack_require__(58);
 
 var index_selection_value_editor_module_1 = __webpack_require__(63);
 
+var autocomplete_value_editor_module_1 = __webpack_require__(67);
+
 var value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(2);
+/**
+ * @ngdoc constant
+ * @name loadingSpinnerTemplateUrl
+ * @module angularjs-value-editor
+ *
+ * @description
+ * AngularJS template url with SVG spinner.
+ *
+ * It can be used for waiting for async operations, etc...
+ */
+// tslint:disable-next-line:no-var-requires
+
+
+var LOADING_SPINNER_TPL_URL = __webpack_require__(72);
 /**
  * @ngdoc module
  * @name angularjs-value-editor
@@ -846,7 +862,7 @@ var abstract_value_editor_1 = __webpack_require__(2);
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default]).service(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).component(value_editor_component_1.default.componentName, value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default, autocomplete_value_editor_module_1.default]).constant('loadingSpinnerTemplateUrl', LOADING_SPINNER_TPL_URL).service(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).component(value_editor_component_1.default.componentName, value_editor_component_1.default).name();
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController
@@ -1402,7 +1418,7 @@ AcceptableValueEditorComponent.componentName = 'acceptableValueEditor';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/value-editor.tpl.pug';
-var html = "<div ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor><date-value-editor ng-switch-when=\"date\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></date-value-editor><acceptable-value-editor ng-switch-when=\"acceptable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-value-editor><year-value-editor ng-switch-when=\"year\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></year-value-editor><card-number-value-editor ng-switch-when=\"card-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></card-number-value-editor><index-selection-value-editor ng-switch-when=\"index-selection\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></index-selection-value-editor></div>";
+var html = "<div ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor><date-value-editor ng-switch-when=\"date\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></date-value-editor><acceptable-value-editor ng-switch-when=\"acceptable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-value-editor><year-value-editor ng-switch-when=\"year\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></year-value-editor><card-number-value-editor ng-switch-when=\"card-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></card-number-value-editor><index-selection-value-editor ng-switch-when=\"index-selection\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></index-selection-value-editor><autocomplete-value-editor ng-switch-when=\"autocomplete\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></autocomplete-value-editor></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -3768,7 +3784,7 @@ var index_selection_value_editor_configuration_provider_1 = __webpack_require__(
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor.year').constant('indexSelectionValueEditorDefaultOptions', index_selection_value_editor_configuration_provider_1.INDEX_SELECTION_VALUE_EDITOR_DEFAULT_OPTIONS).provider(index_selection_value_editor_configuration_provider_1.default.providerName, index_selection_value_editor_configuration_provider_1.default).component(index_selection_value_editor_component_1.default.componentName, index_selection_value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor.index-selection').constant('indexSelectionValueEditorDefaultOptions', index_selection_value_editor_configuration_provider_1.INDEX_SELECTION_VALUE_EDITOR_DEFAULT_OPTIONS).provider(index_selection_value_editor_configuration_provider_1.default.providerName, index_selection_value_editor_configuration_provider_1.default).component(index_selection_value_editor_component_1.default.componentName, index_selection_value_editor_component_1.default).name();
 
 /***/ }),
 /* 64 */
@@ -4023,14 +4039,14 @@ exports.INDEX_SELECTION_VALUE_EDITOR_DEFAULT_OPTIONS = {
 };
 /**
  * @ngdoc provider
- * @name IndexSelectionValueEditorConfigurationServiceProvider
+ * @name indexSelectionValueEditorConfigurationServiceProvider
  * @module angularjs-value-editor.index-selection
  *
  * @description
  *
  * See {@link AbstractValueEditorConfigurationProvider}
  *
- * Default options: {@link IndexSelectionValueEditorDefaultOptions}
+ * Default options: {@link indexSelectionValueEditorDefaultOptions}
  */
 
 var IndexSelectionValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
@@ -4052,6 +4068,458 @@ var IndexSelectionValueEditorConfigurationProvider = /*#__PURE__*/function (_abs
 
 exports.default = IndexSelectionValueEditorConfigurationProvider;
 IndexSelectionValueEditorConfigurationProvider.providerName = 'indexSelectionValueEditorConfigurationService';
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(68);
+
+var angularjs_register_1 = __webpack_require__(0);
+
+var autocomplete_value_editor_component_1 = __webpack_require__(69);
+
+var autocomplete_value_editor_configuration_provider_1 = __webpack_require__(71);
+/**
+ * @ngdoc module
+ * @name angularjs-value-editor.autocomplete
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ *
+ */
+
+
+exports.default = angularjs_register_1.default('angularjs-value-editor.autocomplete').constant('autocompleteValueEditorDefaultOptions', autocomplete_value_editor_configuration_provider_1.AUTOCOMPLETE_VALUE_EDITOR_DEFAULT_OPTIONS).provider(autocomplete_value_editor_configuration_provider_1.default.providerName, autocomplete_value_editor_configuration_provider_1.default).component(autocomplete_value_editor_component_1.default.componentName, autocomplete_value_editor_component_1.default).name();
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var value_editor_component_1 = __webpack_require__(1);
+
+var abstract_value_editor_1 = __webpack_require__(2);
+
+var angular = __webpack_require__(4);
+
+var AutocompleteValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
+  AutocompleteValueEditorComponentController.$inject = ["$scope", "autocompleteValueEditorConfigurationService", "loadingSpinnerTemplateUrl", "$log", "$timeout", "$element"];
+
+  _inherits(AutocompleteValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(AutocompleteValueEditorComponentController);
+
+  /*@ngInject*/
+  function AutocompleteValueEditorComponentController($scope, autocompleteValueEditorConfigurationService, loadingSpinnerTemplateUrl, $log, $timeout, $element) {
+    var _this;
+
+    _classCallCheck(this, AutocompleteValueEditorComponentController);
+
+    _this = _super.call(this, $scope, autocompleteValueEditorConfigurationService);
+    _this.autocompleteValueEditorConfigurationService = autocompleteValueEditorConfigurationService;
+    _this.loadingSpinnerTemplateUrl = loadingSpinnerTemplateUrl;
+    _this.$log = $log;
+    _this.$timeout = $timeout;
+    _this.$element = $element;
+    _this.items = [];
+    return _this;
+  }
+
+  _createClass(AutocompleteValueEditorComponentController, [{
+    key: "$postLink",
+    value: function $postLink() {
+      _get(_getPrototypeOf(AutocompleteValueEditorComponentController.prototype), "$postLink", this).call(this);
+
+      var inputElement = this.$element[0].querySelector('input');
+      this.inputNgModelController = angular.element(inputElement).controller('ngModel');
+    }
+  }, {
+    key: "fetchItemsIfNeed",
+    value: function () {
+      var _fetchItemsIfNeed = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(this.items === null || Array.isArray(this.items) && this.items.length === 0)) {
+                  _context.next = 12;
+                  break;
+                }
+
+                _context.prev = 1;
+                _context.next = 4;
+                return this.fetchItems();
+
+              case 4:
+                this.items = _context.sent;
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](1);
+                this.$log.error('Cannot load items, error:', _context.t0);
+
+              case 10:
+                _context.next = 13;
+                break;
+
+              case 12:
+                this.asyncCall();
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[1, 7]]);
+      }));
+
+      function fetchItemsIfNeed() {
+        return _fetchItemsIfNeed.apply(this, arguments);
+      }
+
+      return fetchItemsIfNeed;
+    }()
+  }, {
+    key: "open",
+    value: function () {
+      var _open = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+        var _this2 = this;
+
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.fetchItemsIfNeed();
+
+              case 2:
+                this.minLength = 0;
+                this.asyncCall(function () {
+                  return _this2.inputNgModelController.$parsers.forEach(function (parser) {
+                    return parser(_this2.model);
+                  });
+                });
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function open() {
+        return _open.apply(this, arguments);
+      }
+
+      return open;
+    }()
+  }, {
+    key: "resetMinLength",
+    value: function resetMinLength() {
+      var _this3 = this;
+
+      this.asyncCall(function () {
+        return _this3.minLength = _this3.options.minLength;
+      });
+    }
+  }, {
+    key: "onOptionsChange",
+    value: function onOptionsChange(newOptions, oldOptions, whatChanged) {//
+    }
+  }, {
+    key: "fetchItems",
+    value: function () {
+      var _fetchItems = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+        var _this4 = this;
+
+        var items;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                this.asyncCall(function () {
+                  return _this4.loading = true;
+                });
+                _context3.prev = 1;
+                _context3.next = 4;
+                return this.options.dataSource(Object.assign({}, {
+                  query: this.model
+                }, this.options.staticParams));
+
+              case 4:
+                items = _context3.sent;
+                this.$log.debug('Loaded items: ', items);
+                _context3.next = 12;
+                break;
+
+              case 8:
+                _context3.prev = 8;
+                _context3.t0 = _context3["catch"](1);
+                this.$log.error('kp-autocomplete: Loading items failed, setting []: ', _context3.t0);
+                items = [];
+
+              case 12:
+                _context3.prev = 12;
+                this.asyncCall(function () {
+                  return _this4.loading = false;
+                });
+                return _context3.finish(12);
+
+              case 15:
+                if (!items.some(function (item) {
+                  return typeof item !== 'string';
+                })) {
+                  _context3.next = 17;
+                  break;
+                }
+
+                throw new TypeError('Loaded items are not string values.');
+
+              case 17:
+                return _context3.abrupt("return", items);
+
+              case 18:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[1, 8, 12, 15]]);
+      }));
+
+      function fetchItems() {
+        return _fetchItems.apply(this, arguments);
+      }
+
+      return fetchItems;
+    }()
+  }, {
+    key: "asyncCall",
+    value: function asyncCall(func) {
+      this.$timeout(func ? func.bind(this) : function () {
+        return void 0;
+      }, 0);
+    }
+  }]);
+
+  return AutocompleteValueEditorComponentController;
+}(abstract_value_editor_1.default);
+
+exports.AutocompleteValueEditorComponentController = AutocompleteValueEditorComponentController;
+/**
+ * @ngdoc component
+ * @name autocompleteValueEditor
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for autocompletion input.
+ *
+ * Supported options: {@link type:AutocompleteValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="autocompleteValueEditorExample" module="autocompleteValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main ng-controller="demoController as dc">
+ *              <kp-value-editor type="'autocomplete'" ng-model="model" options="{dataSource: dc.dataSource}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('autocompleteValueEditorExample', ['angularjs-value-editor'])
+ *         .controller('demoController', ['$timeout', class {
+ *
+ *         constructor($timeout) {
+ *             this.$timeout = $timeout;
+ *         }
+ *
+ *         items = [
+ *                'one',
+ *                'two',
+ *                'three',
+ *                'four'
+ *            ];
+ *
+ *            dataSource = () => new Promise((resolve) => this.$timeout(resolve(this.items), 1000));
+ *         }]);
+ *     </file>
+ * </example>
+ */
+
+var AutocompleteValueEditorComponent = function AutocompleteValueEditorComponent() {
+  _classCallCheck(this, AutocompleteValueEditorComponent);
+
+  this.require = {
+    ngModelController: 'ngModel',
+    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+  };
+  this.templateUrl = __webpack_require__(70);
+  this.controller = AutocompleteValueEditorComponentController;
+};
+
+exports.default = AutocompleteValueEditorComponent;
+AutocompleteValueEditorComponent.componentName = 'autocompleteValueEditor';
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports) {
+
+var path = '/value-editor/editors/autocomplete/autocomplete.value-editor.tpl.pug';
+var html = "<div class=\"kp-autocomplete input-group\"><input class=\"form-control\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.name}}\" placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" ng-focus=\"$ctrl.fetchItemsIfNeed()\" uib-typeahead=\"item for item in $ctrl.items | filter : $viewValue\" typeahead-is-open=\"$ctrl.isOpen\" typeahead-min-length=\"$ctrl.minLength\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" data-main-input=\"data-main-input\"/><span class=\"input-group-btn\"><button class=\"btn btn-default\" type=\"button\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-click=\"$ctrl.open()\" ng-blur=\"$ctrl.resetMinLength()\"><i class=\"glyphicon glyphicon-chevron-down\" ng-hide=\"$ctrl.loading\"></i><ng-include class=\"autocomplete-loading-svg\" src=\"$ctrl.loadingSpinnerTemplateUrl\" ng-show=\"$ctrl.loading\"></ng-include></button></span></div>";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+/**
+ * @ngdoc constant
+ * @name autocompleteValueEditorDefaultOptions
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ * For description see {@link AutocompleteValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *     minLength: 1,
+ *     dataSource: () => Promise.resolve([]),
+ *     staticParams: {}
+ * }
+ * ```
+ */
+
+
+exports.AUTOCOMPLETE_VALUE_EDITOR_DEFAULT_OPTIONS = {
+  dataSource: function dataSource() {
+    return Promise.resolve([]);
+  },
+  minLength: 1,
+  staticParams: {}
+};
+/**
+ * @ngdoc provider
+ * @name autocompleteValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link autocompleteValueEditorDefaultOptions}
+ */
+
+var AutocompleteValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AutocompleteValueEditorConfigurationProvider.$inject = ["autocompleteValueEditorDefaultOptions"];
+
+  _inherits(AutocompleteValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(AutocompleteValueEditorConfigurationProvider);
+
+  /*@ngInject*/
+  function AutocompleteValueEditorConfigurationProvider(autocompleteValueEditorDefaultOptions) {
+    _classCallCheck(this, AutocompleteValueEditorConfigurationProvider);
+
+    return _super.call(this, autocompleteValueEditorDefaultOptions);
+  }
+
+  return AutocompleteValueEditorConfigurationProvider;
+}(abstract_value_editor_configuration_provider_1.default);
+
+exports.default = AutocompleteValueEditorConfigurationProvider;
+AutocompleteValueEditorConfigurationProvider.providerName = 'autocompleteValueEditorConfigurationService';
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+var path = '/home/travis/build/kp-sys/angularjs-value-editor/src/value-editor/resources/loading-spinner.svg';
+var html = "<svg class=\"lds-spinner\" width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"20 20 60 60\" preserveAspectRatio=\"xMidYMid\">\n    <g transform=\"rotate(0 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.9230769230769231s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(27.692307692307693 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.8461538461538461s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(55.38461538461539 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.7692307692307693s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(83.07692307692308 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.6923076923076923s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(110.76923076923077 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.6153846153846154s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(138.46153846153845 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.5384615384615384s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(166.15384615384616 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.46153846153846156s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(193.84615384615384 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.38461538461538464s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(221.53846153846155 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.3076923076923077s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(249.23076923076923 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.23076923076923078s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(276.9230769230769 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.15384615384615385s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(304.61538461538464 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"-0.07692307692307693s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n    <g transform=\"rotate(332.3076923076923 50 50)\">\n        <rect x=\"47.5\" y=\"24.5\" rx=\"8.075\" ry=\"4.165\" width=\"5\" height=\"11\" fill=\"#000000\">\n            <animate attributeName=\"opacity\" values=\"1;0\" keyTimes=\"0;1\" dur=\"1s\" begin=\"0s\" repeatCount=\"indefinite\"></animate>\n        </rect>\n    </g>\n</svg>";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
 
 /***/ })
 /******/ ]);

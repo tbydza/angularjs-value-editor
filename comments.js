@@ -399,6 +399,129 @@
  */
 /*@ngInject*//**
  * @ngdoc type
+ * @name AutocompleteValueEditorOptions
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @property {function(AutocompleteRequestParams): Promise<string[]>} dataSource
+ * ```
+ * <PARAMS extends AutocompleteRequestParams> function(params?: PARAMS): Promise<string[]>
+ * ```
+ * Function, which makes request and returns string array of values for autocomplete.
+ *
+ * Params are {@link AutocompleteRequestParams} merged with `staticParams` from options.
+ *
+ * @property {object} staticParams Any static params, which are passed to `dataSource` function.
+ * @property {string} minLength Pull down popup input string length threshold.
+ *
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link autocompleteValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name autocompleteValueEditorDefaultOptions
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ * For description see {@link AutocompleteValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *     minLength: 1,
+ *     dataSource: () => Promise.resolve([]),
+ *     staticParams: {}
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name autocompleteValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link autocompleteValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name autocompleteValueEditorConfigurationService
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link autocompleteValueEditorDefaultOptions}
+ *//**
+ * @ngdoc type
+ * @name AutocompleteRequestParams
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ * ```javascript
+ * interface AutocompleteRequestParams {
+ *       query: string;
+ * }
+ * ```
+ */
+/*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name autocompleteValueEditor
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for autocompletion input.
+ *
+ * Supported options: {@link type:AutocompleteValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="autocompleteValueEditorExample" module="autocompleteValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main ng-controller="demoController as dc">
+ *              <kp-value-editor type="'autocomplete'" ng-model="model" options="{dataSource: dc.dataSource}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('autocompleteValueEditorExample', ['angularjs-value-editor'])
+ *         .controller('demoController', ['$timeout', class {
+ *
+ *         constructor($timeout) {
+ *             this.$timeout = $timeout;
+ *         }
+ *
+ *         items = [
+ *                'one',
+ *                'two',
+ *                'three',
+ *                'four'
+ *            ];
+ *
+ *            dataSource = () => new Promise((resolve) => this.$timeout(resolve(this.items), 1000));
+ *         }]);
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.autocomplete
+ * @module angularjs-value-editor.autocomplete
+ *
+ * @description
+ *
+ *//*@ngInject*//**
+ * @ngdoc type
  * @name TBooleanValueEditorType
  * @module
  *
@@ -965,26 +1088,26 @@
  */
 /**
  * @ngdoc provider
- * @name IndexSelectionValueEditorConfigurationServiceProvider
+ * @name indexSelectionValueEditorConfigurationServiceProvider
  * @module angularjs-value-editor.index-selection
  *
  * @description
  *
  * See {@link AbstractValueEditorConfigurationProvider}
  *
- * Default options: {@link IndexSelectionValueEditorDefaultOptions}
+ * Default options: {@link indexSelectionValueEditorDefaultOptions}
  */
 /*@ngInject*/
 /**
  * @ngdoc service
- * @name IndexSelectionValueEditorConfigurationService
+ * @name indexSelectionValueEditorConfigurationService
  * @module angularjs-value-editor.index-selection
  *
  * @description
  *
  * See {@link AbstractValueEditorConfigurationProvider}
  *
- * Default options: {@link IndexSelectionValueEditorDefaultOptions}
+ * Default options: {@link indexSelectionValueEditorDefaultOptions}
  *//*@ngInject*/
 /* normalize model*/
 /**
@@ -1397,6 +1520,17 @@
  *
  * @property {string[]} [cssClasses] Optional additional CSS classes
  *//**
+ * @ngdoc constant
+ * @name loadingSpinnerTemplateUrl
+ * @module angularjs-value-editor
+ *
+ * @description
+ * AngularJS template url with SVG spinner.
+ *
+ * It can be used for waiting for async operations, etc...
+ */
+/* tslint:disable-next-line:no-var-requires*/
+/**
  * @ngdoc module
  * @name angularjs-value-editor
  * @module angularjs-value-editor

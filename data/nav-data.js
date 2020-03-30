@@ -22,6 +22,18 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           },
           {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor/constant",
+            "navItems": [
+              {
+                "name": "loadingSpinnerTemplateUrl",
+                "type": "constant",
+                "href": "api/angularjs-value-editor/constant/loadingSpinnerTemplateUrl"
+              }
+            ]
+          },
+          {
             "name": "provider",
             "type": "section",
             "href": "api/angularjs-value-editor/provider",
@@ -171,6 +183,78 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "AcceptableValueEditorValidations",
                 "type": "type",
                 "href": "api/angularjs-value-editor.acceptable/type/AcceptableValueEditorValidations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.autocomplete",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.autocomplete",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.autocomplete/component",
+            "navItems": [
+              {
+                "name": "autocompleteValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.autocomplete/component/autocompleteValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.autocomplete/constant",
+            "navItems": [
+              {
+                "name": "autocompleteValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.autocomplete/constant/autocompleteValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.autocomplete/provider",
+            "navItems": [
+              {
+                "name": "autocompleteValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.autocomplete/provider/autocompleteValueEditorConfigurationServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.autocomplete/service",
+            "navItems": [
+              {
+                "name": "autocompleteValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.autocomplete/service/autocompleteValueEditorConfigurationService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.autocomplete/type",
+            "navItems": [
+              {
+                "name": "AutocompleteRequestParams",
+                "type": "type",
+                "href": "api/angularjs-value-editor.autocomplete/type/AutocompleteRequestParams"
+              },
+              {
+                "name": "AutocompleteValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.autocomplete/type/AutocompleteValueEditorOptions"
               }
             ]
           }
@@ -533,9 +617,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.index-selection/provider",
             "navItems": [
               {
-                "name": "IndexSelectionValueEditorConfigurationServiceProvider",
+                "name": "indexSelectionValueEditorConfigurationServiceProvider",
                 "type": "provider",
-                "href": "api/angularjs-value-editor.index-selection/provider/IndexSelectionValueEditorConfigurationServiceProvider"
+                "href": "api/angularjs-value-editor.index-selection/provider/indexSelectionValueEditorConfigurationServiceProvider"
               }
             ]
           },
@@ -545,9 +629,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.index-selection/service",
             "navItems": [
               {
-                "name": "IndexSelectionValueEditorConfigurationService",
+                "name": "indexSelectionValueEditorConfigurationService",
                 "type": "service",
-                "href": "api/angularjs-value-editor.index-selection/service/IndexSelectionValueEditorConfigurationService"
+                "href": "api/angularjs-value-editor.index-selection/service/indexSelectionValueEditorConfigurationService"
               }
             ]
           },
