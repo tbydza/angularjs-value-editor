@@ -1273,6 +1273,147 @@
  *
  *//*@ngInject*/
 /* working only in Firefox*//**
+ * @ngdoc directive
+ * @name kpModelEquals
+ * @module angularjs-value-editor.password
+ *
+ * @restrict A
+ *
+ * @param {string} kpModelEquals Comparing value.
+ *
+ * @description
+ * Directive add equals validator. If input value is not equal to model value, it will fails.
+ *//**
+ * @ngdoc type
+ * @name PasswordValueEditorOptions
+ * @module angularjs-value-editor.password
+ *
+ * @property {boolean} withConfirmation If `true`, it renders two inputs - main and confirmation. If models don't match, it shows implicit equals validation.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link passwordValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name passwordValueEditorDefaultOptions
+ * @module angularjs-value-editor.password
+ *
+ * @description
+ * For description see {@link PasswordValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *      withConfirmation: false
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name passwordValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.password
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link passwordValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name passwordValueEditorConfigurationService
+ * @module angularjs-value-editor.password
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link passwordValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name passwordValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.password
+ *
+ * @description
+ * See {@link passwordValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name passwordValueEditorLocalizationsService
+ * @module angularjs-value-editor.password
+ *
+ * @property {string} patternDescription Password pattern description.
+ * @property {string} confirmPassword Label above confirmation input.
+ * @property {string} noChangeIfEmpty Text next to password pattern, informing about possibility to leave both inputs blank.
+ * @property {string} helpTextsSeparator Separator between pattern and leave blank messages.
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name PasswordValueEditorLocalizations
+ * @module angularjs-value-editor.password
+ *
+ * @property {string} generate
+ *
+ * @description
+ * Default localizations: {@link passwordValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name passwordValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.password
+ *
+ * @description
+ * ```
+ * {
+ *      patternDescription: '',
+ *      confirmPassword: 'Confirm password',
+ *      noChangeIfEmpty: 'If You don\'t want to change password, leave blank.',
+ *      helpTextsSeparator: ' | '
+ * }
+ * ```
+ *//*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name passwordValueEditor
+ * @module angularjs-value-editor.password
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for password input.
+ *
+ * Supported options: {@link type:PasswordValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="passwordValueEditorExample" module="passwordValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'password'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('passwordValueEditorExample', ['angularjs-value-editor'])
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.password
+ * @module angularjs-value-editor.password
+ *
+ * @description
+ *
+ *//*@ngInject*//**
  * @ngdoc type
  * @name TTextValueEditorType
  * @module angularjs-value-editor.text

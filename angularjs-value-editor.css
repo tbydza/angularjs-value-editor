@@ -80,3 +80,10 @@ autocomplete-value-editor .autocomplete-loading-svg svg {
   top: 2px;
 }
 
+password-value-editor .with-confirmation > .form-group {
+  margin-bottom: 10px;
+}
+password-value-editor .with-confirmation .help-block {
+  margin-bottom: 0;
+}
+

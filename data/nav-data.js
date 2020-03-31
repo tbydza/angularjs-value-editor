@@ -722,6 +722,105 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.password",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.password",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.password/component",
+            "navItems": [
+              {
+                "name": "passwordValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.password/component/passwordValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.password/constant",
+            "navItems": [
+              {
+                "name": "passwordValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.password/constant/passwordValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "passwordValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.password/constant/passwordValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.password/directive",
+            "navItems": [
+              {
+                "name": "kpModelEquals",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.password/directive/kpModelEquals"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.password/provider",
+            "navItems": [
+              {
+                "name": "passwordValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.password/provider/passwordValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "passwordValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.password/provider/passwordValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.password/service",
+            "navItems": [
+              {
+                "name": "passwordValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.password/service/passwordValueEditorConfigurationService"
+              },
+              {
+                "name": "passwordValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.password/service/passwordValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.password/type",
+            "navItems": [
+              {
+                "name": "PasswordValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.password/type/PasswordValueEditorLocalizations"
+              },
+              {
+                "name": "PasswordValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.password/type/PasswordValueEditorOptions"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.text",
         "type": "groups",
         "href": "api/angularjs-value-editor.text",
