@@ -243,7 +243,8 @@ var ValueEditorComponent = function ValueEditorComponent() {
   _classCallCheck(this, ValueEditorComponent);
 
   this.require = {
-    ngModelController: 'ngModel'
+    ngModelController: 'ngModel',
+    formController: '?^^form'
   };
   this.bindings = {
     editorId: '@?',
@@ -850,6 +851,8 @@ var autocomplete_value_editor_module_1 = __webpack_require__(67);
 
 var password_value_editor_module_1 = __webpack_require__(72);
 
+var signature_value_editor_module_1 = __webpack_require__(79);
+
 var value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(2);
@@ -866,7 +869,7 @@ var abstract_value_editor_1 = __webpack_require__(2);
 // tslint:disable-next-line:no-var-requires
 
 
-var LOADING_SPINNER_TPL_URL = __webpack_require__(79);
+var LOADING_SPINNER_TPL_URL = __webpack_require__(86);
 /**
  * @ngdoc module
  * @name angularjs-value-editor
@@ -874,7 +877,7 @@ var LOADING_SPINNER_TPL_URL = __webpack_require__(79);
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default, autocomplete_value_editor_module_1.default, password_value_editor_module_1.default]).constant('loadingSpinnerTemplateUrl', LOADING_SPINNER_TPL_URL).service(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).component(value_editor_component_1.default.componentName, value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default, autocomplete_value_editor_module_1.default, password_value_editor_module_1.default, signature_value_editor_module_1.default]).constant('loadingSpinnerTemplateUrl', LOADING_SPINNER_TPL_URL).service(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).component(value_editor_component_1.default.componentName, value_editor_component_1.default).name();
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController
@@ -1430,7 +1433,7 @@ AcceptableValueEditorComponent.componentName = 'acceptableValueEditor';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/value-editor.tpl.pug';
-var html = "<div ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor><date-value-editor ng-switch-when=\"date\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></date-value-editor><acceptable-value-editor ng-switch-when=\"acceptable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-value-editor><year-value-editor ng-switch-when=\"year\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></year-value-editor><card-number-value-editor ng-switch-when=\"card-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></card-number-value-editor><index-selection-value-editor ng-switch-when=\"index-selection\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></index-selection-value-editor><autocomplete-value-editor ng-switch-when=\"autocomplete\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></autocomplete-value-editor><password-value-editor ng-switch-when=\"password\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></password-value-editor></div>";
+var html = "<div ng-switch=\"$ctrl.type\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor><date-value-editor ng-switch-when=\"date\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></date-value-editor><acceptable-value-editor ng-switch-when=\"acceptable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-value-editor><year-value-editor ng-switch-when=\"year\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></year-value-editor><card-number-value-editor ng-switch-when=\"card-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></card-number-value-editor><index-selection-value-editor ng-switch-when=\"index-selection\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></index-selection-value-editor><autocomplete-value-editor ng-switch-when=\"autocomplete\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></autocomplete-value-editor><password-value-editor ng-switch-when=\"password\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></password-value-editor><signature-value-editor ng-switch-when=\"signature\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></signature-value-editor></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -4917,6 +4920,452 @@ KpModelEqualsDirective.directiveName = 'kpModelEquals';
 
 /***/ }),
 /* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(80);
+
+var angularjs_register_1 = __webpack_require__(0);
+
+var signature_value_editor_component_1 = __webpack_require__(81);
+
+var signature_value_editor_configuration_provider_1 = __webpack_require__(84);
+
+var signature_value_editor_localization_provider_1 = __webpack_require__(85);
+/**
+ * @ngdoc module
+ * @name angularjs-value-editor.signature
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ *
+ */
+
+
+exports.default = angularjs_register_1.default('angularjs-value-editor.signature').constant('signatureValueEditorDefaultOptions', signature_value_editor_configuration_provider_1.SIGNATURE_VALUE_EDITOR_DEFAULT_OPTIONS).constant('signatureValueEditorDefaultLocalizations', signature_value_editor_localization_provider_1.SIGNATURE_VALUE_EDITOR_DEFAULT_LOCALIZATIONS).provider(signature_value_editor_configuration_provider_1.default.providerName, signature_value_editor_configuration_provider_1.default).provider(signature_value_editor_localization_provider_1.default.providerName, signature_value_editor_localization_provider_1.default).component(signature_value_editor_component_1.default.componentName, signature_value_editor_component_1.default).name();
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var value_editor_component_1 = __webpack_require__(1);
+
+var abstract_value_editor_1 = __webpack_require__(2);
+
+var forms_1 = __webpack_require__(82);
+
+var SignatureValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
+  SignatureValueEditorComponentController.$inject = ["$scope", "signatureValueEditorConfigurationService", "signatureValueEditorLocalizationsService", "$injector", "$timeout", "$log"];
+
+  _inherits(SignatureValueEditorComponentController, _abstract_value_edito);
+
+  var _super = _createSuper(SignatureValueEditorComponentController);
+
+  /*@ngInject*/
+  function SignatureValueEditorComponentController($scope, signatureValueEditorConfigurationService, signatureValueEditorLocalizationsService, $injector, $timeout, $log) {
+    var _this;
+
+    _classCallCheck(this, SignatureValueEditorComponentController);
+
+    _this = _super.call(this, $scope, signatureValueEditorConfigurationService, signatureValueEditorLocalizationsService);
+    _this.$injector = $injector;
+    _this.$timeout = $timeout;
+    _this.$log = $log;
+    _this.items = [];
+    return _this;
+  }
+
+  _createClass(SignatureValueEditorComponentController, [{
+    key: "$onInit",
+    value: function $onInit() {
+      _get(_getPrototypeOf(SignatureValueEditorComponentController.prototype), "$onInit", this).call(this);
+
+      if (this.options.canDoAction) {
+        this.loadItems();
+      }
+    }
+  }, {
+    key: "onOptionsChange",
+    value: function onOptionsChange(newOptions, oldOptions, whatChanged) {
+      if (newOptions.canDoAction) {
+        this.loadItems();
+      }
+    }
+  }, {
+    key: "loadItems",
+    value: function loadItems() {
+      var _this2 = this;
+
+      this.$timeout( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var $formModel;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                $formModel = _this2.valueEditorController.formController ? forms_1.getFormModel(_this2.valueEditorController.formController) : undefined;
+                _context.next = 4;
+                return _this2.$injector.invoke(_this2.options.dataSource, _this2, {
+                  $model: _this2.model,
+                  $name: _this2.valueEditorController.name,
+                  $formModel: $formModel
+                });
+
+              case 4:
+                _this2.items = _context.sent;
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+
+                _this2.$log.error('Unable to fetch items. Error:', _context.t0);
+
+              case 10:
+                _context.prev = 10;
+                _this2.showSelect = _this2.options.canDoAction && _this2.items && _this2.items.length > 0;
+                return _context.finish(10);
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7, 10, 13]]);
+      })));
+    }
+  }]);
+
+  return SignatureValueEditorComponentController;
+}(abstract_value_editor_1.default);
+
+exports.SignatureValueEditorComponentController = SignatureValueEditorComponentController;
+/**
+ * @ngdoc component
+ * @name signatureValueEditor
+ * @module angularjs-value-editor.signature
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for signature input.
+ *
+ * Supported options: {@link type:SignatureValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="signatureValueEditorExample" module="signatureValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'signature'" ng-model="model" options="{canDoAction: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('signatureValueEditorExample', ['angularjs-value-editor'])
+ *          .config((signatureValueEditorConfigurationServiceProvider) => signatureValueEditorConfigurationServiceProvider.setConfiguration({
+ *              dataSource: () => Promise.resolve(['one', 'two', 'three'])
+ *          }));
+ *     </file>
+ * </example>
+ */
+
+var SignatureValueEditorComponent = function SignatureValueEditorComponent() {
+  _classCallCheck(this, SignatureValueEditorComponent);
+
+  this.require = {
+    ngModelController: 'ngModel',
+    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+  };
+  this.templateUrl = __webpack_require__(83);
+  this.controller = SignatureValueEditorComponentController;
+};
+
+exports.default = SignatureValueEditorComponent;
+SignatureValueEditorComponent.componentName = 'signatureValueEditor';
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function getFormModel(form) {
+  var model = {};
+
+  var _iterator = _createForOfIteratorHelper(form.$getControls()),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var control = _step.value;
+
+      if (isNgModelController(control)) {
+        if (control.$name) {
+          model[control.$name] = control.$modelValue;
+        }
+      }
+
+      if (isFormController(control)) {
+        Object.assign(model, getFormModel(control));
+      }
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  return model;
+}
+
+exports.getFormModel = getFormModel;
+
+function isNgModelController(controller) {
+  return typeof controller.$setTouched === 'function';
+}
+
+function isFormController(controller) {
+  return typeof controller.$getControls === 'function';
+}
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports) {
+
+var path = '/value-editor/editors/signature/signature.value-editor.tpl.pug';
+var html = "<div class=\"input-group\" ng-if=\"$ctrl.showSelect\"><div class=\"input-group-addon input-group-select\"><ui-select ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" search-enabled=\"false\" ng-disabled=\"$ctrl.valueEditorController.disabled\" tagging=\"tagging\"><ui-select-match placeholder=\"{{$ctrl.localize('select')}}\">{{($ctrl.items | filter: $select.selected)[0]}}</ui-select-match><ui-select-choices repeat=\"$item in $ctrl.items track by $item\">{{$item}}</ui-select-choices></ui-select></div><input class=\"form-control\" type=\"text\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.name}}\" placeholder=\"{{$ctrl.localize('orType')}}\" ng-class=\"$ctrl.options.cssClasses\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" data-main-input=\"data-main-input\"/></div><input class=\"form-control\" type=\"text\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.name}}\" placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-class=\"$ctrl.options.cssClasses\" ng-if=\"!$ctrl.showSelect\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" data-main-input=\"data-main-input\"/>";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+/**
+ * @ngdoc constant
+ * @name signatureValueEditorDefaultOptions
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ * For description see {@link SignatureValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *      canDoAction: false,
+ *      dataSource: () => Promise.resolve([])
+ * }
+ * ```
+ */
+
+
+exports.SIGNATURE_VALUE_EDITOR_DEFAULT_OPTIONS = {
+  canDoAction: false,
+  dataSource: function dataSource() {
+    return Promise.resolve([]);
+  }
+};
+/**
+ * @ngdoc provider
+ * @name signatureValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link signatureValueEditorDefaultOptions}
+ */
+
+var SignatureValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  SignatureValueEditorConfigurationProvider.$inject = ["signatureValueEditorDefaultOptions"];
+
+  _inherits(SignatureValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(SignatureValueEditorConfigurationProvider);
+
+  /*@ngInject*/
+  function SignatureValueEditorConfigurationProvider(signatureValueEditorDefaultOptions) {
+    _classCallCheck(this, SignatureValueEditorConfigurationProvider);
+
+    return _super.call(this, signatureValueEditorDefaultOptions);
+  }
+
+  return SignatureValueEditorConfigurationProvider;
+}(abstract_value_editor_configuration_provider_1.default);
+
+exports.default = SignatureValueEditorConfigurationProvider;
+SignatureValueEditorConfigurationProvider.providerName = 'signatureValueEditorConfigurationService';
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var abstract_value_editor_localization_provider_1 = __webpack_require__(5);
+/**
+ * @ngdoc provider
+ * @name signatureValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ * See {@link signatureValueEditorLocalizationsService}
+ */
+
+
+var SignatureValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  SignatureValueEditorLocalizationsProvider.$inject = ["signatureValueEditorDefaultLocalizations"];
+
+  _inherits(SignatureValueEditorLocalizationsProvider, _abstract_value_edito);
+
+  var _super = _createSuper(SignatureValueEditorLocalizationsProvider);
+
+  /*@ngInject*/
+  function SignatureValueEditorLocalizationsProvider(signatureValueEditorDefaultLocalizations) {
+    _classCallCheck(this, SignatureValueEditorLocalizationsProvider);
+
+    return _super.call(this, signatureValueEditorDefaultLocalizations);
+  }
+
+  return SignatureValueEditorLocalizationsProvider;
+}(abstract_value_editor_localization_provider_1.default);
+
+exports.default = SignatureValueEditorLocalizationsProvider;
+SignatureValueEditorLocalizationsProvider.providerName = 'signatureValueEditorLocalizationsService';
+/**
+ * @ngdoc constant
+ * @name signatureValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ * ```
+ * {
+ *      select: 'Select...',
+ *      orType: 'or type...'
+ * }
+ * ```
+ */
+
+exports.SIGNATURE_VALUE_EDITOR_DEFAULT_LOCALIZATIONS = Object.freeze({
+  select: 'Select...',
+  orType: 'or type...'
+});
+
+/***/ }),
+/* 86 */
 /***/ (function(module, exports) {
 
 var path = '/home/travis/build/kp-sys/angularjs-value-editor/src/value-editor/resources/loading-spinner.svg';

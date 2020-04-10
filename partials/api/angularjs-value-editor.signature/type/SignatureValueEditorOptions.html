@@ -1,0 +1,77 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">SignatureValueEditorOptions</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - type in module <a href="api/angularjs-value-editor.signature">angularjs-value-editor.signature</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a></p>
+<p>Default value: <a href="api/angularjs-value-editor.signature/constant/signatureValueEditorDefaultOptions">signatureValueEditorDefaultOptions</a></p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+
+  
+<h2>Properties</h2>
+<ul class="properties">
+  <li id="canDoAction">
+    <h3 class="">
+      <span class="title"><code>canDoAction</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-boolean"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" _target="blank">Boolean</a></span></td>
+    <td><p>If <code>true</code>, value editor perform request via <code>dataSource</code> function and sets values from response to select.</p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="dataSource">
+    <h3 class="">
+      <span class="title"><code>dataSource</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">Promise&lt;string[]&gt; function(): Promise.&lt;Array.&lt;string&gt;&gt;</a></span></td>
+    <td><pre><code>function dataSource($model: string, $name: string, $formModel: {}, ...args) =&gt; PromiseLike&lt;string[]&gt;
+</code></pre>
+<p>Function invoked via <a href="https://docs.angularjs.org/api/auto/service/$injector#invoke">$injector.invoke</a> with following locals:</p>
+<ul>
+<li><code>$model</code>: Actual model value</li>
+<li><code>$name</code>: Input name</li>
+<li><code>$formModel</code>: Actual form model if form is present (wrapping this value editor)</li>
+</ul>
+</td>
+  </tr>
+</table>
+  </li>
+  </ul>
+
+  
+</div>
+
+

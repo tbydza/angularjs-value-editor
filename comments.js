@@ -1345,11 +1345,6 @@
  * @name passwordValueEditorLocalizationsService
  * @module angularjs-value-editor.password
  *
- * @property {string} patternDescription Password pattern description.
- * @property {string} confirmPassword Label above confirmation input.
- * @property {string} noChangeIfEmpty Text next to password pattern, informing about possibility to leave both inputs blank.
- * @property {string} helpTextsSeparator Separator between pattern and leave blank messages.
- *
  * @description
  * See {@link AbstractValueEditorLocalizationService}
  */
@@ -1358,7 +1353,10 @@
  * @name PasswordValueEditorLocalizations
  * @module angularjs-value-editor.password
  *
- * @property {string} generate
+ * @property {string} patternDescription Password pattern description.
+ * @property {string} confirmPassword Label above confirmation input.
+ * @property {string} noChangeIfEmpty Text next to password pattern, informing about possibility to leave both inputs blank.
+ * @property {string} helpTextsSeparator Separator between pattern and leave blank messages.
  *
  * @description
  * Default localizations: {@link passwordValueEditorDefaultLocalizations}
@@ -1410,6 +1408,141 @@
  * @ngdoc module
  * @name angularjs-value-editor.password
  * @module angularjs-value-editor.password
+ *
+ * @description
+ *
+ *//*@ngInject*//**
+ * @ngdoc type
+ * @name SignatureValueEditorOptions
+ * @module angularjs-value-editor.signature
+ *
+ * @property {boolean} canDoAction If `true`, value editor perform request via `dataSource` function and sets values from response to select.
+ * @property {function(): Promise<string[]>} dataSource
+ * ```
+ * function dataSource($model: string, $name: string, $formModel: {}, ...args) => PromiseLike<string[]>
+ * ```
+ * Function invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
+ *
+ * - `$model`: Actual model value
+ * - `$name`: Input name
+ * - `$formModel`: Actual form model if form is present (wrapping this value editor)
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link signatureValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name signatureValueEditorDefaultOptions
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ * For description see {@link SignatureValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *      canDoAction: false,
+ *      dataSource: () => Promise.resolve([])
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name signatureValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link signatureValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name signatureValueEditorConfigurationService
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link signatureValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name signatureValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ * See {@link signatureValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name signatureValueEditorLocalizationsService
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name SignatureValueEditorLocalizations
+ * @module angularjs-value-editor.signature
+ *
+ * @property {string} select
+ *
+ * @description
+ * Default localizations: {@link signatureValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name signatureValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.signature
+ *
+ * @description
+ * ```
+ * {
+ *      select: 'Select...',
+ *      orType: 'or type...'
+ * }
+ * ```
+ *//*@ngInject*/
+/**
+ * @ngdoc component
+ * @name signatureValueEditor
+ * @module angularjs-value-editor.signature
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for signature input.
+ *
+ * Supported options: {@link type:SignatureValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="signatureValueEditorExample" module="signatureValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'signature'" ng-model="model" options="{canDoAction: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('signatureValueEditorExample', ['angularjs-value-editor'])
+ *          .config((signatureValueEditorConfigurationServiceProvider) => signatureValueEditorConfigurationServiceProvider.setConfiguration({
+ *              dataSource: () => Promise.resolve(['one', 'two', 'three'])
+ *          }));
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.signature
+ * @module angularjs-value-editor.signature
  *
  * @description
  *

@@ -821,6 +821,93 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.signature",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.signature",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.signature/component",
+            "navItems": [
+              {
+                "name": "signatureValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.signature/component/signatureValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.signature/constant",
+            "navItems": [
+              {
+                "name": "signatureValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.signature/constant/signatureValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "signatureValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.signature/constant/signatureValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.signature/provider",
+            "navItems": [
+              {
+                "name": "signatureValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.signature/provider/signatureValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "signatureValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.signature/provider/signatureValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.signature/service",
+            "navItems": [
+              {
+                "name": "signatureValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.signature/service/signatureValueEditorConfigurationService"
+              },
+              {
+                "name": "signatureValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.signature/service/signatureValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.signature/type",
+            "navItems": [
+              {
+                "name": "SignatureValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.signature/type/SignatureValueEditorLocalizations"
+              },
+              {
+                "name": "SignatureValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.signature/type/SignatureValueEditorOptions"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.text",
         "type": "groups",
         "href": "api/angularjs-value-editor.text",
