@@ -189,6 +189,93 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.access-number",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.access-number",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.access-number/component",
+            "navItems": [
+              {
+                "name": "accessNumberValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.access-number/component/accessNumberValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.access-number/constant",
+            "navItems": [
+              {
+                "name": "accessNumberValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.access-number/constant/accessNumberValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "accessNumberValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.access-number/constant/accessNumberValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.access-number/provider",
+            "navItems": [
+              {
+                "name": "accessNumberValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.access-number/provider/accessNumberValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "accessNumberValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.access-number/provider/accessNumberValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.access-number/service",
+            "navItems": [
+              {
+                "name": "AccessNumberValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.access-number/service/AccessNumberValueEditorLocalizationsService"
+              },
+              {
+                "name": "accessNumberValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.access-number/service/accessNumberValueEditorConfigurationService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.access-number/type",
+            "navItems": [
+              {
+                "name": "AccessNumberValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.access-number/type/AccessNumberValueEditorLocalizations"
+              },
+              {
+                "name": "AccessNumberValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.access-number/type/AccessNumberValueEditorOptions"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.autocomplete",
         "type": "groups",
         "href": "api/angularjs-value-editor.autocomplete",

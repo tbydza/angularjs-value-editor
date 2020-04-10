@@ -1,3 +1,18 @@
+.input-group-select {
+  padding: 0;
+  border: none;
+}
+.input-group-select .ui-select-toggle,
+.input-group-select .ui-select-search {
+  border-right: 0;
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+.input-group-select .ui-select-placeholder,
+.input-group-select .ui-select-match-text {
+  padding-right: 10px;
+}
+
 acceptable-value-editor ul {
   padding: 0;
   margin: 0;
@@ -85,20 +100,5 @@ password-value-editor .with-confirmation > .form-group {
 }
 password-value-editor .with-confirmation .help-block {
   margin-bottom: 0;
-}
-
-.input-group-select {
-  padding: 0;
-  border: none;
-}
-.input-group-select .ui-select-toggle,
-.input-group-select .ui-select-search {
-  border-right: 0;
-  border-top-left-radius: 4px !important;
-  border-bottom-left-radius: 4px !important;
-}
-.input-group-select .ui-select-placeholder,
-.input-group-select .ui-select-match-text {
-  padding-right: 10px;
 }
 

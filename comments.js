@@ -399,6 +399,143 @@
  */
 /*@ngInject*//**
  * @ngdoc type
+ * @name AccessNumberValueEditorOptions
+ * @module angularjs-value-editor.access-number
+ *
+ * @property {boolean} canDoAction If `true`, value editor perform request via `dataSource` function and sets values from response to select.
+ * @property {function(): Promise<string[]>} dataSource
+ * ```
+ * function dataSource($model: string, $name: string, $formModel: {}, ...args) => PromiseLike<string[]>
+ * ```
+ * Function invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
+ *
+ * - `$model`: Actual model value
+ * - `$name`: Input name
+ * - `$formModel`: Actual form model if form is present (wrapping this value editor)
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link accessNumberValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name accessNumberValueEditorDefaultOptions
+ * @module angularjs-value-editor.access-number
+ *
+ * @description
+ * For description see {@link AccessNumberValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *      canDoAction: false,
+ *      dataSource: () => Promise.resolve([])
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name accessNumberValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.access-number
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link accessNumberValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name accessNumberValueEditorConfigurationService
+ * @module angularjs-value-editor.access-number
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link accessNumberValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name accessNumberValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.access-number
+ *
+ * @description
+ * See {@link AccessNumberValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name AccessNumberValueEditorLocalizationsService
+ * @module angularjs-value-editor.access-number
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name AccessNumberValueEditorLocalizations
+ * @module angularjs-value-editor.access-number
+ *
+ * @property {string} select Placeholder for select.
+ * @property {string} orType Placeholder for input if select is visible.
+ *
+ * @description
+ * Default localizations: {@link accessNumberValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name accessNumberValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.access-number
+ *
+ * @description
+ * ```
+ * {
+ *      select: 'Select...',
+ *      orType: 'or type...'
+ * }
+ * ```
+ *//*@ngInject*/
+/**
+ * @ngdoc component
+ * @name accessNumberValueEditor
+ * @module angularjs-value-editor.access-number
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for access number input.
+ *
+ * Supported options: {@link type:AccessNumberValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="accessNumberValueEditorExample" module="accessNumberValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'access-number'" ng-model="model" options="{canDoAction: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('accessNumberValueEditorExample', ['angularjs-value-editor'])
+ *          .config((accessNumberValueEditorConfigurationServiceProvider) => accessNumberValueEditorConfigurationServiceProvider.setConfiguration({
+ *              dataSource: () => Promise.resolve(['one', 'two', 'three'])
+ *          }));
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.access-number
+ * @module angularjs-value-editor.access-number
+ *
+ * @description
+ *
+ *//*@ngInject*/
+/* @ts-ignore*//**
+ * @ngdoc type
  * @name AutocompleteValueEditorOptions
  * @module angularjs-value-editor.autocomplete
  *
@@ -1491,7 +1628,8 @@
  * @name SignatureValueEditorLocalizations
  * @module angularjs-value-editor.signature
  *
- * @property {string} select
+ * @property {string} select Placeholder for select.
+ * @property {string} orType Placeholder for input if select is visible.
  *
  * @description
  * Default localizations: {@link signatureValueEditorDefaultLocalizations}
