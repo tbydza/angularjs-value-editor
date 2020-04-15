@@ -1307,6 +1307,166 @@
 /* @ts-ignore*//**
  * Connects outer required ngModel with inner ngModel
  *//**
+ * @ngdoc directive
+ * @name numberRangeValidations
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ *
+ */
+/*@ngInject*//**
+ * @ngdoc type
+ * @name NumberRangeValueEditorOptions
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link numberRangeValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name numberRangeValueEditorDefaultOptions
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ * For description see {@link NumberRangeValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name numberRangeValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link numberRangeValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name numberRangeValueEditorConfigurationService
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link numberRangeValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name numberRangeValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ * See {@link NumberRangeValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name NumberRangeValueEditorLocalizationsService
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name NumberRangeValueEditorLocalizations
+ * @module angularjs-value-editor.number-range
+ *
+ * @property {string} from
+ * @property {string} to
+ *
+ * @description
+ * Default localizations: {@link numberRangeValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name numberRangeValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ * ```
+ * {
+ *      from: 'from',
+ *      to: 'to'
+ * }
+ * ```
+ *//**
+ * @ngdoc type
+ * @name NumberRangeValueEditorModel
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ * Model of number-range-value-editor
+ *
+ * ```js
+ *  {
+ *      from: number,
+ *      to: number
+ *  }
+ * ```
+ */
+/*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name numberRangeValueEditor
+ * @module angularjs-value-editor.number-range
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for integer number range input.
+ *
+ * Supported options: {@link type:NumberRangeValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="numberRangeValueEditorExample" module="numberRangeValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'number-range'" ng-model="model" options="{canDoAction: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('numberRangeValueEditorExample', ['angularjs-value-editor'])
+ *          .config((numberRangeValueEditorConfigurationServiceProvider) => numberRangeValueEditorConfigurationServiceProvider.setConfiguration({
+ *              dataSource: () => Promise.resolve(['one', 'two', 'three'])
+ *          }));
+ *     </file>
+ * </example>
+ */
+/**
+ * @ngdoc type
+ * @name NumberRangeValueEditorValidations
+ * @module angularjs-value-editor.number-range
+ *
+ * @property {number} min Min number for both inputs.
+ * @property {number} max Max number for both inputs.
+ * @property {boolean} fromBiggerThanTo From has to be bigger then to.
+ * @property {boolean} toBiggerThanFrom To has to be bigger then from.
+ *
+ * @description
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.number-range
+ * @module angularjs-value-editor.number-range
+ *
+ * @description
+ *
+ *//*@ngInject*/
+/* allow insert invalid number*//**
  * @ngdoc type
  * @name NumberValueEditorOptions
  * @module angularjs-value-editor.number
@@ -1823,9 +1983,6 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*//**/
-/* console.log(retVal);*/
-/* console.log(isoDate);*/
-/* console.log(parsed);*/
 /**
  * @ngdoc component
  * @name yearValueEditor
@@ -1873,6 +2030,14 @@
  * @description
  *
  *//*@ngInject*//**
+ * @ngdoc type
+ * @name TValueEditorType
+ * @module angularjs-value-editor
+ *
+ * @description
+ * Value editor types.
+ */
+/**
  * Make all properties required except properties of ValueEditorOptions
  *//**
  * Modified `angular.equals` function for support function check also.

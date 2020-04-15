@@ -102,3 +102,24 @@ password-value-editor .with-confirmation .help-block {
   margin-bottom: 0;
 }
 
+number-range-value-editor .multi-input-group {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+number-range-value-editor .multi-input-group .input-group {
+  width: 50%;
+  display: inline-table;
+}
+number-range-value-editor .multi-input-group .input-group label {
+  font-weight: normal;
+  margin: 0;
+}
+number-range-value-editor .multi-input-group .input-group.from .form-control {
+  border-radius: 0;
+}
+number-range-value-editor .multi-input-group .input-group.to .input-group-addon {
+  border-radius: 0;
+  border-left: none;
+}
+

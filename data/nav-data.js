@@ -73,6 +73,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor/type",
             "navItems": [
               {
+                "name": "TValueEditorType",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/TValueEditorType"
+              },
+              {
                 "name": "ValueEditorLocalizations",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/ValueEditorLocalizations"
@@ -803,6 +808,115 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "NumberValueEditorValidations",
                 "type": "type",
                 "href": "api/angularjs-value-editor.number/type/NumberValueEditorValidations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.number-range",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.number-range",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.number-range/component",
+            "navItems": [
+              {
+                "name": "numberRangeValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.number-range/component/numberRangeValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.number-range/constant",
+            "navItems": [
+              {
+                "name": "numberRangeValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.number-range/constant/numberRangeValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "numberRangeValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.number-range/constant/numberRangeValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.number-range/directive",
+            "navItems": [
+              {
+                "name": "numberRangeValidations",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.number-range/directive/numberRangeValidations"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.number-range/provider",
+            "navItems": [
+              {
+                "name": "numberRangeValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.number-range/provider/numberRangeValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "numberRangeValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.number-range/provider/numberRangeValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.number-range/service",
+            "navItems": [
+              {
+                "name": "NumberRangeValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.number-range/service/NumberRangeValueEditorLocalizationsService"
+              },
+              {
+                "name": "numberRangeValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.number-range/service/numberRangeValueEditorConfigurationService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.number-range/type",
+            "navItems": [
+              {
+                "name": "NumberRangeValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.number-range/type/NumberRangeValueEditorLocalizations"
+              },
+              {
+                "name": "NumberRangeValueEditorModel",
+                "type": "type",
+                "href": "api/angularjs-value-editor.number-range/type/NumberRangeValueEditorModel"
+              },
+              {
+                "name": "NumberRangeValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.number-range/type/NumberRangeValueEditorOptions"
+              },
+              {
+                "name": "NumberRangeValueEditorValidations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.number-range/type/NumberRangeValueEditorValidations"
               }
             ]
           }
