@@ -1,4 +1,116 @@
+/**
+ * @ngdoc module
+ * @name angularjs-value-editor.aliases
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * Support for editor types aliasing
+ *//**
+ * @ngdoc type
+ * @name CustomValueEditorType
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * ```js
+ *  type CustomValueEditorType = TValueEditorType | string
+ * ```
+ */
+/**
+ * @ngdoc type
+ * @name AliasDefinition
+ * @module angularjs-value-editor.aliases
+ *
+ * @property {CustomValueEditorType} name Name of original (aliased) value editor.
+ * @property {object} options Default options for alias.
+ *
+ * @description
+ * Alias definition object.
+ */
 /*@ngInject*/
+/* TODO: withValidations*/
+/**
+ * @ngdoc service
+ * @name aliasesService
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * Service for working with editor aliases.
+ */
+/**
+     * @ngdoc method
+     * @name aliasesService#getForAlias
+     *
+     * @param {CustomValueEditorType} alias Get alias settings.
+     *
+     * @returns {AliasDefinition} Alias definition.
+     *
+     * @description
+     * Return alias definition.
+     */
+/**
+     * @ngdoc method
+     * @name aliasesService#isAlias
+     *
+     * @param {CustomValueEditorType} type Tested editor type.
+     *
+     * @returns {boolean} `true` if type is alias.
+     *
+     * @description
+     * Test if type is alias.
+     */
+/**
+ * @ngdoc provider
+ * @name aliasesServiceProvider
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * Provider for define aliases.
+ */
+/**
+     * @ngdoc method
+     * @name aliasesServiceProvider#addAlias
+     *
+     * @param {CustomValueEditorType} aliasTypeName New alias.
+     * @param {CustomValueEditorType} editorType Existing aliased editor.
+     *
+     * @returns {AliasesServiceProviderBuildOptions}
+     *
+     * @description
+     * Add new alias.
+     */
+/**
+     * @ngdoc method
+     * @name aliasesServiceProvider#removeAlias
+     *
+     * @param {CustomValueEditorType} aliasTypeName Removing alias.
+     *
+     * @description
+     * Remove alias.
+     */
+/**
+ * @ngdoc type
+ * @name AliasesServiceProviderBuildOptions
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * Builder for setting default options to aliased editor.
+ */
+/**
+     * @ngdoc method
+     * @name AliasesServiceProviderBuildOptions#withOptions
+     *
+     * @template OPTIONS
+     *
+     * @param {OPTIONS} options Default editor options.
+     *
+     * @description
+     * Add custom default aliased editor options.
+     *//*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//*@ngInject*/
 /*@ngInject*/
 /* try to change options via reference*/
 /*@ngInject*/
@@ -1023,7 +1135,19 @@
  *
  *//* tslint:disable:variable-name */
 /* TODO: Write some more test, for example: Test for some settings options and for min/max validations.*/
-/*@ngInject*//**/
+/*@ngInject*//*@ngInject*//**
+ * @ngdoc module
+ * @name angularjs-value-editor.exemplar-bar-code
+ * @module angularjs-value-editor.exemplar-bar-code
+ *
+ * @description
+ * `exemplar-bar-code` value editor is only {@link aliasesService alias} for {@link textValueEditor text-value-editor} with default {@link TextValueEditorOptions options}:
+ * ```
+ *  {
+ *      type: 'text'
+ *  }
+ * ```
+ *//*@ngInject*//**/
 /**
  * @ngdoc component
  * @name hiddenValueEditor

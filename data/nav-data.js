@@ -281,6 +281,59 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.aliases",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.aliases",
+        "navItems": [
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.aliases/provider",
+            "navItems": [
+              {
+                "name": "aliasesServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.aliases/provider/aliasesServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.aliases/service",
+            "navItems": [
+              {
+                "name": "aliasesService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.aliases/service/aliasesService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.aliases/type",
+            "navItems": [
+              {
+                "name": "AliasDefinition",
+                "type": "type",
+                "href": "api/angularjs-value-editor.aliases/type/AliasDefinition"
+              },
+              {
+                "name": "AliasesServiceProviderBuildOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.aliases/type/AliasesServiceProviderBuildOptions"
+              },
+              {
+                "name": "CustomValueEditorType",
+                "type": "type",
+                "href": "api/angularjs-value-editor.aliases/type/CustomValueEditorType"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.autocomplete",
         "type": "groups",
         "href": "api/angularjs-value-editor.autocomplete",
@@ -587,6 +640,12 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           }
         ]
+      },
+      {
+        "name": "angularjs-value-editor.exemplar-bar-code",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.exemplar-bar-code",
+        "navItems": []
       },
       {
         "name": "angularjs-value-editor.hidden",
