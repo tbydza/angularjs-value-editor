@@ -78,6 +78,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/type/TValueEditorType"
               },
               {
+                "name": "TValueEditorTypeAliases",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/TValueEditorTypeAliases"
+              },
+              {
                 "name": "ValueEditorLocalizations",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/ValueEditorLocalizations"
@@ -188,6 +193,93 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "AcceptableValueEditorValidations",
                 "type": "type",
                 "href": "api/angularjs-value-editor.acceptable/type/AcceptableValueEditorValidations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.acceptable-root",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.acceptable-root",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable-root/component",
+            "navItems": [
+              {
+                "name": "acceptableRootValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.acceptable-root/component/acceptableRootValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable-root/constant",
+            "navItems": [
+              {
+                "name": "acceptableRootValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.acceptable-root/constant/acceptableRootValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "acceptableRootValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.acceptable-root/constant/acceptableRootValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable-root/provider",
+            "navItems": [
+              {
+                "name": "acceptableRootValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.acceptable-root/provider/acceptableRootValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "acceptableRootValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.acceptable-root/provider/acceptableRootValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable-root/service",
+            "navItems": [
+              {
+                "name": "acceptableRootValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.acceptable-root/service/acceptableRootValueEditorConfigurationService"
+              },
+              {
+                "name": "acceptableRootValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.acceptable-root/service/acceptableRootValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable-root/type",
+            "navItems": [
+              {
+                "name": "AcceptableRootValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.acceptable-root/type/AcceptableRootValueEditorLocalizations"
+              },
+              {
+                "name": "AcceptableRootValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.acceptable-root/type/AcceptableRootValueEditorOptions"
               }
             ]
           }

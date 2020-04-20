@@ -123,3 +123,229 @@ number-range-value-editor .multi-input-group .input-group.to .input-group-addon 
   border-left: none;
 }
 
+treecontrol.tree-boot li {
+  line-height: 30px;
+}
+treecontrol.tree-boot li.tree-expanded i.tree-branch-head,
+treecontrol.tree-boot li.tree-collapsed i.tree-branch-head,
+treecontrol.tree-boot li.tree-leaf i.tree-branch-head {
+  padding: 0;
+  background: none;
+}
+treecontrol.tree-boot li.tree-leaf i.tree-branch-head {
+  display: block;
+  visibility: hidden;
+}
+treecontrol.tree-boot i.tree-branch-head::before {
+  display: block;
+  transition: transform 0.2s ease;
+}
+treecontrol.tree-boot .tree-expanded > .item > .switcher > i.tree-branch-head::before {
+  transform: rotate(90deg);
+}
+treecontrol.tree-boot .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+treecontrol.tree-boot .tree-label {
+  padding: 0 10px;
+}
+treecontrol.tree-boot .content {
+  display: flex;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+treecontrol.tree-boot .has-children .content {
+  border-radius: 4px 0 0 4px;
+}
+treecontrol.tree-boot .tree-selected {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+treecontrol.tree-boot .selector,
+treecontrol.tree-boot .multiselector {
+  padding: 0 10px;
+  border-left: 1px solid;
+  border-color: inherit;
+}
+treecontrol.tree-boot .selector,
+treecontrol.tree-boot .multiselector.clickable {
+  cursor: pointer;
+}
+treecontrol.tree-boot .multiselector {
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #ccc;
+  border-radius: 0 4px 4px 0;
+  background-color: #fff;
+  color: #333;
+}
+treecontrol.tree-boot .multiselector:hover {
+  background: #e6e6e6;
+}
+treecontrol.tree-boot .multiselector.semi-checked {
+  background: linear-gradient(180deg, transparent, #337ab7);
+}
+treecontrol.tree-boot .multiselector.semi-checked:hover {
+  background: linear-gradient(180deg, transparent, #286090);
+}
+treecontrol.tree-boot .multiselector.checked {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  color: white;
+}
+treecontrol.tree-boot .multiselector.checked:hover {
+  background-color: #286090;
+  border-color: #204d74;
+}
+treecontrol.tree-boot .has-not-children .multiselector {
+  display: none;
+}
+treecontrol.tree-boot .tree-label:hover,
+treecontrol.tree-boot .selector:hover {
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+treecontrol.tree-boot .tree-selected .tree-label:hover,
+treecontrol.tree-boot .tree-selected .selector:hover {
+  background-color: #286090;
+  border-color: #204d74;
+}
+treecontrol.tree-boot .tree-selected + .multiselector {
+  border-color: #2e6da4;
+}
+
+@font-face {
+  font-family: 'treecontrol';
+  src: url(data:application/font-woff;base64,d09GRgABAAAAAAV8AA0AAAAAB+QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAFYAAAABwAAAAcjOwKnkdERUYAAAU8AAAAIgAAACYAJwAwT1MvMgAAAZwAAABAAAAAYBFfCNdjbWFwAAAB/AAAAFUAAAFeF1fZ5Gdhc3AAAAU0AAAACAAAAAgAAAAQZ2x5ZgAAAmwAAAGfAAACGJrru8loZWFkAAABMAAAADIAAAA2Gii1nWhoZWEAAAFkAAAAHgAAACQK6AZIaG10eAAAAdwAAAAfAAAAKCV6AABsb2NhAAACVAAAABYAAAAWAioBZG1heHAAAAGEAAAAGAAAACAAEQAnbmFtZQAABAwAAADfAAABtq0mwDNwb3N0AAAE7AAAAEUAAABtRMGHznicY2BkYGAA4omPOPnj+W2+MnCzbACKMNxy2TYTQu/MA9FsjcwvgRQHAxOIBwAm7gobAAB4nGNgZGBgSf2/lYGBrYMBCNgaGRgZUAEXAFdvAz8AAHicY2BkYGDgYlBlYGMAASYGNAAABZYAOXicY2BmVWScwMDKwMDMzezOwMCwAkIz2TPYMJozoAJGATQBBgcGxpcsLKn/tzJ4s6QyeIPUIMkqMDACAFNvB0p4nGPZwAAGjBMgNFMEAwNbBwMDywYIZiuC8AFXHgScAHicY2BgYGaAYBkGRgYQiADyGMF8FgYbIM3FwMHABISMDAovWf7//f8frErhJQOE/f+JOCtYBxcDDDCCzGNkA2JmqAATkGBiQAVAO1gYhjcAACg8DSMAAAAAAAAAAAgACAAQABgAZgB8AKAAyAEMAAB4nIWQsUsbcRTH33u/eOdZVGIoN3QIlsZbDHJtQxCCg8ngLDgKBkSTTG1x6dZO7R/RpcNBB68tWe+mbFI1RBzsJEHCRYcgVDQEfg/fnZF26w9+/N7jPX7f7/cDCI+HAJYJ/tcbUhWM96onExPSkIFn8AIg46Jj2kUbi475cCdcC5fQtNCRRwY2Oh/Uzf6v8ueafl72+9jxK3X+UcM3ao2n/EofD+j8t96sVOuXeFvXX31kXPVapU8N/lP2ulz0ym9xvVrFiOf2S9JTu6v3SnVZv27obz4kXhdSP1UbJgAsEm11o495FGKLBqqtj9AMeIUG4zTgyu6lJJoGyCUWLeVIDOzwUnSFw0jP83dcp60aT17VXDy8iPC6p/N4yE3a2OV0tAOgYk3jnWimYBJmRBclvIS20+jEdSvRD+llyKchDcIHQ18SKwG9Cvg08RQk7mDM92PCVwnhJ/AUsjHfeTcnHwtOiwRrlmKuNOaKZ7wdi+AiGiGPqMlTJ9m+93pI5129OVv4B2kQy8qeyI/Q4LmO3fXydwnK2fxflvcSmqyMAHicdc0xCsJAFATQSYyKCiIIFtpsLwRFbyAIIjYWNlYxLkFIdmGNhXgAj2DpbbyB93GSfMsEEt6f3fkBMMAHHv6PL/bQxlDs01Nxg16JA/oobqKHh7jF/CXuYowvW17QkT9U9tCnKvv0RNygF+KA3oqbGCEWt5g/xV0s8S7WXnhskfG1MBxjm1lL7KGR4IYUERxHndzSyNXfr8sP3ONw5XmRK8wRYsZYu+vFGjUPZ/XddTnnbCXcYspNEWeNM7MT7vxuyu5OuiFL1uQq0Ua7KNdndbqrTWx33BfiB651PpsAeJxjYGIAg/95DFYM2AAXAwMjEwMTIzMDMyMLIysjGyM7Iwdbek5lQYYhe2lepoGBAZh2tTQwgNIwvhGUNobSJgBv9hFRAAAAAAEAAf//AA94nGNgZGBg4AFiMQY5BiYGRiDkBGIWoAgTEDNCMAAI9QBYAAAAAAABAAAAANhimpYAAAAA2kS2mQAAAADaRLlu) format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+.tcf {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'treecontrol' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.tcf-checkmark:before {
+  content: "\e901";
+}
+.tcf-checkmark-empty:before {
+  content: "\e902";
+}
+.tcf-checkmark-double:before {
+  content: "\e903";
+}
+.tcf-checkmark-double-empty:before {
+  content: "\e900";
+}
+.tcf-checkmark-double-semi:before {
+  content: "\e904";
+}
+treecontrol {
+  /* prevent user selection */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* default */
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #555;
+  text-decoration: none;
+}
+treecontrol ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: none;
+  overflow: hidden;
+}
+treecontrol li {
+  position: relative;
+  padding: 0 0 0 20px;
+  line-height: 20px;
+}
+treecontrol li i.tree-branch-head {
+  cursor: pointer;
+}
+treecontrol li .tree-label {
+  cursor: pointer;
+  display: inline;
+}
+treecontrol li .tree-unselectable {
+  cursor: not-allowed;
+}
+treecontrol li.tree-expanded i.tree-leaf-head,
+treecontrol li.tree-collapsed i.tree-leaf-head {
+  display: none;
+}
+treecontrol li.tree-expanded i.tree-branch-head,
+treecontrol li.tree-collapsed i.tree-branch-head {
+  display: inline;
+}
+treecontrol li.tree-leaf i.tree-branch-head {
+  display: none;
+}
+treecontrol li.tree-leaf i.tree-leaf-head {
+  display: inline;
+}
+treecontrol.tree-boot {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+treecontrol.tree-boot > ul > li {
+  padding: 0;
+}
+treecontrol.tree-boot i.tree-branch-head,
+treecontrol.tree-boot i.tree-leaf-head {
+  float: left;
+  height: 16px;
+  margin: 5px;
+}
+treecontrol.tree-boot li > .tree-label {
+  display: block;
+  padding: 3px 0;
+  border-radius: 4px;
+}
+treecontrol.tree-boot li.tree-expanded i.tree-branch-head {
+  padding: 1px 10px;
+}
+treecontrol.tree-boot li.tree-collapsed i.tree-branch-head {
+  padding: 1px 10px;
+}
+treecontrol.tree-boot li.tree-leaf i.tree-leaf-head {
+  padding: 1px 10px;
+}
+treecontrol.tree-boot .tree-label:hover {
+  background-color: #eee;
+}
+treecontrol.tree-boot .tree-label.tree-selected,
+treecontrol.tree-boot .tree-label.tree-selected:hover {
+  color: #fff;
+  background-color: #428bca;
+}
+

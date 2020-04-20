@@ -265,6 +265,191 @@
 /* tslint:disable-next-line:no-unused-expression*/
 /* tslint:disable-next-line:no-unused-expression*//**
  * @ngdoc type
+ * @name AcceptableRootValueEditorOptions
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @template MODEL
+ *
+ * @property {MODEL} acceptableValue Tree of acceptable values. Every node should has array of child nodes in property `children`.
+ * @property {boolean} multiselect If `true`, it will be multiselectable.
+ * @property {MODEL[]} disabledItems Disabled items.
+ * @property {function(MODEL, MODEL): boolean} equalityComparator Same as {@link type:AcceptableValueEditorOptions#equalityComparator}
+ * @property {string} optionsTemplate Angular template for displaying value in tree. Current option is accessible via `$node` variable name.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Defaults: {@link acceptableRootValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name acceptableRootValueEditorDefaultOptions
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ * For description see {@link AcceptableRootValueEditorOptions}
+ *
+ * ```javascript
+ *  {
+ *      acceptableValue: null,
+ *      multiselect: false,
+ *      disabledItems: [],
+ *      equalityComparator: angular.equals,
+ *      optionsTemplate: '{{$node}}'
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name acceptableRootValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link acceptableRootValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name acceptableRootValueEditorConfigurationService
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link acceptableRootValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name acceptableRootValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ * See {@link acceptableRootValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name acceptableRootValueEditorLocalizationsService
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name AcceptableRootValueEditorLocalizations
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @param {string} cannotSelect
+ * @param {string} showAll
+ * @param {string} deselectAll
+ * @param {string} selectAll
+ *
+ *
+ * @description
+ * Default localizations: {@link acceptableRootValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name acceptableRootValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ * ```
+ * {
+ *      cannotSelect: '(cannot select)',
+ *      showAll: 'Show all',
+ *      deselectAll: 'Deselect all',
+ *      selectAll: 'Select all'
+ * }
+ * ```
+ *//* istanbul ignore file */
+/* neni cas... :-(*/
+/*@ngInject*/
+/* expanded is always first level*/
+/**
+ * @ngdoc component
+ * @name acceptableRootValueEditor
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for tree selection.
+ *
+ * It has two aliases:
+ *
+ *  - `single-acceptable-root`
+ *  - `multiple-acceptable-root`
+ *
+ * Supported options: {@link type:AcceptableRootValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="acceptableRootValueEditorExample" module="acceptableRootValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main ng-controller="ctrl as $ctrl">
+ *              <kp-value-editor type="'multiple-acceptable-root'" ng-model="model" options="{acceptableValue: $ctrl.acceptableValue, optionsTemplate: '{{$node.text}}'}"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('acceptableRootValueEditorExample', ['angularjs-value-editor'])
+ *          .controller('ctrl', class {
+ *              acceptableValue = {
+ *                  text: '0',
+ *                  children: [
+ *                      {
+ *                          text: '1'
+ *                      },
+ *                      {
+ *                          text: '2',
+ *                          children: [
+ *                              {
+ *                                  text: '2-1'
+ *                              },
+ *                              {
+ *                                  text: '2-2'
+ *                              }
+ *                          ]
+ *                      }
+ *                  ]
+ *              };
+ *          });
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.acceptable-root
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ *
+ *//*@ngInject*//* istanbul ignore file */
+/* neni cas... :-(*/
+/**
+         * @param cssClass - the css class
+         * @param addClassProperty - should we wrap the class name with class=""
+         */
+/* Branch node is not selectable, expand*/
+/* Leaf node is not selectable*/
+/* tree template*/
+/* find all nodes visible on the tree and the scope $id of the scopes including them*/
+/* iterate over the newValue, the new expanded nodes, and for each find it in the existingNodesAndScopes*/
+/* if found, add the mapping $id -> node into newExpandedNodesMap*/
+/* if not found, add the mapping num -> node into newExpandedNodesMap*/
+/* Rendering template for a root node*/
+/* save the transclude function from compile (which is not bound to a scope as apposed to the one from link)*/
+/* we can fix this to work with the link transclude function with angular 1.2.6. as for angular 1.2.0 we need*/
+/* to keep using the compile function*/
+/* Rendering template for the current node*/
+/* create a scope for the transclusion, whos parent is the parent of the tree control*//**
+ * @ngdoc type
  * @name AcceptableValueEditorOptions
  * @module angularjs-value-editor.acceptable
  *
@@ -275,6 +460,7 @@
  * @property {string} optionsTemplate Angular template for displaying options. Current option is accessible via `$item` variable name.
  * @property {string} singleSelectedValueTemplate Angular template for displaying selected value in single select mode. Current option is accessible via `$select.selected` variable name.
  * @property {string} multiSelectedValueTemplate Angular template for displaying selected value in multiple select mode. Current option is accessible via `$item` variable name.
+ * @property {function(VALUE, VALUE): boolean} equalityComparator Custom equality comparator.
  * @property {boolean} searchable If true, select component will have search input. Applicable only for select mode.
  * @property {boolean} reorderable If true, multi-select component will have capability for manual ordering selected items. Applicable only for multiple select mode.
  * @property {function(VALUE, VALUE): number} sortComparator If defined, options will be sorted using this comparator function.
@@ -2154,6 +2340,14 @@
  * @description
  *
  *//*@ngInject*//**
+ * @ngdoc type
+ * @name TValueEditorTypeAliases
+ * @module angularjs-value-editor
+ *
+ * @description
+ * Aliased value editor types.
+ */
+/**
  * @ngdoc type
  * @name TValueEditorType
  * @module angularjs-value-editor
