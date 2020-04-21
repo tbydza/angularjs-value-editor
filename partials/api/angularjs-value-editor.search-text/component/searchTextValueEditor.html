@@ -1,0 +1,92 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">searchTextValueEditor</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - component in module <a href="api/angularjs-value-editor.search-text">angularjs-value-editor.search-text</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Value editor for search-text input with possibility to generation from backend.</p>
+<p>No options needed.</p>
+<p>Supported validations: <a href="api/angularjs-value-editor.text/type/TextValueEditorValidations">TextValueEditorValidations</a></p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+  <h2 id="dependencies">Dependencies</h2>
+  <ul>
+    <li><a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController" _target="blank">ngModel.NgModelController</a></li><li><a href="api/angularjs-value-editor/component/kpValueEditor">kpValueEditor</a></li>
+  </ul>
+  
+
+  
+  
+  <h2 id="usage">Usage</h2>
+  <div class="usage">
+  
+
+  
+  <pre><code>&lt;search-text-value-editor&gt;&#10;&lt;/search-text-value-editor&gt;</code></pre>
+  </div>
+  
+  
+  
+
+
+  
+  <h2 id="example">Example</h2><p>
+
+<plnkr-opener example-path="examples/example-searchTextValueEditorExample"></plnkr-opener>
+<div class="runnable-example"
+    path="examples/example-searchTextValueEditorExample"
+    frame-id="example-searchTextValueEditorExample"
+    name="searchTextValueEditorExample"
+    module="searchTextValueEditorExample"
+    frame-no-resize="true">
+
+  <md-content>
+    <md-tabs md-dynamic-height="false" md-border-bottom>
+    
+      <md-tab label="index.html">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="index.html"language="html"type="html">
+          <pre><code>&lt;main ng-controller=&quot;ctrl as $ctrl&quot;&gt;&#10;     &lt;kp-value-editor type=&quot;&#39;search-text&#39;&quot; ng-model=&quot;model&quot; options=&quot;{requestFunction: $ctrl.requestFunction}&quot;&gt;&lt;/kp-value-editor&gt;&#10;     &lt;div&gt;{{model}}&lt;/div&gt;&#10;&lt;/main&gt;</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+      <md-tab label="script.js">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="script.js"language="js"type="js">
+          <pre><code>angular.module(&#39;searchTextValueEditorExample&#39;, [&#39;angularjs-value-editor&#39;])&#10;.controller(&#39;ctrl&#39;, class {&#10;    requestFunction() {&#10;        return new Promise((resolve) =&gt; {&#10;            setTimeout(() =&gt; {&#10;                resolve(&#39;Generated&#39;)&#10;            }, 1000);&#10;        });&#10;    }&#10;});</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+    </md-tabs>
+  </md-content>
+  <iframe class="runnable-example-frame" src="examples/example-searchTextValueEditorExample/index.html" name="example-searchTextValueEditorExample" id="example-searchTextValueEditorExample"></iframe>
+</div>
+
+
+
+</p>
+
+</div>
+
+

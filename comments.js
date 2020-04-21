@@ -2019,6 +2019,121 @@
  * @description
  *
  *//*@ngInject*//**
+ * @ngdoc provider
+ * @name searchTextValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ * See {@link searchTextValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name searchTextValueEditorLocalizationsService
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name SearchTextValueEditorLocalizations
+ * @module angularjs-value-editor.search-text
+ *
+ * @property {string} generate
+ *
+ * @description
+ * Default localizations: {@link searchTextValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name searchTextValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ * ```
+ * {
+ *      startsWith: 'Starts with',
+ *      equals: 'Equals'
+ * }
+ * ```
+ *//*@ngInject*//**
+ * @ngdoc type
+ * @name SearchTextValueEditorModelExtension
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ * Enum of possible `extensions`.
+ *
+ * ```
+ * enum SearchTextValueEditorModelExtension {
+ *      STARTS_WITH = 'startsWith',
+ *      EQUALS = 'equals'
+ *  }
+ * ```
+ */
+/**
+ * @ngdoc type
+ * @name SearchTextValueEditorModel
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ * ```
+ * interface SearchTextValueEditorModel {
+ *      extension: SearchTextValueEditorModelExtension;
+ *      row: string;
+ *  }
+ * ```
+ *
+ */
+/*@ngInject*/
+/**/
+/* @ts-ignore*/
+/* this.model.extension is not a member of SearchTextValueEditorModelExtension enum*/
+/**
+ * @ngdoc component
+ * @name searchTextValueEditor
+ * @module angularjs-value-editor.search-text
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for search-text input with possibility to generation from backend.
+ *
+ * No options needed.
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="searchTextValueEditorExample" module="searchTextValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main ng-controller="ctrl as $ctrl">
+ *              <kp-value-editor type="'search-text'" ng-model="model" options="{requestFunction: $ctrl.requestFunction}"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('searchTextValueEditorExample', ['angularjs-value-editor'])
+ *          .controller('ctrl', class {
+ *              requestFunction() {
+ *                  return new Promise((resolve) => {
+ *                      setTimeout(() => {
+ *                          resolve('Generated')
+ *                      }, 1000);
+ *                  });
+ *              }
+ *          });
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.search-text
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ *
+ *//**
  * @ngdoc type
  * @name SignatureValueEditorOptions
  * @module angularjs-value-editor.signature

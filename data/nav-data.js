@@ -1173,6 +1173,83 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.search-text",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.search-text",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.search-text/component",
+            "navItems": [
+              {
+                "name": "searchTextValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.search-text/component/searchTextValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.search-text/constant",
+            "navItems": [
+              {
+                "name": "searchTextValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.search-text/constant/searchTextValueEditorDefaultLocalizations"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.search-text/provider",
+            "navItems": [
+              {
+                "name": "searchTextValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.search-text/provider/searchTextValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.search-text/service",
+            "navItems": [
+              {
+                "name": "searchTextValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.search-text/service/searchTextValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.search-text/type",
+            "navItems": [
+              {
+                "name": "SearchTextValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.search-text/type/SearchTextValueEditorLocalizations"
+              },
+              {
+                "name": "SearchTextValueEditorModel",
+                "type": "type",
+                "href": "api/angularjs-value-editor.search-text/type/SearchTextValueEditorModel"
+              },
+              {
+                "name": "SearchTextValueEditorModelExtension",
+                "type": "type",
+                "href": "api/angularjs-value-editor.search-text/type/SearchTextValueEditorModelExtension"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.signature",
         "type": "groups",
         "href": "api/angularjs-value-editor.signature",
