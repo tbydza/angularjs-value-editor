@@ -10,24 +10,14 @@
  * @name CustomValueEditorType
  * @module angularjs-value-editor.aliases
  *
+ * @requires TValueEditorType
+ *
  * @description
  * ```js
  *  type CustomValueEditorType = TValueEditorType | string
  * ```
  */
-/**
- * @ngdoc type
- * @name AliasDefinition
- * @module angularjs-value-editor.aliases
- *
- * @property {CustomValueEditorType} name Name of original (aliased) value editor.
- * @property {object} options Default options for alias.
- *
- * @description
- * Alias definition object.
- */
 /*@ngInject*/
-/* TODO: withValidations*/
 /**
  * @ngdoc service
  * @name aliasesService
@@ -38,7 +28,7 @@
  */
 /**
      * @ngdoc method
-     * @name aliasesService#getForAlias
+     * @name aliasesService#getAlias
      *
      * @param {CustomValueEditorType} alias Get alias settings.
      *
@@ -86,25 +76,6 @@
      *
      * @description
      * Remove alias.
-     */
-/**
- * @ngdoc type
- * @name AliasesServiceProviderBuildOptions
- * @module angularjs-value-editor.aliases
- *
- * @description
- * Builder for setting default options to aliased editor.
- */
-/**
-     * @ngdoc method
-     * @name AliasesServiceProviderBuildOptions#withOptions
-     *
-     * @template OPTIONS
-     *
-     * @param {OPTIONS} options Default editor options.
-     *
-     * @description
-     * Add custom default aliased editor options.
      *//*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
@@ -113,6 +84,8 @@
 /*@ngInject*//*@ngInject*/
 /*@ngInject*/
 /* try to change options via reference*/
+/*@ngInject*/
+/*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
@@ -130,25 +103,15 @@
  */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorConfigurationProvider#setConfiguration
+     * @name AbstractValueEditorConfigurationProvider#forAlias
      * @module angularjs-value-editor
      *
-     * @param {Partial<CONFIGURATION>} configuration New value editor configuration.
+     * @param {CustomValueEditorType} alias Alias
      *
-     * @returns {DefaultOptions<CONFIGURATION>} Complete new value editor configuration.
-     *
-     * @description
-     * Sets new value editor configuration.
-     */
-/**
-     * @ngdoc method
-     * @name AbstractValueEditorConfigurationProvider#getConfiguration
-     * @module angularjs-value-editor
-     *
-     * @returns {DefaultOptions<CONFIGURATION>} Current value editor options.
+     * @returns {ConfigurationBuilder<CONFIGURATION>} Builder
      *
      * @description
-     * Returns current value editor options.
+     * This method is used for aliasing configuration.
      */
 /**
      * @ngdoc method
@@ -162,6 +125,28 @@
      *
      */
 /**
+     * @ngdoc method
+     * @name AbstractValueEditorConfigurationProvider#getConfiguration
+     * @module angularjs-value-editor
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Current value editor options.
+     *
+     * @description
+     * Returns current value editor options.
+     */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorConfigurationProvider#setConfiguration
+     * @module angularjs-value-editor
+     *
+     * @param {Partial<CONFIGURATION>} configuration New value editor configuration.
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Complete new value editor configuration.
+     *
+     * @description
+     * Sets new value editor configuration.
+     */
+/**
  * @ngdoc service
  * @name AbstractValueEditorConfigurationService
  * @module angularjs-value-editor
@@ -170,7 +155,43 @@
  *
  * @description
  * See {@link AbstractValueEditorConfigurationProvider}
- *//*@ngInject*/
+ */
+/**
+ * @ngdoc type
+ * @name ConfigurationBuilder
+ * @module angularjs-value-editor
+ *
+ * @template CONFIGURATION
+ *
+ * @description
+ * Methods for setting and getting configuration.
+ */
+/**
+     * @ngdoc method
+     * @name ConfigurationBuilder#getConfiguration
+     * @module angularjs-value-editor
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Current value editor options.
+     *
+     * @description
+     * Returns current value editor options.
+     *
+     * {@link  AbstractValueEditorConfigurationProvider#getConfiguration}
+     */
+/**
+     * @ngdoc method
+     * @name ConfigurationBuilder#setConfiguration
+     * @module angularjs-value-editor
+     *
+     * @param {Partial<CONFIGURATION>} configuration New value editor configuration.
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Complete new value editor configuration.
+     *
+     * @description
+     * Sets new value editor configuration.
+     *
+     * {@link  AbstractValueEditorConfigurationProvider#setConfiguration}
+     *//*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
@@ -263,7 +284,8 @@
      * @param {OptionsChangeDetection<OPTIONS>} optionsChangeDetection Object whose keys are name of changed properties and value is boolean status of change.
      */
 /* tslint:disable-next-line:no-unused-expression*/
-/* tslint:disable-next-line:no-unused-expression*//**
+/* tslint:disable-next-line:no-unused-expression*/
+/*@ngInject*//**
  * @ngdoc type
  * @name AcceptableRootValueEditorOptions
  * @module angularjs-value-editor.acceptable-root
@@ -2135,6 +2157,167 @@
  *
  *//**
  * @ngdoc type
+ * @name SearchableValueEditorOptions
+ * @module angularjs-value-editor.searchable
+ *
+ * @property {string} modelTemplate Template for displaying model
+ * @property {{}} additionalParameters Additional parameters passed to `searchModelFunction` and `editModelFunction`
+ * @property {Injectable<Function>} searchModelFunction
+ * ```
+ * function(...args: any[]) => Promise<MODEL>
+ * ```
+ * Searching angularjs injectable function. Returns model value in promise.
+ *
+ * | Injectable argument name | Description                        |
+ * | ------------------------ | ---------------------------------- |
+ * | `$model`                 | Current model                      |
+ * | `$additionalParameters`  | Additional parameters from options |
+ *
+ * @property {Injectable<Function>} editModelFunction
+ * ```
+ * function(...args: any[]) => Promise<MODEL>
+ * ```
+ * Function that calls edit value. Returns new model in promise.
+ *
+ * | Injectable argument name | Description                        |
+ * | ------------------------ | ---------------------------------- |
+ * | `$model`                 | Current model                      |
+ * | `$additionalParameters`  | Additional parameters from options |
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link searchableValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name searchableValueEditorDefaultOptions
+ * @module angularjs-value-editor.searchable
+ *
+ * @description
+ * For description see {@link SearchableValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *      modelTemplate: '{{$model}}',
+ *      additionalParameters: undefined,
+ *      searchModelFunction: async () => {throw new Error('searchModelFunction is not set')},
+ *      editModelFunction: undefined
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name searchableValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.searchable
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link searchableValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name searchableValueEditorConfigurationService
+ * @module angularjs-value-editor.searchable
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link searchableValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name searchableValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.searchable
+ *
+ * @description
+ * See {@link searchableValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name searchableValueEditorLocalizationsService
+ * @module angularjs-value-editor.searchable
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name SearchableValueEditorLocalizations
+ * @module angularjs-value-editor.searchable
+ *
+ * @property {string} search
+ * @property {string} searchOther
+ * @property {string} editValue
+ * @property {string} createNew
+ *
+ * @description
+ * Default localizations: {@link searchableValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name searchableValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.searchable
+ *
+ * @description
+ * ```
+ * {
+ *      search: 'Search',
+ *      searchOther: 'Search other',
+ *      editValue: 'Edit value',
+ *      createNew: 'Create new'
+ * }
+ * ```
+ *//*@ngInject*/
+/**
+ * @ngdoc component
+ * @name searchableValueEditor
+ * @module angularjs-value-editor.searchable
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for searchable input.
+ *
+ * Supported options: {@link type:SearchableValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="searchableValueEditorExample" module="searchableValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'searchable'" ng-model="model" placeholder="Search some value..."></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('searchableValueEditorExample', ['angularjs-value-editor'])
+ *         .config(['searchableValueEditorConfigurationServiceProvider', (searchableValueEditorConfigurationServiceProvider) =>
+ *              searchableValueEditorConfigurationServiceProvider.setConfiguration({
+ *                  searchModelFunction: ['$timeout', ($timeout) => new Promise((resolve => $timeout(() => resolve('Some result'), 1500)))]
+ *              })
+ *         ]);
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.searchable
+ * @module angularjs-value-editor.searchable
+ *
+ * @description
+ *
+ *//* tslint:disable-next-line:variable-name*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//**
+ * @ngdoc type
  * @name SignatureValueEditorOptions
  * @module angularjs-value-editor.signature
  *
@@ -2461,14 +2644,46 @@
  *
  * @description
  * Aliased value editor types.
+ *
+ * ```
+ * type TValueEditorTypeAliases =
+ *  'exemplar-bar-code' |
+ *  'single-acceptable-root' |
+ *  'multiple-acceptable-root';
+ * ```
  */
 /**
  * @ngdoc type
  * @name TValueEditorType
  * @module angularjs-value-editor
  *
+ * @requires TValueEditorTypeAliases
+ *
  * @description
  * Value editor types.
+ *
+ * ```js
+ * type TValueEditorType =
+ *      TValueEditorTypeAliases |
+ *      'text' |
+ *      'number' |
+ *      'boolean' |
+ *      'hidden' |
+ *      'html' |
+ *      'date' |
+ *      'acceptable' |
+ *      'year' |
+ *      'card-number' |
+ *      'index-selection' |
+ *      'autocomplete' |
+ *      'password' |
+ *      'signature' |
+ *      'access-number' |
+ *      'number-range' |
+ *      'acceptable-root' |
+ *      'search-text' |
+ *      'searchable';
+ * ```
  */
 /**
  * Make all properties required except properties of ValueEditorOptions

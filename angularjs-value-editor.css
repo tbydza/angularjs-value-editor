@@ -349,3 +349,17 @@ treecontrol.tree-boot .tree-label.tree-selected:hover {
   background-color: #428bca;
 }
 
+searchable-value-editor button .glyphicon {
+  padding-right: 5px;
+}
+searchable-value-editor .search-button,
+searchable-value-editor .edit-button {
+  margin-left: 5px;
+}
+searchable-value-editor .searchable-loading-svg svg {
+  width: 14px;
+  height: 15px;
+  position: relative;
+  top: 2px;
+}
+

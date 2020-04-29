@@ -1,0 +1,142 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">SearchableValueEditorOptions</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - type in module <a href="api/angularjs-value-editor.searchable">angularjs-value-editor.searchable</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Extends <a href="api/angularjs-value-editor/type/ValueEditorOptions">ValueEditorOptions</a></p>
+<p>Default value: <a href="api/angularjs-value-editor.searchable/constant/searchableValueEditorDefaultOptions">searchableValueEditorDefaultOptions</a></p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+
+  
+<h2>Properties</h2>
+<ul class="properties">
+  <li id="modelTemplate">
+    <h3 class="">
+      <span class="title"><code>modelTemplate</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-string"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" _target="blank">String</a></span></td>
+    <td><p>Template for displaying model</p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="additionalParameters">
+    <h3 class="">
+      <span class="title"><code>additionalParameters</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-object"><a href="{">{</a> {}}</span></td>
+    <td><p>Additional parameters passed to <code>searchModelFunction</code> and <code>editModelFunction</code></p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="searchModelFunction">
+    <h3 class="">
+      <span class="title"><code>searchModelFunction</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-injectable"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">Injectable.&lt;function()&gt;</a></span></td>
+    <td><pre><code>function(...args: any[]) =&gt; Promise&lt;MODEL&gt;
+</code></pre>
+<p>Searching angularjs injectable function. Returns model value in promise.</p>
+<table>
+<thead>
+<tr>
+<th>Injectable argument name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$model</code></td>
+<td>Current model</td>
+</tr>
+<tr>
+<td><code>$additionalParameters</code></td>
+<td>Additional parameters from options</td>
+</tr>
+</tbody>
+</table>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="editModelFunction">
+    <h3 class="">
+      <span class="title"><code>editModelFunction</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-injectable"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">Injectable.&lt;function()&gt;</a></span></td>
+    <td><pre><code>function(...args: any[]) =&gt; Promise&lt;MODEL&gt;
+</code></pre>
+<p>Function that calls edit value. Returns new model in promise.</p>
+<table>
+<thead>
+<tr>
+<th>Injectable argument name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$model</code></td>
+<td>Current model</td>
+</tr>
+<tr>
+<td><code>$additionalParameters</code></td>
+<td>Additional parameters from options</td>
+</tr>
+</tbody>
+</table>
+</td>
+  </tr>
+</table>
+  </li>
+  </ul>
+
+  
+</div>
+
+

@@ -73,6 +73,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor/type",
             "navItems": [
               {
+                "name": "ConfigurationBuilder",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/ConfigurationBuilder"
+              },
+              {
                 "name": "TValueEditorType",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/TValueEditorType"
@@ -406,16 +411,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "type": "section",
             "href": "api/angularjs-value-editor.aliases/type",
             "navItems": [
-              {
-                "name": "AliasDefinition",
-                "type": "type",
-                "href": "api/angularjs-value-editor.aliases/type/AliasDefinition"
-              },
-              {
-                "name": "AliasesServiceProviderBuildOptions",
-                "type": "type",
-                "href": "api/angularjs-value-editor.aliases/type/AliasesServiceProviderBuildOptions"
-              },
               {
                 "name": "CustomValueEditorType",
                 "type": "type",
@@ -1244,6 +1239,93 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "SearchTextValueEditorModelExtension",
                 "type": "type",
                 "href": "api/angularjs-value-editor.search-text/type/SearchTextValueEditorModelExtension"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.searchable",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.searchable",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.searchable/component",
+            "navItems": [
+              {
+                "name": "searchableValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.searchable/component/searchableValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.searchable/constant",
+            "navItems": [
+              {
+                "name": "searchableValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.searchable/constant/searchableValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "searchableValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.searchable/constant/searchableValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.searchable/provider",
+            "navItems": [
+              {
+                "name": "searchableValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.searchable/provider/searchableValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "searchableValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.searchable/provider/searchableValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.searchable/service",
+            "navItems": [
+              {
+                "name": "searchableValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.searchable/service/searchableValueEditorConfigurationService"
+              },
+              {
+                "name": "searchableValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.searchable/service/searchableValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.searchable/type",
+            "navItems": [
+              {
+                "name": "SearchableValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.searchable/type/SearchableValueEditorLocalizations"
+              },
+              {
+                "name": "SearchableValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.searchable/type/SearchableValueEditorOptions"
               }
             ]
           }
