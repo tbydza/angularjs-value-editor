@@ -1168,6 +1168,85 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.range",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.range",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.range/component",
+            "navItems": [
+              {
+                "name": "rangeValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.range/component/rangeValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.range/constant",
+            "navItems": [
+              {
+                "name": "rangeValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.range/constant/rangeValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.range/directive",
+            "navItems": [
+              {
+                "name": "sliderModelTransformer",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.range/directive/sliderModelTransformer"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.range/provider",
+            "navItems": [
+              {
+                "name": "rangeValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.range/provider/rangeValueEditorConfigurationServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.range/service",
+            "navItems": [
+              {
+                "name": "rangeValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.range/service/rangeValueEditorConfigurationService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.range/type",
+            "navItems": [
+              {
+                "name": "RangeValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.range/type/RangeValueEditorOptions"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.search-text",
         "type": "groups",
         "href": "api/angularjs-value-editor.search-text",
@@ -1494,6 +1573,12 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           }
         ]
+      },
+      {
+        "name": "angularjs-value-editor.velocity-template",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.velocity-template",
+        "navItems": []
       },
       {
         "name": "angularjs-value-editor.year",

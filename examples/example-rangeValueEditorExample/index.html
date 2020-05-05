@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Example - example-textValueEditorExample</title>
+  <title>Example - example-rangeValueEditorExample</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="https://unpkg.com/@kpsys/angular-ui-bootstrap@2.5.5/dist/ui-bootstrap-csp.css" rel="stylesheet" type="text/css">
   <link href="https://unpkg.com/@kpsys/angularjs-bootstrap-datetimepicker@2.1.1/dist/angularjs-bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
@@ -30,10 +30,10 @@
 
   
 </head>
-<body ng-app="textValueEditorExample">
+<body ng-app="rangeValueEditorExample">
   <main>
-     <kp-value-editor type="'text'" ng-model="model"></kp-value-editor>
-     <div>{{model}}</div>
+     <kp-value-editor type="'range'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+     <div>Model: {{model}}</div>
 </main>
 </body>
 </html>

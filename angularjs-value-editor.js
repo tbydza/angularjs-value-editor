@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("@kpsys/angularjs-register"), require("angular"), require("luxon"), require("@kpsys/angular-ui-bootstrap"), require("angular-sanitize"), require("ui-select"), require("@kpsys/angularjs-date-parser"), require("@kpsys/angularjs-bootstrap-datetimepicker"), require("angular-ui-ace"));
+		module.exports = factory(require("@kpsys/angularjs-register"), require("angular"), require("luxon"), require("@kpsys/angular-ui-bootstrap"), require("angular-sanitize"), require("ui-select"), require("@kpsys/angularjs-date-parser"), require("@kpsys/angularjs-bootstrap-datetimepicker"), require("angular-ui-ace"), require("@kpsys/angularjs-histogram-slider"));
 	else if(typeof define === 'function' && define.amd)
-		define(["@kpsys/angularjs-register", "angular", "luxon", "@kpsys/angular-ui-bootstrap", "angular-sanitize", "ui-select", "@kpsys/angularjs-date-parser", "@kpsys/angularjs-bootstrap-datetimepicker", "angular-ui-ace"], factory);
+		define(["@kpsys/angularjs-register", "angular", "luxon", "@kpsys/angular-ui-bootstrap", "angular-sanitize", "ui-select", "@kpsys/angularjs-date-parser", "@kpsys/angularjs-bootstrap-datetimepicker", "angular-ui-ace", "@kpsys/angularjs-histogram-slider"], factory);
 	else if(typeof exports === 'object')
-		exports["angularjs-value-editor"] = factory(require("@kpsys/angularjs-register"), require("angular"), require("luxon"), require("@kpsys/angular-ui-bootstrap"), require("angular-sanitize"), require("ui-select"), require("@kpsys/angularjs-date-parser"), require("@kpsys/angularjs-bootstrap-datetimepicker"), require("angular-ui-ace"));
+		exports["angularjs-value-editor"] = factory(require("@kpsys/angularjs-register"), require("angular"), require("luxon"), require("@kpsys/angular-ui-bootstrap"), require("angular-sanitize"), require("ui-select"), require("@kpsys/angularjs-date-parser"), require("@kpsys/angularjs-bootstrap-datetimepicker"), require("angular-ui-ace"), require("@kpsys/angularjs-histogram-slider"));
 	else
-		root["angularjs-value-editor"] = factory(root["@kpsys/angularjs-register"], root["angular"], root["luxon"], root["@kpsys/angular-ui-bootstrap"], root["angular-sanitize"], root["ui-select"], root["@kpsys/angularjs-date-parser"], root["@kpsys/angularjs-bootstrap-datetimepicker"], root["angular-ui-ace"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__11__, __WEBPACK_EXTERNAL_MODULE__16__, __WEBPACK_EXTERNAL_MODULE__19__, __WEBPACK_EXTERNAL_MODULE__20__, __WEBPACK_EXTERNAL_MODULE__36__, __WEBPACK_EXTERNAL_MODULE__37__, __WEBPACK_EXTERNAL_MODULE__55__) {
+		root["angularjs-value-editor"] = factory(root["@kpsys/angularjs-register"], root["angular"], root["luxon"], root["@kpsys/angular-ui-bootstrap"], root["angular-sanitize"], root["ui-select"], root["@kpsys/angularjs-date-parser"], root["@kpsys/angularjs-bootstrap-datetimepicker"], root["angular-ui-ace"], root["@kpsys/angularjs-histogram-slider"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__5__, __WEBPACK_EXTERNAL_MODULE__12__, __WEBPACK_EXTERNAL_MODULE__17__, __WEBPACK_EXTERNAL_MODULE__20__, __WEBPACK_EXTERNAL_MODULE__21__, __WEBPACK_EXTERNAL_MODULE__36__, __WEBPACK_EXTERNAL_MODULE__37__, __WEBPACK_EXTERNAL_MODULE__55__, __WEBPACK_EXTERNAL_MODULE__127__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -139,11 +139,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var angular = __webpack_require__(5);
 
-var ng_model_connector_1 = __webpack_require__(9);
+var ng_model_connector_1 = __webpack_require__(10);
 
-var uuid_generator_1 = __webpack_require__(6);
+var uuid_generator_1 = __webpack_require__(8);
 
-var equals_1 = __webpack_require__(10);
+var equals_1 = __webpack_require__(11);
 
 var ValueEditorComponentController = /*#__PURE__*/function (_ng_model_connector_) {
   ValueEditorComponentController.$inject = ["aliasesService"];
@@ -249,7 +249,7 @@ var ValueEditorComponent = function ValueEditorComponent() {
     options: '<?'
   };
   this.controller = ValueEditorComponentController;
-  this.templateUrl = __webpack_require__(25);
+  this.templateUrl = __webpack_require__(26);
 };
 
 exports.default = ValueEditorComponent;
@@ -257,148 +257,6 @@ ValueEditorComponent.componentName = 'kpValueEditor';
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var ng_model_connector_1 = __webpack_require__(9);
-
-var angular = __webpack_require__(5);
-
-var equals_1 = __webpack_require__(10);
-
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
-
-var aliases_service_1 = __webpack_require__(7);
-/**
- * Abstract base class for general value-editor features.
- *
- * @template OPTIONS
- */
-
-
-var AbstractValueEditor = /*#__PURE__*/function (_ng_model_connector_) {
-  _inherits(AbstractValueEditor, _ng_model_connector_);
-
-  var _super = _createSuper(AbstractValueEditor);
-
-  function AbstractValueEditor(configurationService, localizationService) {
-    var _this;
-
-    _classCallCheck(this, AbstractValueEditor);
-
-    _this = _super.call(this);
-    _this.configurationService = configurationService;
-    _this.localizationService = localizationService;
-    _this.options = angular.merge({}, _this.configurationService.forAlias(aliases_service_1.DEFAULT_ALIAS).getConfiguration());
-    return _this;
-  }
-
-  _createClass(AbstractValueEditor, [{
-    key: "$onInit",
-    value: function $onInit() {
-      _get(_getPrototypeOf(AbstractValueEditor.prototype), "$onInit", this).call(this);
-
-      this.valueEditorController.registerValueEditor(this);
-      this.options = angular.merge({}, this.configurationService.forAlias(this.valueEditorController.type).getConfiguration(), this.valueEditorController.options);
-    }
-  }, {
-    key: "$postLink",
-    value: function $postLink() {
-      if (!equals_1.default(this.options, this.configurationService.forAlias(this.valueEditorController.type).getConfiguration())) {
-        this.onOptionsChange(this.options, undefined, this.whichPropertiesIsNotEqual(this.options, this.configurationService.forAlias(this.valueEditorController.type).getConfiguration()));
-      }
-    }
-  }, {
-    key: "changeOptions",
-    value: function changeOptions(newOptions, oldOptions) {
-      this.options = newOptions;
-      this.onOptionsChange(newOptions, oldOptions, this.whichPropertiesIsNotEqual(newOptions, oldOptions));
-    }
-  }, {
-    key: "localize",
-    value: function localize(code) {
-      if (this.localizationService) {
-        return this.localizationService.getLocalization(code);
-      } else {
-        throw new Error('localizationService is not set');
-      }
-    }
-  }, {
-    key: "whichPropertiesIsNotEqual",
-    value: function whichPropertiesIsNotEqual(options1, options2) {
-      var changeObject = {};
-      var keys = new Set(); // tslint:disable-next-line:no-unused-expression
-
-      options1 && Object.keys(options1).forEach(keys.add.bind(keys)); // tslint:disable-next-line:no-unused-expression
-
-      options2 && Object.keys(options2).forEach(keys.add.bind(keys));
-      Array.from(keys).forEach(function (key) {
-        return changeObject[key] = !(Object.prototype.hasOwnProperty.call(options1, key) && Object.prototype.hasOwnProperty.call(options2, key) && options1[key] === options2[key]);
-      });
-      return changeObject;
-    }
-  }]);
-
-  return AbstractValueEditor;
-}(ng_model_connector_1.default);
-
-exports.default = AbstractValueEditor;
-AbstractValueEditor.$inject = ['emptyConfigurationService'];
-
-var EmptyConfigurationService = /*#__PURE__*/function (_abstract_value_edito) {
-  EmptyConfigurationService.$inject = ["aliasesServiceProvider"];
-
-  _inherits(EmptyConfigurationService, _abstract_value_edito);
-
-  var _super2 = _createSuper(EmptyConfigurationService);
-
-  /*@ngInject*/
-  function EmptyConfigurationService(aliasesServiceProvider) {
-    _classCallCheck(this, EmptyConfigurationService);
-
-    return _super2.call(this, aliasesServiceProvider, {});
-  }
-
-  return EmptyConfigurationService;
-}(abstract_value_editor_configuration_provider_1.default);
-
-exports.EmptyConfigurationService = EmptyConfigurationService;
-EmptyConfigurationService.serviceName = 'emptyConfigurationService';
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -541,6 +399,162 @@ var AbstractValueEditorConfigurationProvider = /*#__PURE__*/function () {
 exports.default = AbstractValueEditorConfigurationProvider;
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var ng_model_connector_1 = __webpack_require__(10);
+
+var angular = __webpack_require__(5);
+
+var equals_1 = __webpack_require__(11);
+
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
+
+var aliases_service_1 = __webpack_require__(7);
+/**
+ * Abstract base class for general value-editor features.
+ *
+ * @template OPTIONS
+ */
+
+
+var AbstractValueEditor = /*#__PURE__*/function (_ng_model_connector_) {
+  _inherits(AbstractValueEditor, _ng_model_connector_);
+
+  var _super = _createSuper(AbstractValueEditor);
+
+  function AbstractValueEditor(configurationService, localizationService) {
+    var _this;
+
+    _classCallCheck(this, AbstractValueEditor);
+
+    _this = _super.call(this);
+    _this.configurationService = configurationService;
+    _this.localizationService = localizationService;
+    _this.options = angular.merge({}, _this.configurationService.forAlias(aliases_service_1.DEFAULT_ALIAS).getConfiguration());
+    return _this;
+  }
+
+  _createClass(AbstractValueEditor, [{
+    key: "$onInit",
+    value: function $onInit() {
+      _get(_getPrototypeOf(AbstractValueEditor.prototype), "$onInit", this).call(this);
+
+      this.valueEditorController.registerValueEditor(this);
+      this.options = angular.merge({}, this.configurationService.forAlias(this.valueEditorController.type).getConfiguration(), this.valueEditorController.options);
+    }
+  }, {
+    key: "$postLink",
+    value: function $postLink() {
+      // If initial options are not defaults, trigger options change.
+      if (!equals_1.default(this.options, this.configurationService.forAlias(this.valueEditorController.type).getConfiguration())) {
+        this.onOptionsChange(this.options, undefined, this.whichPropertiesIsNotEqual(this.options, this.configurationService.forAlias(this.valueEditorController.type).getConfiguration()));
+      }
+    }
+    /**
+     * This method changes options.
+     * @param {OPTIONS} newOptions
+     * @param {OPTIONS} oldOptions
+     */
+
+  }, {
+    key: "changeOptions",
+    value: function changeOptions(newOptions, oldOptions) {
+      this.options = newOptions;
+      this.onOptionsChange(newOptions, oldOptions, this.whichPropertiesIsNotEqual(newOptions, oldOptions));
+    }
+    /**
+     * Simplifies localization. No need to call localization service.
+     * @param {string} code Message code.
+     * @returns {string} Localized message.
+     */
+
+  }, {
+    key: "localize",
+    value: function localize(code) {
+      if (this.localizationService) {
+        return this.localizationService.getLocalization(code);
+      } else {
+        /* istanbul ignore else */
+        throw new Error('localizationService is not set');
+      }
+    }
+  }, {
+    key: "whichPropertiesIsNotEqual",
+    value: function whichPropertiesIsNotEqual(options1, options2) {
+      var changeObject = {};
+      var keys = new Set(); // tslint:disable-next-line:no-unused-expression
+
+      options1 && Object.keys(options1).forEach(keys.add.bind(keys)); // tslint:disable-next-line:no-unused-expression
+
+      options2 && Object.keys(options2).forEach(keys.add.bind(keys));
+      Array.from(keys).forEach(function (key) {
+        return changeObject[key] = !(Object.prototype.hasOwnProperty.call(options1, key) && Object.prototype.hasOwnProperty.call(options2, key) && options1[key] === options2[key]);
+      });
+      return changeObject;
+    }
+  }]);
+
+  return AbstractValueEditor;
+}(ng_model_connector_1.default);
+
+exports.default = AbstractValueEditor;
+AbstractValueEditor.$inject = ['emptyConfigurationService'];
+
+var EmptyConfigurationService = /*#__PURE__*/function (_abstract_value_edito) {
+  EmptyConfigurationService.$inject = ["aliasesServiceProvider"];
+
+  _inherits(EmptyConfigurationService, _abstract_value_edito);
+
+  var _super2 = _createSuper(EmptyConfigurationService);
+
+  /*@ngInject*/
+  function EmptyConfigurationService(aliasesServiceProvider) {
+    _classCallCheck(this, EmptyConfigurationService);
+
+    return _super2.call(this, aliasesServiceProvider, {});
+  }
+
+  return EmptyConfigurationService;
+}(abstract_value_editor_configuration_provider_1.default);
+
+exports.EmptyConfigurationService = EmptyConfigurationService;
+EmptyConfigurationService.serviceName = 'emptyConfigurationService';
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -666,23 +680,104 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__5__;
 "use strict";
 
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var abstract_value_editor_1 = __webpack_require__(3);
+
+var uuid_generator_1 = __webpack_require__(8);
 /**
- * Generates random pseudo-UUID.
+ * Abstract editor class which contains some helpers for managing and simplify template parsing.
  */
 
-function generateUuid() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    // tslint:disable-next-line
-    var r = Math.random() * 16 | 0,
-        v = c == 'x' ? r : r & 0x3 | 0x8;
-    return v.toString(16);
-  });
-}
 
-exports.generateUuid = generateUuid;
+var AbstractTemplateValueEditor = /*#__PURE__*/function (_abstract_value_edito) {
+  _inherits(AbstractTemplateValueEditor, _abstract_value_edito);
+
+  var _super = _createSuper(AbstractTemplateValueEditor);
+
+  function AbstractTemplateValueEditor(baseTemplateUrl, templatePrefix, $interpolate, $templateCache, configurationService, localizationService) {
+    var _this;
+
+    _classCallCheck(this, AbstractTemplateValueEditor);
+
+    _this = _super.call(this, configurationService, localizationService);
+    _this.baseTemplateUrl = baseTemplateUrl;
+    _this.templatePrefix = templatePrefix;
+    _this.$interpolate = $interpolate;
+    _this.$templateCache = $templateCache;
+    _this.configurationService = configurationService;
+    _this.localizationService = localizationService;
+    _this.uuid = uuid_generator_1.generateUuid();
+    return _this;
+  }
+
+  _createClass(AbstractTemplateValueEditor, [{
+    key: "$onInit",
+    value: function $onInit() {
+      _get(_getPrototypeOf(AbstractTemplateValueEditor.prototype), "$onInit", this).call(this);
+
+      this.updateTemplate();
+    }
+    /**
+     * Updates template
+     */
+
+  }, {
+    key: "updateTemplate",
+    value: function updateTemplate() {
+      this.$templateCache.remove(this.templateUrl);
+      var newTemplateName = "".concat(this.templatePrefix, "_").concat(this.uuid, "_").concat(new Date().valueOf());
+      var template = this.$templateCache.get(this.baseTemplateUrl);
+      var interpolated = this.$interpolate(template)(_objectSpread({}, this.getTemplateModel()));
+      this.$templateCache.put(newTemplateName, interpolated);
+      this.templateUrl = newTemplateName;
+    }
+  }]);
+
+  return AbstractTemplateValueEditor;
+}(abstract_value_editor_1.default);
+
+exports.default = AbstractTemplateValueEditor;
+/**
+ * Pre-defined component template.
+ * @type {string}
+ */
+
+AbstractTemplateValueEditor.COMPONENT_TEMPLATE = '<ng-include src="$ctrl.templateUrl"></ng-include>';
 
 /***/ }),
 /* 7 */
@@ -774,6 +869,31 @@ AliasesServiceProviderImpl.providerName = 'aliasesService';
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+/**
+ * Generates random pseudo-UUID.
+ */
+
+function generateUuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    // tslint:disable-next-line
+    var r = Math.random() * 16 | 0,
+        v = c == 'x' ? r : r & 0x3 | 0x8;
+    return v.toString(16);
+  });
+}
+
+exports.generateUuid = generateUuid;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var angularjs_register_1 = __webpack_require__(0);
 
@@ -791,7 +911,7 @@ var aliases_service_1 = __webpack_require__(7);
 exports.default = angularjs_register_1.default('angularjs-value-editor.aliases').provider(aliases_service_1.AliasesServiceProviderImpl.providerName, aliases_service_1.AliasesServiceProviderImpl).name();
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -841,11 +961,13 @@ var NgModelConnector = /*#__PURE__*/function () {
 exports.default = NgModelConnector;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+/* istanbul ignore file */
+// tested by angular team
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -944,13 +1066,13 @@ function customEquals(o1, o2) {
 exports.default = customEquals;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__11__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__12__;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -984,7 +1106,7 @@ exports.default = bind;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1040,14 +1162,14 @@ function isFormController(controller) {
 }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(15);
+module.exports = __webpack_require__(16);
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1057,15 +1179,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(16);
-
 __webpack_require__(17);
+
+__webpack_require__(18);
 
 var angularjs_register_1 = __webpack_require__(0);
 
-var aliases_module_1 = __webpack_require__(8);
+var aliases_module_1 = __webpack_require__(9);
 
-var acceptable_value_editor_module_1 = __webpack_require__(18);
+var acceptable_value_editor_module_1 = __webpack_require__(19);
 
 var boolean_value_editor_module_1 = __webpack_require__(30);
 
@@ -1103,9 +1225,13 @@ var search_text_value_editor_module_1 = __webpack_require__(113);
 
 var searchable_value_editor_module_1 = __webpack_require__(117);
 
+var velocity_template_value_editor_module_1 = __webpack_require__(123);
+
+var range_value_editor_module_1 = __webpack_require__(125);
+
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 /**
  * @ngdoc constant
  * @name loadingSpinnerTemplateUrl
@@ -1119,7 +1245,7 @@ var abstract_value_editor_1 = __webpack_require__(2);
 // tslint:disable-next-line:no-var-requires
 
 
-var LOADING_SPINNER_TPL_URL = __webpack_require__(123);
+var LOADING_SPINNER_TPL_URL = __webpack_require__(132);
 /**
  * @ngdoc module
  * @name angularjs-value-editor
@@ -1127,26 +1253,26 @@ var LOADING_SPINNER_TPL_URL = __webpack_require__(123);
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', aliases_module_1.default, acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default, autocomplete_value_editor_module_1.default, password_value_editor_module_1.default, signature_value_editor_module_1.default, access_number_value_editor_module_1.default, number_range_value_editor_module_1.default, exemplar_bar_code_value_editor_module_1.default, acceptable_root_value_editor_module_1.default, search_text_value_editor_module_1.default, searchable_value_editor_module_1.default]).constant('loadingSpinnerTemplateUrl', LOADING_SPINNER_TPL_URL).provider(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).component(value_editor_component_1.default.componentName, value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', aliases_module_1.default, acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default, autocomplete_value_editor_module_1.default, password_value_editor_module_1.default, signature_value_editor_module_1.default, access_number_value_editor_module_1.default, number_range_value_editor_module_1.default, exemplar_bar_code_value_editor_module_1.default, acceptable_root_value_editor_module_1.default, search_text_value_editor_module_1.default, searchable_value_editor_module_1.default, velocity_template_value_editor_module_1.default, range_value_editor_module_1.default]).constant('loadingSpinnerTemplateUrl', LOADING_SPINNER_TPL_URL).provider(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).component(value_editor_component_1.default.componentName, value_editor_component_1.default).name();
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController
  */
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__16__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__17__;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1158,17 +1284,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var angularjs_register_1 = __webpack_require__(0);
 
-var aliases_module_1 = __webpack_require__(8);
-
-__webpack_require__(19);
+var aliases_module_1 = __webpack_require__(9);
 
 __webpack_require__(20);
 
-var uiSelect_decorator_1 = __webpack_require__(21);
+__webpack_require__(21);
 
-var acceptable_value_editor_localizations_provider_1 = __webpack_require__(22);
+var uiSelect_decorator_1 = __webpack_require__(22);
 
-var acceptable_value_editor_component_1 = __webpack_require__(23);
+var acceptable_value_editor_localizations_provider_1 = __webpack_require__(23);
+
+var acceptable_value_editor_component_1 = __webpack_require__(24);
 
 var acceptable_value_editor_configuration_provider_1 = __webpack_require__(29);
 /**
@@ -1184,12 +1310,6 @@ var acceptable_value_editor_configuration_provider_1 = __webpack_require__(29);
 exports.default = angularjs_register_1.default('angularjs-value-editor.acceptable', [aliases_module_1.default, 'ngSanitize', 'ui.select']).decorator(uiSelect_decorator_1.default.decoratorName, uiSelect_decorator_1.default).constant('acceptableValueEditorDefaultOptions', acceptable_value_editor_configuration_provider_1.ACCEPTABLE_VALUE_EDITOR_DEFAULT_OPTIONS).constant('acceptableValueEditorDefaultLocalizations', acceptable_value_editor_localizations_provider_1.ACCEPTABLE_VALUE_EDITOR_DEFAULT_LOCALIZATIONS).provider(acceptable_value_editor_configuration_provider_1.default.providerName, acceptable_value_editor_configuration_provider_1.default).provider(acceptable_value_editor_localizations_provider_1.default.providerName, acceptable_value_editor_localizations_provider_1.default).component(acceptable_value_editor_component_1.default.componentName, acceptable_value_editor_component_1.default).name();
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__19__;
-
-/***/ }),
 /* 20 */
 /***/ (function(module, exports) {
 
@@ -1197,6 +1317,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__20__;
 
 /***/ }),
 /* 21 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__21__;
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1247,7 +1373,7 @@ exports.default = uiSelectDecorator;
 uiSelectDecorator.decoratorName = 'uiSelectMultipleDirective';
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1331,7 +1457,7 @@ exports.ACCEPTABLE_VALUE_EDITOR_DEFAULT_LOCALIZATIONS = Object.freeze({
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1373,20 +1499,18 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(24);
+__webpack_require__(25);
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
-
-var uuid_generator_1 = __webpack_require__(6);
+var abstract_template_value_editor_1 = __webpack_require__(6);
 
 var TEMPLATE_NAME_PREFIX = 'value-editor.acceptableValueEditor';
 
-var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
+var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_template_va) {
   AcceptableValueEditorComponentController.$inject = ["$interpolate", "$templateCache", "acceptableValueEditorLocalizationsService", "acceptableValueEditorConfigurationService"];
 
-  _inherits(AcceptableValueEditorComponentController, _abstract_value_edito);
+  _inherits(AcceptableValueEditorComponentController, _abstract_template_va);
 
   var _super = _createSuper(AcceptableValueEditorComponentController);
 
@@ -1396,13 +1520,9 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
 
     _classCallCheck(this, AcceptableValueEditorComponentController);
 
-    _this = _super.call(this, acceptableValueEditorConfigurationService);
-    _this.$interpolate = $interpolate;
-    _this.$templateCache = $templateCache;
+    _this = _super.call(this, AcceptableValueEditorComponentController.SELECT_TEMPLATE_URL, TEMPLATE_NAME_PREFIX, $interpolate, $templateCache, acceptableValueEditorConfigurationService, acceptableValueEditorLocalizationsService);
     _this.acceptableValueEditorLocalizationsService = acceptableValueEditorLocalizationsService;
     _this.acceptableValueEditorConfigurationService = acceptableValueEditorConfigurationService;
-    _this.templateName = TEMPLATE_NAME_PREFIX;
-    _this.uuid = uuid_generator_1.generateUuid();
     _this.uiSelectComparator = _this.uiSelectComparator.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -1471,6 +1591,7 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
     key: "onOptionsChange",
     value: function onOptionsChange(newOptions, oldOptions, whichOptionIsChanged) {
       if (whichOptionIsChanged.optionsTemplate || whichOptionIsChanged.singleSelectedValueTemplate || whichOptionIsChanged.multiSelectedValueTemplate || whichOptionIsChanged.searchable || whichOptionIsChanged.multiselectable || whichOptionIsChanged.sortComparator || whichOptionIsChanged.reorderable || whichOptionIsChanged.acceptableValues || whichOptionIsChanged.switchToCheckboxesThreshold || whichOptionIsChanged.selectedFirst) {
+        this.baseTemplateUrl = this.checkboxesMode() ? AcceptableValueEditorComponentController.CHECKBOXES_TEMPLATE_URL : AcceptableValueEditorComponentController.SELECT_TEMPLATE_URL;
         this.updateTemplate();
       }
 
@@ -1482,6 +1603,19 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
         // trigger model sort by calling its setter and setting same value
         this.model = this.model;
       }
+    }
+  }, {
+    key: "getTemplateModel",
+    value: function getTemplateModel() {
+      return {
+        optionsTemplate: this.options.optionsTemplate,
+        singleSelectedValueTemplate: this.options.singleSelectedValueTemplate,
+        multiSelectedValueTemplate: this.options.multiSelectedValueTemplate,
+        searchable: this.options.searchable,
+        multiselectable: this.options.multiselectable,
+        uuid: this.uuid,
+        sort: !!this.options.sortComparator
+      };
     }
   }, {
     key: "adjustToArrayIfNot",
@@ -1518,25 +1652,6 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
       return this.options.multiselectable && (this.options.switchToCheckboxesThreshold === 0 || !this.options.reorderable && this.options.acceptableValues.length > this.options.switchToCheckboxesThreshold);
     }
   }, {
-    key: "updateTemplate",
-    value: function updateTemplate() {
-      this.$templateCache.remove(this.templateName);
-      var newTemplateName = "".concat(TEMPLATE_NAME_PREFIX, "_").concat(this.uuid, "_").concat(new Date().valueOf());
-      var templateUrl = this.checkboxesMode() ? AcceptableValueEditorComponentController.CHECKBOXES_TEMPLATE_URL : AcceptableValueEditorComponentController.SELECT_TEMPLATE_URL;
-      var template = this.$templateCache.get(templateUrl);
-      var interpolated = this.$interpolate(template)({
-        optionsTemplate: this.options.optionsTemplate,
-        singleSelectedValueTemplate: this.options.singleSelectedValueTemplate,
-        multiSelectedValueTemplate: this.options.multiSelectedValueTemplate,
-        searchable: this.options.searchable,
-        multiselectable: this.options.multiselectable,
-        uuid: this.uuid,
-        sort: !!this.options.sortComparator
-      });
-      this.$templateCache.put(newTemplateName, interpolated);
-      this.templateName = newTemplateName;
-    }
-  }, {
     key: "getIndexOfItemInModelUsingEqualityComparator",
     value: function getIndexOfItemInModelUsingEqualityComparator(item) {
       for (var i = 0; i < this.model.length; i++) {
@@ -1562,11 +1677,11 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
   }]);
 
   return AcceptableValueEditorComponentController;
-}(abstract_value_editor_1.default);
+}(abstract_template_value_editor_1.default);
 
 exports.AcceptableValueEditorComponentController = AcceptableValueEditorComponentController;
-AcceptableValueEditorComponentController.SELECT_TEMPLATE_URL = __webpack_require__(26);
-AcceptableValueEditorComponentController.CHECKBOXES_TEMPLATE_URL = __webpack_require__(27);
+AcceptableValueEditorComponentController.SELECT_TEMPLATE_URL = __webpack_require__(27);
+AcceptableValueEditorComponentController.CHECKBOXES_TEMPLATE_URL = __webpack_require__(28);
 /**
  * @ngdoc component
  * @name acceptableValueEditor
@@ -1673,7 +1788,7 @@ var AcceptableValueEditorComponent = function AcceptableValueEditorComponent() {
     ngModelController: 'ngModel',
     valueEditorController: "^".concat(value_editor_component_1.default.componentName)
   };
-  this.templateUrl = __webpack_require__(28);
+  this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = AcceptableValueEditorComponentController;
 };
 
@@ -1681,22 +1796,22 @@ exports.default = AcceptableValueEditorComponent;
 AcceptableValueEditorComponent.componentName = 'acceptableValueEditor';
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 var path = '/value-editor/value-editor.tpl.pug';
-var html = "<div ng-switch=\"$ctrl.resolveAlias()\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor><date-value-editor ng-switch-when=\"date\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></date-value-editor><acceptable-value-editor ng-switch-when=\"acceptable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-value-editor><year-value-editor ng-switch-when=\"year\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></year-value-editor><card-number-value-editor ng-switch-when=\"card-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></card-number-value-editor><index-selection-value-editor ng-switch-when=\"index-selection\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></index-selection-value-editor><autocomplete-value-editor ng-switch-when=\"autocomplete\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></autocomplete-value-editor><password-value-editor ng-switch-when=\"password\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></password-value-editor><signature-value-editor ng-switch-when=\"signature\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></signature-value-editor><access-number-value-editor ng-switch-when=\"access-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></access-number-value-editor><number-range-value-editor ng-switch-when=\"number-range\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-range-value-editor><acceptable-root-value-editor ng-switch-when=\"acceptable-root\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-root-value-editor><search-text-value-editor ng-switch-when=\"search-text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></search-text-value-editor><searchable-value-editor ng-switch-when=\"searchable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></searchable-value-editor></div>";
+var html = "<div ng-switch=\"$ctrl.resolveAlias()\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor><date-value-editor ng-switch-when=\"date\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></date-value-editor><acceptable-value-editor ng-switch-when=\"acceptable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-value-editor><year-value-editor ng-switch-when=\"year\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></year-value-editor><card-number-value-editor ng-switch-when=\"card-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></card-number-value-editor><index-selection-value-editor ng-switch-when=\"index-selection\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></index-selection-value-editor><autocomplete-value-editor ng-switch-when=\"autocomplete\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></autocomplete-value-editor><password-value-editor ng-switch-when=\"password\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></password-value-editor><signature-value-editor ng-switch-when=\"signature\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></signature-value-editor><access-number-value-editor ng-switch-when=\"access-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></access-number-value-editor><number-range-value-editor ng-switch-when=\"number-range\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-range-value-editor><acceptable-root-value-editor ng-switch-when=\"acceptable-root\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-root-value-editor><search-text-value-editor ng-switch-when=\"search-text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></search-text-value-editor><searchable-value-editor ng-switch-when=\"searchable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></searchable-value-editor><range-value-editor ng-switch-when=\"range\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></range-value-editor></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 var path = '/value-editor/editors/acceptable/select.tpl.pug';
@@ -1705,20 +1820,11 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-var path = '/value-editor/editors/acceptable/checkboxes.tpl.pug';
-var html = "<div class=\"checkboxes-mode\" ng-class=\"{'with-more': $ctrl.hasMore()}\" data-main-input=\"data-main-input\"><ul ng-ref=\"ulElement\"><li class=\"av-item\" ng-repeat=\"$item in $ctrl.getAcceptableValues() track by $index\"><div class=\"pretty p-icon p-smooth p-curve\"><input type=\"checkbox\" name=\"\\{\\{$ctrl.valueEditorController.name\\}\\}\" ng-model=\"$ctrl.checkboxModel($item)\" ng-model-options=\"{getterSetter: true}\" ng-click=\"$ctrl.updateModel($item)\" ng-disabled=\"$ctrl.valueEditorController.disabled\"/><div class=\"state p-primary\"><i class=\"icon glyphicon glyphicon-ok\"></i><label><span>{{optionsTemplate}}</span></label></div></div></li><li class=\"more-container {{uuid}}\" ng-if=\"$ctrl.hasMore()\"><style type=\"text/css\">acceptable-value-editor #check-{{uuid}}:checked ~ ul {\n    max-height: {{'{' + '{ulElement[0].children[0].offsetHeight * $ctrl.getMoreCount()}' + '}'}}px;\n}\n</style><input class=\"more-checkbox\" id=\"check-{{uuid}}\" type=\"checkbox\" ng-model=\"expanded\"/><label class=\"more-label\" for=\"check-{{uuid}}\"><i class=\"glyphicon\" ng-class=\"expanded ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down'\"></i><span ng-show=\"expanded\">{{ '{' + '{$ctrl.acceptableValueEditorLocalizationsService.getLocalization(\"less\")}' + '}' }}</span><span ng-hide=\"expanded\">{{ '{' + '{$ctrl.acceptableValueEditorLocalizationsService.getLocalization(\"more\")}' + '}' }} ({{ '{' + '{$ctrl.getMoreCount()}' + '}' }})</span></label><ul><li class=\"av-item\" ng-repeat=\"$item in $ctrl.getAcceptableValues($ctrl.options.showFirstCount, 9007199254740990) track by $index\"><div class=\"pretty p-icon p-smooth p-curve\"><input type=\"checkbox\" name=\"\\{\\{$ctrl.valueEditorController.name\\}\\}\" ng-model=\"$ctrl.checkboxModel($item)\" ng-model-options=\"{getterSetter: true}\" ng-click=\"$ctrl.updateModel($item)\" ng-disabled=\"$ctrl.valueEditorController.disabled\"/><div class=\"state p-primary\"><i class=\"icon glyphicon glyphicon-ok\"></i><label><span>{{optionsTemplate}}</span></label></div></div></li></ul></li></ul><div class=\"btn-group\"><button class=\"btn btn-default btn-xs select-all\" type=\"button\" ng-disabled=\"$ctrl.model.length === $ctrl.options.acceptableValues.length\" ng-click=\"$ctrl.model = $ctrl.options.acceptableValues.slice()\">{{ '{' + '{$ctrl.acceptableValueEditorLocalizationsService.getLocalization(\"selectAll\")}' + '}' }}</button><button class=\"btn btn-default btn-xs deselect-all\" type=\"button\" ng-disabled=\"$ctrl.model.length === 0\" ng-click=\"$ctrl.model = []\">{{ '{' + '{$ctrl.acceptableValueEditorLocalizationsService.getLocalization(\"deselectAll\")}' + '}' }}</button></div></div>";
-window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-module.exports = path;
-
-/***/ }),
 /* 28 */
 /***/ (function(module, exports) {
 
-var path = '/value-editor/editors/acceptable/acceptable.value-editor.tpl.pug';
-var html = "<ng-include src=\"$ctrl.templateName\"></ng-include>";
+var path = '/value-editor/editors/acceptable/checkboxes.tpl.pug';
+var html = "<div class=\"checkboxes-mode\" ng-class=\"{'with-more': $ctrl.hasMore()}\" data-main-input=\"data-main-input\"><ul ng-ref=\"ulElement\"><li class=\"av-item\" ng-repeat=\"$item in $ctrl.getAcceptableValues() track by $index\"><div class=\"pretty p-icon p-smooth p-curve\"><input type=\"checkbox\" name=\"\\{\\{$ctrl.valueEditorController.name\\}\\}\" ng-model=\"$ctrl.checkboxModel($item)\" ng-model-options=\"{getterSetter: true}\" ng-click=\"$ctrl.updateModel($item)\" ng-disabled=\"$ctrl.valueEditorController.disabled\"/><div class=\"state p-primary\"><i class=\"icon glyphicon glyphicon-ok\"></i><label><span>{{optionsTemplate}}</span></label></div></div></li><li class=\"more-container {{uuid}}\" ng-if=\"$ctrl.hasMore()\"><style type=\"text/css\">acceptable-value-editor #check-{{uuid}}:checked ~ ul {\n    max-height: \\{\\{ulElement[0].children[0].offsetHeight * $ctrl.getMoreCount()\\}\\}px;\n}\n</style><input class=\"more-checkbox\" id=\"check-{{uuid}}\" type=\"checkbox\" ng-model=\"expanded\"/><label class=\"more-label\" for=\"check-{{uuid}}\"><i class=\"glyphicon\" ng-class=\"expanded ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down'\"></i><span ng-show=\"expanded\" ng-bind=\"$ctrl.localize('less')\"></span><span ng-hide=\"expanded\" ng-bind=\"$ctrl.localize('more') + ' (' + $ctrl.getMoreCount() + ')'\"></span></label><ul><li class=\"av-item\" ng-repeat=\"$item in $ctrl.getAcceptableValues($ctrl.options.showFirstCount, 9007199254740990) track by $index\"><div class=\"pretty p-icon p-smooth p-curve\"><input type=\"checkbox\" name=\"\\{\\{$ctrl.valueEditorController.name\\}\\}\" ng-model=\"$ctrl.checkboxModel($item)\" ng-model-options=\"{getterSetter: true}\" ng-click=\"$ctrl.updateModel($item)\" ng-disabled=\"$ctrl.valueEditorController.disabled\"/><div class=\"state p-primary\"><i class=\"icon glyphicon glyphicon-ok\"></i><label><span>{{optionsTemplate}}</span></label></div></div></li></ul></li></ul><div class=\"btn-group\"><button class=\"btn btn-default btn-xs select-all\" type=\"button\" ng-disabled=\"$ctrl.model.length === $ctrl.options.acceptableValues.length\" ng-click=\"$ctrl.model = $ctrl.options.acceptableValues.slice()\" ng-bind=\"$ctrl.localize('selectAll')\"></button><button class=\"btn btn-default btn-xs deselect-all\" type=\"button\" ng-disabled=\"$ctrl.model.length === 0\" ng-click=\"$ctrl.model = []\" ng-bind=\"$ctrl.localize('deselectAll')\"></button></div></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -1751,7 +1857,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 
 var angular = __webpack_require__(5);
 /**
@@ -1888,7 +1994,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name booleanValueEditorDefaultOptions
@@ -1987,7 +2093,7 @@ __webpack_require__(33);
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var BooleanValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   BooleanValueEditorComponentController.$inject = ["booleanValueEditorConfigurationService"];
@@ -2210,9 +2316,9 @@ __webpack_require__(39);
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
-var luxon_1 = __webpack_require__(11);
+var luxon_1 = __webpack_require__(12);
 
 var DateValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   DateValueEditorComponentController.$inject = ["dateValueEditorConfigurationService"];
@@ -2368,7 +2474,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name dateValueEditorDefaultOptions
@@ -2485,7 +2591,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var HiddenValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   _inherits(HiddenValueEditorComponentController, _abstract_value_edito);
@@ -2500,6 +2606,8 @@ var HiddenValueEditorComponentController = /*#__PURE__*/function (_abstract_valu
 
   _createClass(HiddenValueEditorComponentController, [{
     key: "onOptionsChange",
+
+    /* istanbul ignore next */
     value: function onOptionsChange(newOptions, oldOptions) {//
     }
   }]);
@@ -2643,9 +2751,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
-var bind_decorator_1 = __webpack_require__(12);
+var bind_decorator_1 = __webpack_require__(13);
 
 var HtmlValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   HtmlValueEditorComponentController.$inject = ["htmlValueEditorConfigurationService", "$timeout"];
@@ -2825,7 +2933,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name htmlValueEditorDefaultOptions
@@ -2958,7 +3066,7 @@ __webpack_require__(51);
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var NumberValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   NumberValueEditorComponentController.$inject = ["numberValueEditorConfigurationService"];
@@ -3071,7 +3179,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name numberValueEditorDefaultOptions
@@ -3201,7 +3309,7 @@ __webpack_require__(57);
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var TextValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   TextValueEditorComponentController.$inject = ["textValueEditorConfigurationService"];
@@ -3395,7 +3503,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name textValueEditorDefaultOptions
@@ -3520,9 +3628,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
-var luxon_1 = __webpack_require__(11);
+var luxon_1 = __webpack_require__(12);
 
 var YearValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   _inherits(YearValueEditorComponentController, _abstract_value_edito);
@@ -3543,6 +3651,8 @@ var YearValueEditorComponentController = /*#__PURE__*/function (_abstract_value_
       this.ngModelController.$parsers.push(this.modelFormatter);
       this.ngModelController.$formatters.push(this.modelParser);
     }
+    /* istanbul ignore next */
+
   }, {
     key: "onOptionsChange",
     value: function onOptionsChange(newOptions, oldOptions, whatChanged) {//
@@ -3694,7 +3804,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name cardNumberValueEditorDefaultOptions
@@ -3716,7 +3826,9 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
 exports.CARD_NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
   inputSize: 'sm',
   requestParameters: {},
-  requestFunction: function requestFunction(requestParameters, additionalParameters) {
+  requestFunction:
+  /* istanbul ignore next */
+  function requestFunction(requestParameters, additionalParameters) {
     return Promise.resolve(additionalParameters.currentValue);
   }
 };
@@ -3865,7 +3977,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var value_editor_component_1 = __webpack_require__(1);
 
@@ -4113,16 +4225,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
-
-var uuid_generator_1 = __webpack_require__(6);
+var abstract_template_value_editor_1 = __webpack_require__(6);
 
 var TEMPLATE_NAME_PREFIX = 'value-editor.indexSelectionValueEditor';
 
-var IndexSelectionValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
+var IndexSelectionValueEditorComponentController = /*#__PURE__*/function (_abstract_template_va) {
   IndexSelectionValueEditorComponentController.$inject = ["indexSelectionValueEditorConfigurationService", "$interpolate", "$templateCache"];
 
-  _inherits(IndexSelectionValueEditorComponentController, _abstract_value_edito);
+  _inherits(IndexSelectionValueEditorComponentController, _abstract_template_va);
 
   var _super = _createSuper(IndexSelectionValueEditorComponentController);
 
@@ -4132,12 +4242,8 @@ var IndexSelectionValueEditorComponentController = /*#__PURE__*/function (_abstr
 
     _classCallCheck(this, IndexSelectionValueEditorComponentController);
 
-    _this = _super.call(this, indexSelectionValueEditorConfigurationService);
+    _this = _super.call(this, IndexSelectionValueEditorComponentController.TEMPLATE_URL, TEMPLATE_NAME_PREFIX, $interpolate, $templateCache, indexSelectionValueEditorConfigurationService);
     _this.indexSelectionValueEditorConfigurationService = indexSelectionValueEditorConfigurationService;
-    _this.$interpolate = $interpolate;
-    _this.$templateCache = $templateCache;
-    _this.templateName = TEMPLATE_NAME_PREFIX;
-    _this.uuid = uuid_generator_1.generateUuid();
     return _this;
   }
 
@@ -4150,9 +4256,6 @@ var IndexSelectionValueEditorComponentController = /*#__PURE__*/function (_abstr
       if (this.model && !Array.isArray(this.model)) {
         this.model = [this.model];
       }
-
-      this.template = this.$templateCache.get(IndexSelectionValueEditorComponentController.TEMPLATE_URL);
-      this.updateTemplate();
     }
   }, {
     key: "isSelected",
@@ -4177,20 +4280,16 @@ var IndexSelectionValueEditorComponentController = /*#__PURE__*/function (_abstr
       }
     }
   }, {
-    key: "updateTemplate",
-    value: function updateTemplate() {
-      this.$templateCache.remove(this.templateName);
-      var newTemplateName = "".concat(TEMPLATE_NAME_PREFIX, "_").concat(this.uuid, "_").concat(new Date().valueOf());
-      var interpolated = this.$interpolate(this.template)({
+    key: "getTemplateModel",
+    value: function getTemplateModel() {
+      return {
         optionsTemplate: this.options.optionsTemplate
-      });
-      this.$templateCache.put(newTemplateName, interpolated);
-      this.templateName = newTemplateName;
+      };
     }
   }]);
 
   return IndexSelectionValueEditorComponentController;
-}(abstract_value_editor_1.default);
+}(abstract_template_value_editor_1.default);
 
 exports.IndexSelectionValueEditorComponentController = IndexSelectionValueEditorComponentController;
 IndexSelectionValueEditorComponentController.TEMPLATE_URL = __webpack_require__(70);
@@ -4252,7 +4351,7 @@ var IndexSelectionValueEditorComponent = function IndexSelectionValueEditorCompo
     ngModelController: 'ngModel',
     valueEditorController: "^".concat(value_editor_component_1.default.componentName)
   };
-  this.template = '<ng-include src="$ctrl.templateName"></ng-include>';
+  this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = IndexSelectionValueEditorComponentController;
 };
 
@@ -4297,7 +4396,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 
 var angular = __webpack_require__(5);
 /**
@@ -4436,7 +4535,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var angular = __webpack_require__(5);
 
@@ -4636,7 +4735,9 @@ var AutocompleteValueEditorComponentController = /*#__PURE__*/function (_abstrac
   }, {
     key: "asyncCall",
     value: function asyncCall(func) {
-      this.$timeout(func ? func.bind(this) : function () {
+      this.$timeout(func ? func.bind(this) :
+      /* istanbul ignore next */
+      function () {
         return void 0;
       }, 0);
     }
@@ -4742,7 +4843,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name autocompleteValueEditorDefaultOptions
@@ -4762,7 +4863,9 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
 
 
 exports.AUTOCOMPLETE_VALUE_EDITOR_DEFAULT_OPTIONS = {
-  dataSource: function dataSource() {
+  dataSource:
+  /* istanbul ignore next */
+  function dataSource() {
     return Promise.resolve([]);
   },
   minLength: 1,
@@ -4879,7 +4982,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var PasswordValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   PasswordValueEditorComponentController.$inject = ["passwordValueEditorConfigurationService", "passwordValueEditorLocalizationsService"];
@@ -5000,7 +5103,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name passwordValueEditorDefaultOptions
@@ -5264,9 +5367,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
-var forms_1 = __webpack_require__(13);
+var forms_1 = __webpack_require__(14);
 
 var SignatureValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   SignatureValueEditorComponentController.$inject = ["signatureValueEditorConfigurationService", "signatureValueEditorLocalizationsService", "$injector", "$timeout", "$log"];
@@ -5439,7 +5542,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name signatureValueEditorDefaultOptions
@@ -5459,7 +5562,9 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
 
 exports.SIGNATURE_VALUE_EDITOR_DEFAULT_OPTIONS = {
   canDoAction: false,
-  dataSource: function dataSource() {
+  dataSource:
+  /* istanbul ignore next */
+  function dataSource() {
     return Promise.resolve([]);
   }
 };
@@ -5646,9 +5751,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
-var forms_1 = __webpack_require__(13);
+var forms_1 = __webpack_require__(14);
 
 var AccessNumberValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   AccessNumberValueEditorComponentController.$inject = ["accessNumberValueEditorConfigurationService", "accessNumberValueEditorLocalizationsService", "$injector", "$timeout", "$log"];
@@ -5828,7 +5933,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name accessNumberValueEditorDefaultOptions
@@ -5848,7 +5953,9 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
 
 exports.ACCESS_NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
   canDoAction: false,
-  dataSource: function dataSource() {
+  dataSource:
+  /* istanbul ignore next */
+  function dataSource() {
     return Promise.resolve([]);
   }
 };
@@ -6041,9 +6148,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
-var uuid_generator_1 = __webpack_require__(6);
+var uuid_generator_1 = __webpack_require__(8);
 
 var NumberRangeValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   NumberRangeValueEditorComponentController.$inject = ["numberRangeValueEditorConfigurationService", "numberRangeValueEditorLocalizationsService"];
@@ -6096,6 +6203,8 @@ var NumberRangeValueEditorComponentController = /*#__PURE__*/function (_abstract
         to: this.modelTo
       };
     }
+    /* istanbul ignore next */
+
   }, {
     key: "onOptionsChange",
     value: function onOptionsChange(newOptions, oldOptions, whatChanged) {//
@@ -6195,7 +6304,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name numberRangeValueEditorDefaultOptions
@@ -7219,7 +7328,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 
 var angular = __webpack_require__(5);
 /**
@@ -7412,36 +7521,26 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_1 = __webpack_require__(2);
-
 var value_editor_component_1 = __webpack_require__(1);
 
-var bind_decorator_1 = __webpack_require__(12);
+var bind_decorator_1 = __webpack_require__(13);
 
-var uuid_generator_1 = __webpack_require__(6);
+var abstract_template_value_editor_1 = __webpack_require__(6);
 
 var TEMPLATE_NAME_PREFIX = 'value-editor.acceptableRootValueEditor';
 
-var AcceptableRootValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
+var AcceptableRootValueEditorComponentController = /*#__PURE__*/function (_abstract_template_va) {
   AcceptableRootValueEditorComponentController.$inject = ["acceptableRootValueEditorConfigurationService", "acceptableRootValueEditorLocalizationsService", "$interpolate", "$templateCache"];
 
-  _inherits(AcceptableRootValueEditorComponentController, _abstract_value_edito);
+  _inherits(AcceptableRootValueEditorComponentController, _abstract_template_va);
 
   var _super = _createSuper(AcceptableRootValueEditorComponentController);
 
   /*@ngInject*/
   function AcceptableRootValueEditorComponentController(acceptableRootValueEditorConfigurationService, acceptableRootValueEditorLocalizationsService, $interpolate, $templateCache) {
-    var _this;
-
     _classCallCheck(this, AcceptableRootValueEditorComponentController);
 
-    _this = _super.call(this, acceptableRootValueEditorConfigurationService, acceptableRootValueEditorLocalizationsService);
-    _this.acceptableRootValueEditorLocalizationsService = acceptableRootValueEditorLocalizationsService;
-    _this.$interpolate = $interpolate;
-    _this.$templateCache = $templateCache;
-    _this.templateName = TEMPLATE_NAME_PREFIX;
-    _this.uuid = uuid_generator_1.generateUuid();
-    return _this;
+    return _super.call(this, AcceptableRootValueEditorComponentController.TEMPLATE_URL, TEMPLATE_NAME_PREFIX, $interpolate, $templateCache, acceptableRootValueEditorConfigurationService, acceptableRootValueEditorLocalizationsService);
   }
 
   _createClass(AcceptableRootValueEditorComponentController, [{
@@ -7463,15 +7562,14 @@ var AcceptableRootValueEditorComponentController = /*#__PURE__*/function (_abstr
       }; // expanded is always first level
 
       this.expandedNodes = [this.options.acceptableValue];
-      this.updateTemplate();
     }
   }, {
     key: "isSelectable",
     value: function isSelectable(node) {
-      var _this2 = this;
+      var _this = this;
 
       return !this.options.disabledItems.some(function (disabledItem) {
-        return _this2.options.equalityComparator(disabledItem, node);
+        return _this.options.equalityComparator(disabledItem, node);
       });
     }
   }, {
@@ -7482,21 +7580,16 @@ var AcceptableRootValueEditorComponentController = /*#__PURE__*/function (_abstr
       }
     }
   }, {
-    key: "updateTemplate",
-    value: function updateTemplate() {
-      this.$templateCache.remove(this.templateName);
-      var newTemplateName = "".concat(TEMPLATE_NAME_PREFIX, "_").concat(this.uuid, "_").concat(new Date().valueOf());
-      var template = this.$templateCache.get(AcceptableRootValueEditorComponentController.TEMPLATE_URL);
-      var interpolated = this.$interpolate(template)({
+    key: "getTemplateModel",
+    value: function getTemplateModel() {
+      return {
         optionsTemplate: this.options.optionsTemplate
-      });
-      this.$templateCache.put(newTemplateName, interpolated);
-      this.templateName = newTemplateName;
+      };
     }
   }]);
 
   return AcceptableRootValueEditorComponentController;
-}(abstract_value_editor_1.default);
+}(abstract_template_value_editor_1.default);
 
 AcceptableRootValueEditorComponentController.TEMPLATE_URL = __webpack_require__(110);
 AcceptableRootValueEditorComponentController.TREECONTROL_TEMPLATE_URL = __webpack_require__(111);
@@ -7762,7 +7855,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_1 = __webpack_require__(2);
+var abstract_value_editor_1 = __webpack_require__(3);
 
 var value_editor_component_1 = __webpack_require__(1);
 /**
@@ -7815,6 +7908,8 @@ var SearchTextValueEditorComponentController = /*#__PURE__*/function (_abstract_
 
       this.normalizeModel();
     }
+    /* istanbul ignore next */
+
   }, {
     key: "onOptionsChange",
     value: function onOptionsChange(newOptions, oldOptions, whatChanged) {//
@@ -7967,10 +8062,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
-
 function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
@@ -7991,16 +8082,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var value_editor_component_1 = __webpack_require__(1);
 
-var abstract_value_editor_1 = __webpack_require__(2);
-
-var uuid_generator_1 = __webpack_require__(6);
+var abstract_template_value_editor_1 = __webpack_require__(6);
 
 var TEMPLATE_NAME_PREFIX = 'value-editor.searchableValueEditor';
 
-var SearchableValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
+var SearchableValueEditorComponentController = /*#__PURE__*/function (_abstract_template_va) {
   SearchableValueEditorComponentController.$inject = ["searchableValueEditorConfigurationService", "searchableValueEditorLocalizationsService", "$interpolate", "$templateCache", "loadingSpinnerTemplateUrl", "$timeout", "$injector"];
 
-  _inherits(SearchableValueEditorComponentController, _abstract_value_edito);
+  _inherits(SearchableValueEditorComponentController, _abstract_template_va);
 
   var _super = _createSuper(SearchableValueEditorComponentController);
 
@@ -8010,27 +8099,16 @@ var SearchableValueEditorComponentController = /*#__PURE__*/function (_abstract_
 
     _classCallCheck(this, SearchableValueEditorComponentController);
 
-    _this = _super.call(this, searchableValueEditorConfigurationService, searchableValueEditorLocalizationsService);
-    _this.$interpolate = $interpolate;
-    _this.$templateCache = $templateCache;
+    _this = _super.call(this, SearchableValueEditorComponentController.TEMPLATE_URL, TEMPLATE_NAME_PREFIX, $interpolate, $templateCache, searchableValueEditorConfigurationService, searchableValueEditorLocalizationsService);
     _this.loadingSpinnerTemplateUrl = loadingSpinnerTemplateUrl;
     _this.$timeout = $timeout;
     _this.$injector = $injector;
     _this.searching = false;
     _this.editing = false;
-    _this.templateName = TEMPLATE_NAME_PREFIX;
-    _this.uuid = uuid_generator_1.generateUuid();
     return _this;
   }
 
   _createClass(SearchableValueEditorComponentController, [{
-    key: "$onInit",
-    value: function $onInit() {
-      _get(_getPrototypeOf(SearchableValueEditorComponentController.prototype), "$onInit", this).call(this);
-
-      this.updateTemplate();
-    }
-  }, {
     key: "search",
     value: function () {
       var _search = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -8126,21 +8204,18 @@ var SearchableValueEditorComponentController = /*#__PURE__*/function (_abstract_
       }
     }
   }, {
-    key: "updateTemplate",
-    value: function updateTemplate() {
-      this.$templateCache.remove(this.templateName);
-      var newTemplateName = "".concat(TEMPLATE_NAME_PREFIX, "_").concat(this.uuid, "_").concat(new Date().valueOf());
-      var template = this.$templateCache.get(SearchableValueEditorComponentController.TEMPLATE_URL);
-      var interpolated = this.$interpolate(template)({
+    key: "getTemplateModel",
+    value: function getTemplateModel() {
+      return {
         modelTemplate: this.options.modelTemplate
-      });
-      this.$templateCache.put(newTemplateName, interpolated);
-      this.templateName = newTemplateName;
+      };
     }
   }, {
     key: "asyncCall",
     value: function asyncCall(func) {
-      this.$timeout(func ? func.bind(this) : function () {
+      this.$timeout(func ? func.bind(this) :
+      /* istanbul ignore next */
+      function () {
         return void 0;
       }, 0);
     }
@@ -8152,7 +8227,7 @@ var SearchableValueEditorComponentController = /*#__PURE__*/function (_abstract_
   }]);
 
   return SearchableValueEditorComponentController;
-}(abstract_value_editor_1.default);
+}(abstract_template_value_editor_1.default);
 
 exports.SearchableValueEditorComponentController = SearchableValueEditorComponentController;
 SearchableValueEditorComponentController.TEMPLATE_URL = __webpack_require__(120);
@@ -8197,7 +8272,7 @@ var SearchableValueEditorComponent = function SearchableValueEditorComponent() {
     ngModelController: 'ngModel',
     valueEditorController: "^".concat(value_editor_component_1.default.componentName)
   };
-  this.template = '<ng-include src="$ctrl.templateName"></ng-include>';
+  this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = SearchableValueEditorComponentController;
 };
 
@@ -8219,6 +8294,7 @@ module.exports = path;
 
 "use strict";
 
+/* istanbul ignore file */
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -8246,7 +8322,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var abstract_value_editor_configuration_provider_1 = __webpack_require__(3);
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 /**
  * @ngdoc constant
  * @name searchableValueEditorDefaultOptions
@@ -8409,6 +8485,492 @@ exports.SEARCHABLE_VALUE_EDITOR_DEFAULT_LOCALIZATIONS = Object.freeze({
 
 /***/ }),
 /* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var angularjs_register_1 = __webpack_require__(0);
+
+var velocity_template_value_editor_config_1 = __webpack_require__(124); // import VelocityTemplateValueEditorComponent from './velocity-template.value-editor.component';
+
+/**
+ * @ngdoc module
+ * @name angularjs-value-editor.velocity-template
+ * @module angularjs-value-editor.velocity-template
+ *
+ * @description
+ * `velocity-template` value editor is only {@link aliasesService alias} for {@link textValueEditor text-value-editor} with default {@link TextValueEditorOptions options}:
+ * ```
+ *  {
+ *      type: 'rich-textarea'
+ *  }
+ * ```
+ */
+
+
+exports.default = angularjs_register_1.default('angularjs-value-editor.velocity-template').config(velocity_template_value_editor_config_1.default) // .component(VelocityTemplateValueEditorComponent.componentName, VelocityTemplateValueEditorComponent)
+.name();
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+velocityTemplateValueEditorConfig.$inject = ["aliasesServiceProvider", "textValueEditorConfigurationServiceProvider"];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var VELOCITY_TEMPLATE_ALIAS = 'velocity-template';
+/*@ngInject*/
+
+function velocityTemplateValueEditorConfig(aliasesServiceProvider, textValueEditorConfigurationServiceProvider) {
+  aliasesServiceProvider.addAlias(VELOCITY_TEMPLATE_ALIAS, 'text');
+  textValueEditorConfigurationServiceProvider.forAlias(VELOCITY_TEMPLATE_ALIAS).setConfiguration({
+    type: 'rich-textarea'
+  });
+}
+
+exports.default = velocityTemplateValueEditorConfig;
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__webpack_require__(126);
+
+var angularjs_register_1 = __webpack_require__(0);
+
+var angularjs_histogram_slider_1 = __webpack_require__(127);
+
+var range_value_editor_component_1 = __webpack_require__(128);
+
+var range_value_editor_configuration_provider_1 = __webpack_require__(130);
+
+var model_transformer_directive_1 = __webpack_require__(131);
+/**
+ * @ngdoc module
+ * @name angularjs-value-editor.range
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ *
+ */
+
+
+exports.default = angularjs_register_1.default('angularjs-value-editor.range', [angularjs_histogram_slider_1.default]).constant('rangeValueEditorDefaultOptions', range_value_editor_configuration_provider_1.RANGE_VALUE_EDITOR_DEFAULT_OPTIONS).provider(range_value_editor_configuration_provider_1.default.providerName, range_value_editor_configuration_provider_1.default).directive(model_transformer_directive_1.default.directiveName, model_transformer_directive_1.default).component(range_value_editor_component_1.default.componentName, range_value_editor_component_1.default).name();
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__127__;
+
+/***/ }),
+/* 128 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/* istanbul ignore file */
+// neni moc co testovat... viz. testy
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var __classPrivateFieldGet = this && this.__classPrivateFieldGet || function (receiver, privateMap) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to get private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+};
+
+var __classPrivateFieldSet = this && this.__classPrivateFieldSet || function (receiver, privateMap, value) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to set private field on non-instance");
+  }
+
+  privateMap.set(receiver, value);
+  return value;
+};
+
+var _internalModel;
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var value_editor_component_1 = __webpack_require__(1);
+
+var abstract_template_value_editor_1 = __webpack_require__(6);
+
+var TEMPLATE_NAME_PREFIX = 'value-editor.rangeValueEditor';
+
+var RangeValueEditorComponentController = /*#__PURE__*/function (_abstract_template_va) {
+  RangeValueEditorComponentController.$inject = ["$interpolate", "$templateCache", "rangeValueEditorConfigurationService"];
+
+  _inherits(RangeValueEditorComponentController, _abstract_template_va);
+
+  var _super = _createSuper(RangeValueEditorComponentController);
+
+  /*@ngInject*/
+  function RangeValueEditorComponentController($interpolate, $templateCache, rangeValueEditorConfigurationService) {
+    var _this;
+
+    _classCallCheck(this, RangeValueEditorComponentController);
+
+    _this = _super.call(this, RangeValueEditorComponentController.TEMPLATE_URL, TEMPLATE_NAME_PREFIX, $interpolate, $templateCache, rangeValueEditorConfigurationService);
+
+    _internalModel.set(_assertThisInitialized(_this), void 0);
+
+    return _this;
+  }
+
+  _createClass(RangeValueEditorComponentController, [{
+    key: "$doCheck",
+    value: function $doCheck() {
+      var _a, _b, _c, _d;
+
+      if (((_a = __classPrivateFieldGet(this, _internalModel)) === null || _a === void 0 ? void 0 : _a.from) !== ((_b = this.model) === null || _b === void 0 ? void 0 : _b.from) || ((_c = __classPrivateFieldGet(this, _internalModel)) === null || _c === void 0 ? void 0 : _c.to) !== ((_d = this.model) === null || _d === void 0 ? void 0 : _d.to)) {
+        __classPrivateFieldSet(this, _internalModel, Object.assign({}, this.model));
+      }
+    }
+  }, {
+    key: "onOptionsChange",
+    value: function onOptionsChange(newOptions, oldOptions, whatChanged) {//
+    }
+  }, {
+    key: "getTemplateModel",
+    value: function getTemplateModel() {
+      return {
+        currentValueTemplate: this.options.currentValueTemplate
+      };
+    }
+  }, {
+    key: "internalModel",
+    get: function get() {
+      return __classPrivateFieldGet(this, _internalModel);
+    },
+    set: function set(value) {
+      this.model = value;
+    }
+  }]);
+
+  return RangeValueEditorComponentController;
+}(abstract_template_value_editor_1.default);
+
+exports.RangeValueEditorComponentController = RangeValueEditorComponentController;
+_internalModel = new WeakMap();
+RangeValueEditorComponentController.TEMPLATE_URL = __webpack_require__(129);
+/**
+ * @ngdoc component
+ * @name rangeValueEditor
+ * @module angularjs-value-editor.range
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for range input.
+ *
+ * Supported options: {@link type:RangeValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="rangeValueEditorExample" module="rangeValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'range'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('rangeValueEditorExample', ['angularjs-value-editor'])
+ *     </file>
+ * </example>
+ */
+
+var RangeValueEditorComponent = function RangeValueEditorComponent() {
+  _classCallCheck(this, RangeValueEditorComponent);
+
+  this.require = {
+    ngModelController: 'ngModel',
+    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+  };
+  this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
+  this.controller = RangeValueEditorComponentController;
+};
+
+exports.default = RangeValueEditorComponent;
+RangeValueEditorComponent.componentName = 'rangeValueEditor';
+
+/***/ }),
+/* 129 */
+/***/ (function(module, exports) {
+
+var path = '/value-editor/editors/range/range.value-editor.tpl.pug';
+var html = "<div class=\"curent-value\">{{currentValueTemplate}}</div><td-slider ng-model=\"$ctrl.internalModel\" ng-model-options=\"{ getterSetter: true}\" slider-model-transformer=\"$ctrl.options.extremesAsNull\" min=\"$ctrl.options.min\" max=\"$ctrl.options.max\" snap=\"$ctrl.options.snap\" snap-points=\"$ctrl.options.snapPoints\" pit-points=\"$ctrl.options.pitPoints\" on-values-updated=\"$from = $values[0]; $to = $values[1]\" data-main-input=\"data-main-input\"></td-slider>";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
+/**
+ * @ngdoc constant
+ * @name rangeValueEditorDefaultOptions
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ * For description see {@link RangeValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *     extremesAsNull: true,
+ *     min: 0,
+ *     max: 0,
+ *     snap: false,
+ *     snapPoints: undefined,
+ *     pitPoints: undefined,
+ *     currentValueTemplate: '{{$from}} - {{$to}}'
+ * }
+ * ```
+ */
+
+
+exports.RANGE_VALUE_EDITOR_DEFAULT_OPTIONS = {
+  extremesAsNull: true,
+  min: 0,
+  max: 0,
+  snap: false,
+  snapPoints: undefined,
+  pitPoints: undefined,
+  currentValueTemplate: '{{$from}} - {{$to}}'
+};
+/**
+ * @ngdoc provider
+ * @name rangeValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link rangeValueEditorDefaultOptions}
+ */
+
+var RangeValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  RangeValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "rangeValueEditorDefaultOptions"];
+
+  _inherits(RangeValueEditorConfigurationProvider, _abstract_value_edito);
+
+  var _super = _createSuper(RangeValueEditorConfigurationProvider);
+
+  /*@ngInject*/
+  function RangeValueEditorConfigurationProvider(aliasesServiceProvider, rangeValueEditorDefaultOptions) {
+    _classCallCheck(this, RangeValueEditorConfigurationProvider);
+
+    return _super.call(this, aliasesServiceProvider, rangeValueEditorDefaultOptions);
+  }
+
+  return RangeValueEditorConfigurationProvider;
+}(abstract_value_editor_configuration_provider_1.default);
+
+exports.default = RangeValueEditorConfigurationProvider;
+RangeValueEditorConfigurationProvider.providerName = 'rangeValueEditorConfigurationService';
+
+/***/ }),
+/* 131 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/* istanbul ignore file */
+// uncomment after write some test for component
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * @ngdoc directive
+ * @name sliderModelTransformer
+ * @module angularjs-value-editor.range
+ *
+ * @restrict A
+ * @element td-slider
+ *
+ * @requires ngModel
+ * @requires tdSlider
+ *
+ * @param {boolean} sliderModelTransformer If true, transform selected extremes as `null`.
+ *
+ * @description
+ * Directive transforms ngModel from object `{from: XXX, to: YYY}` to array `[XXX, YYY]`
+ * If selected values are minimum and maximum values from slider and `sliderModelTransformer` param is `true`, then model will be transformed to `null`.
+ */
+
+var SliderModelTransformerDirective = /*#__PURE__*/function () {
+  SliderModelTransformerDirective.$inject = ["$parse"];
+
+  /*@ngInject*/
+  function SliderModelTransformerDirective($parse) {
+    _classCallCheck(this, SliderModelTransformerDirective);
+
+    this.$parse = $parse;
+    this.restrict = 'A';
+    this.require = ['ngModel', 'tdSlider'];
+  }
+
+  _createClass(SliderModelTransformerDirective, [{
+    key: "link",
+    value: function link($scope, $element, $attrs, _ref) {
+      var _ref2 = _slicedToArray(_ref, 2),
+          ngModelController = _ref2[0],
+          sliderController = _ref2[1];
+
+      var extremesAsNull = this.$parse($attrs[SliderModelTransformerDirective.directiveName])($scope);
+      ngModelController.$formatters.push(this.formatter(sliderController, extremesAsNull));
+      ngModelController.$parsers.push(this.parser(sliderController, extremesAsNull));
+    }
+  }, {
+    key: "formatter",
+    value: function formatter(sliderComponentController, extremesAsNull) {
+      return function (model) {
+        var from = model === null || model === void 0 ? void 0 : model.from;
+        var to = model === null || model === void 0 ? void 0 : model.to;
+
+        if (typeof (model === null || model === void 0 ? void 0 : model.from) === 'undefined' || model.from === null && extremesAsNull) {
+          from = sliderComponentController.min;
+        }
+
+        if (typeof (model === null || model === void 0 ? void 0 : model.to) === 'undefined' || model.to === null && extremesAsNull) {
+          to = sliderComponentController.max;
+        }
+
+        var result = [from, to];
+        return result;
+      };
+    }
+  }, {
+    key: "parser",
+    value: function parser(sliderComponentController, extremesAsNull) {
+      return function (_ref3) {
+        var _ref4 = _slicedToArray(_ref3, 2),
+            minimum = _ref4[0],
+            maximum = _ref4[1];
+
+        var from = minimum;
+        var to = maximum;
+
+        if (extremesAsNull && from === sliderComponentController.min) {
+          from = null;
+        }
+
+        if (extremesAsNull && to === sliderComponentController.max) {
+          to = null;
+        }
+
+        return {
+          from: from,
+          to: to
+        };
+      };
+    }
+  }]);
+
+  return SliderModelTransformerDirective;
+}();
+
+exports.default = SliderModelTransformerDirective;
+SliderModelTransformerDirective.directiveName = 'sliderModelTransformer';
+
+/***/ }),
+/* 132 */
 /***/ (function(module, exports) {
 
 var path = '/home/travis/build/kp-sys/angularjs-value-editor/src/value-editor/resources/loading-spinner.svg';

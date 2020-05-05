@@ -273,10 +273,38 @@
  * @description
  * See {@link AbstractValueEditorLocalizationProvider}
  *//**
+ * Abstract editor class which contains some helpers for managing and simplify template parsing.
+ */
+/**
+     * Pre-defined component template.
+     * @type {string}
+     */
+/**
+     * Generate template URL for ng-include
+     */
+/**
+     * This function returns model for template.
+     * @returns {{}}
+     */
+/**
+     * Updates template
+     *//**
  * Abstract base class for general value-editor features.
  *
  * @template OPTIONS
  */
+/* If initial options are not defaults, trigger options change.*/
+/**
+     * This method changes options.
+     * @param {OPTIONS} newOptions
+     * @param {OPTIONS} oldOptions
+     */
+/**
+     * Simplifies localization. No need to call localization service.
+     * @param {string} code Message code.
+     * @returns {string} Localized message.
+     */
+/* istanbul ignore else */
 /**
      * This method is called always, when value editor options is changed with old and new options object merged with default options.
      * @param {OPTIONS} newOptions New options.
@@ -753,6 +781,7 @@
  * }
  * ```
  */
+/* istanbul ignore next */
 /**
  * @ngdoc provider
  * @name accessNumberValueEditorConfigurationServiceProvider
@@ -892,6 +921,7 @@
  * }
  * ```
  */
+/* istanbul ignore next */
 /**
  * @ngdoc provider
  * @name autocompleteValueEditorConfigurationServiceProvider
@@ -928,6 +958,7 @@
  */
 /*@ngInject*/
 /**/
+/* istanbul ignore next */
 /**
  * @ngdoc component
  * @name autocompleteValueEditor
@@ -1123,6 +1154,7 @@
  *  }
  * ```
  */
+/* istanbul ignore next */
 /**
  * @ngdoc provider
  * @name cardNumberValueEditorConfigurationServiceProvider
@@ -1355,7 +1387,8 @@
  *      type: 'text'
  *  }
  * ```
- *//*@ngInject*//**/
+ *//*@ngInject*//* istanbul ignore next */
+/**/
 /**
  * @ngdoc component
  * @name hiddenValueEditor
@@ -1747,6 +1780,7 @@
  * ```
  */
 /*@ngInject*/
+/* istanbul ignore next */
 /**/
 /**
  * @ngdoc component
@@ -2040,7 +2074,127 @@
  *
  * @description
  *
- *//*@ngInject*//**
+ *//*@ngInject*//* istanbul ignore file */
+/* uncomment after write some test for component*/
+/**
+ * @ngdoc directive
+ * @name sliderModelTransformer
+ * @module angularjs-value-editor.range
+ *
+ * @restrict A
+ * @element td-slider
+ *
+ * @requires ngModel
+ * @requires tdSlider
+ *
+ * @param {boolean} sliderModelTransformer If true, transform selected extremes as `null`.
+ *
+ * @description
+ * Directive transforms ngModel from object `{from: XXX, to: YYY}` to array `[XXX, YYY]`
+ * If selected values are minimum and maximum values from slider and `sliderModelTransformer` param is `true`, then model will be transformed to `null`.
+ */
+/*@ngInject*/
+/*SliderComponentController*//**
+ * @ngdoc type
+ * @name RangeValueEditorOptions
+ * @module angularjs-value-editor.range
+ *
+ * @property {boolean} extremesAsNull If `true`, extremes will be transformed to `null`.
+ * @property {number} min Minimum value
+ * @property {number} max Maximum value
+ * @property {boolean} snap If `true` handlers will snap to defined `snapPoints`.
+ * @property {number[]} snapPoints Definition of snap points.
+ * @property {number[]} pitPoints Definition where to be placed pits.
+ * @property {string} currentValueTemplate Template of displaying current value of slider model above slider. From a to values are accessible via `$from` resp. `$to` variables.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link rangeValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name rangeValueEditorDefaultOptions
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ * For description see {@link RangeValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *     extremesAsNull: true,
+ *     min: 0,
+ *     max: 0,
+ *     snap: false,
+ *     snapPoints: undefined,
+ *     pitPoints: undefined,
+ *     currentValueTemplate: '{{$from}} - {{$to}}'
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name rangeValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link rangeValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name rangeValueEditorConfigurationService
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link rangeValueEditorDefaultOptions}
+ *//* istanbul ignore file */
+/* neni moc co testovat... viz. testy*/
+/*@ngInject*/
+/**/
+/**
+ * @ngdoc component
+ * @name rangeValueEditor
+ * @module angularjs-value-editor.range
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for range input.
+ *
+ * Supported options: {@link type:RangeValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="rangeValueEditorExample" module="rangeValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'range'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('rangeValueEditorExample', ['angularjs-value-editor'])
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.range
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ *
+ *//*@ngInject*/
+/* nothing to require*/
+/* component does not support disabling for this time*//**
  * @ngdoc provider
  * @name searchTextValueEditorLocalizationsServiceProvider
  * @module angularjs-value-editor.search-text
@@ -2109,6 +2263,7 @@
  *
  */
 /*@ngInject*/
+/* istanbul ignore next */
 /**/
 /* @ts-ignore*/
 /* this.model.extension is not a member of SearchTextValueEditorModelExtension enum*/
@@ -2155,7 +2310,8 @@
  *
  * @description
  *
- *//**
+ *//* istanbul ignore file */
+/**
  * @ngdoc type
  * @name SearchableValueEditorOptions
  * @module angularjs-value-editor.searchable
@@ -2273,6 +2429,7 @@
  * }
  * ```
  *//*@ngInject*/
+/* istanbul ignore next */
 /**
  * @ngdoc component
  * @name searchableValueEditor
@@ -2352,6 +2509,7 @@
  * }
  * ```
  */
+/* istanbul ignore next */
 /**
  * @ngdoc provider
  * @name signatureValueEditorConfigurationServiceProvider
@@ -2590,7 +2748,102 @@
  *//*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
-/*@ngInject*//**/
+/*@ngInject*//*
+import ValueEditorComponent, {ValueEditorBindings, ValueEditorValidations} from '../../value-editor.component';
+import AbstractValueEditor, {OptionsChangeDetection} from '../abstract-value-editor';
+import * as angular from 'angular';
+
+import * as ace from 'brace';
+
+console.log(ace);
+
+declare global {
+    interface Window {
+        ace: any;
+    }
+}
+
+
+export class VelocityTemplateValueEditorComponentController extends AbstractValueEditor<string, never> {
+
+    protected onOptionsChange(newOptions: never, oldOptions, whatChanged: OptionsChangeDetection<never>) {
+        //
+    }
+}
+
+/!**
+ * @ngdoc component
+ * @name velocityTemplateValueEditor
+ * @module angularjs-value-editor.velocity-template
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for velocityTemplate input.
+ *
+ * Supported options: {@link type:VelocityTemplateValueEditorOptions}
+ *
+ * Supported validations: {@link type:VelocityTemplateValueEditorValidations}
+ *
+ * @example
+ * <example name="velocityTemplateValueEditorExample" module="velocityTemplateValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'velocity-template'" ng-model="model"></kp-value-editor>
+ *              <div>{{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('velocityTemplateValueEditorExample', ['angularjs-value-editor']);
+ *     </file>
+ * </example>
+ *!/
+export default class VelocityTemplateValueEditorComponent {
+    public static componentName = 'velocityTemplateValueEditor';
+
+    public require = {
+        ngModelController: 'ngModel',
+        valueEditorController: `^${ValueEditorComponent.componentName}`
+    };
+
+    public templateUrl = require('./velocity-template.value-editor.tpl.pug');
+
+    public controller = VelocityTemplateValueEditorComponentController;
+}
+
+/!**
+ * @ngdoc type
+ * @name VelocityTemplateValueEditorValidations
+ * @module angularjs-value-editor.velocity-template
+ *
+ *
+ * @description
+ * Extends {@link type:ValueEditorValidations}
+ *!/
+export interface VelocityTemplateValueEditorValidations extends ValueEditorValidations {
+    minDate?: number;
+    maxDate?: number;
+}
+
+export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings<never, VelocityTemplateValueEditorValidations> {
+}
+*//*@ngInject*//* import VelocityTemplateValueEditorComponent from './velocity-template.value-editor.component';*/
+/**
+ * @ngdoc module
+ * @name angularjs-value-editor.velocity-template
+ * @module angularjs-value-editor.velocity-template
+ *
+ * @description
+ * `velocity-template` value editor is only {@link aliasesService alias} for {@link textValueEditor text-value-editor} with default {@link TextValueEditorOptions options}:
+ * ```
+ *  {
+ *      type: 'rich-textarea'
+ *  }
+ * ```
+ */
+/* .component(VelocityTemplateValueEditorComponent.componentName, VelocityTemplateValueEditorComponent)*//*@ngInject*//* istanbul ignore next */
+/**/
 /**
  * @ngdoc component
  * @name yearValueEditor
@@ -2649,7 +2902,8 @@
  * type TValueEditorTypeAliases =
  *  'exemplar-bar-code' |
  *  'single-acceptable-root' |
- *  'multiple-acceptable-root';
+ *  'multiple-acceptable-root' |
+ *  'velocity-template';
  * ```
  */
 /**
@@ -2682,12 +2936,15 @@
  *      'number-range' |
  *      'acceptable-root' |
  *      'search-text' |
- *      'searchable';
+ *      'searchable' |
+ *      'range';
  * ```
  */
 /**
  * Make all properties required except properties of ValueEditorOptions
- *//**
+ *//* istanbul ignore file */
+/* tested by angular team*/
+/**
  * Modified `angular.equals` function for support function check also.
  *
  * @param {any} o1
