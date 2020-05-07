@@ -3,7 +3,7 @@ import * as angular from 'angular';
 import {IAugmentedJQuery, ICompileService, IFormController, IScope} from 'angular';
 import {TValueEditorType} from '../../src/value-editor/typings';
 
-function camelCaseToKebabCase(name){
+function camelCaseToKebabCase(name) {
     return name.replace(/([A-Z])/g, ($1) => `-${$1.toLowerCase()}`);
 }
 
@@ -60,8 +60,13 @@ export default class ValueEditorMocker<BINDINGS extends ValueEditorBindings = Va
      * Find HTML input element
      * @returns {HTMLElement} Input element.
      */
-    public getInputElement<T extends HTMLElement = HTMLInputElement>(): T {
-        return this.getCompiledElement().querySelector('[data-main-input]');
+    public getInputElement<T extends HTMLElement = HTMLInputElement>(additionalQuery?: string): T {
+        let element = this.getCompiledElement();
+
+        if (additionalQuery) {
+            element = element.querySelector(additionalQuery);
+        }
+        return element.querySelector('[data-main-input]');
     }
 
     /**

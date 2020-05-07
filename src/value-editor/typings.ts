@@ -2,6 +2,24 @@ import {ValueEditorOptions} from './value-editor.component';
 
 /**
  * @ngdoc type
+ * @name TMetaValueEditor
+ * @module angularjs-value-editor
+ *
+ * @description
+ * Meta-value editor types.
+ *
+ * ```
+ * type TValueEditorTypeAliases =
+ *  'list' |
+ *  'object';
+ * ```
+ */
+export type TMetaValueEditor =
+    'list' |
+    'object';
+
+/**
+ * @ngdoc type
  * @name TValueEditorTypeAliases
  * @module angularjs-value-editor
  *
@@ -21,7 +39,6 @@ export type TValueEditorTypeAliases =
     'single-acceptable-root' |
     'multiple-acceptable-root' |
     'velocity-template';
-
 
 /**
  * @ngdoc type
@@ -57,7 +74,7 @@ export type TValueEditorTypeAliases =
  *      'range';
  * ```
  */
-export type TValueEditorType = TValueEditorTypeAliases |
+export type TValueEditorType = TValueEditorTypeAliases | TMetaValueEditor |
     'text' |
     'number' |
     'boolean' |
@@ -76,8 +93,7 @@ export type TValueEditorType = TValueEditorTypeAliases |
     'acceptable-root' |
     'search-text' |
     'searchable' |
-    'range' |
-    'list';
+    'range';
 
 /**
  * Make all properties required except properties of ValueEditorOptions

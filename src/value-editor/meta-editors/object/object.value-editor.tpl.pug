@@ -1,0 +1,42 @@
+fieldset.form-horizontal(ng-form="{{name}}")
+    .form-group(
+        class="\\{\\{transformedField.editorName\\}\\}"
+        ng-class="{'has-error': $ctrl.showError(transformedField.editorName)}"
+        ng-repeat="field in $ctrl.options.fields"
+        ng-init="showDebugInfo = true; transformedField = $ctrl.transformField(field)"
+        ng-show="$ctrl.trueIfUndefined(transformedField.visible)"
+    )
+        label.control-label(
+            class="col-sm-{{labelsWidth}}"
+            ng-class="{'required': transformedField.validations.required}"
+            ng-attr-for="\\{\\{transformedField.editorId\\}\\}"
+            ng-bind="transformedField.label"
+        )
+
+        div(class="col-sm-{{inputsWidth}}")
+            kp-value-editor(
+                editor-id="transformedField.editorId"
+                editor-name="transformedField.editorName"
+                placeholder="transformedField.placeholder"
+
+                ng-model="$ctrl.model[transformedField.editorName]"
+                ng-model-options="{ getterSetter: true }"
+
+                type="transformedField.type"
+                disabled="transformedField.disabled || $ctrl.valueEditorController.disabled"
+                visible="$ctrl.trueIfUndefined($ctrl.valueEditorController.visible)"
+
+                validations="transformedField.validations"
+                options="transformedField.options"
+            )
+            button.debug-info(
+                type="button"
+                title="Show / hide debug info"
+                ng-click="showDebugInfo = !showDebugInfo"
+                ng-show="$ctrl.valueEditorController.configuration.debugMode"
+            )
+                i.glyphicon.glyphicon-cog
+
+            pre(ng-bind="$ctrl.form[transformedField.editorName] | json" ng-if="$ctrl.valueEditorController.configuration.debugMode" uib-collapse="showDebugInfo")
+
+| \{\{$ctrl.form = {{name}}; ''\}\}

@@ -6,6 +6,7 @@ import customEquals from './utils/equals';
 import AbstractValueEditor from './common/abstract-value-editor';
 import {TValueEditorType} from './typings';
 import AliasesService, {CustomValueEditorType} from './aliases/aliases.service';
+import {ValueEditorConfigurationService} from './value-editor/value-editor-configuration-provider';
 
 export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS extends ValueEditorOptions = ValueEditorOptions, EDITORVALIDATIONS extends ValueEditorValidations = ValueEditorValidations>
     extends NgModelConnector<MODEL>
@@ -21,13 +22,15 @@ export abstract class ValueEditorComponentController<MODEL = any, EDITOROPTS ext
     public validations: EDITORVALIDATIONS;
     public options: EDITOROPTS;
     public formController: IFormController;
+    public configuration: ValueEditorConfigurationService;
     /* Internal */
     private previousOptions: EDITOROPTS;
     private valueEditorInstance: AbstractValueEditor<MODEL, EDITOROPTS>;
 
     /*@ngInject*/
-    constructor(private aliasesService: AliasesService) {
+    constructor(private aliasesService: AliasesService, valueEditorConfigurationService: ValueEditorConfigurationService) {
         super();
+        this.configuration = valueEditorConfigurationService;
     }
 
     public $onInit(): void {
@@ -131,6 +134,23 @@ export interface ValueEditorOptions {
     cssClasses?: string[];
 }
 
+/**
+ * @ngdoc type
+ * @name ValueEditorBindings
+ * @module angularjs-value-editor
+ *
+ * @property {string} editorId Input id.
+ * @property {string} editorName Input name.
+ * @property {string} placeholder Placeholder.
+ * @property {string} type ValueEditor type.
+ * @property {boolean} disabled If input is disabled.
+ * @property {boolean} visible If input is visible.
+ * @property {ValueEditorValidations} validations ValueEditor validations.
+ * @property {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type.
+ *
+ * @description
+ * {@link kpValueEditor} attributes definition.
+ */
 export interface ValueEditorBindings<EDITOROPTS extends ValueEditorOptions = ValueEditorOptions, EDITORVALIDATIONS extends ValueEditorValidations = ValueEditorValidations> {
     type?: TValueEditorType;
     editorId?: string;

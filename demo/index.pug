@@ -8,7 +8,7 @@ html
 
     body(ng-app="app" ng-strict-di)
         h1 Value Editor Demo
-        main(ng-controller="demoController as $ctrl" ng-init="disabled = false")
+        main.container(ng-controller="demoController as $ctrl" ng-init="disabled = false")
             form.form-horizontal(name="$ctrl.form")
                 .form-group
                     label.control-label.col-lg-2(for="editor") Label
@@ -16,13 +16,14 @@ html
                         ng-model="$ctrl.model"
                         editor-id="'editor'"
                         editor-name="'editor'"
-                        type="'list'"
+                        type="'object'"
                         disabled="disabled"
                         placeholder="''"
                         options="{" +
+                            "fields: $ctrl.fields" +
                         "}"
                         validations="{" +
-                            "required: true" +
+                            "required: false" +
                         "}"
                     )
 

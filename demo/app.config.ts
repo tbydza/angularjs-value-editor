@@ -2,9 +2,18 @@ import ListValueEditorConfigurationProvider
     from '../src/value-editor/meta-editors/list/list-value-editor-configuration.provider';
 import {TextValueEditorOptions} from '../src/value-editor/editors/text/text-value-editor-configuration.provider';
 import {TextValueEditorValidations} from '../src/value-editor/editors/text/text.value-editor.component';
+import ValueEditorConfigurationProvider from '../src/value-editor/value-editor/value-editor-configuration-provider';
+import ObjectValueEditorConfigurationProvider
+    from '../src/value-editor/meta-editors/object/object-value-editor-configuration.provider';
 
 /*@ngInject*/
-export default function config(listValueEditorConfigurationServiceProvider: ListValueEditorConfigurationProvider<string, TextValueEditorOptions, TextValueEditorValidations>) {
+export default function config(
+    valueEditorConfigurationServiceProvider: ValueEditorConfigurationProvider,
+    listValueEditorConfigurationServiceProvider: ListValueEditorConfigurationProvider<string, TextValueEditorOptions, TextValueEditorValidations>,
+    objectValueEditorConfigurationServiceProvider: ObjectValueEditorConfigurationProvider
+) {
+    valueEditorConfigurationServiceProvider.setDebugMode(false);
+
     listValueEditorConfigurationServiceProvider.setConfiguration({
         newItemPrototype: '',
         subEditorType: 'text',
@@ -13,6 +22,14 @@ export default function config(listValueEditorConfigurationServiceProvider: List
         },
         subEditorValidations: {
             minlength: 3
+        }
+    });
+
+    objectValueEditorConfigurationServiceProvider.setConfiguration({
+        attributesTransformation: (attributes) => {
+            attributes.editorId = attributes.editorName;
+
+            return attributes;
         }
     });
 }

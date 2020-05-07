@@ -3,16 +3,16 @@ import ValueEditorComponent, {
     ValueEditorOptions,
     ValueEditorValidations
 } from '../../value-editor.component';
-import {OptionsChangeDetection} from '../../common/abstract-value-editor';
 import * as angular from 'angular';
 import {IFormController, IInterpolateService, IOnInit, ITemplateCacheService, ITimeoutService} from 'angular';
 import {ListValueEditorConfigurationService, ListValueEditorOptions} from './list-value-editor-configuration.provider';
 import {ListValueEditorLocalizationsService} from './list-value-editor-localization.provider';
 import AbstractTemplateValueEditor from '../../common/abstract-template-value-editor';
+import {AbstractMetaValueEditorComponentController} from '../abstract-meta-value-editor.component';
 
 const TEMPLATE_NAME_PREFIX = 'value-editor.listValueEditor';
 
-export class ListValueEditorComponentController<MODEL> extends AbstractTemplateValueEditor<MODEL[], ListValueEditorOptions> implements IOnInit {
+export class ListValueEditorComponentController<MODEL> extends AbstractMetaValueEditorComponentController<MODEL[], ListValueEditorOptions> implements IOnInit {
     public static readonly TEMPLATE_URL = require('./list.value-editor.tpl.pug');
 
     public form: IFormController;
@@ -62,17 +62,6 @@ export class ListValueEditorComponentController<MODEL> extends AbstractTemplateV
             ((this.model.length > 0 && !this.valueEditorController.validations?.required) ||
                 (this.model.length > 1 && this.valueEditorController.validations?.required)
             );
-    }
-
-    /* istanbul ignore next */
-    protected onOptionsChange(newOptions: ListValueEditorOptions, oldOptions, whatChanged: OptionsChangeDetection<ListValueEditorOptions>) {
-        //
-    }
-
-    protected getTemplateModel(): {} {
-        return {
-            name: this.valueEditorController.editorName || 'DEFAULT'
-        };
     }
 
     private normalizeModelIfNeeded() {
