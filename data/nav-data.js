@@ -888,6 +888,98 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.list",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.list",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.list/component",
+            "navItems": [
+              {
+                "name": "listRequiredValidation",
+                "type": "component",
+                "href": "api/angularjs-value-editor.list/component/listRequiredValidation"
+              },
+              {
+                "name": "listValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.list/component/listValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.list/constant",
+            "navItems": [
+              {
+                "name": "listValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.list/constant/listValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "listValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.list/constant/listValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.list/provider",
+            "navItems": [
+              {
+                "name": "listValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.list/provider/listValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "listValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.list/provider/listValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.list/service",
+            "navItems": [
+              {
+                "name": "listValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.list/service/listValueEditorConfigurationService"
+              },
+              {
+                "name": "listValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.list/service/listValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.list/type",
+            "navItems": [
+              {
+                "name": "ListValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.list/type/ListValueEditorLocalizations"
+              },
+              {
+                "name": "ListValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.list/type/ListValueEditorOptions"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.number",
         "type": "groups",
         "href": "api/angularjs-value-editor.number",

@@ -364,3 +364,20 @@ searchable-value-editor .searchable-loading-svg svg {
 }
 
 
+list-value-editor .panel-footer {
+  padding: 0;
+}
+list-value-editor .panel-footer .btn {
+  border: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+list-value-editor .panel-footer.empty-list-correction {
+  border-top: 0;
+  border-radius: 3px;
+}
+list-value-editor .panel-footer.empty-list-correction .btn {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+

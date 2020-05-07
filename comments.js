@@ -81,7 +81,23 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
-/*@ngInject*//*@ngInject*/
+/*@ngInject*//**
+ * Abstract editor class which contains some helpers for managing and simplify template parsing.
+ */
+/**
+     * Pre-defined component template.
+     * @type {string}
+     */
+/**
+     * Generate template URL for ng-include
+     */
+/**
+     * This function returns model for template.
+     * @returns {{}}
+     */
+/**
+     * Updates template
+     *//*@ngInject*/
 /*@ngInject*/
 /* try to change options via reference*/
 /*@ngInject*/
@@ -273,22 +289,6 @@
  * @description
  * See {@link AbstractValueEditorLocalizationProvider}
  *//**
- * Abstract editor class which contains some helpers for managing and simplify template parsing.
- */
-/**
-     * Pre-defined component template.
-     * @type {string}
-     */
-/**
-     * Generate template URL for ng-include
-     */
-/**
-     * This function returns model for template.
-     * @returns {{}}
-     */
-/**
-     * Updates template
-     *//**
  * Abstract base class for general value-editor features.
  *
  * @template OPTIONS
@@ -314,6 +314,8 @@
 /* tslint:disable-next-line:no-unused-expression*/
 /* tslint:disable-next-line:no-unused-expression*/
 /*@ngInject*//**
+ * Connects outer required ngModel with inner ngModel
+ *//**
  * @ngdoc type
  * @name AcceptableRootValueEditorOptions
  * @module angularjs-value-editor.acceptable-root
@@ -1670,8 +1672,6 @@
  *
  *//*@ngInject*/
 /* @ts-ignore*//**
- * Connects outer required ngModel with inner ngModel
- *//**
  * @ngdoc directive
  * @name numberRangeValidations
  * @module angularjs-value-editor.number-range
@@ -2891,6 +2891,144 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @description
  *
  *//*@ngInject*//**
+ * @ngdoc component
+ * @name listRequiredValidation
+ * @module angularjs-value-editor.list
+ *
+ * @param {boolean} enabled Is validation enabled?
+ *
+ * @description
+ * Helper for required validation for {@link component:ListValueEditorComponent list value editor}
+ *//**
+ * @ngdoc type
+ * @name ListValueEditorOptions
+ * @module angularjs-value-editor.list
+ *
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link listValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name listValueEditorDefaultOptions
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ * For description see {@link ListValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name listValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link listValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name listValueEditorConfigurationService
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link listValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name listValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ * See {@link listValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name listValueEditorLocalizationsService
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name ListValueEditorLocalizations
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ * Default localizations: {@link listValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name listValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ * ```
+ * {
+ * }
+ * ```
+ *//*@ngInject*/
+/* istanbul ignore next */
+/**/
+/**
+ * @ngdoc component
+ * @name listValueEditor
+ * @module angularjs-value-editor.list
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for list input.
+ *
+ * Supported options: {@link type:ListValueEditorOptions}
+ *
+ * Supported validations: {@link type:TextValueEditorValidations}
+ *
+ * @example
+ * <example name="listValueEditorExample" module="listValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'list'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('listValueEditorExample', ['angularjs-value-editor'])
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.list
+ * @module angularjs-value-editor.list
+ *
+ * @description
+ *
+ *//**
+     * Simulates click on add button
+     * @returns {HTMLElement}
+     */
+/* add input*/
+/* select last added input*/
+/**
+     * Simulates click on remove button
+     * @param {number} index
+     */
+/*@ngInject*/
+/* expect(() => removeItemOnIndex(0)).toThrow();*//**
  * @ngdoc type
  * @name TValueEditorTypeAliases
  * @module angularjs-value-editor
@@ -2973,9 +3111,9 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *
  * @requires ng.type.ngModel.NgModelController
  *
- * @param {string} editorId Input id.
- * @param {string} name Input name.
- * @param {string} placeholder Placeholder.
+ * @param {string} editorId Input id. <.
+ * @param {string} editorName Input name. <.
+ * @param {string} placeholder Placeholder. <.
  * @param {string} type ValueEditor type. <.
  * @param {boolean} disabled If input is disabled. <.
  * @param {boolean} visible If input is visible. <.
