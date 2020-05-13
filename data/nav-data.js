@@ -47,6 +47,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "AbstractValueEditorLocalizationProvider",
                 "type": "provider",
                 "href": "api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider"
+              },
+              {
+                "name": "valueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor/provider/valueEditorConfigurationServiceProvider"
               }
             ]
           },
@@ -64,6 +69,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "AbstractValueEditorLocalizationService",
                 "type": "service",
                 "href": "api/angularjs-value-editor/service/AbstractValueEditorLocalizationService"
+              },
+              {
+                "name": "ValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor/service/ValueEditorConfigurationService"
               }
             ]
           },
@@ -78,6 +88,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/type/ConfigurationBuilder"
               },
               {
+                "name": "TMetaValueEditor",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/TMetaValueEditor"
+              },
+              {
                 "name": "TValueEditorType",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/TValueEditorType"
@@ -86,6 +101,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "TValueEditorTypeAliases",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/TValueEditorTypeAliases"
+              },
+              {
+                "name": "ValueEditorBindings",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/ValueEditorBindings"
               },
               {
                 "name": "ValueEditorLocalizations",
@@ -1155,6 +1175,103 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "NumberRangeValueEditorValidations",
                 "type": "type",
                 "href": "api/angularjs-value-editor.number-range/type/NumberRangeValueEditorValidations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.object",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.object",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.object/component",
+            "navItems": [
+              {
+                "name": "objectValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.object/component/objectValueEditor"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.object/constant",
+            "navItems": [
+              {
+                "name": "objectValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.object/constant/objectValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "objectValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.object/constant/objectValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.object/provider",
+            "navItems": [
+              {
+                "name": "objectValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.object/provider/objectValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "objectValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.object/provider/objectValueEditorLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.object/service",
+            "navItems": [
+              {
+                "name": "objectValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.object/service/objectValueEditorConfigurationService"
+              },
+              {
+                "name": "objectValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.object/service/objectValueEditorLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.object/type",
+            "navItems": [
+              {
+                "name": "ObjectValueEditorFieldsSettings",
+                "type": "type",
+                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorFieldsSettings"
+              },
+              {
+                "name": "ObjectValueEditorLabelsWidth",
+                "type": "type",
+                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorLabelsWidth"
+              },
+              {
+                "name": "ObjectValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorLocalizations"
+              },
+              {
+                "name": "ObjectValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorOptions"
               }
             ]
           }

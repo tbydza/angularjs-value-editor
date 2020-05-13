@@ -2890,7 +2890,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *
  * @description
  *
- *//*@ngInject*//**
+ *//*@ngInject*//**//**
  * @ngdoc component
  * @name listRequiredValidation
  * @module angularjs-value-editor.list
@@ -2981,8 +2981,6 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * }
  * ```
  *//*@ngInject*/
-/* istanbul ignore next */
-/**/
 /**
  * @ngdoc component
  * @name listValueEditor
@@ -3029,6 +3027,202 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
      */
 /*@ngInject*/
 /* expect(() => removeItemOnIndex(0)).toThrow();*//**
+ * @ngdoc type
+ * @name ObjectValueEditorFieldsSettings
+ * @module angularjs-value-editor.object
+ *
+ * @requires ValueEditorBindings
+ *
+ * @description
+ * Definition of {@link objectValueEditor} fields.
+ *
+ * ```
+ *      type ObjectValueEditorFieldsSettings = ValueEditorBindings & {label: string};
+ * ```
+ */
+/**
+ * @ngdoc type
+ * @name ObjectValueEditorLabelsWidth
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ * Possible values of width of labels of {@link objectValueEditor}.
+ *
+ * ```
+ *      type ObjectValueEditorLabelsWidth = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+ * ```
+ *
+ */
+/**
+ * @ngdoc type
+ * @name ObjectValueEditorOptions
+ * @module angularjs-value-editor.object
+ *
+ * @property {ObjectValueEditorFieldsSettings} fields Definition of editor fields
+ * @property {function(ValueEditorBindings): ValueEditorBindings} attributesTransformation Function that transforms ValueEditorBindings.
+ * It is useful for situation when You have `name` from backend and You want to have `id` of value editor to be same as `name`.
+ *
+ * Example:
+ * ```
+ *      function(attrs) { attrs.editorId = attrs.editorName; return attrs;}
+ * ```
+ *
+ * @property {ObjectValueEditorLabelsWidth} labelsWidth Width of labels of {@link objectValueEditor} in [Bootstrap](https://getbootstrap.com/docs/3.4/css/#grid-options) `col`s.
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link objectValueEditorDefaultOptions}
+ */
+/**
+ * @ngdoc constant
+ * @name objectValueEditorDefaultOptions
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ * For description see {@link ObjectValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ *      fields: [],
+ *      attributesTransformation: undefined,
+ *      labelsWidth: 2
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name objectValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link objectValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name objectValueEditorConfigurationService
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link objectValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name objectValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ * See {@link objectValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name objectValueEditorLocalizationsService
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name ObjectValueEditorLocalizations
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ * Default localizations: {@link objectValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name objectValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ * ```
+ * {
+ * }
+ * ```
+ *//*@ngInject*/
+/**
+ * @ngdoc component
+ * @name objectValueEditor
+ * @module angularjs-value-editor.object
+ *
+ * @requires ng.type.ngModel.NgModelController
+ * @requires component:kpValueEditor
+ *
+ * @description
+ * Value editor for object input.
+ *
+ * Supported options: {@link type:ObjectValueEditorOptions}
+ *
+ * Supported validations: {@link type:ValueEditorValidations}
+ *
+ * @example
+ * <example name="objectValueEditorExample" module="objectValueEditorExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *              <kp-value-editor type="'object'" ng-model="model"></kp-value-editor>
+ *              <div>Model: {{model}}</div>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         luxon.Settings.defaultLocale = luxon.DateTime.local().resolvedLocaleOpts().locale;
+ *         angular.module('objectValueEditorExample', ['angularjs-value-editor'])
+ *          .config(['objectValueEditorConfigurationServiceProvider', function(objectValueEditorConfigurationServiceProvider) {
+ *              objectValueEditorConfigurationServiceProvider.setConfiguration({
+ *                  fields: [
+ *                      {
+ *                          label: 'Text',
+ *                          type: 'text',
+ *                          editorName: 'text'
+ *                      },
+ *                      {
+ *                          label: 'Number',
+ *                          type: 'number',
+ *                          editorName: 'number'
+ *                      },
+ *                      {
+ *                          label: 'Data',
+ *                          type: 'list',
+ *                          editorName: 'dates',
+ *                          options: {
+ *                              subEditorType: 'date',
+ *                              newItemPrototype: ''
+ *                          }
+ *                      }
+ *                  ]
+ *              });
+ *          }]);
+ *     </file>
+ * </example>
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.object
+ * @module angularjs-value-editor.object
+ *
+ * @description
+ *
+ *//*@ngInject*//**
+ * @ngdoc type
+ * @name TMetaValueEditor
+ * @module angularjs-value-editor
+ *
+ * @description
+ * Meta-value editor types.
+ *
+ * ```
+ * type TValueEditorTypeAliases =
+ *  'list' |
+ *  'object';
+ * ```
+ */
+/**
  * @ngdoc type
  * @name TValueEditorTypeAliases
  * @module angularjs-value-editor
@@ -3139,6 +3333,23 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @module angularjs-value-editor
  *
  * @property {string[]} [cssClasses] Optional additional CSS classes
+ */
+/**
+ * @ngdoc type
+ * @name ValueEditorBindings
+ * @module angularjs-value-editor
+ *
+ * @property {string} editorId Input id.
+ * @property {string} editorName Input name.
+ * @property {string} placeholder Placeholder.
+ * @property {string} type ValueEditor type.
+ * @property {boolean} disabled If input is disabled.
+ * @property {boolean} visible If input is visible.
+ * @property {ValueEditorValidations} validations ValueEditor validations.
+ * @property {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type.
+ *
+ * @description
+ * {@link kpValueEditor} attributes definition.
  *//**
  * @ngdoc constant
  * @name loadingSpinnerTemplateUrl
@@ -3158,4 +3369,30 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController
+ *//**
+ * @ngdoc provider
+ * @name valueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link ValueEditorConfigurationService}
+ */
+/**
+ * @ngdoc service
+ * @name ValueEditorConfigurationService
+ * @module angularjs-value-editor
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options:
+ * ```
+ *  {
+ *      debugMode: false
+ *  }
+ * ```
  */

@@ -380,4 +380,22 @@ list-value-editor .panel-footer.empty-list-correction .btn {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
+list-value-editor .has-not-error .form-control {
+  border-color: #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+object-value-editor label.required::after {
+  content: '*';
+  color: red;
+  vertical-align: super;
+  font-size: 10px;
+  margin-left: 2px;
+}
+object-value-editor .debug-info {
+  position: absolute;
+  top: 0;
+  right: -30px;
+}
 

@@ -1,0 +1,92 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">objectValueEditor</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - component in module <a href="api/angularjs-value-editor.object">angularjs-value-editor.object</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Value editor for object input.</p>
+<p>Supported options: <a href="api/angularjs-value-editor.object/type/ObjectValueEditorOptions">ObjectValueEditorOptions</a></p>
+<p>Supported validations: <a href="api/angularjs-value-editor/type/ValueEditorValidations">ValueEditorValidations</a></p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+  <h2 id="dependencies">Dependencies</h2>
+  <ul>
+    <li><a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController" _target="blank">ngModel.NgModelController</a></li><li><a href="api/angularjs-value-editor/component/kpValueEditor">kpValueEditor</a></li>
+  </ul>
+  
+
+  
+  
+  <h2 id="usage">Usage</h2>
+  <div class="usage">
+  
+
+  
+  <pre><code>&lt;object-value-editor&gt;&#10;&lt;/object-value-editor&gt;</code></pre>
+  </div>
+  
+  
+  
+
+
+  
+  <h2 id="example">Example</h2><p>
+
+<plnkr-opener example-path="examples/example-objectValueEditorExample"></plnkr-opener>
+<div class="runnable-example"
+    path="examples/example-objectValueEditorExample"
+    frame-id="example-objectValueEditorExample"
+    name="objectValueEditorExample"
+    module="objectValueEditorExample"
+    frame-no-resize="true">
+
+  <md-content>
+    <md-tabs md-dynamic-height="false" md-border-bottom>
+    
+      <md-tab label="index.html">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="index.html"language="html"type="html">
+          <pre><code>&lt;main&gt;&#10;     &lt;kp-value-editor type=&quot;&#39;object&#39;&quot; ng-model=&quot;model&quot;&gt;&lt;/kp-value-editor&gt;&#10;     &lt;div&gt;Model: {{model}}&lt;/div&gt;&#10;&lt;/main&gt;</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+      <md-tab label="script.js">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="script.js"language="js"type="js">
+          <pre><code>luxon.Settings.defaultLocale = luxon.DateTime.local().resolvedLocaleOpts().locale;&#10;angular.module(&#39;objectValueEditorExample&#39;, [&#39;angularjs-value-editor&#39;])&#10; .config([&#39;objectValueEditorConfigurationServiceProvider&#39;, function(objectValueEditorConfigurationServiceProvider) {&#10;     objectValueEditorConfigurationServiceProvider.setConfiguration({&#10;         fields: [&#10;             {&#10;                 label: &#39;Text&#39;,&#10;                 type: &#39;text&#39;,&#10;                 editorName: &#39;text&#39;&#10;             },&#10;             {&#10;                 label: &#39;Number&#39;,&#10;                 type: &#39;number&#39;,&#10;                 editorName: &#39;number&#39;&#10;             },&#10;             {&#10;                 label: &#39;Data&#39;,&#10;                 type: &#39;list&#39;,&#10;                 editorName: &#39;dates&#39;,&#10;                 options: {&#10;                     subEditorType: &#39;date&#39;,&#10;                     newItemPrototype: &#39;&#39;&#10;                 }&#10;             }&#10;         ]&#10;     });&#10; }]);</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+    </md-tabs>
+  </md-content>
+  <iframe class="runnable-example-frame" src="examples/example-objectValueEditorExample/index.html" name="example-objectValueEditorExample" id="example-objectValueEditorExample"></iframe>
+</div>
+
+
+
+</p>
+
+</div>
+
+
