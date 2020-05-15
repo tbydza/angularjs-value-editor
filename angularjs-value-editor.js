@@ -139,7 +139,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var angular = __webpack_require__(5);
 
-var ng_model_connector_1 = __webpack_require__(10);
+var ng_model_connector_1 = __webpack_require__(9);
 
 var uuid_generator_1 = __webpack_require__(7);
 
@@ -223,17 +223,17 @@ exports.ValueEditorComponentController = ValueEditorComponentController;
  * @param {boolean} disabled If input is disabled. <.
  * @param {boolean} visible If input is visible. <.
  * @param {ValueEditorValidations} validations ValueEditor validations. <.
- * @param {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type.
+ * @param {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type. <.
  *
  * @description
  * Generic value editor depends on type:
  *
- * - `text`, `textarea`, `rich-textarea`: {@link component:textValueEditor}
- * - `number`: {@link component:numberValueEditor}
+ * - `text`: {@link textValueEditor}
+ * - `number`: {@link numberValueEditor}
  */
 
-var ValueEditorComponent = function ValueEditorComponent() {
-  _classCallCheck(this, ValueEditorComponent);
+var KpValueEditorComponent = function KpValueEditorComponent() {
+  _classCallCheck(this, KpValueEditorComponent);
 
   this.require = {
     ngModelController: 'ngModel',
@@ -253,8 +253,8 @@ var ValueEditorComponent = function ValueEditorComponent() {
   this.templateUrl = __webpack_require__(27);
 };
 
-exports.default = ValueEditorComponent;
-ValueEditorComponent.componentName = 'kpValueEditor';
+exports.default = KpValueEditorComponent;
+KpValueEditorComponent.componentName = 'kpValueEditor';
 
 /***/ }),
 /* 2 */
@@ -436,7 +436,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var ng_model_connector_1 = __webpack_require__(10);
+var ng_model_connector_1 = __webpack_require__(9);
 
 var angular = __webpack_require__(5);
 
@@ -892,32 +892,6 @@ AliasesServiceProviderImpl.providerName = 'aliasesService';
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var angularjs_register_1 = __webpack_require__(0);
-
-var aliases_service_1 = __webpack_require__(8);
-/**
- * @ngdoc module
- * @name angularjs-value-editor.aliases
- * @module angularjs-value-editor.aliases
- *
- * @description
- * Support for editor types aliasing
- */
-
-
-exports.default = angularjs_register_1.default('angularjs-value-editor.aliases').provider(aliases_service_1.AliasesServiceProviderImpl.providerName, aliases_service_1.AliasesServiceProviderImpl).name();
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -960,6 +934,32 @@ var NgModelConnector = /*#__PURE__*/function () {
 }();
 
 exports.default = NgModelConnector;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var angularjs_register_1 = __webpack_require__(0);
+
+var aliases_service_1 = __webpack_require__(8);
+/**
+ * @ngdoc module
+ * @name angularjs-value-editor.aliases
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * Support for editor types aliasing
+ */
+
+
+exports.default = angularjs_register_1.default('angularjs-value-editor.aliases').provider(aliases_service_1.AliasesServiceProviderImpl.providerName, aliases_service_1.AliasesServiceProviderImpl).name();
 
 /***/ }),
 /* 11 */
@@ -1218,8 +1218,8 @@ var AbstractMetaValueEditorComponentController = /*#__PURE__*/function (_abstrac
       return value;
     }
   }, {
-    key: "showError",
-    value: function showError(fieldName) {
+    key: "showValidationError",
+    value: function showValidationError(fieldName) {
       if (this.form[fieldName]) {
         var _this$form$fieldName = this.form[fieldName],
             $invalid = _this$form$fieldName.$invalid,
@@ -1272,7 +1272,7 @@ __webpack_require__(19);
 
 var angularjs_register_1 = __webpack_require__(0);
 
-var aliases_module_1 = __webpack_require__(9);
+var aliases_module_1 = __webpack_require__(10);
 
 var acceptable_value_editor_module_1 = __webpack_require__(20);
 
@@ -1320,11 +1320,13 @@ var list_value_editor_module_1 = __webpack_require__(133);
 
 var object_value_editor_module_1 = __webpack_require__(140);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
-var value_editor_configuration_provider_1 = __webpack_require__(146);
+var kp_value_editor_configuration_provider_1 = __webpack_require__(145);
+
+var kp_universal_form_component_1 = __webpack_require__(146);
 /**
  * @ngdoc constant
  * @name loadingSpinnerTemplateUrl
@@ -1338,7 +1340,7 @@ var value_editor_configuration_provider_1 = __webpack_require__(146);
 // tslint:disable-next-line:no-var-requires
 
 
-var LOADING_SPINNER_TPL_URL = __webpack_require__(147);
+var LOADING_SPINNER_TPL_URL = __webpack_require__(148);
 /**
  * @ngdoc module
  * @name angularjs-value-editor
@@ -1346,7 +1348,7 @@ var LOADING_SPINNER_TPL_URL = __webpack_require__(147);
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', aliases_module_1.default, acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default, autocomplete_value_editor_module_1.default, password_value_editor_module_1.default, signature_value_editor_module_1.default, access_number_value_editor_module_1.default, number_range_value_editor_module_1.default, exemplar_bar_code_value_editor_module_1.default, acceptable_root_value_editor_module_1.default, search_text_value_editor_module_1.default, searchable_value_editor_module_1.default, velocity_template_value_editor_module_1.default, range_value_editor_module_1.default, list_value_editor_module_1.default, object_value_editor_module_1.default]).constant('loadingSpinnerTemplateUrl', LOADING_SPINNER_TPL_URL).provider(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).provider(value_editor_configuration_provider_1.default.providerName, value_editor_configuration_provider_1.default).component(value_editor_component_1.default.componentName, value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor', ['ui.bootstrap', aliases_module_1.default, acceptable_value_editor_module_1.default, boolean_value_editor_module_1.default, date_value_editor_module_1.default, hidden_value_editor_module_1.default, html_value_editor_module_1.default, number_value_editor_module_1.default, text_value_editor_module_1.default, year_value_editor_module_1.default, card_number_value_editor_module_1.default, index_selection_value_editor_module_1.default, autocomplete_value_editor_module_1.default, password_value_editor_module_1.default, signature_value_editor_module_1.default, access_number_value_editor_module_1.default, number_range_value_editor_module_1.default, exemplar_bar_code_value_editor_module_1.default, acceptable_root_value_editor_module_1.default, search_text_value_editor_module_1.default, searchable_value_editor_module_1.default, velocity_template_value_editor_module_1.default, range_value_editor_module_1.default, list_value_editor_module_1.default, object_value_editor_module_1.default]).constant('loadingSpinnerTemplateUrl', LOADING_SPINNER_TPL_URL).provider(abstract_value_editor_1.EmptyConfigurationService.serviceName, abstract_value_editor_1.EmptyConfigurationService).provider(kp_value_editor_configuration_provider_1.default.providerName, kp_value_editor_configuration_provider_1.default).component(kp_value_editor_component_1.default.componentName, kp_value_editor_component_1.default).component(kp_universal_form_component_1.default.componentName, kp_universal_form_component_1.default).name();
 /**
  * @typedef ng.type.ngModel
  * @typedef ng.type.ngModel.NgModelController
@@ -1377,7 +1379,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var angularjs_register_1 = __webpack_require__(0);
 
-var aliases_module_1 = __webpack_require__(9);
+var aliases_module_1 = __webpack_require__(10);
 
 __webpack_require__(21);
 
@@ -1594,7 +1596,7 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(26);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_template_value_editor_1 = __webpack_require__(6);
 
@@ -1879,7 +1881,7 @@ var AcceptableValueEditorComponent = function AcceptableValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = AcceptableValueEditorComponentController;
@@ -1898,7 +1900,7 @@ AcceptableValueEditorComponent.componentName = 'acceptableValueEditor';
 /* 27 */
 /***/ (function(module, exports) {
 
-var path = '/value-editor/value-editor.tpl.pug';
+var path = '/value-editor/kp-value-editor/kp-value-editor.tpl.pug';
 var html = "<div ng-switch=\"$ctrl.resolveAlias()\" ng-show=\"$ctrl.visible\"><text-value-editor ng-switch-when=\"text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></text-value-editor><number-value-editor ng-switch-when=\"number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-value-editor><boolean-value-editor ng-switch-when=\"boolean\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></boolean-value-editor><hidden-value-editor ng-switch-when=\"hidden\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></hidden-value-editor><html-value-editor ng-switch-when=\"html\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></html-value-editor><date-value-editor ng-switch-when=\"date\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></date-value-editor><acceptable-value-editor ng-switch-when=\"acceptable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-value-editor><year-value-editor ng-switch-when=\"year\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></year-value-editor><card-number-value-editor ng-switch-when=\"card-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></card-number-value-editor><index-selection-value-editor ng-switch-when=\"index-selection\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></index-selection-value-editor><autocomplete-value-editor ng-switch-when=\"autocomplete\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></autocomplete-value-editor><password-value-editor ng-switch-when=\"password\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></password-value-editor><signature-value-editor ng-switch-when=\"signature\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></signature-value-editor><access-number-value-editor ng-switch-when=\"access-number\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></access-number-value-editor><number-range-value-editor ng-switch-when=\"number-range\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></number-range-value-editor><acceptable-root-value-editor ng-switch-when=\"acceptable-root\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></acceptable-root-value-editor><search-text-value-editor ng-switch-when=\"search-text\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></search-text-value-editor><searchable-value-editor ng-switch-when=\"searchable\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></searchable-value-editor><range-value-editor ng-switch-when=\"range\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></range-value-editor><list-value-editor ng-switch-when=\"list\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></list-value-editor><object-value-editor ng-switch-when=\"object\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true }\"></object-value-editor></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -2184,7 +2186,7 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(34);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -2294,7 +2296,7 @@ var BooleanValueEditorComponent = function BooleanValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(35);
   this.controller = BooleanValueEditorComponentController;
@@ -2407,7 +2409,7 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(40);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -2514,7 +2516,7 @@ var DateValueEditorComponent = function DateValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(41);
   this.controller = DateValueEditorComponentController;
@@ -2682,7 +2684,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -2743,7 +2745,7 @@ var HiddenValueEditorComponent = function HiddenValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(45);
   this.controller = HiddenValueEditorComponentController;
@@ -2842,7 +2844,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -2979,7 +2981,7 @@ var HtmlValueEditorComponent = function HtmlValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(48);
   this.controller = HtmlValueEditorComponentController;
@@ -3157,7 +3159,7 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(52);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -3219,7 +3221,7 @@ var NumberValueEditorComponent = function NumberValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(53);
   this.controller = NumberValueEditorComponentController;
@@ -3400,7 +3402,7 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(58);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -3543,7 +3545,7 @@ var TextValueEditorComponent = function TextValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(59);
   this.controller = TextValueEditorComponentController;
@@ -3719,7 +3721,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -3820,7 +3822,7 @@ var YearValueEditorComponent = function YearValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(63);
   this.controller = YearValueEditorComponentController;
@@ -4072,7 +4074,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var CardNumberValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
   CardNumberValueEditorComponentController.$inject = ["cardNumberValueEditorConfigurationService", "cardNumberValueEditorLocalizationsService", "$timeout"];
@@ -4233,7 +4235,7 @@ var CardNumberValueEditorComponent = function CardNumberValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(68);
   this.controller = CardNumberValueEditorComponentController;
@@ -4316,7 +4318,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_template_value_editor_1 = __webpack_require__(6);
 
@@ -4442,7 +4444,7 @@ var IndexSelectionValueEditorComponent = function IndexSelectionValueEditorCompo
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = IndexSelectionValueEditorComponentController;
@@ -4626,7 +4628,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -4889,7 +4891,7 @@ var AutocompleteValueEditorComponent = function AutocompleteValueEditorComponent
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(76);
   this.controller = AutocompleteValueEditorComponentController;
@@ -5073,7 +5075,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -5149,7 +5151,7 @@ var PasswordValueEditorComponent = function PasswordValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(81);
   this.controller = PasswordValueEditorComponentController;
@@ -5458,7 +5460,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -5588,7 +5590,7 @@ var SignatureValueEditorComponent = function SignatureValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(87);
   this.controller = SignatureValueEditorComponentController;
@@ -5842,7 +5844,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -5979,7 +5981,7 @@ var AccessNumberValueEditorComponent = function AccessNumberValueEditorComponent
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(92);
   this.controller = AccessNumberValueEditorComponentController;
@@ -6239,7 +6241,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
@@ -6350,7 +6352,7 @@ var NumberRangeValueEditorComponent = function NumberRangeValueEditorComponent()
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(98);
   this.controller = NumberRangeValueEditorComponentController;
@@ -7614,7 +7616,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var bind_decorator_1 = __webpack_require__(13);
 
@@ -7750,7 +7752,7 @@ var AcceptableRootValueEditorComponent = function AcceptableRootValueEditorCompo
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.template = "\n        <ng-include src=\"$ctrl.templateName\"></ng-include>\n    ";
   this.controller = AcceptableRootValueEditorComponentController;
@@ -7950,7 +7952,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var abstract_value_editor_1 = __webpack_require__(3);
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 /**
  * @ngdoc type
  * @name SearchTextValueEditorModelExtension
@@ -8080,7 +8082,7 @@ var SearchTextValueEditorComponent = function SearchTextValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.templateUrl = __webpack_require__(117);
   this.controller = SearchTextValueEditorComponentController;
@@ -8173,7 +8175,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_template_value_editor_1 = __webpack_require__(6);
 
@@ -8363,7 +8365,7 @@ var SearchableValueEditorComponent = function SearchableValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = SearchableValueEditorComponentController;
@@ -8732,7 +8734,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_template_value_editor_1 = __webpack_require__(6);
 
@@ -8828,7 +8830,7 @@ var RangeValueEditorComponent = function RangeValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = RangeValueEditorComponentController;
@@ -9139,7 +9141,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var angular = __webpack_require__(5);
 
@@ -9252,7 +9254,7 @@ var ListValueEditorComponent = function ListValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName)
   };
   this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = ListValueEditorComponentController;
@@ -9266,7 +9268,7 @@ ListValueEditorComponent.componentName = 'listValueEditor';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/meta-editors/list/list.value-editor.tpl.pug';
-var html = "<div class=\"panel panel-default\" id=\"{{$ctrl.valueEditorController.editorId}}\" ng-class=\"$ctrl.options.cssClasses\" ng-form=\"{{name}}\"><list-required-validation name=\"{{name}}_required_validation_helper\" ng-model=\"$ctrl.model.length\" ng-model-options=\"{ getterSetter: true }\" enabled=\"$ctrl.valueEditorController.validations.required\"></list-required-validation><div class=\"panel-body\"><div class=\"row list-item\" ng-repeat-start=\"itemModel in $ctrl.model track by $index\"><div class=\"col-lg-10\" ng-class=\"{'has-error': $ctrl.showError('{{name}}_' + $index), 'has-not-error': !$ctrl.showError('{{name}}_' + $index)}\"><kp-value-editor editor-id=\"$index\" editor-name=\"'{{name}}_' + $index\" placeholder=\"$ctrl.valueEditorController.placeholder\" ng-model=\"$ctrl.model[$index]\" ng-model-options=\"{ getterSetter: true }\" type=\"$ctrl.options.subEditorType\" disabled=\"$ctrl.valueEditorController.disabled\" visible=\"$ctrl.valueEditorController.visible\" validations=\"$ctrl.options.subEditorValidations\" options=\"$ctrl.options.subEditorOptions\"></kp-value-editor></div><div class=\"col-lg-2\"><button class=\"btn btn-default remove\" type=\"button\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-show=\"$ctrl.canRemoveItems()\" ng-click=\"$ctrl.removeItem($index)\"><i class=\"glyphicon glyphicon-minus\"></i><span ng-bind=\"$ctrl.localize('remove')\"></span></button></div></div><hr ng-repeat-end=\"ng-repeat-end\" ng-if=\"!$last\"/></div><div class=\"panel-footer\"><button class=\"btn btn-default btn-block btn-xs add\" type=\"button\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-click=\"$ctrl.addItem()\"><i class=\"glyphicon glyphicon-plus\"></i><span ng-bind=\"$ctrl.localize('add')\"></span></button></div></div>\\{\\{$ctrl.form = {{name}}; ''\\}\\}";
+var html = "<div class=\"panel panel-default\" id=\"{{$ctrl.valueEditorController.editorId}}\" ng-class=\"$ctrl.options.cssClasses\" ng-form=\"{{name}}\"><list-required-validation name=\"{{name}}_required_validation_helper\" ng-model=\"$ctrl.model.length\" ng-model-options=\"{ getterSetter: true }\" enabled=\"$ctrl.valueEditorController.validations.required\"></list-required-validation><div class=\"panel-body\"><div class=\"row list-item\" ng-repeat-start=\"itemModel in $ctrl.model track by $index\"><div class=\"col-lg-10\" ng-class=\"{'has-error': $ctrl.showValidationError('{{name}}_' + $index), 'has-not-error': !$ctrl.showValidationError('{{name}}_' + $index)}\"><kp-value-editor editor-id=\"$index\" editor-name=\"'{{name}}_' + $index\" placeholder=\"$ctrl.valueEditorController.placeholder\" ng-model=\"$ctrl.model[$index]\" ng-model-options=\"{ getterSetter: true }\" type=\"$ctrl.options.subEditorType\" disabled=\"$ctrl.valueEditorController.disabled\" visible=\"$ctrl.valueEditorController.visible\" validations=\"$ctrl.options.subEditorValidations\" options=\"$ctrl.options.subEditorOptions\"></kp-value-editor></div><div class=\"col-lg-2\"><button class=\"btn btn-default remove\" type=\"button\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-show=\"$ctrl.canRemoveItems()\" ng-click=\"$ctrl.removeItem($index)\"><i class=\"glyphicon glyphicon-minus\"></i><span ng-bind=\"$ctrl.localize('remove')\"></span></button></div></div><hr ng-repeat-end=\"ng-repeat-end\" ng-if=\"!$last\"/></div><div class=\"panel-footer\"><button class=\"btn btn-default btn-block btn-xs add\" type=\"button\" ng-disabled=\"$ctrl.valueEditorController.disabled\" ng-click=\"$ctrl.addItem()\"><i class=\"glyphicon glyphicon-plus\"></i><span ng-bind=\"$ctrl.localize('add')\"></span></button></div></div>\\{\\{$ctrl.form = {{name}}; ''\\}\\}";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -9510,8 +9512,6 @@ var angularjs_register_1 = __webpack_require__(0);
 var object_value_editor_component_1 = __webpack_require__(142);
 
 var object_value_editor_configuration_provider_1 = __webpack_require__(144);
-
-var object_value_editor_localization_provider_1 = __webpack_require__(145);
 /**
  * @ngdoc module
  * @name angularjs-value-editor.object
@@ -9522,7 +9522,7 @@ var object_value_editor_localization_provider_1 = __webpack_require__(145);
  */
 
 
-exports.default = angularjs_register_1.default('angularjs-value-editor.object').constant('objectValueEditorDefaultOptions', object_value_editor_configuration_provider_1.OBJECT_VALUE_EDITOR_DEFAULT_OPTIONS).constant('objectValueEditorDefaultLocalizations', object_value_editor_localization_provider_1.OBJECT_VALUE_EDITOR_DEFAULT_LOCALIZATIONS).provider(object_value_editor_configuration_provider_1.default.providerName, object_value_editor_configuration_provider_1.default).provider(object_value_editor_localization_provider_1.default.providerName, object_value_editor_localization_provider_1.default).component(object_value_editor_component_1.default.componentName, object_value_editor_component_1.default).name();
+exports.default = angularjs_register_1.default('angularjs-value-editor.object').constant('objectValueEditorDefaultOptions', object_value_editor_configuration_provider_1.OBJECT_VALUE_EDITOR_DEFAULT_OPTIONS).provider(object_value_editor_configuration_provider_1.default.providerName, object_value_editor_configuration_provider_1.default).component(object_value_editor_component_1.default.componentName, object_value_editor_component_1.default).name();
 
 /***/ }),
 /* 141 */
@@ -9567,7 +9567,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var value_editor_component_1 = __webpack_require__(1);
+var kp_value_editor_component_1 = __webpack_require__(1);
 
 var abstract_template_value_editor_1 = __webpack_require__(6);
 
@@ -9578,20 +9578,34 @@ var uuid_generator_1 = __webpack_require__(7);
 var TEMPLATE_NAME_PREFIX = 'value-editor.objectValueEditor';
 
 var ObjectValueEditorComponentController = /*#__PURE__*/function (_abstract_meta_value_) {
-  ObjectValueEditorComponentController.$inject = ["$interpolate", "$templateCache", "objectValueEditorConfigurationService", "objectValueEditorLocalizationsService"];
+  ObjectValueEditorComponentController.$inject = ["$interpolate", "$templateCache", "objectValueEditorConfigurationService"];
 
   _inherits(ObjectValueEditorComponentController, _abstract_meta_value_);
 
   var _super = _createSuper(ObjectValueEditorComponentController);
 
   /*@ngInject*/
-  function ObjectValueEditorComponentController($interpolate, $templateCache, objectValueEditorConfigurationService, objectValueEditorLocalizationsService) {
+  function ObjectValueEditorComponentController($interpolate, $templateCache, objectValueEditorConfigurationService) {
     _classCallCheck(this, ObjectValueEditorComponentController);
 
-    return _super.call(this, ObjectValueEditorComponentController.TEMPLATE_URL, TEMPLATE_NAME_PREFIX, $interpolate, $templateCache, objectValueEditorConfigurationService, objectValueEditorLocalizationsService);
+    return _super.call(this, ObjectValueEditorComponentController.TEMPLATE_URL, TEMPLATE_NAME_PREFIX, $interpolate, $templateCache, objectValueEditorConfigurationService);
   }
 
   _createClass(ObjectValueEditorComponentController, [{
+    key: "$onInit",
+    value: function $onInit() {
+      _get(_getPrototypeOf(ObjectValueEditorComponentController.prototype), "$onInit", this).call(this);
+
+      if (this.options.__withoutNgForm) {
+        if (this.formController) {
+          this.form = this.formController;
+        } else {
+          // @ts-ignore Init form with anything
+          this.form = {};
+        }
+      }
+    }
+  }, {
     key: "transformField",
     value: function transformField(field) {
       if (typeof this.options.attributesTransformation === 'function') {
@@ -9618,7 +9632,8 @@ var ObjectValueEditorComponentController = /*#__PURE__*/function (_abstract_meta
     value: function getTemplateModel() {
       return Object.assign({
         labelsWidth: this.options.labelsWidth,
-        inputsWidth: 12 - this.options.labelsWidth
+        inputsWidth: 12 - this.options.labelsWidth,
+        withoutNgForm: this.options.__withoutNgForm
       }, _get(_getPrototypeOf(ObjectValueEditorComponentController.prototype), "getTemplateModel", this).call(this));
     }
   }]);
@@ -9688,7 +9703,8 @@ var ObjectValueEditorComponent = function ObjectValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    valueEditorController: "^".concat(value_editor_component_1.default.componentName)
+    valueEditorController: "^".concat(kp_value_editor_component_1.default.componentName),
+    formController: '^^?form'
   };
   this.template = abstract_template_value_editor_1.default.COMPONENT_TEMPLATE;
   this.controller = ObjectValueEditorComponentController;
@@ -9702,7 +9718,7 @@ ObjectValueEditorComponent.componentName = 'objectValueEditor';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/meta-editors/object/object.value-editor.tpl.pug';
-var html = "<fieldset class=\"form-horizontal\" ng-form=\"{{name}}\"><div class=\"form-group \\{\\{transformedField.editorName\\}\\}\" ng-class=\"{'has-error': $ctrl.showError(transformedField.editorName)}\" ng-repeat=\"field in $ctrl.options.fields\" ng-init=\"showDebugInfo = true; transformedField = $ctrl.transformField(field)\" ng-show=\"$ctrl.trueIfUndefined(transformedField.visible)\"><label class=\"control-label col-sm-{{labelsWidth}}\" ng-class=\"{'required': transformedField.validations.required}\" ng-attr-for=\"\\{\\{transformedField.editorId\\}\\}\" ng-bind=\"transformedField.label\"></label><div class=\"col-sm-{{inputsWidth}}\"><kp-value-editor editor-id=\"transformedField.editorId\" editor-name=\"transformedField.editorName\" placeholder=\"transformedField.placeholder\" ng-model=\"$ctrl.model[transformedField.editorName]\" ng-model-options=\"{ getterSetter: true }\" type=\"transformedField.type\" disabled=\"transformedField.disabled || $ctrl.valueEditorController.disabled\" visible=\"$ctrl.trueIfUndefined($ctrl.valueEditorController.visible)\" validations=\"transformedField.validations\" options=\"transformedField.options\"></kp-value-editor><button class=\"debug-info\" type=\"button\" title=\"Show / hide debug info\" ng-click=\"showDebugInfo = !showDebugInfo\" ng-show=\"$ctrl.valueEditorController.configuration.debugMode\"><i class=\"glyphicon glyphicon-cog\"></i></button><pre ng-bind=\"$ctrl.form[transformedField.editorName] | json\" ng-if=\"$ctrl.valueEditorController.configuration.debugMode\" uib-collapse=\"showDebugInfo\"></pre></div></div></fieldset>\\{\\{$ctrl.form = {{name}}; ''\\}\\}";
+var html = "<fieldset class=\"form-horizontal\" {{withoutNgForm ? '' : 'ng-form'}}=\"{{withoutNgForm ? '' : name}}\"><div class=\"form-group \\{\\{transformedField.editorName\\}\\}\" ng-class=\"{'has-error': $ctrl.showValidationError(transformedField.editorName)}\" ng-repeat=\"field in $ctrl.options.fields\" ng-init=\"showDebugInfo = true; transformedField = $ctrl.transformField(field)\" ng-show=\"$ctrl.trueIfUndefined(transformedField.visible)\"><label class=\"control-label col-sm-{{labelsWidth}}\" ng-class=\"{'required': transformedField.validations.required}\" ng-attr-for=\"\\{\\{transformedField.editorId\\}\\}\" ng-bind=\"transformedField.label\"></label><div class=\"col-sm-{{inputsWidth}}\"><kp-value-editor editor-id=\"transformedField.editorId\" editor-name=\"transformedField.editorName\" placeholder=\"transformedField.placeholder\" ng-model=\"$ctrl.model[transformedField.editorName]\" ng-model-options=\"{ getterSetter: true }\" type=\"transformedField.type\" disabled=\"transformedField.disabled || $ctrl.valueEditorController.disabled\" visible=\"$ctrl.trueIfUndefined($ctrl.valueEditorController.visible)\" validations=\"transformedField.validations\" options=\"transformedField.options\"></kp-value-editor><button class=\"debug-info\" type=\"button\" title=\"Show / hide debug info\" ng-click=\"showDebugInfo = !showDebugInfo\" ng-show=\"$ctrl.valueEditorController.configuration.debugMode\"><i class=\"glyphicon glyphicon-cog\"></i></button><pre ng-bind=\"$ctrl.form[transformedField.editorName] | json\" ng-if=\"$ctrl.valueEditorController.configuration.debugMode\" uib-collapse=\"showDebugInfo\"></pre></div></div></fieldset>{{withoutNgForm ? '' : '{' + '{$ctrl.form = ' + name + '}' + '}'}}";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -9757,7 +9773,8 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 exports.OBJECT_VALUE_EDITOR_DEFAULT_OPTIONS = {
   fields: [],
   attributesTransformation: undefined,
-  labelsWidth: 2
+  labelsWidth: 2,
+  __withoutNgForm: false
 };
 /**
  * @ngdoc provider
@@ -9793,79 +9810,6 @@ ObjectValueEditorConfigurationProvider.providerName = 'objectValueEditorConfigur
 
 /***/ }),
 /* 145 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
-/**
- * @ngdoc provider
- * @name objectValueEditorLocalizationsServiceProvider
- * @module angularjs-value-editor.object
- *
- * @description
- * See {@link objectValueEditorLocalizationsService}
- */
-
-
-var ObjectValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  ObjectValueEditorLocalizationsProvider.$inject = ["objectValueEditorDefaultLocalizations"];
-
-  _inherits(ObjectValueEditorLocalizationsProvider, _abstract_value_edito);
-
-  var _super = _createSuper(ObjectValueEditorLocalizationsProvider);
-
-  /*@ngInject*/
-  function ObjectValueEditorLocalizationsProvider(objectValueEditorDefaultLocalizations) {
-    _classCallCheck(this, ObjectValueEditorLocalizationsProvider);
-
-    return _super.call(this, objectValueEditorDefaultLocalizations);
-  }
-
-  return ObjectValueEditorLocalizationsProvider;
-}(abstract_value_editor_localization_provider_1.default);
-
-exports.default = ObjectValueEditorLocalizationsProvider;
-ObjectValueEditorLocalizationsProvider.providerName = 'objectValueEditorLocalizationsService';
-/**
- * @ngdoc constant
- * @name objectValueEditorDefaultLocalizations
- * @module angularjs-value-editor.object
- *
- * @description
- * ```
- * {
- * }
- * ```
- */
-
-exports.OBJECT_VALUE_EDITOR_DEFAULT_LOCALIZATIONS = Object.freeze({});
-
-/***/ }),
-/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9911,14 +9855,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var ValueEditorConfigurationProvider = /*#__PURE__*/function () {
-  function ValueEditorConfigurationProvider() {
-    _classCallCheck(this, ValueEditorConfigurationProvider);
+var KpValueEditorConfigurationProvider = /*#__PURE__*/function () {
+  function KpValueEditorConfigurationProvider() {
+    _classCallCheck(this, KpValueEditorConfigurationProvider);
 
     _debugMode.set(this, false);
   }
 
-  _createClass(ValueEditorConfigurationProvider, [{
+  _createClass(KpValueEditorConfigurationProvider, [{
     key: "setDebugMode",
     value: function setDebugMode(isEnabled) {
       __classPrivateFieldSet(this, _debugMode, isEnabled);
@@ -9938,15 +9882,228 @@ var ValueEditorConfigurationProvider = /*#__PURE__*/function () {
     }
   }]);
 
-  return ValueEditorConfigurationProvider;
+  return KpValueEditorConfigurationProvider;
 }();
 
-exports.default = ValueEditorConfigurationProvider;
+exports.default = KpValueEditorConfigurationProvider;
 _debugMode = new WeakMap();
-ValueEditorConfigurationProvider.providerName = 'valueEditorConfigurationService';
+KpValueEditorConfigurationProvider.providerName = 'valueEditorConfigurationService';
+
+/***/ }),
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var ng_model_connector_1 = __webpack_require__(9);
+
+var uuid_generator_1 = __webpack_require__(7);
+
+var TEMPLATE_PREFIX = 'valueEditor.universal-form';
+
+var KpUniversalFormComponentController = /*#__PURE__*/function (_ng_model_connector_) {
+  KpUniversalFormComponentController.$inject = ["$interpolate", "$templateCache", "$timeout", "$log"];
+
+  _inherits(KpUniversalFormComponentController, _ng_model_connector_);
+
+  var _super = _createSuper(KpUniversalFormComponentController);
+
+  /*@ngInject*/
+  function KpUniversalFormComponentController($interpolate, $templateCache, $timeout, $log) {
+    var _this;
+
+    _classCallCheck(this, KpUniversalFormComponentController);
+
+    _this = _super.call(this);
+    _this.$interpolate = $interpolate;
+    _this.$templateCache = $templateCache;
+    _this.$timeout = $timeout;
+    _this.$log = $log;
+    _this.uuid = uuid_generator_1.generateUuid();
+    return _this;
+  }
+
+  _createClass(KpUniversalFormComponentController, [{
+    key: "$onInit",
+    value: function $onInit() {
+      _get(_getPrototypeOf(KpUniversalFormComponentController.prototype), "$onInit", this).call(this);
+
+      this.validateName();
+      this.updateTemplate();
+    }
+  }, {
+    key: "$postLink",
+    value: function $postLink() {
+      var _this2 = this;
+
+      this.$timeout(function () {
+        return _this2.formController({
+          $formController: _this2.internalFormController
+        });
+      });
+    }
+  }, {
+    key: "updateTemplate",
+    value: function updateTemplate() {
+      this.$templateCache.remove(this.templateUrl);
+      var newTemplateName = "".concat(TEMPLATE_PREFIX, "_").concat(this.uuid, "_").concat(new Date().valueOf());
+      var template = this.$templateCache.get(KpUniversalFormComponentController.TEMPLATE_URL);
+      var interpolated = this.$interpolate(template)({
+        name: this.name
+      });
+      this.$templateCache.put(newTemplateName, interpolated);
+      this.templateUrl = newTemplateName;
+    }
+  }, {
+    key: "validateName",
+    value: function validateName() {
+      if (!this.name) {
+        this.name = 'universalForm';
+      }
+
+      if (!/^[a-zA-Z0-9._]*$/.test(this.name)) {
+        this.$log.warn("Invalid value of attribute name - ".concat(this.name, ". Fallbacking to default name 'universalForm'."));
+      }
+    }
+  }]);
+
+  return KpUniversalFormComponentController;
+}(ng_model_connector_1.default);
+
+exports.KpUniversalFormComponentController = KpUniversalFormComponentController;
+KpUniversalFormComponentController.TEMPLATE_URL = __webpack_require__(147);
+/**
+ * @ngdoc component
+ * @name kpUniversalForm
+ * @module angularjs-value-editor
+ *
+ * @param {KpUniversalFormComponentSettings} formSettings Definition of form content.
+ * @param {string=} name Name of the form. Due to internal reason, it must be in accordance with `^[a-zA-Z0-9._]*$` regexp.
+ * @param {function(IFormController)=} formController Connecting to controller.
+ * @param {function(IFormController)=} formController.$formController Exposed form controller.
+ * @param {function(Event)=} submitFunction Function called on submit form.
+ * @param {Event=} submitFunction.$event Submit event.
+ * @param {ObjectValueEditorLabelsWidth=} labelsWidth See {@link ObjectValueEditorOptions}. Default value is `2`.
+ *
+ * @description
+ * Component for generating forms by definition passed via `formSettings` attribute.
+ *
+ * @example
+ * <example name="universalFormExample" module="universalFormExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main class="container" ng-controller="controller as $ctrl">
+ *              <kp-universal-form ng-model="model" name="myForm" form-settings="$ctrl.formSettings" form-controller="formController = $formController"></kp-universal-form>
+ *              <div>Model:</div>
+ *              <pre ng-bind="model | json"></pre>
+ *              <div>Form controller:</div>
+ *              <pre ng-bind="formController | json"></pre>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         luxon.Settings.defaultLocale = luxon.DateTime.local().resolvedLocaleOpts().locale;
+ *         angular.module('universalFormExample', ['angularjs-value-editor'])
+ *          .controller('controller', class {
+ *              formSettings = {
+ *                  header: '<h3>Header</h3>',
+ *                  footer: '<hr><h4>Footer</h4>',
+ *                  fields: [
+ *                      {
+ *                          label: 'Text',
+ *                          type: 'text',
+ *                          editorName: 'text',
+ *                          validations: {
+ *                              required: true
+ *                          }
+ *                      },
+ *                      {
+ *                          label: 'Number',
+ *                          type: 'number',
+ *                          editorName: 'number'
+ *                      },
+ *                      {
+ *                          label: 'Data',
+ *                          type: 'list',
+ *                          editorName: 'dates',
+ *                          options: {
+ *                              subEditorType: 'date',
+ *                              newItemPrototype: '',
+ *                              subEditorValidations: {
+ *                                  required: true
+ *                              }
+ *                          },
+ *                          validations: {
+ *                              required: true
+ *                          }
+ *                      }
+ *                  ]
+ *              };
+ *          });
+ *     </file>
+ * </example>
+ */
+
+var KpUniversalFormComponent = function KpUniversalFormComponent() {
+  _classCallCheck(this, KpUniversalFormComponent);
+
+  this.require = {
+    ngModelController: 'ngModel'
+  };
+  this.bindings = {
+    formSettings: '<',
+    name: '@?',
+    formController: '&?',
+    submitFunction: '&?',
+    labelsWidth: '@?'
+  };
+  this.controller = KpUniversalFormComponentController;
+  this.template = '<ng-include src="$ctrl.templateUrl"></ng-include>';
+};
+
+exports.default = KpUniversalFormComponent;
+KpUniversalFormComponent.componentName = 'kpUniversalForm';
 
 /***/ }),
 /* 147 */
+/***/ (function(module, exports) {
+
+var path = '/value-editor/kp-universal-form/kp-universal-form.tpl.pug';
+var html = "<form name=\"{{name}}\" ng-submit=\"$ctrl.submitFunction({$event: $event})\" novalidate=\"novalidate\"><p class=\"text-info text-info-up\" ng-if=\"$ctrl.formSettings.header\" ng-bind-html=\"$ctrl.formSettings.header\"></p><kp-value-editor type=\"'object'\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" options=\"{fields: $ctrl.formSettings.fields, __withoutNgForm: true, labelsWidth: $ctrl.labelsWidth}\"></kp-value-editor><p class=\"text-info text-info-bottom\" ng-if=\"$ctrl.formSettings.footer\" ng-bind-html=\"$ctrl.formSettings.footer\"></p><!-- invisible submit button - due to html specification, form doesn't submit by enter when submit button is missing--><!-- see https://github.com/angular/angular.js/issues/6017#issuecomment-50808489--><button type=\"submit\" style=\"display: none;\">ok</button></form>\\{\\{ $ctrl.internalFormController = {{name}}; '' \\}\\}";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 148 */
 /***/ (function(module, exports) {
 
 var path = '/home/travis/build/kp-sys/angularjs-value-editor/src/value-editor/resources/loading-spinner.svg';

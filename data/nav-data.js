@@ -15,6 +15,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor/component",
             "navItems": [
               {
+                "name": "kpUniversalForm",
+                "type": "component",
+                "href": "api/angularjs-value-editor/component/kpUniversalForm"
+              },
+              {
                 "name": "kpValueEditor",
                 "type": "component",
                 "href": "api/angularjs-value-editor/component/kpValueEditor"
@@ -1203,11 +1208,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.object/constant",
             "navItems": [
               {
-                "name": "objectValueEditorDefaultLocalizations",
-                "type": "constant",
-                "href": "api/angularjs-value-editor.object/constant/objectValueEditorDefaultLocalizations"
-              },
-              {
                 "name": "objectValueEditorDefaultOptions",
                 "type": "constant",
                 "href": "api/angularjs-value-editor.object/constant/objectValueEditorDefaultOptions"
@@ -1223,11 +1223,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "objectValueEditorConfigurationServiceProvider",
                 "type": "provider",
                 "href": "api/angularjs-value-editor.object/provider/objectValueEditorConfigurationServiceProvider"
-              },
-              {
-                "name": "objectValueEditorLocalizationsServiceProvider",
-                "type": "provider",
-                "href": "api/angularjs-value-editor.object/provider/objectValueEditorLocalizationsServiceProvider"
               }
             ]
           },
@@ -1240,11 +1235,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "objectValueEditorConfigurationService",
                 "type": "service",
                 "href": "api/angularjs-value-editor.object/service/objectValueEditorConfigurationService"
-              },
-              {
-                "name": "objectValueEditorLocalizationsService",
-                "type": "service",
-                "href": "api/angularjs-value-editor.object/service/objectValueEditorLocalizationsService"
               }
             ]
           },
@@ -1254,19 +1244,14 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.object/type",
             "navItems": [
               {
-                "name": "ObjectValueEditorFieldsSettings",
+                "name": "ObjectValueEditorFieldSettings",
                 "type": "type",
-                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorFieldsSettings"
+                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorFieldSettings"
               },
               {
                 "name": "ObjectValueEditorLabelsWidth",
                 "type": "type",
                 "href": "api/angularjs-value-editor.object/type/ObjectValueEditorLabelsWidth"
-              },
-              {
-                "name": "ObjectValueEditorLocalizations",
-                "type": "type",
-                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorLocalizations"
               },
               {
                 "name": "ObjectValueEditorOptions",
