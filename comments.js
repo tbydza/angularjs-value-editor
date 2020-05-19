@@ -3004,8 +3004,8 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @param {string} editorName Input name. <.
  * @param {string} placeholder Placeholder. <.
  * @param {string} type ValueEditor type. <.
- * @param {boolean} disabled If input is disabled. <.
- * @param {boolean} visible If input is visible. <.
+ * @param {boolean} isDisabled If input is disabled. <.
+ * @param {boolean} isVisible If input is visible. <.
  * @param {ValueEditorValidations} validations ValueEditor validations. <.
  * @param {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type. <.
  *
@@ -3409,6 +3409,11 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
 /* eslint-disable-next-line no-self-compare*/
 /* NaN === NaN*/
 /* tslint:disable-next-line:no-conditional-assignment*/
+/*else if (isRegExp(o1)) {
+            if (!isRegExp(o2)) return false;
+            return o1.toString() === o2.toString();
+        } */
+/* || isRegExp(o2)*/
 /* || angular.isFunction(o1[key])*/
 /* &&
                     !angular.isFunction(o2[key])*//**
