@@ -105,6 +105,8 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
 /*@ngInject*//**
  * @ngdoc provider
  * @name AbstractValueEditorConfigurationProvider
@@ -212,6 +214,7 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
+/*@ngInject*/
 /*@ngInject*//**
  * @ngdoc provider
  * @name AbstractValueEditorLocalizationProvider
@@ -298,6 +301,7 @@
      * This method changes options.
      * @param {OPTIONS} newOptions
      * @param {OPTIONS} oldOptions
+     * @param {PropertyChangeDetection} whatChanged
      */
 /**
      * Simplifies localization. No need to call localization service.
@@ -309,12 +313,17 @@
      * This method is called always, when value editor options is changed with old and new options object merged with default options.
      * @param {OPTIONS} newOptions New options.
      * @param {OPTIONS} oldOptions Old options.
-     * @param {OptionsChangeDetection<OPTIONS>} optionsChangeDetection Object whose keys are name of changed properties and value is boolean status of change.
+     * @param {PropertyChangeDetection<OPTIONS>} optionsChangeDetection Object whose keys are name of changed properties and value is boolean status of change.
      */
-/* tslint:disable-next-line:no-unused-expression*/
-/* tslint:disable-next-line:no-unused-expression*/
 /*@ngInject*//**
  * Connects outer required ngModel with inner ngModel
+ *//**
+ * @ngdoc directive
+ * @name acceptableRootRequiredValidations
+ * @module angularjs-value-editor.acceptable-root
+ *
+ * @description
+ *
  *//**
  * @ngdoc type
  * @name AcceptableRootValueEditorOptions
@@ -621,7 +630,8 @@
  *     deselectAll: 'Deselect all'
  * }
  * ```
- *//*@ngInject*/
+ *//* -1 because validation helper also pass selector test*/
+/*@ngInject*/
 /* TODO: Add some localizations and placeholder tests*//*@ngInject*/
 /* trigger model sort by calling its setter and setting same value*/
 /**
@@ -737,6 +747,15 @@
  *
  * @description
  * Acceptable value editor module.
+ *//**
+ * @ngdoc directive
+ * @name checkboxesValidations
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ * Validation helper for acceptable value editor.
+ *
+ * It adds right version of required validation to acceptable value editor - checkboxes mode.
  *//**
  * @ngdoc service
  * @name uiSelectDecorator
@@ -1018,6 +1037,7 @@
  * @description
  * Possible values are: `'checkbox' | 'switch'`.
  */
+/* | 'switch'; // TODO: Implement switch option*/
 /**
  * @ngdoc type
  * @name BooleanValueEditorOptions
@@ -1489,6 +1509,7 @@
  * Default options: {@link htmlValueEditorDefaultOptions}
  *//*@ngInject*/
 /**/
+/* IE does not support closest function on DOM*/
 /**
  * @ngdoc component
  * @name htmlValueEditor
@@ -2891,6 +2912,85 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *
  * @description
  *
+ *//*@ngInject*//**
+ * @ngdoc provider
+ * @name valueEditorErrorMessagesLocalizationsServiceProvider
+ * @module angularjs-value-editor.error-messages
+ *
+ * @description
+ * See {@link valueEditorErrorMessagesLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name valueEditorErrorMessagesLocalizationsService
+ * @module angularjs-value-editor.error-messages
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name ValueEditorErrorMessagesLocalizations
+ * @module angularjs-value-editor.error-messages
+ *
+ * @property {string} required
+ * @property {string} minlength
+ * @property {string} maxlength
+ * @property {string} pattern
+ * @property {string} number
+ * @property {string} min
+ * @property {string} max
+ * @property {string} fromBiggerThanTo
+ * @property {string} toBiggerThanFrom
+ * @property {string} minDate
+ * @property {string} maxDate
+ * @property {string} 'list-required'
+ *
+ * @description
+ * Default localizations: {@link valueEditorErrorMessagesDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name valueEditorErrorMessagesDefaultLocalizations
+ * @module angularjs-value-editor.error-messages
+ *
+ * @description
+ * ```
+ * {
+ *  required: 'This field is required',
+ *  minlength: 'Too short',
+ *  maxlength: 'Too long',
+ *  pattern: 'Input does not match pattern',
+ *  number: 'Value is not a number',
+ *  min: 'Too low',
+ *  max: 'Too high',
+ *  fromBiggerThanTo: 'From is higher than to',
+ *  toBiggerThanFrom: 'To is higher than from',
+ *  minDate: 'Date is too in past',
+ *  maxDate: 'Date is too in future',
+ *  'list-required': 'List cannot be empty'
+ * }
+ * ```
+ *//**
+ * @ngdoc directive
+ * @name errorMessages
+ * @module angularjs-value-editor.error-messages
+ *
+ * @param {string} errorMessagesCustomClass Custom CSS class to add to error message element.
+ *
+ * @description
+ *
+ */
+/*@ngInject*/
+/* <editor-fold defaultstate="collapsed" desc=" Functions... ">*/
+/* </editor-fold>*//**
+ * @ngdoc module
+ * @name angularjs-value-editor.error-messages
+ * @module angularjs-value-editor.error-messages
+ *
+ * @description
+ *
  *//*@ngInject*//*@ngInject*/
 /**
  * @ngdoc component
@@ -3398,6 +3498,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * Make all properties required except properties of ValueEditorOptions
  *//* istanbul ignore file */
 /* tested by angular team*/
+/* console.log(value);*/
 /**
  * Modified `angular.equals` function for support function check also.
  *
@@ -3416,7 +3517,9 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
 /* || isRegExp(o2)*/
 /* || angular.isFunction(o1[key])*/
 /* &&
-                    !angular.isFunction(o2[key])*//**
+                    !angular.isFunction(o2[key])*/
+/* tslint:disable-next-line:no-unused-expression*/
+/* tslint:disable-next-line:no-unused-expression*//**
  * Generates random pseudo-UUID.
  */
 /* tslint:disable-next-line*//**

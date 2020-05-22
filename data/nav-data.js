@@ -1,4 +1,23 @@
 angular.module('docApp').constant('DOCS_NAVIGATION', {
+  "docs": {
+    "id": "docs",
+    "href": "docs",
+    "name": "Docs",
+    "navGroups": [
+      {
+        "name": "Docs",
+        "type": "groups",
+        "href": "docs",
+        "navItems": [
+          {
+            "name": "Demo",
+            "type": "",
+            "href": "docs/Demo"
+          }
+        ]
+      }
+    ]
+  },
   "api": {
     "id": "api",
     "href": "api",
@@ -166,6 +185,18 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           },
           {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable/directive",
+            "navItems": [
+              {
+                "name": "checkboxesValidations",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.acceptable/directive/checkboxesValidations"
+              }
+            ]
+          },
+          {
             "name": "provider",
             "type": "section",
             "href": "api/angularjs-value-editor.acceptable/provider",
@@ -259,6 +290,18 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "acceptableRootValueEditorDefaultOptions",
                 "type": "constant",
                 "href": "api/angularjs-value-editor.acceptable-root/constant/acceptableRootValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable-root/directive",
+            "navItems": [
+              {
+                "name": "acceptableRootRequiredValidations",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.acceptable-root/directive/acceptableRootRequiredValidations"
               }
             ]
           },
@@ -748,6 +791,73 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "TDateValueEditorGranularity",
                 "type": "type",
                 "href": "api/angularjs-value-editor.date/type/TDateValueEditorGranularity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "angularjs-value-editor.error-messages",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.error-messages",
+        "navItems": [
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.error-messages/constant",
+            "navItems": [
+              {
+                "name": "valueEditorErrorMessagesDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.error-messages/constant/valueEditorErrorMessagesDefaultLocalizations"
+              }
+            ]
+          },
+          {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.error-messages/directive",
+            "navItems": [
+              {
+                "name": "errorMessages",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.error-messages/directive/errorMessages"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.error-messages/provider",
+            "navItems": [
+              {
+                "name": "valueEditorErrorMessagesLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.error-messages/provider/valueEditorErrorMessagesLocalizationsServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.error-messages/service",
+            "navItems": [
+              {
+                "name": "valueEditorErrorMessagesLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.error-messages/service/valueEditorErrorMessagesLocalizationsService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.error-messages/type",
+            "navItems": [
+              {
+                "name": "ValueEditorErrorMessagesLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.error-messages/type/ValueEditorErrorMessagesLocalizations"
               }
             ]
           }
