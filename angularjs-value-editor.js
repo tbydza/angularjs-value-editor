@@ -146,14 +146,14 @@ var uuid_generator_1 = __webpack_require__(7);
 var equals_1 = __webpack_require__(11);
 
 var ValueEditorComponentController = /*#__PURE__*/function (_ng_model_connector_) {
-  ValueEditorComponentController.$inject = ["aliasesService", "valueEditorConfigurationService", "$element"];
+  ValueEditorComponentController.$inject = ["aliasesService", "kpValueEditorConfigurationService", "$element"];
 
   _inherits(ValueEditorComponentController, _ng_model_connector_);
 
   var _super = _createSuper(ValueEditorComponentController);
 
   /*@ngInject*/
-  function ValueEditorComponentController(aliasesService, valueEditorConfigurationService, $element) {
+  function ValueEditorComponentController(aliasesService, kpValueEditorConfigurationService, $element) {
     var _this;
 
     _classCallCheck(this, ValueEditorComponentController);
@@ -163,43 +163,45 @@ var ValueEditorComponentController = /*#__PURE__*/function (_ng_model_connector_
     _this.$element = $element;
     _this.isVisible = true;
     _this.optionChangeListeners = [];
-    _this.configuration = valueEditorConfigurationService;
+    _this.configuration = kpValueEditorConfigurationService;
     return _this;
   }
 
   _createClass(ValueEditorComponentController, [{
-    key: "$onDestroy",
-    value: function $onDestroy() {
-      this.optionChangeListeners = undefined;
-    }
-  }, {
     key: "$onInit",
     value: function $onInit() {
+      var _a, _b, _c;
+
       _get(_getPrototypeOf(ValueEditorComponentController.prototype), "$onInit", this).call(this);
+
+      if ((_c = (_b = (_a = this.universalFormController) === null || _a === void 0 ? void 0 : _a.options) === null || _b === void 0 ? void 0 : _b.preciseWatchForOptionsChanges) !== null && _c !== void 0 ? _c : this.configuration.preciseWatchForOptionsChanges) {
+        this.$doCheck = this.processOptionsChange;
+      } else {
+        this.$onChanges = this.processOptionsChange;
+      }
 
       this.previousOptions = angular.copy(this.options);
 
       if (!this.editorName) {
-        this.editorName = this.generateEditorName();
+        this.editorName = this.editorId || this.generateEditorName();
       }
     }
+  }, {
+    key: "$onChanges",
+    value: function $onChanges(onChangesObj) {} // initialization in $onInit section
+
     /**
      * Manually check options update. $onChanges is not applicable, because we need deep equals, which $onChanges does not perform.
      */
 
   }, {
     key: "$doCheck",
-    value: function $doCheck() {
-      var _this2 = this;
-
-      if (!equals_1.customEquals(this.options, this.previousOptions)) {
-        var whatChanged = equals_1.whichPropertiesAreNotEqual(this.options, this.previousOptions);
-        this.valueEditorInstance.changeOptions(this.options, this.previousOptions, whatChanged);
-        this.optionChangeListeners.forEach(function (listener) {
-          return listener(_this2.options, _this2.previousOptions, whatChanged);
-        });
-        this.previousOptions = angular.copy(this.options);
-      }
+    value: function $doCheck() {// initialization in $onInit section
+    }
+  }, {
+    key: "$onDestroy",
+    value: function $onDestroy() {
+      this.optionChangeListeners = undefined;
     }
   }, {
     key: "registerValueEditor",
@@ -220,6 +222,20 @@ var ValueEditorComponentController = /*#__PURE__*/function (_ng_model_connector_
     key: "generateEditorName",
     value: function generateEditorName() {
       return this.editorId || "".concat(this.type, "_").concat(uuid_generator_1.generateUuid());
+    }
+  }, {
+    key: "processOptionsChange",
+    value: function processOptionsChange() {
+      var _this2 = this;
+
+      if (this.valueEditorInstance && !equals_1.customEquals(this.options, this.previousOptions)) {
+        var whatChanged = equals_1.whichPropertiesAreNotEqual(this.options, this.previousOptions);
+        this.valueEditorInstance.changeOptions(this.options, this.previousOptions, whatChanged);
+        this.optionChangeListeners.forEach(function (listener) {
+          return listener(_this2.options, _this2.previousOptions, whatChanged);
+        });
+        this.previousOptions = angular.copy(this.options);
+      }
     }
   }]);
 
@@ -255,7 +271,8 @@ var KpValueEditorComponent = function KpValueEditorComponent() {
 
   this.require = {
     ngModelController: 'ngModel',
-    formController: '?^^form'
+    formController: '?^^form',
+    universalFormController: '?^^kpUniversalForm'
   };
   this.bindings = {
     type: '<',
@@ -513,7 +530,7 @@ var AbstractValueEditor = /*#__PURE__*/function (_ng_model_connector_) {
   }, {
     key: "changeOptions",
     value: function changeOptions(newOptions, oldOptions, whatChanged) {
-      this.options = newOptions;
+      this.options = angular.copy(newOptions);
       this.onOptionsChange(newOptions, oldOptions, whatChanged);
     }
     /**
@@ -720,6 +737,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var __classPrivateFieldGet = this && this.__classPrivateFieldGet || function (receiver, privateMap) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to get private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+};
+
+var __classPrivateFieldSet = this && this.__classPrivateFieldSet || function (receiver, privateMap, value) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to set private field on non-instance");
+  }
+
+  privateMap.set(receiver, value);
+  return value;
+};
+
+var _templateUpdated;
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -749,6 +785,9 @@ var AbstractTemplateValueEditor = /*#__PURE__*/function (_abstract_value_edito) 
     _this.$templateCache = $templateCache;
     _this.configurationService = configurationService;
     _this.localizationService = localizationService;
+
+    _templateUpdated.set(_assertThisInitialized(_this), false);
+
     _this.uuid = uuid_generator_1.generateUuid();
     return _this;
   }
@@ -757,8 +796,15 @@ var AbstractTemplateValueEditor = /*#__PURE__*/function (_abstract_value_edito) 
     key: "$onInit",
     value: function $onInit() {
       _get(_getPrototypeOf(AbstractTemplateValueEditor.prototype), "$onInit", this).call(this);
+    }
+  }, {
+    key: "$postLink",
+    value: function $postLink() {
+      _get(_getPrototypeOf(AbstractTemplateValueEditor.prototype), "$postLink", this).call(this);
 
-      this.updateTemplate();
+      if (!__classPrivateFieldGet(this, _templateUpdated)) {
+        this.updateTemplate();
+      }
     }
     /**
      * Updates template
@@ -767,6 +813,8 @@ var AbstractTemplateValueEditor = /*#__PURE__*/function (_abstract_value_edito) 
   }, {
     key: "updateTemplate",
     value: function updateTemplate() {
+      __classPrivateFieldSet(this, _templateUpdated, true);
+
       this.$templateCache.remove(this.templateUrl);
       var newTemplateName = "".concat(this.templatePrefix, "_").concat(this.uuid, "_").concat(new Date().valueOf());
       var template = this.$templateCache.get(this.baseTemplateUrl);
@@ -780,6 +828,7 @@ var AbstractTemplateValueEditor = /*#__PURE__*/function (_abstract_value_edito) 
 }(abstract_value_editor_1.default);
 
 exports.default = AbstractTemplateValueEditor;
+_templateUpdated = new WeakMap();
 /**
  * Pre-defined component template.
  * @type {string}
@@ -1088,7 +1137,7 @@ function whichPropertiesAreNotEqual(object1, object2) {
 
   object2 && Object.keys(object2).forEach(keys.add.bind(keys));
   Array.from(keys).forEach(function (key) {
-    return changeObject[key] = !(Object.prototype.hasOwnProperty.call(object1, key) && Object.prototype.hasOwnProperty.call(object2, key) && object1[key] === object2[key]);
+    return changeObject[key] = !(Object.prototype.hasOwnProperty.call(object1 !== null && object1 !== void 0 ? object1 : {}, key) && Object.prototype.hasOwnProperty.call(object2 !== null && object2 !== void 0 ? object2 : {}, key) && customEquals(object1[key], object2[key]));
   });
   return changeObject;
 }
@@ -2037,7 +2086,6 @@ var angular = __webpack_require__(4);
 
 
 exports.ACCEPTABLE_VALUE_EDITOR_DEFAULT_OPTIONS = {
-  cssClasses: ['form-control'],
   acceptableValues: [],
   multiselectable: false,
   searchable: true,
@@ -2661,7 +2709,7 @@ DateValueEditorComponent.componentName = 'dateValueEditor';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/editors/date/date.value-editor.tpl.pug';
-var html = "<div class=\"input-group\" uib-dropdown=\"\" dropdown-append-to-body=\"\" is-open=\"datePickerOpen\"><input type=\"text\" ng-attr-id=\"{{$ctrl.valueEditorController.editorId}}\" ng-attr-name=\"{{$ctrl.valueEditorController.editorName}}\" ng-attr-placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-class=\"$ctrl.options.cssClasses\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" kp-date-parser=\"kp-date-parser\" min-date=\"$ctrl.valueEditorController.validations.minDate ? $ctrl.valueEditorController.validations.minDate : null\" max-date=\"$ctrl.valueEditorController.validations.maxDate ? $ctrl.valueEditorController.validations.maxDate : null\" view-format=\"{{$ctrl.options.viewFormat}}\" error-messages=\"error-messages\" data-main-input=\"data-main-input\"/><div uib-dropdown-menu=\"\"><datetimepicker ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" datetimepicker-config=\"{minView: $ctrl.options.maximumGranularity, startView: $ctrl.startView}\" on-set-time=\"datePickerOpen = false\" before-render=\"$ctrl.dateRestriction($dates, $view)\" view-format=\"{{$ctrl.options.viewFormat}}\" kp-date-parser=\"kp-date-parser\"></datetimepicker></div><span class=\"input-group-btn\"><button class=\"btn btn-default\" type=\"button\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" uib-dropdown-toggle=\"\"><span class=\"glyphicon glyphicon-calendar\"></span></button></span></div>";
+var html = "<div class=\"input-group\" uib-dropdown=\"\" dropdown-append-to-body=\"\" is-open=\"datePickerOpen\"><input class=\"form-control\" type=\"text\" ng-attr-id=\"{{$ctrl.valueEditorController.editorId}}\" ng-attr-name=\"{{$ctrl.valueEditorController.editorName}}\" ng-attr-placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" kp-date-parser=\"kp-date-parser\" min-date=\"$ctrl.valueEditorController.validations.minDate ? $ctrl.valueEditorController.validations.minDate : null\" max-date=\"$ctrl.valueEditorController.validations.maxDate ? $ctrl.valueEditorController.validations.maxDate : null\" view-format=\"{{$ctrl.options.viewFormat}}\" error-messages=\"error-messages\" data-main-input=\"data-main-input\"/><div uib-dropdown-menu=\"\"><datetimepicker ng-model=\"$ctrl.model\" ng-model-options=\"{ getterSetter: true}\" datetimepicker-config=\"{minView: $ctrl.options.maximumGranularity, startView: $ctrl.startView}\" on-set-time=\"datePickerOpen = false\" before-render=\"$ctrl.dateRestriction($dates, $view)\" view-format=\"{{$ctrl.options.viewFormat}}\" kp-date-parser=\"kp-date-parser\"></datetimepicker></div><span class=\"input-group-btn\"><button class=\"btn btn-default\" type=\"button\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" uib-dropdown-toggle=\"\"><span class=\"glyphicon glyphicon-calendar\"></span></button></span></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -2714,7 +2762,6 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
 
 
 exports.DATE_VALUE_EDITOR_DEFAULT_OPTIONS = {
-  cssClasses: ['form-control'],
   maximumGranularity: 'day',
   viewFormat: 'd.L.y'
 };
@@ -3021,8 +3068,10 @@ var HtmlValueEditorComponentController = /*#__PURE__*/function (_abstract_value_
   }, {
     key: "$onDestroy",
     value: function $onDestroy() {
-      this.container.trumbowyg('destroy');
-      this.container.off('tbwchange tbwpaste');
+      if (this.container) {
+        this.container.trumbowyg('destroy');
+        this.container.off('tbwchange tbwpaste');
+      }
     }
   }, {
     key: "onOptionsChange",
@@ -9902,6 +9951,14 @@ var ObjectValueEditorComponentController = /*#__PURE__*/function (_abstract_meta
         field.editorId = uuid_generator_1.generateUuid();
       }
 
+      if (this.options.forceShowErrors) {
+        if (!field.options) {
+          field.options = {};
+        }
+
+        field.options.forceShowErrors = true;
+      }
+
       return field;
     }
   }, {
@@ -10102,14 +10159,24 @@ ObjectValueEditorConfigurationProvider.providerName = 'objectValueEditorConfigur
 
 /**
  * @ngdoc provider
- * @name valueEditorConfigurationServiceProvider
+ * @name kpValueEditorConfigurationServiceProvider
  * @module angularjs-value-editor
  *
+ * @property {boolean} debugMode Enable / disable debug mode. It show / hide information section below value editor.
+ * @property {boolean} preciseWatchForOptionsChanges It enables deep watching for changes in value editors options.
+ * If watching for changes is not needed, it's recommended set it to `false` due to high system requirements.
+ * (It makes deep equal of options in each digest cycle).
+ *
  * @description
+ * * Default options:
+ * ```
+ *  {
+ *      debugMode: false,
+ *      preciseWatchForOptionsChanges: false
+ *  }
+ * ```
  *
- * See {@link AbstractValueEditorConfigurationProvider}
- *
- * Default options: {@link ValueEditorConfigurationService}
+ * Provider for {@link kpValueEditorConfigurationService}
  */
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10135,7 +10202,7 @@ var __classPrivateFieldGet = this && this.__classPrivateFieldGet || function (re
   return privateMap.get(receiver);
 };
 
-var _debugMode;
+var _debugMode, _preciseWatchForOptionsChanges;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -10146,12 +10213,19 @@ var KpValueEditorConfigurationProvider = /*#__PURE__*/function () {
     _classCallCheck(this, KpValueEditorConfigurationProvider);
 
     _debugMode.set(this, false);
+
+    _preciseWatchForOptionsChanges.set(this, false);
   }
 
   _createClass(KpValueEditorConfigurationProvider, [{
     key: "setDebugMode",
     value: function setDebugMode(isEnabled) {
       __classPrivateFieldSet(this, _debugMode, isEnabled);
+    }
+  }, {
+    key: "setPreciseWatchForOptionsChanges",
+    value: function setPreciseWatchForOptionsChanges(isEnabled) {
+      __classPrivateFieldSet(this, _preciseWatchForOptionsChanges, isEnabled);
     }
   }, {
     key: "$get",
@@ -10163,6 +10237,11 @@ var KpValueEditorConfigurationProvider = /*#__PURE__*/function () {
           get: function get() {
             return __classPrivateFieldGet(_this, _debugMode);
           }
+        },
+        preciseWatchForOptionsChanges: {
+          get: function get() {
+            return __classPrivateFieldGet(_this, _preciseWatchForOptionsChanges);
+          }
         }
       });
     }
@@ -10172,8 +10251,8 @@ var KpValueEditorConfigurationProvider = /*#__PURE__*/function () {
 }();
 
 exports.default = KpValueEditorConfigurationProvider;
-_debugMode = new WeakMap();
-KpValueEditorConfigurationProvider.providerName = 'valueEditorConfigurationService';
+_debugMode = new WeakMap(), _preciseWatchForOptionsChanges = new WeakMap();
+KpValueEditorConfigurationProvider.providerName = 'kpValueEditorConfigurationService';
 
 /***/ }),
 /* 150 */
@@ -10301,6 +10380,8 @@ KpUniversalFormComponentController.TEMPLATE_URL = __webpack_require__(151);
  * @param {function(Event)=} submitFunction Function called on submit form.
  * @param {Event=} submitFunction.$event Submit event.
  * @param {ObjectValueEditorLabelsWidth=} labelsWidth See {@link ObjectValueEditorOptions}. Default value is `2`.
+ * @param {boolean=} forceShowErrors If `true` it displays all validation error messages.
+ * @param {KpUniversalFormComponentOptions=} options Specific options for universal form.
  *
  * @description
  * Component for generating forms by definition passed via `formSettings` attribute.
@@ -10370,7 +10451,9 @@ var KpUniversalFormComponent = function KpUniversalFormComponent() {
     name: '@?',
     formController: '&?',
     submitFunction: '&?',
-    labelsWidth: '@?'
+    labelsWidth: '@?',
+    forceShowErrors: '<?',
+    options: '<?'
   };
   this.controller = KpUniversalFormComponentController;
   this.template = '<ng-include src="$ctrl.templateUrl"></ng-include>';
@@ -10384,7 +10467,7 @@ KpUniversalFormComponent.componentName = 'kpUniversalForm';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/kp-universal-form/kp-universal-form.tpl.pug';
-var html = "<form name=\"{{name}}\" ng-submit=\"$ctrl.submitFunction({$event: $event})\" novalidate=\"novalidate\"><p class=\"text-info text-info-up\" ng-if=\"$ctrl.formSettings.header\" ng-bind-html=\"$ctrl.formSettings.header\"></p><kp-value-editor type=\"'object'\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" options=\"{fields: $ctrl.formSettings.fields, __withoutNgForm: true, labelsWidth: $ctrl.labelsWidth}\"></kp-value-editor><p class=\"text-info text-info-bottom\" ng-if=\"$ctrl.formSettings.footer\" ng-bind-html=\"$ctrl.formSettings.footer\"></p><!-- invisible submit button - due to html specification, form doesn't submit by enter when submit button is missing--><!-- see https://github.com/angular/angular.js/issues/6017#issuecomment-50808489--><button type=\"submit\" style=\"display: none;\">ok</button></form>\\{\\{ $ctrl.internalFormController = {{name}}; '' \\}\\}";
+var html = "<form name=\"{{name}}\" ng-submit=\"$ctrl.submitFunction({$event: $event})\" novalidate=\"novalidate\"><p class=\"text-info text-info-up\" ng-if=\"$ctrl.formSettings.header\" ng-bind-html=\"$ctrl.formSettings.header\"></p><kp-value-editor type=\"'object'\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" options=\"{fields: $ctrl.formSettings.fields, __withoutNgForm: true, labelsWidth: $ctrl.labelsWidth, forceShowErrors: $ctrl.forceShowErrors }\"></kp-value-editor><p class=\"text-info text-info-bottom\" ng-if=\"$ctrl.formSettings.footer\" ng-bind-html=\"$ctrl.formSettings.footer\"></p><!-- invisible submit button - due to html specification, form doesn't submit by enter when submit button is missing--><!-- see https://github.com/angular/angular.js/issues/6017#issuecomment-50808489--><button type=\"submit\" style=\"display: none;\">ok</button></form>\\{\\{ $ctrl.internalFormController = {{name}}; '' \\}\\}";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -10561,7 +10644,7 @@ __webpack_require__(155);
 var angular = __webpack_require__(4);
 
 function template(strings, customClass, rightPosition, message) {
-  return "<div class=\"error-message ".concat(customClass, "\" style=\"right: calc(10% + ").concat(rightPosition, "px)\">").concat(message, "</div>");
+  return "<div class=\"error-message not-visible ".concat(customClass, "\" style=\"right: calc(10% + ").concat(rightPosition, "px)\">").concat(message, "</div>");
 }
 /**
  * @ngdoc directive
@@ -10576,12 +10659,13 @@ function template(strings, customClass, rightPosition, message) {
 
 
 var ErrorMessagesDirective = /*#__PURE__*/function () {
-  ErrorMessagesDirective.$inject = ["valueEditorErrorMessagesLocalizationsService"];
+  ErrorMessagesDirective.$inject = ["valueEditorErrorMessagesLocalizationsService", "$timeout"];
 
   /*@ngInject*/
-  function ErrorMessagesDirective(valueEditorErrorMessagesLocalizationsService) {
+  function ErrorMessagesDirective(valueEditorErrorMessagesLocalizationsService, $timeout) {
     _classCallCheck(this, ErrorMessagesDirective);
 
+    this.$timeout = $timeout;
     this.restrict = 'A';
     this.priority = 1;
     this.require = ['ngModel', '^^kpValueEditor'];
@@ -10597,54 +10681,82 @@ var ErrorMessagesDirective = /*#__PURE__*/function () {
           ngModelController = _ref2[0],
           kpValueEditorController = _ref2[1];
 
-      $scope.lastErrors = '';
-      $scope.appendedElements = []; // <editor-fold defaultstate="collapsed" desc=" Functions... ">
+      $scope.appendedElements = {}; // <editor-fold defaultstate="collapsed" desc=" Functions... ">
 
-      function getErrorMessage(index) {
+      function getErrorType(index, errorsObject) {
         var _a;
 
-        return (_a = Object.keys(ngModelController.$error)) === null || _a === void 0 ? void 0 : _a[index];
+        return (_a = Object.keys(errorsObject)) === null || _a === void 0 ? void 0 : _a[index];
       }
 
-      function getErrorsCount() {
-        return Object.keys(ngModelController.$error).length;
+      function getErrorsCount(errorsObject) {
+        return Object.keys(errorsObject).length;
       }
 
-      function getSerializedErrors() {
+      function getSerializedErrors(errorsObject) {
         var errors = [];
 
-        for (var i = 0; i < getErrorsCount(); i++) {
-          errors.push(getErrorMessage(i));
+        for (var i = 0; i < getErrorsCount(errorsObject); i++) {
+          errors.push(getErrorType(i, errorsObject));
         }
 
         return errors.sort().reduce(function (previousValue, currentValue) {
           return previousValue + currentValue;
         }, '');
+      }
+
+      function arraySubtraction(from, what) {
+        return (from || []).slice().reduce(function (acc, element) {
+          if (!what.includes(element)) {
+            acc.push(element);
+          }
+
+          return acc;
+        }, []);
       } // </editor-fold>
 
 
-      ngModelController.$validators.__validationMessageListener = function () {
+      var processErrors = function processErrors() {
         var _a;
 
-        var serializedErrors = getSerializedErrors();
+        if (ngModelController.$touched || ((_a = kpValueEditorController.valueEditorInstance.options.forceShowErrors) !== null && _a !== void 0 ? _a : false)) {
+          if (getSerializedErrors(ngModelController.$error) !== getSerializedErrors($scope.appendedElements)) {
+            var errorsToRemove = arraySubtraction(Object.keys($scope.appendedElements), Object.keys(ngModelController.$error));
+            var errorsToAdd = arraySubtraction(Object.keys(ngModelController.$error), Object.keys($scope.appendedElements));
+            errorsToRemove.forEach(function (error) {
+              $scope.appendedElements[error].classList.add('not-visible');
 
-        if (serializedErrors !== $scope.lastErrors) {
-          $scope.appendedElements.forEach(function (elem) {
-            return elem.remove();
-          });
-          $scope.appendedElements = [];
+              _this.$timeout(function () {
+                $scope.appendedElements[error].remove();
+                delete $scope.appendedElements[error];
+              }, 150);
+            });
+            errorsToAdd.forEach(function (error, index) {
+              var _a;
 
-          for (var i = 0; i < getErrorsCount(); i++) {
-            var element = angular.element(template(_templateObject(), (_a = $attrs.errorMessagesCustomClass) !== null && _a !== void 0 ? _a : '', 20 * i, _this.localize(getErrorMessage(i))));
-            $scope.appendedElements.push(element);
-            kpValueEditorController.$element.after(element);
+              var element = angular.element(template(_templateObject(), (_a = $attrs.errorMessagesCustomClass) !== null && _a !== void 0 ? _a : '', 20 * index, _this.localize(error)));
+              $scope.appendedElements[error] = element[0];
+              kpValueEditorController.$element.after(element);
+
+              _this.$timeout(function () {
+                return element.removeClass('not-visible');
+              });
+            });
           }
-
-          $scope.lastErrors = serializedErrors;
         }
 
         return true;
       };
+
+      var removeWatcher = $scope.$watch(function () {
+        return ngModelController.$touched;
+      }, function (isTouched) {
+        if (isTouched) {
+          processErrors();
+          removeWatcher();
+        }
+      });
+      ngModelController.$validators.__validationMessageListener = processErrors;
     }
   }]);
 

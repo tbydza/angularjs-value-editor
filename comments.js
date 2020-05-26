@@ -632,6 +632,7 @@
  * ```
  *//* -1 because validation helper also pass selector test*/
 /*@ngInject*/
+/*@ngInject*/
 /* TODO: Add some localizations and placeholder tests*//*@ngInject*/
 /* trigger model sort by calling its setter and setting same value*/
 /**
@@ -1237,7 +1238,8 @@
  *     generate: 'Generate'
  * }
  * ```
- *//*@ngInject*//*@ngInject*/
+ *//*@ngInject*/
+/*@ngInject*//*@ngInject*/
 /**/
 /**
  * @ngdoc component
@@ -1692,6 +1694,7 @@
  * @description
  *
  *//*@ngInject*/
+/*@ngInject*/
 /* @ts-ignore*//**
  * @ngdoc directive
  * @name numberRangeValidations
@@ -2991,7 +2994,20 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *
  * @description
  *
- *//*@ngInject*//*@ngInject*/
+ *//* tslint:disable:variable-name */
+/*@ngInject*//**
+ * @ngdoc type
+ * @name KpUniversalFormComponentSettings
+ * @module angularjs-value-editor
+ *
+ * @property {ObjectValueEditorFieldSettings[]} fields Fields definition.
+ * @property {string=} header Form header
+ * @property {string=} footer Form footer
+ *
+ * @description
+ *
+ */
+/*@ngInject*/
 /**
  * @ngdoc component
  * @name kpUniversalForm
@@ -3004,6 +3020,8 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @param {function(Event)=} submitFunction Function called on submit form.
  * @param {Event=} submitFunction.$event Submit event.
  * @param {ObjectValueEditorLabelsWidth=} labelsWidth See {@link ObjectValueEditorOptions}. Default value is `2`.
+ * @param {boolean=} forceShowErrors If `true` it displays all validation error messages.
+ * @param {KpUniversalFormComponentOptions=} options Specific options for universal form.
  *
  * @description
  * Component for generating forms by definition passed via `formSettings` attribute.
@@ -3060,39 +3078,56 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *          });
  *     </file>
  * </example>
+ */
+/**
+ * @ngdoc type
+ * @name KpUniversalFormComponentOptions
+ * @module angularjs-value-editor
+ *
+ * @property {boolean} preciseWatchForOptionsChanges {@link kpValueEditorConfigurationServiceProvider}
+ *
+ * @description
+ * Options for {@link kpUniversalForm}
+ *
  *//* tslint:disable:prefer-const */
 /*@ngInject*//**
  * @ngdoc provider
- * @name valueEditorConfigurationServiceProvider
+ * @name kpValueEditorConfigurationServiceProvider
  * @module angularjs-value-editor
  *
+ * @property {boolean} debugMode Enable / disable debug mode. It show / hide information section below value editor.
+ * @property {boolean} preciseWatchForOptionsChanges It enables deep watching for changes in value editors options.
+ * If watching for changes is not needed, it's recommended set it to `false` due to high system requirements.
+ * (It makes deep equal of options in each digest cycle).
+ *
  * @description
+ * * Default options:
+ * ```
+ *  {
+ *      debugMode: false,
+ *      preciseWatchForOptionsChanges: false
+ *  }
+ * ```
  *
- * See {@link AbstractValueEditorConfigurationProvider}
- *
- * Default options: {@link ValueEditorConfigurationService}
+ * Provider for {@link kpValueEditorConfigurationService}
  */
 /**
  * @ngdoc service
- * @name ValueEditorConfigurationService
+ * @name kpValueEditorConfigurationService
  * @module angularjs-value-editor
  *
  * @description
  *
- * See {@link AbstractValueEditorConfigurationProvider}
+ * See {@link kpValueEditorConfigurationServiceProvider}
  *
- * Default options:
- * ```
- *  {
- *      debugMode: false
- *  }
- * ```
  *//* Bindings */
 /* Internal */
 /*@ngInject*/
+/* initialization in $onInit section*/
 /**
      * Manually check options update. $onChanges is not applicable, because we need deep equals, which $onChanges does not perform.
      */
+/* initialization in $onInit section*/
 /**
  * @ngdoc component
  * @name kpValueEditor
@@ -3127,7 +3162,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @name ValueEditorOptions
  * @module angularjs-value-editor
  *
- * @property {string[]} [cssClasses] Optional additional CSS classes
+ * @property {boolean=} forceShowErrors Force show validations error messages.
  */
 /**
  * @ngdoc type

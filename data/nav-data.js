@@ -73,9 +73,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider"
               },
               {
-                "name": "valueEditorConfigurationServiceProvider",
+                "name": "kpValueEditorConfigurationServiceProvider",
                 "type": "provider",
-                "href": "api/angularjs-value-editor/provider/valueEditorConfigurationServiceProvider"
+                "href": "api/angularjs-value-editor/provider/kpValueEditorConfigurationServiceProvider"
               }
             ]
           },
@@ -95,9 +95,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/service/AbstractValueEditorLocalizationService"
               },
               {
-                "name": "ValueEditorConfigurationService",
+                "name": "kpValueEditorConfigurationService",
                 "type": "service",
-                "href": "api/angularjs-value-editor/service/ValueEditorConfigurationService"
+                "href": "api/angularjs-value-editor/service/kpValueEditorConfigurationService"
               }
             ]
           },
@@ -110,6 +110,16 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "ConfigurationBuilder",
                 "type": "type",
                 "href": "api/angularjs-value-editor/type/ConfigurationBuilder"
+              },
+              {
+                "name": "KpUniversalFormComponentOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/KpUniversalFormComponentOptions"
+              },
+              {
+                "name": "KpUniversalFormComponentSettings",
+                "type": "type",
+                "href": "api/angularjs-value-editor/type/KpUniversalFormComponentSettings"
               },
               {
                 "name": "TMetaValueEditor",

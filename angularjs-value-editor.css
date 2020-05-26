@@ -483,9 +483,13 @@ kp-value-editor ~ .error-message {
   z-index: 10;
   right: 10%;
   box-shadow: 0 2px 6px -2px #ce8483;
+  transition: opacity 0.15s ease-in-out;
 }
 kp-value-editor ~ .error-message:hover {
   z-index: 20;
+}
+kp-value-editor ~ .error-message.not-visible {
+  opacity: 0;
 }
 kp-value-editor ~ .error-message.standalone {
   border-radius: 4px;
