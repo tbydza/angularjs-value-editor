@@ -259,11 +259,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "AcceptableValueEditorOptions",
                 "type": "type",
                 "href": "api/angularjs-value-editor.acceptable/type/AcceptableValueEditorOptions"
-              },
-              {
-                "name": "AcceptableValueEditorValidations",
-                "type": "type",
-                "href": "api/angularjs-value-editor.acceptable/type/AcceptableValueEditorValidations"
               }
             ]
           }
@@ -1364,9 +1359,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.object/type",
             "navItems": [
               {
-                "name": "ObjectValueEditorFieldSettings",
+                "name": "ObjectValueEditorField",
                 "type": "type",
-                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorFieldSettings"
+                "href": "api/angularjs-value-editor.object/type/ObjectValueEditorField"
               },
               {
                 "name": "ObjectValueEditorLabelsWidth",

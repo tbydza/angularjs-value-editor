@@ -732,16 +732,7 @@
  *          }]);
  *     </file>
  * </example>
- */
-/**
- * @ngdoc type
- * @name AcceptableValueEditorValidations
- * @module angularjs-value-editor.acceptable
- *
- * @description
- * Extends {@link type:ValueEditorValidations}
- */
-/* tslint:disable-next-line:no-empty-interface*//**
+ *//**
  * @ngdoc module
  * @name angularjs-value-editor.acceptable
  * @module angularjs-value-editor.acceptable
@@ -3000,7 +2991,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @name KpUniversalFormComponentSettings
  * @module angularjs-value-editor
  *
- * @property {ObjectValueEditorFieldSettings[]} fields Fields definition.
+ * @property {ObjectValueEditorField[]} fields Fields definition.
  * @property {string=} header Form header
  * @property {string=} footer Form footer
  *
@@ -3194,6 +3185,14 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @name ListValueEditorOptions
  * @module angularjs-value-editor.list
  *
+ * @template MODEL
+ * @template OPTIONS
+ * @template VALIDATIONS
+ *
+ * @property {CustomValueEditorType} subEditorType
+ * @property {MODEL} newItemPrototype
+ * @property {OPTIONS=} subEditorOptions
+ * @property {VALIDATIONS=} subEditorValidations
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
@@ -3210,6 +3209,10 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *
  * ```javascript
  * {
+ *      subEditorType: 'text',
+ *      newItemPrototype: '',
+ *      subEditorOptions: undefined,
+ *      subEditorValidations: undefined
  * }
  * ```
  */
@@ -3257,6 +3260,9 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @name ListValueEditorLocalizations
  * @module angularjs-value-editor.list
  *
+ * @property {string} add
+ * @property {string} remove
+ *
  * @description
  * Default localizations: {@link listValueEditorDefaultLocalizations}
  */
@@ -3268,6 +3274,8 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @description
  * ```
  * {
+ *     add: 'Add',
+ *     remove: 'Remove'
  * }
  * ```
  *//*@ngInject*/
@@ -3318,17 +3326,18 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
 /*@ngInject*/
 /* expect(() => removeItemOnIndex(0)).toThrow();*//**
  * @ngdoc type
- * @name ObjectValueEditorFieldSettings
+ * @name ObjectValueEditorField
  * @module angularjs-value-editor.object
  *
  * @requires ValueEditorBindings
  *
+ * @property {string} label Field label.
+ * @property {string} fieldName Name of field in model.
+ * @property {ValueEditorBindings} editor Value editor definition.
+ *
  * @description
  * Definition of {@link objectValueEditor} fields.
  *
- * ```
- *      type ObjectValueEditorFieldSettings = ValueEditorBindings & {label: string};
- * ```
  */
 /**
  * @ngdoc type
@@ -3348,7 +3357,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @name ObjectValueEditorOptions
  * @module angularjs-value-editor.object
  *
- * @property {ObjectValueEditorFieldSettings} fields Definition of editor fields
+ * @property {ObjectValueEditorField} fields Definition of editor fields
  * @property {function(ValueEditorBindings): ValueEditorBindings} attributesTransformation Function that transforms ValueEditorBindings.
  * It is useful for situation when You have `name` from backend and You want to have `id` of value editor to be same as `name`.
  *
@@ -3436,21 +3445,29 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *                  fields: [
  *                      {
  *                          label: 'Text',
- *                          type: 'text',
- *                          editorName: 'text'
+ *                          fieldName: 'text',
+ *                          editor: {
+ *                              type: 'text',
+ *                              editorName: 'texttext'
+ *                          }
  *                      },
  *                      {
  *                          label: 'Number',
- *                          type: 'number',
- *                          editorName: 'number'
+ *                          fieldName: 'number',
+ *                          editor: {
+ *                              type: 'number',
+ *                          }
  *                      },
  *                      {
  *                          label: 'Data',
- *                          type: 'list',
- *                          editorName: 'dates',
- *                          options: {
- *                              subEditorType: 'date',
- *                              newItemPrototype: ''
+ *                          fieldName: 'dates',
+ *                          editor: {
+ *                              type: 'list',
+ *                              editorName: 'dates',
+ *                              options: {
+ *                                  subEditorType: 'date',
+ *                                  newItemPrototype: ''
+ *                              }
  *                          }
  *                      }
  *                  ]

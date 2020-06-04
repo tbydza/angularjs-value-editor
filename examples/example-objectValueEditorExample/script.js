@@ -7,21 +7,29 @@ angular.module('objectValueEditorExample', ['angularjs-value-editor'])
          fields: [
              {
                  label: 'Text',
-                 type: 'text',
-                 editorName: 'text'
+                 fieldName: 'text',
+                 editor: {
+                     type: 'text',
+                     editorName: 'texttext'
+                 }
              },
              {
                  label: 'Number',
-                 type: 'number',
-                 editorName: 'number'
+                 fieldName: 'number',
+                 editor: {
+                     type: 'number',
+                 }
              },
              {
                  label: 'Data',
-                 type: 'list',
-                 editorName: 'dates',
-                 options: {
-                     subEditorType: 'date',
-                     newItemPrototype: ''
+                 fieldName: 'dates',
+                 editor: {
+                     type: 'list',
+                     editorName: 'dates',
+                     options: {
+                         subEditorType: 'date',
+                         newItemPrototype: ''
+                     }
                  }
              }
          ]
