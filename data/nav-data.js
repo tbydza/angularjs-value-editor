@@ -207,6 +207,18 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           },
           {
+            "name": "filter",
+            "type": "section",
+            "href": "api/angularjs-value-editor.acceptable/filter",
+            "navItems": [
+              {
+                "name": "nullAwareFilter",
+                "type": "filter",
+                "href": "api/angularjs-value-editor.acceptable/filter/nullAwareFilter"
+              }
+            ]
+          },
+          {
             "name": "provider",
             "type": "section",
             "href": "api/angularjs-value-editor.acceptable/provider",
