@@ -58,6 +58,18 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           },
           {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor/directive",
+            "navItems": [
+              {
+                "name": "patternDescriptionTooltip",
+                "type": "directive",
+                "href": "api/angularjs-value-editor/directive/patternDescriptionTooltip"
+              }
+            ]
+          },
+          {
             "name": "provider",
             "type": "section",
             "href": "api/angularjs-value-editor/provider",
@@ -1841,6 +1853,16 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.text/constant",
             "navItems": [
               {
+                "name": "emailRegex",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.text/constant/emailRegex"
+              },
+              {
+                "name": "textValueEditorDefaultLocalizations",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.text/constant/textValueEditorDefaultLocalizations"
+              },
+              {
                 "name": "textValueEditorDefaultOptions",
                 "type": "constant",
                 "href": "api/angularjs-value-editor.text/constant/textValueEditorDefaultOptions"
@@ -1856,6 +1878,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "textValueEditorConfigurationServiceProvider",
                 "type": "provider",
                 "href": "api/angularjs-value-editor.text/provider/textValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "textValueEditorLocalizationsServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.text/provider/textValueEditorLocalizationsServiceProvider"
               }
             ]
           },
@@ -1868,6 +1895,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "textValueEditorConfigurationService",
                 "type": "service",
                 "href": "api/angularjs-value-editor.text/service/textValueEditorConfigurationService"
+              },
+              {
+                "name": "textValueEditorLocalizationsService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.text/service/textValueEditorLocalizationsService"
               }
             ]
           },
@@ -1880,6 +1912,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "TTextValueEditorType",
                 "type": "type",
                 "href": "api/angularjs-value-editor.text/type/TTextValueEditorType"
+              },
+              {
+                "name": "TextValueEditorLocalizations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.text/type/TextValueEditorLocalizations"
               },
               {
                 "name": "TextValueEditorOptions",

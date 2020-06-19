@@ -12,7 +12,7 @@ angular.module('acceptableValueEditorExample', ['angularjs-value-editor'])
      selectedFirst;
      sortModel;
      switchToCheckboxesThreshold;
-     sortComparatorString = '(e1, e2) => e1.x.localeCompare(e2.x)*-1';
+     sortComparatorString = `(e1, e2) => ((e1 || {x: ''}).x || '').localeCompare((e2 || {x: ''}).x) * -1`;
      equalityComparatorString = '(e1, e2) => e1.x === e2.x';
 
      constructor(acceptableValueEditorDefaultOptions) {

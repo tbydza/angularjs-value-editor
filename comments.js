@@ -709,7 +709,7 @@
  *              selectedFirst;
  *              sortModel;
  *              switchToCheckboxesThreshold;
- *              sortComparatorString = '(e1, e2) => e1.x.localeCompare(e2.x)*-1';
+ *              sortComparatorString = `(e1, e2) => ((e1 || {x: ''}).x || '').localeCompare((e2 || {x: ''}).x) * -1`;
  *              equalityComparatorString = '(e1, e2) => e1.x === e2.x';
  *
  *              constructor(acceptableValueEditorDefaultOptions) {
@@ -857,6 +857,7 @@
  *
  * @property {string} select Placeholder for select.
  * @property {string} orType Placeholder for input if select is visible.
+ * @property {string} patternDescription Pattern description showing in tooltip.
  *
  * @description
  * Default localizations: {@link accessNumberValueEditorDefaultLocalizations}
@@ -870,7 +871,8 @@
  * ```
  * {
  *      select: 'Select...',
- *      orType: 'or type...'
+ *      orType: 'or type...',
+ *      patternDescription: ''
  * }
  * ```
  *//*@ngInject*/
@@ -1261,7 +1263,7 @@
  *
  * Supported options: {@link type:CardNumberValueEditorOptions}
  *
- * Supported validations: {@link type:ValueEditorValidations}
+ * Supported validations: {@link type:TextValueEditorValidations}
  *
  * @example
  * <example name="cardNumberValueEditorExample" module="cardNumberValueEditorExample" frame-no-resize="true">
@@ -2048,10 +2050,9 @@
  * @name PasswordValueEditorLocalizations
  * @module angularjs-value-editor.password
  *
- * @property {string} patternDescription Password pattern description.
+ * @property {string} patternDescription Password pattern description showing in tooltip.
  * @property {string} confirmPassword Label above confirmation input.
  * @property {string} noChangeIfEmpty Text next to password pattern, informing about possibility to leave both inputs blank.
- * @property {string} helpTextsSeparator Separator between pattern and leave blank messages.
  *
  * @description
  * Default localizations: {@link passwordValueEditorDefaultLocalizations}
@@ -2066,8 +2067,7 @@
  * {
  *      patternDescription: '',
  *      confirmPassword: 'Confirm password',
- *      noChangeIfEmpty: 'If You don\'t want to change password, leave blank.',
- *      helpTextsSeparator: ' | '
+ *      noChangeIfEmpty: 'If You don\'t want to change password, leave blank.'
  * }
  * ```
  *//*@ngInject*/
@@ -2248,7 +2248,9 @@
  * @name SearchTextValueEditorLocalizations
  * @module angularjs-value-editor.search-text
  *
- * @property {string} generate
+ * @property {string} startsWith Item in combobox.
+ * @property {string} equals Item in combobox.
+ * @property {string} patternDescription Pattern description showing in tooltip.
  *
  * @description
  * Default localizations: {@link searchTextValueEditorDefaultLocalizations}
@@ -2262,7 +2264,8 @@
  * ```
  * {
  *      startsWith: 'Starts with',
- *      equals: 'Equals'
+ *      equals: 'Equals',
+ *      patternDescription: ''
  * }
  * ```
  *//*@ngInject*//**
@@ -2588,6 +2591,7 @@
  *
  * @property {string} select Placeholder for select.
  * @property {string} orType Placeholder for input if select is visible.
+ * @property {string} patternDescription Pattern description showing in tooltip.
  *
  * @description
  * Default localizations: {@link signatureValueEditorDefaultLocalizations}
@@ -2654,7 +2658,7 @@
  * - `textarea`: Classic HTML textarea element.
  * - `rich-textarea`: ACE editor with some syntax highlight.
  *
- * Possible values are: `'text' | 'textarea' | 'rich-textarea'`.
+ * Possible values are: `'text' | 'textarea' | 'rich-textarea' | 'email'`.
  *
  */
 /**
@@ -2710,6 +2714,44 @@
  * See {@link AbstractValueEditorConfigurationProvider}
  *
  * Default options: {@link textValueEditorDefaultOptions}
+ *//**
+ * @ngdoc provider
+ * @name textValueEditorLocalizationsServiceProvider
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ * See {@link textValueEditorLocalizationsService}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name textValueEditorLocalizationsService
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ * See {@link AbstractValueEditorLocalizationService}
+ */
+/**
+ * @ngdoc type
+ * @name TextValueEditorLocalizations
+ * @module angularjs-value-editor.text
+ *
+ * @property {string} patternDescription Pattern description showing in tooltip.
+ *
+ * @description
+ * Default localizations: {@link textValueEditorDefaultLocalizations}
+ */
+/**
+ * @ngdoc constant
+ * @name textValueEditorDefaultLocalizations
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ * ```
+ * {
+ *      patternDescription: ''
+ * }
+ * ```
  *//*@ngInject*/
 /**
      * Get number of rows between nim and max range.
@@ -2741,6 +2783,18 @@
  * - `rich-textarea`.
  *
  *      [ACE editor](https://ace.c9.io).
+ *
+ * - `email`
+ *
+ *      Email input. If pattern validation is not given, default is used.
+ *
+ * - `tel`
+ *
+ *      Telephone number input.
+ *
+ * - `url`
+ *
+ *      URL input.
  *
  * Supported options: {@link type:TextValueEditorOptions}
  *
@@ -2777,7 +2831,21 @@
  *
  * @description
  *
+ */
+/**
+ * @ngdoc constant
+ * @name emailRegex
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ * Regex for email validation.
+ *
+ * ```
+ *  (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+ * ```
  *//*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*//*
@@ -3150,7 +3218,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @param {boolean} isVisible If input is visible. <.
  * @param {ValueEditorValidations} validations ValueEditor validations. <.
  * @param {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type. <.
- *
+ * @param {ValueEditorLocalizations} localizations Custom localizations overriding default ones.
  * @description
  * Generic value editor depends on type:
  *
@@ -3184,6 +3252,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @property {boolean} visible If input is visible.
  * @property {ValueEditorValidations} validations ValueEditor validations.
  * @property {ValueEditorOptions} options ValueEditor options. Type depends on ValueEditor type.
+ * @property {ValueEditorLocalizations} localizations Custom localizations overriding default ones.
  *
  * @description
  * {@link kpValueEditor} attributes definition.
@@ -3499,6 +3568,16 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @description
  *
  *//*@ngInject*//**
+ * @ngdoc directive
+ * @name patternDescriptionTooltip
+ * @module angularjs-value-editor
+ *
+ * @requires ^^kpValueEditor
+ *
+ * @description
+ * This directive adds tooltip on input, if valueEditor has defined non-empty localization named `patternDescription`.
+ */
+/*@ngInject*//**
  * @ngdoc type
  * @name TMetaValueEditor
  * @module angularjs-value-editor
