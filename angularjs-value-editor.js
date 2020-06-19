@@ -10542,11 +10542,13 @@ var KpUniversalFormComponentController = /*#__PURE__*/function (_ng_model_connec
     value: function $postLink() {
       var _this2 = this;
 
-      this.$timeout(function () {
-        return _this2.formController({
-          $formController: _this2.internalFormController
+      if (this.formController) {
+        this.$timeout(function () {
+          return _this2.formController({
+            $formController: _this2.internalFormController
+          });
         });
-      });
+      }
     }
   }, {
     key: "updateTemplate",
@@ -10587,8 +10589,8 @@ KpUniversalFormComponentController.TEMPLATE_URL = __webpack_require__(153);
  * @param {string=} name Name of the form. Due to internal reason, it must be in accordance with `^[a-zA-Z0-9._]*$` regexp.
  * @param {function(IFormController)=} formController Connecting to controller.
  * @param {function(IFormController)=} formController.$formController Exposed form controller.
- * @param {function(Event)=} submitFunction Function called on submit form.
- * @param {Event=} submitFunction.$event Submit event.
+ * @param {function(Event)=} onSubmit Function called on submit form.
+ * @param {Event=} onSubmit.$event Submit event.
  * @param {ObjectValueEditorLabelsWidth=} labelsWidth See {@link ObjectValueEditorOptions}. Default value is `2`.
  * @param {boolean=} forceShowErrors If `true` it displays all validation error messages.
  * @param {KpUniversalFormComponentOptions=} options Specific options for universal form.
@@ -10660,7 +10662,7 @@ var KpUniversalFormComponent = function KpUniversalFormComponent() {
     formSettings: '<',
     name: '@?',
     formController: '&?',
-    submitFunction: '&?',
+    onSubmit: '&?',
     labelsWidth: '@?',
     forceShowErrors: '<?',
     options: '<?'
@@ -10677,7 +10679,7 @@ KpUniversalFormComponent.componentName = 'kpUniversalForm';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/kp-universal-form/kp-universal-form.tpl.pug';
-var html = "<form name=\"{{name}}\" ng-submit=\"$ctrl.submitFunction({$event: $event})\" novalidate=\"novalidate\"><p class=\"text-info text-info-up\" ng-if=\"$ctrl.formSettings.header\" ng-bind-html=\"$ctrl.formSettings.header\"></p><kp-value-editor type=\"'object'\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" options=\"{fields: $ctrl.formSettings.fields, __withoutNgForm: true, labelsWidth: $ctrl.labelsWidth, forceShowErrors: $ctrl.forceShowErrors }\"></kp-value-editor><p class=\"text-info text-info-bottom\" ng-if=\"$ctrl.formSettings.footer\" ng-bind-html=\"$ctrl.formSettings.footer\"></p><!-- invisible submit button - due to html specification, form doesn't submit by enter when submit button is missing--><!-- see https://github.com/angular/angular.js/issues/6017#issuecomment-50808489--><button type=\"submit\" style=\"display: none;\">ok</button></form>\\{\\{ $ctrl.internalFormController = {{name}}; '' \\}\\}";
+var html = "<form name=\"{{name}}\" ng-submit=\"$ctrl.onSubmit({$event: $event})\" novalidate=\"novalidate\"><p class=\"text-info text-info-up\" ng-if=\"$ctrl.formSettings.header\" ng-bind-html=\"$ctrl.formSettings.header\"></p><kp-value-editor type=\"'object'\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" options=\"{fields: $ctrl.formSettings.fields, __withoutNgForm: true, labelsWidth: $ctrl.labelsWidth, forceShowErrors: $ctrl.forceShowErrors }\"></kp-value-editor><p class=\"text-info text-info-bottom\" ng-if=\"$ctrl.formSettings.footer\" ng-bind-html=\"$ctrl.formSettings.footer\"></p><!-- invisible submit button - due to html specification, form doesn't submit by enter when submit button is missing--><!-- see https://github.com/angular/angular.js/issues/6017#issuecomment-50808489--><button type=\"submit\" style=\"display: none;\">ok</button></form>\\{\\{ $ctrl.internalFormController = {{name}}; '' \\}\\}";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 

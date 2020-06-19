@@ -3092,8 +3092,8 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @param {string=} name Name of the form. Due to internal reason, it must be in accordance with `^[a-zA-Z0-9._]*$` regexp.
  * @param {function(IFormController)=} formController Connecting to controller.
  * @param {function(IFormController)=} formController.$formController Exposed form controller.
- * @param {function(Event)=} submitFunction Function called on submit form.
- * @param {Event=} submitFunction.$event Submit event.
+ * @param {function(Event)=} onSubmit Function called on submit form.
+ * @param {Event=} onSubmit.$event Submit event.
  * @param {ObjectValueEditorLabelsWidth=} labelsWidth See {@link ObjectValueEditorOptions}. Default value is `2`.
  * @param {boolean=} forceShowErrors If `true` it displays all validation error messages.
  * @param {KpUniversalFormComponentOptions=} options Specific options for universal form.
