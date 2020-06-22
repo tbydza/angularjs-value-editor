@@ -74,11 +74,12 @@
   <tr>
     <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">function()</a></span></td>
     <td><p>Function providing generation of card number.</p>
-<pre><code>function (requestParameters?: {}, additionalParameters?: CardNumberValueEditorAdditionalRequestParameters): PromiseLike&lt;string&gt;;
+<pre><code>function ($requestParameters?: {}, $additionalParameters?: CardNumberValueEditorAdditionalRequestParameters, ...args): PromiseLike&lt;string&gt;;
 </code></pre>
+<p>Function is invoked via <a href="https://docs.angularjs.org/api/auto/service/$injector#invoke">$injector.invoke</a> with following locals:</p>
 <ul>
-<li><strong>requestParameters</strong>: Parameters from <a href="api/angularjs-value-editor.card-number/type/CardNumberValueEditorOptions">CardNumberValueEditorOptions</a>.requestParameters</li>
-<li><strong>additionalParameters</strong>: Some <a href="api/angularjs-value-editor.card-number/type/CardNumberValueEditorAdditionalRequestParameters">additional parameters</a>.</li>
+<li><code>$requestParameters</code>: Parameters from <a href="api/angularjs-value-editor.card-number/type/CardNumberValueEditorOptions">CardNumberValueEditorOptions</a>.requestParameters</li>
+<li><code>$additionalParameters</code>: Some <a href="api/angularjs-value-editor.card-number/type/CardNumberValueEditorAdditionalRequestParameters">additional parameters</a>.</li>
 </ul>
 </td>
   </tr>

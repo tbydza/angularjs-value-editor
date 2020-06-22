@@ -1,13 +1,16 @@
 (function(angular) {
   'use strict';
+function request($timeout) {
+    return new Promise((resolve) => {
+         $timeout(() => {
+             resolve('Generated')
+         }, 1000);
+     })
+}
+request.$inject = ['$timeout'];
+
 angular.module('cardNumberValueEditorExample', ['angularjs-value-editor'])
- .controller('ctrl', class {
-     requestFunction() {
-         return new Promise((resolve) => {
-             setTimeout(() => {
-                 resolve('Generated')
-             }, 1000);
-         });
-     }
+ .controller('ctrl', function() {
+     return {requestFunction: request}
  });
 })(window.angular);

@@ -4304,7 +4304,7 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(2);
  *  {
  *      inputSize: 'sm',
  *      requestParameters: {},
- *      requestFunction: (requestParameters, additionalParameters) => Promise.resolve(additionalParameters.currentValue)
+ *      requestFunction: ($additionalParameters) => Promise.resolve($additionalParameters.currentValue)
  *  }
  * ```
  */
@@ -4315,9 +4315,11 @@ exports.CARD_NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
   requestParameters: {},
   requestFunction:
   /* istanbul ignore next */
-  function requestFunction(requestParameters, additionalParameters) {
-    return Promise.resolve(additionalParameters.currentValue);
-  }
+
+  /*@ngInject*/
+  ["$requestParameters", "$additionalParameters", function requestFunction($requestParameters, $additionalParameters) {
+    return Promise.resolve($additionalParameters.currentValue);
+  }]
 };
 /**
  * @ngdoc provider
@@ -4469,20 +4471,22 @@ var abstract_value_editor_1 = __webpack_require__(3);
 var kp_value_editor_component_1 = __webpack_require__(1);
 
 var CardNumberValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
-  CardNumberValueEditorComponentController.$inject = ["cardNumberValueEditorConfigurationService", "cardNumberValueEditorLocalizationsService", "$timeout"];
+  CardNumberValueEditorComponentController.$inject = ["cardNumberValueEditorConfigurationService", "cardNumberValueEditorLocalizationsService", "$timeout", "$injector", "$log"];
 
   _inherits(CardNumberValueEditorComponentController, _abstract_value_edito);
 
   var _super = _createSuper(CardNumberValueEditorComponentController);
 
   /*@ngInject*/
-  function CardNumberValueEditorComponentController(cardNumberValueEditorConfigurationService, cardNumberValueEditorLocalizationsService, $timeout) {
+  function CardNumberValueEditorComponentController(cardNumberValueEditorConfigurationService, cardNumberValueEditorLocalizationsService, $timeout, $injector, $log) {
     var _this;
 
     _classCallCheck(this, CardNumberValueEditorComponentController);
 
     _this = _super.call(this, cardNumberValueEditorConfigurationService, cardNumberValueEditorLocalizationsService);
     _this.$timeout = $timeout;
+    _this.$injector = $injector;
+    _this.$log = $log;
     return _this;
   }
 
@@ -4497,7 +4501,7 @@ var CardNumberValueEditorComponentController = /*#__PURE__*/function (_abstract_
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(this.options && typeof this.options.requestFunction === 'function')) {
+                if (!(this.options && this.options.requestFunction)) {
                   _context.next = 26;
                   break;
                 }
@@ -4510,9 +4514,12 @@ var CardNumberValueEditorComponentController = /*#__PURE__*/function (_abstract_
                 });
                 _context.prev = 5;
                 _context.next = 8;
-                return this.options.requestFunction(this.options.requestParameters, {
-                  inputName: this.valueEditorController.editorName,
-                  currentValue: this.model
+                return this.$injector.invoke(this.options.requestFunction, this, {
+                  $requestParameters: this.options.requestParameters,
+                  $additionalParameters: {
+                    inputName: this.valueEditorController.editorName,
+                    currentValue: this.model
+                  }
                 });
 
               case 8:
@@ -4524,8 +4531,7 @@ var CardNumberValueEditorComponentController = /*#__PURE__*/function (_abstract_
                 _context.prev = 11;
                 _context.t0 = _context["catch"](5);
                 this.$timeout(function () {
-                  _this2.openPopover = true;
-                  _this2.popoverError = _context.t0;
+                  _this2.$log.error(_context.t0);
                 });
 
               case 14:
@@ -4607,16 +4613,20 @@ exports.CardNumberValueEditorComponentController = CardNumberValueEditorComponen
  *         </main>
  *     </file>
  *     <file name="script.js">
+ *         function request($timeout) {
+ *             return new Promise((resolve) => {
+ *                  $timeout(() => {
+ *                      resolve('Generated')
+ *                  }, 1000);
+ *              })
+ *         }
+ *         request.$inject = ['$timeout'];
+ *
  *         angular.module('cardNumberValueEditorExample', ['angularjs-value-editor'])
- *          .controller('ctrl', class {
- *              requestFunction() {
- *                  return new Promise((resolve) => {
- *                      setTimeout(() => {
- *                          resolve('Generated')
- *                      }, 1000);
- *                  });
- *              }
+ *          .controller('ctrl', function() {
+ *              return {requestFunction: request}
  *          });
+ *
  *     </file>
  * </example>
  */
@@ -5034,14 +5044,14 @@ var abstract_value_editor_1 = __webpack_require__(3);
 var angular = __webpack_require__(5);
 
 var AutocompleteValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
-  AutocompleteValueEditorComponentController.$inject = ["autocompleteValueEditorConfigurationService", "loadingSpinnerTemplateUrl", "$log", "$timeout", "$element"];
+  AutocompleteValueEditorComponentController.$inject = ["autocompleteValueEditorConfigurationService", "loadingSpinnerTemplateUrl", "$log", "$timeout", "$element", "$injector"];
 
   _inherits(AutocompleteValueEditorComponentController, _abstract_value_edito);
 
   var _super = _createSuper(AutocompleteValueEditorComponentController);
 
   /*@ngInject*/
-  function AutocompleteValueEditorComponentController(autocompleteValueEditorConfigurationService, loadingSpinnerTemplateUrl, $log, $timeout, $element) {
+  function AutocompleteValueEditorComponentController(autocompleteValueEditorConfigurationService, loadingSpinnerTemplateUrl, $log, $timeout, $element, $injector) {
     var _this;
 
     _classCallCheck(this, AutocompleteValueEditorComponentController);
@@ -5052,6 +5062,7 @@ var AutocompleteValueEditorComponentController = /*#__PURE__*/function (_abstrac
     _this.$log = $log;
     _this.$timeout = $timeout;
     _this.$element = $element;
+    _this.$injector = $injector;
     _this.items = [];
     return _this;
   }
@@ -5176,9 +5187,10 @@ var AutocompleteValueEditorComponentController = /*#__PURE__*/function (_abstrac
                 });
                 _context3.prev = 1;
                 _context3.next = 4;
-                return this.options.dataSource(Object.assign({}, {
-                  query: this.model
-                }, this.options.staticParams));
+                return this.$injector.invoke(this.options.dataSource, this, {
+                  $model: this.model,
+                  $staticParams: this.options.staticParams
+                });
 
               case 4:
                 items = _context3.sent;
@@ -10271,7 +10283,7 @@ ObjectValueEditorComponent.componentName = 'objectValueEditor';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/meta-editors/object/object.value-editor.tpl.pug';
-var html = "<fieldset class=\"form-horizontal\" {{withoutNgForm ? '' : 'ng-form'}}=\"{{withoutNgForm ? '' : name}}\"><div class=\"form-group \\{\\{transformedFieldEditor.editorName\\}\\}\" ng-class=\"{'has-error': $ctrl.showValidationError(transformedFieldEditor.editorName)}\" ng-repeat=\"field in $ctrl.options.fields\" ng-init=\"showDebugInfo = true; transformedFieldEditor = $ctrl.transformFieldEditor(field.editor, field.fieldName)\" ng-show=\"$ctrl.trueIfUndefined(transformedFieldEditor.isVisible)\"><label class=\"control-label col-sm-{{labelsWidth}}\" ng-class=\"{'required': transformedFieldEditor.validations.required}\" ng-attr-for=\"\\{\\{transformedFieldEditor.editorId\\}\\}\" ng-bind=\"field.label\"></label><div class=\"col-sm-{{inputsWidth}}\"><kp-value-editor editor-id=\"transformedFieldEditor.editorId\" editor-name=\"transformedFieldEditor.editorName\" placeholder=\"transformedFieldEditor.placeholder\" ng-model=\"$ctrl.model[field.fieldName]\" ng-model-options=\"{ getterSetter: true }\" type=\"transformedFieldEditor.type\" is-disabled=\"transformedFieldEditor.disabled || $ctrl.valueEditorController.isDisabled\" is-visible=\"$ctrl.trueIfUndefined($ctrl.valueEditorController.isVisible)\" validations=\"transformedFieldEditor.validations\" options=\"transformedFieldEditor.options\" localizations=\"transformedFieldEditor.localizations\"></kp-value-editor><button class=\"debug-info\" type=\"button\" title=\"Show / hide debug info\" ng-click=\"showDebugInfo = !showDebugInfo\" ng-show=\"$ctrl.valueEditorController.configuration.debugMode\"><i class=\"glyphicon glyphicon-cog\"></i></button><pre ng-bind=\"$ctrl.form[transformedFieldEditor.editorName] | json\" ng-if=\"$ctrl.valueEditorController.configuration.debugMode\" uib-collapse=\"showDebugInfo\"></pre></div></div></fieldset>{{withoutNgForm ? '' : '{' + '{$ctrl.form = ' + name + '; \\'\\'}' + '}'}}";
+var html = "<fieldset class=\"form-horizontal\" {{withoutNgForm ? '' : 'ng-form'}}=\"{{withoutNgForm ? '' : name}}\"><div class=\"form-group \\{\\{transformedFieldEditor.editorName\\}\\}\" ng-class=\"{'has-error': $ctrl.showValidationError(transformedFieldEditor.editorName)}\" ng-repeat=\"field in $ctrl.options.fields\" ng-init=\"showDebugInfo = true; transformedFieldEditor = $ctrl.transformFieldEditor(field.editor, field.fieldName)\" ng-show=\"$ctrl.trueIfUndefined(transformedFieldEditor.isVisible)\"><label class=\"control-label col-sm-{{labelsWidth}}\" ng-class=\"{'required': transformedFieldEditor.validations.required}\" ng-attr-for=\"\\{\\{transformedFieldEditor.editorId\\}\\}\" ng-bind=\"field.label\"></label><div class=\"col-sm-{{inputsWidth}}\"><kp-value-editor editor-id=\"transformedFieldEditor.editorId\" editor-name=\"transformedFieldEditor.editorName\" placeholder=\"transformedFieldEditor.placeholder\" ng-model=\"$ctrl.model[field.fieldName]\" ng-model-options=\"{ getterSetter: true }\" type=\"transformedFieldEditor.type\" is-disabled=\"transformedFieldEditor.disabled || $ctrl.valueEditorController.isDisabled\" is-visible=\"$ctrl.trueIfUndefined($ctrl.valueEditorController.isVisible)\" validations=\"transformedFieldEditor.validations\" options=\"transformedFieldEditor.options\" localizations=\"transformedFieldEditor.localizations\"></kp-value-editor><button class=\"btn btn-default debug-info\" type=\"button\" title=\"Show / hide debug info\" ng-click=\"showDebugInfo = !showDebugInfo\" ng-show=\"$ctrl.valueEditorController.configuration.debugMode\"><i class=\"glyphicon glyphicon-cog\"></i></button><pre ng-bind=\"$ctrl.form[transformedFieldEditor.editorName] | json\" ng-if=\"$ctrl.valueEditorController.configuration.debugMode\" uib-collapse=\"showDebugInfo\"></pre></div></div></fieldset>{{withoutNgForm ? '' : '{' + '{$ctrl.form = ' + name + '; \\'\\'}' + '}'}}";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -10679,7 +10691,7 @@ KpUniversalFormComponent.componentName = 'kpUniversalForm';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/kp-universal-form/kp-universal-form.tpl.pug';
-var html = "<form name=\"{{name}}\" ng-submit=\"$ctrl.onSubmit({$event: $event})\" novalidate=\"novalidate\"><p class=\"text-info text-info-up\" ng-if=\"$ctrl.formSettings.header\" ng-bind-html=\"$ctrl.formSettings.header\"></p><kp-value-editor type=\"'object'\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" options=\"{fields: $ctrl.formSettings.fields, __withoutNgForm: true, labelsWidth: $ctrl.labelsWidth, forceShowErrors: $ctrl.forceShowErrors }\"></kp-value-editor><p class=\"text-info text-info-bottom\" ng-if=\"$ctrl.formSettings.footer\" ng-bind-html=\"$ctrl.formSettings.footer\"></p><!-- invisible submit button - due to html specification, form doesn't submit by enter when submit button is missing--><!-- see https://github.com/angular/angular.js/issues/6017#issuecomment-50808489--><button type=\"submit\" style=\"display: none;\">ok</button></form>\\{\\{ $ctrl.internalFormController = {{name}}; '' \\}\\}";
+var html = "<form name=\"{{name}}\" ng-submit=\"$ctrl.onSubmit({$event: $event})\" novalidate=\"novalidate\"><p class=\"text-info text-info-up\" ng-if=\"$ctrl.formSettings.header\" ng-bind-html=\"$ctrl.formSettings.header\"></p><kp-value-editor type=\"'object'\" ng-model=\"$ctrl.model\" ng-model-options=\"{getterSetter: true}\" options=\"{fields: $ctrl.formSettings.fields, __withoutNgForm: true, {{labelsWidth ? 'labelsWidth: $ctrl.labelsWidth,' : ''}} forceShowErrors: $ctrl.forceShowErrors }\"></kp-value-editor><p class=\"text-info text-info-bottom\" ng-if=\"$ctrl.formSettings.footer\" ng-bind-html=\"$ctrl.formSettings.footer\"></p><!-- invisible submit button - due to html specification, form doesn't submit by enter when submit button is missing--><!-- see https://github.com/angular/angular.js/issues/6017#issuecomment-50808489--><button type=\"submit\" style=\"display: none;\">ok</button></form>\\{\\{ $ctrl.internalFormController = {{name}}; '' \\}\\}";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 

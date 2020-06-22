@@ -919,13 +919,18 @@
  * @name AutocompleteValueEditorOptions
  * @module angularjs-value-editor.autocomplete
  *
- * @property {function(AutocompleteRequestParams): Promise<string[]>} dataSource
+ * @template PARAMS
+ *
+ * @property {function(AutocompleteRequestParams): PromiseLike<string[]>} dataSource
  * ```
- * <PARAMS extends AutocompleteRequestParams> function(params?: PARAMS): Promise<string[]>
+ * function($query?: string, $staticParams?: PARAMS, ...args): PromiseLike<string[]>
  * ```
  * Function, which makes request and returns string array of values for autocomplete.
  *
- * Params are {@link AutocompleteRequestParams} merged with `staticParams` from options.
+ * Function is invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
+ *
+ *  - `$model`: Actual model value
+ *  - `$staticParams`: Params passed from options
  *
  * @property {object} staticParams Any static params, which are passed to `dataSource` function.
  * @property {string} minLength Pull down popup input string length threshold.
@@ -1160,10 +1165,12 @@
  * @property {Object} requestParameters Request parameters.
  * @property {function} requestFunction Function providing generation of card number.
  *  ```
- *  function (requestParameters?: {}, additionalParameters?: CardNumberValueEditorAdditionalRequestParameters): PromiseLike<string>;
+ *  function ($requestParameters?: {}, $additionalParameters?: CardNumberValueEditorAdditionalRequestParameters, ...args): PromiseLike<string>;
  *  ```
- *  - **requestParameters**: Parameters from {@link CardNumberValueEditorOptions}.requestParameters
- *  - **additionalParameters**: Some {@link CardNumberValueEditorAdditionalRequestParameters additional parameters}.
+ * Function is invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
+ *
+ *  - `$requestParameters`: Parameters from {@link CardNumberValueEditorOptions}.requestParameters
+ *  - `$additionalParameters`: Some {@link CardNumberValueEditorAdditionalRequestParameters additional parameters}.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
@@ -1182,11 +1189,12 @@
  *  {
  *      inputSize: 'sm',
  *      requestParameters: {},
- *      requestFunction: (requestParameters, additionalParameters) => Promise.resolve(additionalParameters.currentValue)
+ *      requestFunction: ($additionalParameters) => Promise.resolve($additionalParameters.currentValue)
  *  }
  * ```
  */
 /* istanbul ignore next */
+/*@ngInject*/
 /**
  * @ngdoc provider
  * @name cardNumberValueEditorConfigurationServiceProvider
@@ -1274,16 +1282,20 @@
  *         </main>
  *     </file>
  *     <file name="script.js">
+ *         function request($timeout) {
+ *             return new Promise((resolve) => {
+ *                  $timeout(() => {
+ *                      resolve('Generated')
+ *                  }, 1000);
+ *              })
+ *         }
+ *         request.$inject = ['$timeout'];
+ *
  *         angular.module('cardNumberValueEditorExample', ['angularjs-value-editor'])
- *          .controller('ctrl', class {
- *              requestFunction() {
- *                  return new Promise((resolve) => {
- *                      setTimeout(() => {
- *                          resolve('Generated')
- *                      }, 1000);
- *                  });
- *              }
+ *          .controller('ctrl', function() {
+ *              return {requestFunction: request}
  *          });
+ *
  *     </file>
  * </example>
  *//**

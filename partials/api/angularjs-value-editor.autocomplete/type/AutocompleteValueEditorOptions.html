@@ -40,11 +40,15 @@
     </h3>
     <table class="variables-matrix return-arguments">
   <tr>
-    <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">Promise&lt;string[]&gt; function(AutocompleteRequestParams): Promise.&lt;Array.&lt;string&gt;&gt;</a></span></td>
-    <td><pre><code>&lt;PARAMS extends AutocompleteRequestParams&gt; function(params?: PARAMS): Promise&lt;string[]&gt;
+    <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">PromiseLike&lt;string[]&gt; function(AutocompleteRequestParams): PromiseLike.&lt;Array.&lt;string&gt;&gt;</a></span></td>
+    <td><pre><code>function($query?: string, $staticParams?: PARAMS, ...args): PromiseLike&lt;string[]&gt;
 </code></pre>
 <p>Function, which makes request and returns string array of values for autocomplete.</p>
-<p>Params are <a href="api/angularjs-value-editor.autocomplete/type/AutocompleteRequestParams">AutocompleteRequestParams</a> merged with <code>staticParams</code> from options.</p>
+<p>Function is invoked via <a href="https://docs.angularjs.org/api/auto/service/$injector#invoke">$injector.invoke</a> with following locals:</p>
+<ul>
+<li><code>$model</code>: Actual model value</li>
+<li><code>$staticParams</code>: Params passed from options</li>
+</ul>
 </td>
   </tr>
 </table>
