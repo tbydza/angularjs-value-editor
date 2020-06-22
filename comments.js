@@ -569,7 +569,7 @@
  *
  * @description
  *
- * See {@link AbstractValueEditorConfigurationProvider}
+ * See {@link AbstractValueEditorConfigurationServiceProvider}
  *
  * Default options: {@link acceptableValueEditorDefaultOptions}
  */
@@ -581,7 +581,7 @@
  *
  * @description
  *
- * See {@link AbstractValueEditorConfigurationProvider}
+ * See {@link AbstractValueEditorConfigurationServiceProvider}
  *
  * Default options: {@link acceptableValueEditorDefaultOptions}
  *//**

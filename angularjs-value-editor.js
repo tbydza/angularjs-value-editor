@@ -1600,25 +1600,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var AcceptableValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  AcceptableValueEditorLocalizationsProvider.$inject = ["acceptableValueEditorDefaultLocalizations"];
+var AcceptableValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AcceptableValueEditorLocalizationsServiceProvider.$inject = ["acceptableValueEditorDefaultLocalizations"];
 
-  _inherits(AcceptableValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(AcceptableValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(AcceptableValueEditorLocalizationsProvider);
+  var _super = _createSuper(AcceptableValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function AcceptableValueEditorLocalizationsProvider(acceptableValueEditorDefaultLocalizations) {
-    _classCallCheck(this, AcceptableValueEditorLocalizationsProvider);
+  function AcceptableValueEditorLocalizationsServiceProvider(acceptableValueEditorDefaultLocalizations) {
+    _classCallCheck(this, AcceptableValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, acceptableValueEditorDefaultLocalizations);
   }
 
-  return AcceptableValueEditorLocalizationsProvider;
+  return AcceptableValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = AcceptableValueEditorLocalizationsProvider;
-AcceptableValueEditorLocalizationsProvider.providerName = 'acceptableValueEditorLocalizationsService';
+exports.default = AcceptableValueEditorLocalizationsServiceProvider;
+AcceptableValueEditorLocalizationsServiceProvider.providerName = 'acceptableValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name acceptableValueEditorDefaultLocalizations
@@ -2136,30 +2136,30 @@ exports.ACCEPTABLE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  *
  * @description
  *
- * See {@link AbstractValueEditorConfigurationProvider}
+ * See {@link AbstractValueEditorConfigurationServiceProvider}
  *
  * Default options: {@link acceptableValueEditorDefaultOptions}
  */
 
-var AcceptableValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  AcceptableValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "acceptableValueEditorDefaultOptions"];
+var AcceptableValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AcceptableValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "acceptableValueEditorDefaultOptions"];
 
-  _inherits(AcceptableValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(AcceptableValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(AcceptableValueEditorConfigurationProvider);
+  var _super = _createSuper(AcceptableValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function AcceptableValueEditorConfigurationProvider(aliasesServiceProvider, acceptableValueEditorDefaultOptions) {
-    _classCallCheck(this, AcceptableValueEditorConfigurationProvider);
+  function AcceptableValueEditorConfigurationServiceProvider(aliasesServiceProvider, acceptableValueEditorDefaultOptions) {
+    _classCallCheck(this, AcceptableValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, acceptableValueEditorDefaultOptions);
   }
 
-  return AcceptableValueEditorConfigurationProvider;
+  return AcceptableValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = AcceptableValueEditorConfigurationProvider;
-AcceptableValueEditorConfigurationProvider.providerName = 'acceptableValueEditorConfigurationService';
+exports.default = AcceptableValueEditorConfigurationServiceProvider;
+AcceptableValueEditorConfigurationServiceProvider.providerName = 'acceptableValueEditorConfigurationService';
 
 /***/ }),
 /* 31 */
@@ -2386,25 +2386,25 @@ exports.BOOLEAN_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link booleanValueEditorDefaultOptions}
  */
 
-var BooleanValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  BooleanValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "booleanValueEditorDefaultOptions"];
+var BooleanValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  BooleanValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "booleanValueEditorDefaultOptions"];
 
-  _inherits(BooleanValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(BooleanValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(BooleanValueEditorConfigurationProvider);
+  var _super = _createSuper(BooleanValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function BooleanValueEditorConfigurationProvider(aliasesServiceProvider, booleanValueEditorDefaultOptions) {
-    _classCallCheck(this, BooleanValueEditorConfigurationProvider);
+  function BooleanValueEditorConfigurationServiceProvider(aliasesServiceProvider, booleanValueEditorDefaultOptions) {
+    _classCallCheck(this, BooleanValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, booleanValueEditorDefaultOptions);
   }
 
-  return BooleanValueEditorConfigurationProvider;
+  return BooleanValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = BooleanValueEditorConfigurationProvider;
-BooleanValueEditorConfigurationProvider.providerName = 'booleanValueEditorConfigurationService';
+exports.default = BooleanValueEditorConfigurationServiceProvider;
+BooleanValueEditorConfigurationServiceProvider.providerName = 'booleanValueEditorConfigurationService';
 
 /***/ }),
 /* 37 */
@@ -2847,25 +2847,25 @@ exports.DATE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link dateValueEditorDefaultOptions}
  */
 
-var DateValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  DateValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "dateValueEditorDefaultOptions"];
+var DateValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  DateValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "dateValueEditorDefaultOptions"];
 
-  _inherits(DateValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(DateValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(DateValueEditorConfigurationProvider);
+  var _super = _createSuper(DateValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function DateValueEditorConfigurationProvider(aliasesServiceProvider, dateValueEditorDefaultOptions) {
-    _classCallCheck(this, DateValueEditorConfigurationProvider);
+  function DateValueEditorConfigurationServiceProvider(aliasesServiceProvider, dateValueEditorDefaultOptions) {
+    _classCallCheck(this, DateValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, dateValueEditorDefaultOptions);
   }
 
-  return DateValueEditorConfigurationProvider;
+  return DateValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = DateValueEditorConfigurationProvider;
-DateValueEditorConfigurationProvider.providerName = 'dateValueEditorConfigurationService';
+exports.default = DateValueEditorConfigurationServiceProvider;
+DateValueEditorConfigurationServiceProvider.providerName = 'dateValueEditorConfigurationService';
 
 /***/ }),
 /* 45 */
@@ -3348,25 +3348,25 @@ exports.HTML_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link htmlValueEditorDefaultOptions}
  */
 
-var HtmlValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  HtmlValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "htmlValueEditorDefaultOptions"];
+var HtmlValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  HtmlValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "htmlValueEditorDefaultOptions"];
 
-  _inherits(HtmlValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(HtmlValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(HtmlValueEditorConfigurationProvider);
+  var _super = _createSuper(HtmlValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function HtmlValueEditorConfigurationProvider(aliasesServiceProvider, htmlValueEditorDefaultOptions) {
-    _classCallCheck(this, HtmlValueEditorConfigurationProvider);
+  function HtmlValueEditorConfigurationServiceProvider(aliasesServiceProvider, htmlValueEditorDefaultOptions) {
+    _classCallCheck(this, HtmlValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, htmlValueEditorDefaultOptions);
   }
 
-  return HtmlValueEditorConfigurationProvider;
+  return HtmlValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = HtmlValueEditorConfigurationProvider;
-HtmlValueEditorConfigurationProvider.providerName = 'htmlValueEditorConfigurationService';
+exports.default = HtmlValueEditorConfigurationServiceProvider;
+HtmlValueEditorConfigurationServiceProvider.providerName = 'htmlValueEditorConfigurationService';
 
 /***/ }),
 /* 53 */
@@ -3583,25 +3583,25 @@ exports.NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link numberValueEditorDefaultOptions}
  */
 
-var NumberValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  NumberValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "numberValueEditorDefaultOptions"];
+var NumberValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  NumberValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "numberValueEditorDefaultOptions"];
 
-  _inherits(NumberValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(NumberValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(NumberValueEditorConfigurationProvider);
+  var _super = _createSuper(NumberValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function NumberValueEditorConfigurationProvider(aliasesServiceProvider, numberValueEditorDefaultOptions) {
-    _classCallCheck(this, NumberValueEditorConfigurationProvider);
+  function NumberValueEditorConfigurationServiceProvider(aliasesServiceProvider, numberValueEditorDefaultOptions) {
+    _classCallCheck(this, NumberValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, numberValueEditorDefaultOptions);
   }
 
-  return NumberValueEditorConfigurationProvider;
+  return NumberValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = NumberValueEditorConfigurationProvider;
-NumberValueEditorConfigurationProvider.providerName = 'numberValueEditorConfigurationService';
+exports.default = NumberValueEditorConfigurationServiceProvider;
+NumberValueEditorConfigurationServiceProvider.providerName = 'numberValueEditorConfigurationService';
 
 /***/ }),
 /* 58 */
@@ -3954,25 +3954,25 @@ exports.TEXT_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link textValueEditorDefaultOptions}
  */
 
-var TextValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  TextValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "textValueEditorDefaultOptions"];
+var TextValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  TextValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "textValueEditorDefaultOptions"];
 
-  _inherits(TextValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(TextValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(TextValueEditorConfigurationProvider);
+  var _super = _createSuper(TextValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function TextValueEditorConfigurationProvider(aliasesServiceProvider, textValueEditorDefaultOptions) {
-    _classCallCheck(this, TextValueEditorConfigurationProvider);
+  function TextValueEditorConfigurationServiceProvider(aliasesServiceProvider, textValueEditorDefaultOptions) {
+    _classCallCheck(this, TextValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, textValueEditorDefaultOptions);
   }
 
-  return TextValueEditorConfigurationProvider;
+  return TextValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = TextValueEditorConfigurationProvider;
-TextValueEditorConfigurationProvider.providerName = 'textValueEditorConfigurationService';
+exports.default = TextValueEditorConfigurationServiceProvider;
+TextValueEditorConfigurationServiceProvider.providerName = 'textValueEditorConfigurationService';
 
 /***/ }),
 /* 64 */
@@ -4014,25 +4014,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var TextValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  TextValueEditorLocalizationsProvider.$inject = ["textValueEditorDefaultLocalizations"];
+var TextValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  TextValueEditorLocalizationsServiceProvider.$inject = ["textValueEditorDefaultLocalizations"];
 
-  _inherits(TextValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(TextValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(TextValueEditorLocalizationsProvider);
+  var _super = _createSuper(TextValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function TextValueEditorLocalizationsProvider(textValueEditorDefaultLocalizations) {
-    _classCallCheck(this, TextValueEditorLocalizationsProvider);
+  function TextValueEditorLocalizationsServiceProvider(textValueEditorDefaultLocalizations) {
+    _classCallCheck(this, TextValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, textValueEditorDefaultLocalizations);
   }
 
-  return TextValueEditorLocalizationsProvider;
+  return TextValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = TextValueEditorLocalizationsProvider;
-TextValueEditorLocalizationsProvider.providerName = 'textValueEditorLocalizationsService';
+exports.default = TextValueEditorLocalizationsServiceProvider;
+TextValueEditorLocalizationsServiceProvider.providerName = 'textValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name textValueEditorDefaultLocalizations
@@ -4333,25 +4333,25 @@ exports.CARD_NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link cardNumberValueEditorDefaultOptions}
  */
 
-var CardNumberValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  CardNumberValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "cardNumberValueEditorDefaultOptions"];
+var CardNumberValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  CardNumberValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "cardNumberValueEditorDefaultOptions"];
 
-  _inherits(CardNumberValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(CardNumberValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(CardNumberValueEditorConfigurationProvider);
+  var _super = _createSuper(CardNumberValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function CardNumberValueEditorConfigurationProvider(aliasesServiceProvider, cardNumberValueEditorDefaultOptions) {
-    _classCallCheck(this, CardNumberValueEditorConfigurationProvider);
+  function CardNumberValueEditorConfigurationServiceProvider(aliasesServiceProvider, cardNumberValueEditorDefaultOptions) {
+    _classCallCheck(this, CardNumberValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, cardNumberValueEditorDefaultOptions);
   }
 
-  return CardNumberValueEditorConfigurationProvider;
+  return CardNumberValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = CardNumberValueEditorConfigurationProvider;
-CardNumberValueEditorConfigurationProvider.providerName = 'cardNumberValueEditorConfigurationService';
+exports.default = CardNumberValueEditorConfigurationServiceProvider;
+CardNumberValueEditorConfigurationServiceProvider.providerName = 'cardNumberValueEditorConfigurationService';
 
 /***/ }),
 /* 70 */
@@ -4393,25 +4393,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var CardNumberValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  CardNumberValueEditorLocalizationsProvider.$inject = ["cardNumberValueEditorDefaultLocalizations"];
+var CardNumberValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  CardNumberValueEditorLocalizationsServiceProvider.$inject = ["cardNumberValueEditorDefaultLocalizations"];
 
-  _inherits(CardNumberValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(CardNumberValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(CardNumberValueEditorLocalizationsProvider);
+  var _super = _createSuper(CardNumberValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function CardNumberValueEditorLocalizationsProvider(cardNumberValueEditorDefaultLocalizations) {
-    _classCallCheck(this, CardNumberValueEditorLocalizationsProvider);
+  function CardNumberValueEditorLocalizationsServiceProvider(cardNumberValueEditorDefaultLocalizations) {
+    _classCallCheck(this, CardNumberValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, cardNumberValueEditorDefaultLocalizations);
   }
 
-  return CardNumberValueEditorLocalizationsProvider;
+  return CardNumberValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = CardNumberValueEditorLocalizationsProvider;
-CardNumberValueEditorLocalizationsProvider.providerName = 'cardNumberValueEditorLocalizationsService';
+exports.default = CardNumberValueEditorLocalizationsServiceProvider;
+CardNumberValueEditorLocalizationsServiceProvider.providerName = 'cardNumberValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name cardNumberValueEditorDefaultLocalizations
@@ -4940,25 +4940,25 @@ exports.INDEX_SELECTION_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link indexSelectionValueEditorDefaultOptions}
  */
 
-var IndexSelectionValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  IndexSelectionValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "indexSelectionValueEditorDefaultOptions"];
+var IndexSelectionValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  IndexSelectionValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "indexSelectionValueEditorDefaultOptions"];
 
-  _inherits(IndexSelectionValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(IndexSelectionValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(IndexSelectionValueEditorConfigurationProvider);
+  var _super = _createSuper(IndexSelectionValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function IndexSelectionValueEditorConfigurationProvider(aliasesServiceProvider, indexSelectionValueEditorDefaultOptions) {
-    _classCallCheck(this, IndexSelectionValueEditorConfigurationProvider);
+  function IndexSelectionValueEditorConfigurationServiceProvider(aliasesServiceProvider, indexSelectionValueEditorDefaultOptions) {
+    _classCallCheck(this, IndexSelectionValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, indexSelectionValueEditorDefaultOptions);
   }
 
-  return IndexSelectionValueEditorConfigurationProvider;
+  return IndexSelectionValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = IndexSelectionValueEditorConfigurationProvider;
-IndexSelectionValueEditorConfigurationProvider.providerName = 'indexSelectionValueEditorConfigurationService';
+exports.default = IndexSelectionValueEditorConfigurationServiceProvider;
+IndexSelectionValueEditorConfigurationServiceProvider.providerName = 'indexSelectionValueEditorConfigurationService';
 
 /***/ }),
 /* 78 */
@@ -5389,25 +5389,25 @@ exports.AUTOCOMPLETE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link autocompleteValueEditorDefaultOptions}
  */
 
-var AutocompleteValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  AutocompleteValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "autocompleteValueEditorDefaultOptions"];
+var AutocompleteValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AutocompleteValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "autocompleteValueEditorDefaultOptions"];
 
-  _inherits(AutocompleteValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(AutocompleteValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(AutocompleteValueEditorConfigurationProvider);
+  var _super = _createSuper(AutocompleteValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function AutocompleteValueEditorConfigurationProvider(aliasesServiceProvider, autocompleteValueEditorDefaultOptions) {
-    _classCallCheck(this, AutocompleteValueEditorConfigurationProvider);
+  function AutocompleteValueEditorConfigurationServiceProvider(aliasesServiceProvider, autocompleteValueEditorDefaultOptions) {
+    _classCallCheck(this, AutocompleteValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, autocompleteValueEditorDefaultOptions);
   }
 
-  return AutocompleteValueEditorConfigurationProvider;
+  return AutocompleteValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = AutocompleteValueEditorConfigurationProvider;
-AutocompleteValueEditorConfigurationProvider.providerName = 'autocompleteValueEditorConfigurationService';
+exports.default = AutocompleteValueEditorConfigurationServiceProvider;
+AutocompleteValueEditorConfigurationServiceProvider.providerName = 'autocompleteValueEditorConfigurationService';
 
 /***/ }),
 /* 83 */
@@ -5641,25 +5641,25 @@ exports.PASSWORD_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link passwordValueEditorDefaultOptions}
  */
 
-var PasswordValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  PasswordValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "passwordValueEditorDefaultOptions"];
+var PasswordValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  PasswordValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "passwordValueEditorDefaultOptions"];
 
-  _inherits(PasswordValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(PasswordValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(PasswordValueEditorConfigurationProvider);
+  var _super = _createSuper(PasswordValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function PasswordValueEditorConfigurationProvider(aliasesServiceProvider, passwordValueEditorDefaultOptions) {
-    _classCallCheck(this, PasswordValueEditorConfigurationProvider);
+  function PasswordValueEditorConfigurationServiceProvider(aliasesServiceProvider, passwordValueEditorDefaultOptions) {
+    _classCallCheck(this, PasswordValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, passwordValueEditorDefaultOptions);
   }
 
-  return PasswordValueEditorConfigurationProvider;
+  return PasswordValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = PasswordValueEditorConfigurationProvider;
-PasswordValueEditorConfigurationProvider.providerName = 'passwordValueEditorConfigurationService';
+exports.default = PasswordValueEditorConfigurationServiceProvider;
+PasswordValueEditorConfigurationServiceProvider.providerName = 'passwordValueEditorConfigurationService';
 
 /***/ }),
 /* 88 */
@@ -5701,25 +5701,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var PasswordValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  PasswordValueEditorLocalizationsProvider.$inject = ["passwordValueEditorDefaultLocalizations"];
+var PasswordValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  PasswordValueEditorLocalizationsServiceProvider.$inject = ["passwordValueEditorDefaultLocalizations"];
 
-  _inherits(PasswordValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(PasswordValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(PasswordValueEditorLocalizationsProvider);
+  var _super = _createSuper(PasswordValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function PasswordValueEditorLocalizationsProvider(passwordValueEditorDefaultLocalizations) {
-    _classCallCheck(this, PasswordValueEditorLocalizationsProvider);
+  function PasswordValueEditorLocalizationsServiceProvider(passwordValueEditorDefaultLocalizations) {
+    _classCallCheck(this, PasswordValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, passwordValueEditorDefaultLocalizations);
   }
 
-  return PasswordValueEditorLocalizationsProvider;
+  return PasswordValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = PasswordValueEditorLocalizationsProvider;
-PasswordValueEditorLocalizationsProvider.providerName = 'passwordValueEditorLocalizationsService';
+exports.default = PasswordValueEditorLocalizationsServiceProvider;
+PasswordValueEditorLocalizationsServiceProvider.providerName = 'passwordValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name passwordValueEditorDefaultLocalizations
@@ -6084,25 +6084,25 @@ exports.SIGNATURE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link signatureValueEditorDefaultOptions}
  */
 
-var SignatureValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  SignatureValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "signatureValueEditorDefaultOptions"];
+var SignatureValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  SignatureValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "signatureValueEditorDefaultOptions"];
 
-  _inherits(SignatureValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(SignatureValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(SignatureValueEditorConfigurationProvider);
+  var _super = _createSuper(SignatureValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function SignatureValueEditorConfigurationProvider(aliasesServiceProvider, signatureValueEditorDefaultOptions) {
-    _classCallCheck(this, SignatureValueEditorConfigurationProvider);
+  function SignatureValueEditorConfigurationServiceProvider(aliasesServiceProvider, signatureValueEditorDefaultOptions) {
+    _classCallCheck(this, SignatureValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, signatureValueEditorDefaultOptions);
   }
 
-  return SignatureValueEditorConfigurationProvider;
+  return SignatureValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = SignatureValueEditorConfigurationProvider;
-SignatureValueEditorConfigurationProvider.providerName = 'signatureValueEditorConfigurationService';
+exports.default = SignatureValueEditorConfigurationServiceProvider;
+SignatureValueEditorConfigurationServiceProvider.providerName = 'signatureValueEditorConfigurationService';
 
 /***/ }),
 /* 94 */
@@ -6144,25 +6144,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var SignatureValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  SignatureValueEditorLocalizationsProvider.$inject = ["signatureValueEditorDefaultLocalizations"];
+var SignatureValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  SignatureValueEditorLocalizationsServiceProvider.$inject = ["signatureValueEditorDefaultLocalizations"];
 
-  _inherits(SignatureValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(SignatureValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(SignatureValueEditorLocalizationsProvider);
+  var _super = _createSuper(SignatureValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function SignatureValueEditorLocalizationsProvider(signatureValueEditorDefaultLocalizations) {
-    _classCallCheck(this, SignatureValueEditorLocalizationsProvider);
+  function SignatureValueEditorLocalizationsServiceProvider(signatureValueEditorDefaultLocalizations) {
+    _classCallCheck(this, SignatureValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, signatureValueEditorDefaultLocalizations);
   }
 
-  return SignatureValueEditorLocalizationsProvider;
+  return SignatureValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = SignatureValueEditorLocalizationsProvider;
-SignatureValueEditorLocalizationsProvider.providerName = 'signatureValueEditorLocalizationsService';
+exports.default = SignatureValueEditorLocalizationsServiceProvider;
+SignatureValueEditorLocalizationsServiceProvider.providerName = 'signatureValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name signatureValueEditorDefaultLocalizations
@@ -6476,25 +6476,25 @@ exports.ACCESS_NUMBER_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link accessNumberValueEditorDefaultOptions}
  */
 
-var AccessNumberValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  AccessNumberValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "accessNumberValueEditorDefaultOptions"];
+var AccessNumberValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AccessNumberValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "accessNumberValueEditorDefaultOptions"];
 
-  _inherits(AccessNumberValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(AccessNumberValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(AccessNumberValueEditorConfigurationProvider);
+  var _super = _createSuper(AccessNumberValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function AccessNumberValueEditorConfigurationProvider(aliasesServiceProvider, accessNumberValueEditorDefaultOptions) {
-    _classCallCheck(this, AccessNumberValueEditorConfigurationProvider);
+  function AccessNumberValueEditorConfigurationServiceProvider(aliasesServiceProvider, accessNumberValueEditorDefaultOptions) {
+    _classCallCheck(this, AccessNumberValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, accessNumberValueEditorDefaultOptions);
   }
 
-  return AccessNumberValueEditorConfigurationProvider;
+  return AccessNumberValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = AccessNumberValueEditorConfigurationProvider;
-AccessNumberValueEditorConfigurationProvider.providerName = 'accessNumberValueEditorConfigurationService';
+exports.default = AccessNumberValueEditorConfigurationServiceProvider;
+AccessNumberValueEditorConfigurationServiceProvider.providerName = 'accessNumberValueEditorConfigurationService';
 
 /***/ }),
 /* 99 */
@@ -6536,25 +6536,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var AccessNumberValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  AccessNumberValueEditorLocalizationsProvider.$inject = ["accessNumberValueEditorDefaultLocalizations"];
+var AccessNumberValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AccessNumberValueEditorLocalizationsServiceProvider.$inject = ["accessNumberValueEditorDefaultLocalizations"];
 
-  _inherits(AccessNumberValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(AccessNumberValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(AccessNumberValueEditorLocalizationsProvider);
+  var _super = _createSuper(AccessNumberValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function AccessNumberValueEditorLocalizationsProvider(accessNumberValueEditorDefaultLocalizations) {
-    _classCallCheck(this, AccessNumberValueEditorLocalizationsProvider);
+  function AccessNumberValueEditorLocalizationsServiceProvider(accessNumberValueEditorDefaultLocalizations) {
+    _classCallCheck(this, AccessNumberValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, accessNumberValueEditorDefaultLocalizations);
   }
 
-  return AccessNumberValueEditorLocalizationsProvider;
+  return AccessNumberValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = AccessNumberValueEditorLocalizationsProvider;
-AccessNumberValueEditorLocalizationsProvider.providerName = 'accessNumberValueEditorLocalizationsService';
+exports.default = AccessNumberValueEditorLocalizationsServiceProvider;
+AccessNumberValueEditorLocalizationsServiceProvider.providerName = 'accessNumberValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name accessNumberValueEditorDefaultLocalizations
@@ -6848,25 +6848,25 @@ exports.NUMBER_RANGE_VALUE_EDITOR_DEFAULT_OPTIONS = {};
  * Default options: {@link numberRangeValueEditorDefaultOptions}
  */
 
-var NumberRangeValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  NumberRangeValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "numberRangeValueEditorDefaultOptions"];
+var NumberRangeValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  NumberRangeValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "numberRangeValueEditorDefaultOptions"];
 
-  _inherits(NumberRangeValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(NumberRangeValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(NumberRangeValueEditorConfigurationProvider);
+  var _super = _createSuper(NumberRangeValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function NumberRangeValueEditorConfigurationProvider(aliasesServiceProvider, numberRangeValueEditorDefaultOptions) {
-    _classCallCheck(this, NumberRangeValueEditorConfigurationProvider);
+  function NumberRangeValueEditorConfigurationServiceProvider(aliasesServiceProvider, numberRangeValueEditorDefaultOptions) {
+    _classCallCheck(this, NumberRangeValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, numberRangeValueEditorDefaultOptions);
   }
 
-  return NumberRangeValueEditorConfigurationProvider;
+  return NumberRangeValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = NumberRangeValueEditorConfigurationProvider;
-NumberRangeValueEditorConfigurationProvider.providerName = 'numberRangeValueEditorConfigurationService';
+exports.default = NumberRangeValueEditorConfigurationServiceProvider;
+NumberRangeValueEditorConfigurationServiceProvider.providerName = 'numberRangeValueEditorConfigurationService';
 
 /***/ }),
 /* 105 */
@@ -6908,25 +6908,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var NumberRangeValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  NumberRangeValueEditorLocalizationsProvider.$inject = ["numberRangeValueEditorDefaultLocalizations"];
+var NumberRangeValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  NumberRangeValueEditorLocalizationsServiceProvider.$inject = ["numberRangeValueEditorDefaultLocalizations"];
 
-  _inherits(NumberRangeValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(NumberRangeValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(NumberRangeValueEditorLocalizationsProvider);
+  var _super = _createSuper(NumberRangeValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function NumberRangeValueEditorLocalizationsProvider(numberRangeValueEditorDefaultLocalizations) {
-    _classCallCheck(this, NumberRangeValueEditorLocalizationsProvider);
+  function NumberRangeValueEditorLocalizationsServiceProvider(numberRangeValueEditorDefaultLocalizations) {
+    _classCallCheck(this, NumberRangeValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, numberRangeValueEditorDefaultLocalizations);
   }
 
-  return NumberRangeValueEditorLocalizationsProvider;
+  return NumberRangeValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = NumberRangeValueEditorLocalizationsProvider;
-NumberRangeValueEditorLocalizationsProvider.providerName = 'numberRangeValueEditorLocalizationsService';
+exports.default = NumberRangeValueEditorLocalizationsServiceProvider;
+NumberRangeValueEditorLocalizationsServiceProvider.providerName = 'numberRangeValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name numberRangeValueEditorDefaultLocalizations
@@ -7899,25 +7899,25 @@ exports.ACCEPTABLE_ROOT_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link acceptableRootValueEditorDefaultOptions}
  */
 
-var AcceptableRootValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  AcceptableRootValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "acceptableRootValueEditorDefaultOptions"];
+var AcceptableRootValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AcceptableRootValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "acceptableRootValueEditorDefaultOptions"];
 
-  _inherits(AcceptableRootValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(AcceptableRootValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(AcceptableRootValueEditorConfigurationProvider);
+  var _super = _createSuper(AcceptableRootValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function AcceptableRootValueEditorConfigurationProvider(aliasesServiceProvider, acceptableRootValueEditorDefaultOptions) {
-    _classCallCheck(this, AcceptableRootValueEditorConfigurationProvider);
+  function AcceptableRootValueEditorConfigurationServiceProvider(aliasesServiceProvider, acceptableRootValueEditorDefaultOptions) {
+    _classCallCheck(this, AcceptableRootValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, acceptableRootValueEditorDefaultOptions);
   }
 
-  return AcceptableRootValueEditorConfigurationProvider;
+  return AcceptableRootValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = AcceptableRootValueEditorConfigurationProvider;
-AcceptableRootValueEditorConfigurationProvider.providerName = 'acceptableRootValueEditorConfigurationService';
+exports.default = AcceptableRootValueEditorConfigurationServiceProvider;
+AcceptableRootValueEditorConfigurationServiceProvider.providerName = 'acceptableRootValueEditorConfigurationService';
 
 /***/ }),
 /* 114 */
@@ -7959,25 +7959,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var AcceptableRootValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  AcceptableRootValueEditorLocalizationsProvider.$inject = ["acceptableRootValueEditorDefaultLocalizations"];
+var AcceptableRootValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  AcceptableRootValueEditorLocalizationsServiceProvider.$inject = ["acceptableRootValueEditorDefaultLocalizations"];
 
-  _inherits(AcceptableRootValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(AcceptableRootValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(AcceptableRootValueEditorLocalizationsProvider);
+  var _super = _createSuper(AcceptableRootValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function AcceptableRootValueEditorLocalizationsProvider(acceptableRootValueEditorDefaultLocalizations) {
-    _classCallCheck(this, AcceptableRootValueEditorLocalizationsProvider);
+  function AcceptableRootValueEditorLocalizationsServiceProvider(acceptableRootValueEditorDefaultLocalizations) {
+    _classCallCheck(this, AcceptableRootValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, acceptableRootValueEditorDefaultLocalizations);
   }
 
-  return AcceptableRootValueEditorLocalizationsProvider;
+  return AcceptableRootValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = AcceptableRootValueEditorLocalizationsProvider;
-AcceptableRootValueEditorLocalizationsProvider.providerName = 'acceptableRootValueEditorLocalizationsService';
+exports.default = AcceptableRootValueEditorLocalizationsServiceProvider;
+AcceptableRootValueEditorLocalizationsServiceProvider.providerName = 'acceptableRootValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name acceptableRootValueEditorDefaultLocalizations
@@ -8412,25 +8412,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var SearchTextValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  SearchTextValueEditorLocalizationsProvider.$inject = ["searchTextValueEditorDefaultLocalizations"];
+var SearchTextValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  SearchTextValueEditorLocalizationsServiceProvider.$inject = ["searchTextValueEditorDefaultLocalizations"];
 
-  _inherits(SearchTextValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(SearchTextValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(SearchTextValueEditorLocalizationsProvider);
+  var _super = _createSuper(SearchTextValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function SearchTextValueEditorLocalizationsProvider(searchTextValueEditorDefaultLocalizations) {
-    _classCallCheck(this, SearchTextValueEditorLocalizationsProvider);
+  function SearchTextValueEditorLocalizationsServiceProvider(searchTextValueEditorDefaultLocalizations) {
+    _classCallCheck(this, SearchTextValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, searchTextValueEditorDefaultLocalizations);
   }
 
-  return SearchTextValueEditorLocalizationsProvider;
+  return SearchTextValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = SearchTextValueEditorLocalizationsProvider;
-SearchTextValueEditorLocalizationsProvider.providerName = 'searchTextValueEditorLocalizationsService';
+exports.default = SearchTextValueEditorLocalizationsServiceProvider;
+SearchTextValueEditorLocalizationsServiceProvider.providerName = 'searchTextValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name searchTextValueEditorDefaultLocalizations
@@ -9015,25 +9015,25 @@ exports.SEARCHABLE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link searchableValueEditorDefaultOptions}
  */
 
-var SearchableValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  SearchableValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "searchableValueEditorDefaultOptions"];
+var SearchableValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  SearchableValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "searchableValueEditorDefaultOptions"];
 
-  _inherits(SearchableValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(SearchableValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(SearchableValueEditorConfigurationProvider);
+  var _super = _createSuper(SearchableValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function SearchableValueEditorConfigurationProvider(aliasesServiceProvider, searchableValueEditorDefaultOptions) {
-    _classCallCheck(this, SearchableValueEditorConfigurationProvider);
+  function SearchableValueEditorConfigurationServiceProvider(aliasesServiceProvider, searchableValueEditorDefaultOptions) {
+    _classCallCheck(this, SearchableValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, searchableValueEditorDefaultOptions);
   }
 
-  return SearchableValueEditorConfigurationProvider;
+  return SearchableValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = SearchableValueEditorConfigurationProvider;
-SearchableValueEditorConfigurationProvider.providerName = 'searchableValueEditorConfigurationService';
+exports.default = SearchableValueEditorConfigurationServiceProvider;
+SearchableValueEditorConfigurationServiceProvider.providerName = 'searchableValueEditorConfigurationService';
 
 /***/ }),
 /* 129 */
@@ -9075,25 +9075,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var SearchableValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  SearchableValueEditorLocalizationsProvider.$inject = ["searchableValueEditorDefaultLocalizations"];
+var SearchableValueEditorLocalizationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  SearchableValueEditorLocalizationServiceProvider.$inject = ["searchableValueEditorDefaultLocalizations"];
 
-  _inherits(SearchableValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(SearchableValueEditorLocalizationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(SearchableValueEditorLocalizationsProvider);
+  var _super = _createSuper(SearchableValueEditorLocalizationServiceProvider);
 
   /*@ngInject*/
-  function SearchableValueEditorLocalizationsProvider(searchableValueEditorDefaultLocalizations) {
-    _classCallCheck(this, SearchableValueEditorLocalizationsProvider);
+  function SearchableValueEditorLocalizationServiceProvider(searchableValueEditorDefaultLocalizations) {
+    _classCallCheck(this, SearchableValueEditorLocalizationServiceProvider);
 
     return _super.call(this, searchableValueEditorDefaultLocalizations);
   }
 
-  return SearchableValueEditorLocalizationsProvider;
+  return SearchableValueEditorLocalizationServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = SearchableValueEditorLocalizationsProvider;
-SearchableValueEditorLocalizationsProvider.providerName = 'searchableValueEditorLocalizationsService';
+exports.default = SearchableValueEditorLocalizationServiceProvider;
+SearchableValueEditorLocalizationServiceProvider.providerName = 'searchableValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name searchableValueEditorDefaultLocalizations
@@ -9460,25 +9460,25 @@ exports.RANGE_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link rangeValueEditorDefaultOptions}
  */
 
-var RangeValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  RangeValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "rangeValueEditorDefaultOptions"];
+var RangeValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  RangeValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "rangeValueEditorDefaultOptions"];
 
-  _inherits(RangeValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(RangeValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(RangeValueEditorConfigurationProvider);
+  var _super = _createSuper(RangeValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function RangeValueEditorConfigurationProvider(aliasesServiceProvider, rangeValueEditorDefaultOptions) {
-    _classCallCheck(this, RangeValueEditorConfigurationProvider);
+  function RangeValueEditorConfigurationServiceProvider(aliasesServiceProvider, rangeValueEditorDefaultOptions) {
+    _classCallCheck(this, RangeValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, rangeValueEditorDefaultOptions);
   }
 
-  return RangeValueEditorConfigurationProvider;
+  return RangeValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = RangeValueEditorConfigurationProvider;
-RangeValueEditorConfigurationProvider.providerName = 'rangeValueEditorConfigurationService';
+exports.default = RangeValueEditorConfigurationServiceProvider;
+RangeValueEditorConfigurationServiceProvider.providerName = 'rangeValueEditorConfigurationService';
 
 /***/ }),
 /* 138 */
@@ -9878,25 +9878,25 @@ exports.LIST_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link listValueEditorDefaultOptions}
  */
 
-var ListValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  ListValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "listValueEditorDefaultOptions"];
+var ListValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  ListValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "listValueEditorDefaultOptions"];
 
-  _inherits(ListValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(ListValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(ListValueEditorConfigurationProvider);
+  var _super = _createSuper(ListValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function ListValueEditorConfigurationProvider(aliasesServiceProvider, listValueEditorDefaultOptions) {
-    _classCallCheck(this, ListValueEditorConfigurationProvider);
+  function ListValueEditorConfigurationServiceProvider(aliasesServiceProvider, listValueEditorDefaultOptions) {
+    _classCallCheck(this, ListValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, listValueEditorDefaultOptions);
   }
 
-  return ListValueEditorConfigurationProvider;
+  return ListValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = ListValueEditorConfigurationProvider;
-ListValueEditorConfigurationProvider.providerName = 'listValueEditorConfigurationService';
+exports.default = ListValueEditorConfigurationServiceProvider;
+ListValueEditorConfigurationServiceProvider.providerName = 'listValueEditorConfigurationService';
 
 /***/ }),
 /* 144 */
@@ -9938,25 +9938,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var ListValueEditorLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  ListValueEditorLocalizationsProvider.$inject = ["listValueEditorDefaultLocalizations"];
+var ListValueEditorLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  ListValueEditorLocalizationsServiceProvider.$inject = ["listValueEditorDefaultLocalizations"];
 
-  _inherits(ListValueEditorLocalizationsProvider, _abstract_value_edito);
+  _inherits(ListValueEditorLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(ListValueEditorLocalizationsProvider);
+  var _super = _createSuper(ListValueEditorLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function ListValueEditorLocalizationsProvider(listValueEditorDefaultLocalizations) {
-    _classCallCheck(this, ListValueEditorLocalizationsProvider);
+  function ListValueEditorLocalizationsServiceProvider(listValueEditorDefaultLocalizations) {
+    _classCallCheck(this, ListValueEditorLocalizationsServiceProvider);
 
     return _super.call(this, listValueEditorDefaultLocalizations);
   }
 
-  return ListValueEditorLocalizationsProvider;
+  return ListValueEditorLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = ListValueEditorLocalizationsProvider;
-ListValueEditorLocalizationsProvider.providerName = 'listValueEditorLocalizationsService';
+exports.default = ListValueEditorLocalizationsServiceProvider;
+ListValueEditorLocalizationsServiceProvider.providerName = 'listValueEditorLocalizationsService';
 /**
  * @ngdoc constant
  * @name listValueEditorDefaultLocalizations
@@ -10353,25 +10353,25 @@ exports.OBJECT_VALUE_EDITOR_DEFAULT_OPTIONS = {
  * Default options: {@link objectValueEditorDefaultOptions}
  */
 
-var ObjectValueEditorConfigurationProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  ObjectValueEditorConfigurationProvider.$inject = ["aliasesServiceProvider", "objectValueEditorDefaultOptions"];
+var ObjectValueEditorConfigurationServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  ObjectValueEditorConfigurationServiceProvider.$inject = ["aliasesServiceProvider", "objectValueEditorDefaultOptions"];
 
-  _inherits(ObjectValueEditorConfigurationProvider, _abstract_value_edito);
+  _inherits(ObjectValueEditorConfigurationServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(ObjectValueEditorConfigurationProvider);
+  var _super = _createSuper(ObjectValueEditorConfigurationServiceProvider);
 
   /*@ngInject*/
-  function ObjectValueEditorConfigurationProvider(aliasesServiceProvider, objectValueEditorDefaultOptions) {
-    _classCallCheck(this, ObjectValueEditorConfigurationProvider);
+  function ObjectValueEditorConfigurationServiceProvider(aliasesServiceProvider, objectValueEditorDefaultOptions) {
+    _classCallCheck(this, ObjectValueEditorConfigurationServiceProvider);
 
     return _super.call(this, aliasesServiceProvider, objectValueEditorDefaultOptions);
   }
 
-  return ObjectValueEditorConfigurationProvider;
+  return ObjectValueEditorConfigurationServiceProvider;
 }(abstract_value_editor_configuration_provider_1.default);
 
-exports.default = ObjectValueEditorConfigurationProvider;
-ObjectValueEditorConfigurationProvider.providerName = 'objectValueEditorConfigurationService';
+exports.default = ObjectValueEditorConfigurationServiceProvider;
+ObjectValueEditorConfigurationServiceProvider.providerName = 'objectValueEditorConfigurationService';
 
 /***/ }),
 /* 151 */
@@ -10430,16 +10430,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var KpValueEditorConfigurationProvider = /*#__PURE__*/function () {
-  function KpValueEditorConfigurationProvider() {
-    _classCallCheck(this, KpValueEditorConfigurationProvider);
+var KpValueEditorConfigurationServiceProvider = /*#__PURE__*/function () {
+  function KpValueEditorConfigurationServiceProvider() {
+    _classCallCheck(this, KpValueEditorConfigurationServiceProvider);
 
     _debugMode.set(this, false);
 
     _preciseWatchForOptionsChanges.set(this, false);
   }
 
-  _createClass(KpValueEditorConfigurationProvider, [{
+  _createClass(KpValueEditorConfigurationServiceProvider, [{
     key: "setDebugMode",
     value: function setDebugMode(isEnabled) {
       __classPrivateFieldSet(this, _debugMode, isEnabled);
@@ -10469,12 +10469,12 @@ var KpValueEditorConfigurationProvider = /*#__PURE__*/function () {
     }
   }]);
 
-  return KpValueEditorConfigurationProvider;
+  return KpValueEditorConfigurationServiceProvider;
 }();
 
-exports.default = KpValueEditorConfigurationProvider;
+exports.default = KpValueEditorConfigurationServiceProvider;
 _debugMode = new WeakMap(), _preciseWatchForOptionsChanges = new WeakMap();
-KpValueEditorConfigurationProvider.providerName = 'kpValueEditorConfigurationService';
+KpValueEditorConfigurationServiceProvider.providerName = 'kpValueEditorConfigurationService';
 
 /***/ }),
 /* 152 */
@@ -10763,25 +10763,25 @@ var abstract_value_editor_localization_provider_1 = __webpack_require__(4);
  */
 
 
-var ValueEditorErrorMessagesLocalizationsProvider = /*#__PURE__*/function (_abstract_value_edito) {
-  ValueEditorErrorMessagesLocalizationsProvider.$inject = ["valueEditorErrorMessagesDefaultLocalizations"];
+var ValueEditorErrorMessagesLocalizationsServiceProvider = /*#__PURE__*/function (_abstract_value_edito) {
+  ValueEditorErrorMessagesLocalizationsServiceProvider.$inject = ["valueEditorErrorMessagesDefaultLocalizations"];
 
-  _inherits(ValueEditorErrorMessagesLocalizationsProvider, _abstract_value_edito);
+  _inherits(ValueEditorErrorMessagesLocalizationsServiceProvider, _abstract_value_edito);
 
-  var _super = _createSuper(ValueEditorErrorMessagesLocalizationsProvider);
+  var _super = _createSuper(ValueEditorErrorMessagesLocalizationsServiceProvider);
 
   /*@ngInject*/
-  function ValueEditorErrorMessagesLocalizationsProvider(valueEditorErrorMessagesDefaultLocalizations) {
-    _classCallCheck(this, ValueEditorErrorMessagesLocalizationsProvider);
+  function ValueEditorErrorMessagesLocalizationsServiceProvider(valueEditorErrorMessagesDefaultLocalizations) {
+    _classCallCheck(this, ValueEditorErrorMessagesLocalizationsServiceProvider);
 
     return _super.call(this, valueEditorErrorMessagesDefaultLocalizations);
   }
 
-  return ValueEditorErrorMessagesLocalizationsProvider;
+  return ValueEditorErrorMessagesLocalizationsServiceProvider;
 }(abstract_value_editor_localization_provider_1.default);
 
-exports.default = ValueEditorErrorMessagesLocalizationsProvider;
-ValueEditorErrorMessagesLocalizationsProvider.providerName = 'valueEditorErrorMessagesLocalizationsService';
+exports.default = ValueEditorErrorMessagesLocalizationsServiceProvider;
+ValueEditorErrorMessagesLocalizationsServiceProvider.providerName = 'valueEditorErrorMessagesLocalizationsService';
 /**
  * @ngdoc constant
  * @name valueEditorErrorMessagesDefaultLocalizations
