@@ -584,7 +584,9 @@
  * See {@link AbstractValueEditorConfigurationServiceProvider}
  *
  * Default options: {@link acceptableValueEditorDefaultOptions}
- *//**
+ */
+/* if true, it force to not using ngAnimate, due to some special technical issues, specially if ngAnimate is present*/
+/* and classNameFilter is set, uiSelect does not showing options.*//**
  * @ngdoc provider
  * @name acceptableValueEditorLocalizationsServiceProvider
  * @module angularjs-value-editor.acceptable
@@ -636,6 +638,17 @@
 /* + 1 for null selection*/
 /* + 1 for null selection*/
 /* + 1 for null selection*/
+/* set classNameFilter*/
+/*@ngInject*/
+/*@ngInject*/
+/* tslint:disable-next-line:variable-name*/
+/*@ngInject*/
+/* enable bug workaround*/
+/* noinspection JSUnusedAssignment*/
+/* items should be visible*/
+/* close select*/
+/* disable bug workaround*/
+/* items should be hidden -> buggy behaviour*/
 /* TODO: Add some localizations and placeholder tests*//*@ngInject*/
 /* trigger model sort by calling its setter and setting same value*/
 /**
@@ -673,7 +686,7 @@
  *                  switchToCheckboxesThreshold: $ctrl.switchToCheckboxesThreshold,
  *                  sortComparator: $ctrl.sortComparator,
  *                  equalityComparator: $ctrl.equalityComparator
- *              }" placeholder="Select...">
+ *              }" placeholder="'Select...'">
  *              </kp-value-editor>
  *              <div>Model: {{model}}</div>
  *              <hr>
@@ -752,6 +765,14 @@
  *
  * It adds right version of required validation to acceptable value editor - checkboxes mode.
  *//**
+ * @ngdoc directive
+ * @name disableNgAnimate
+ * @module angularjs-value-editor.acceptable
+ *
+ * @description
+ *
+ */
+/*@ngInject*//**
  * @ngdoc filter
  * @name nullAwareFilter
  * @module angularjs-value-editor.acceptable
@@ -786,15 +807,16 @@
  * ```
  * Function invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
  *
- * - `$model`: Actual model value
- * - `$name`: Input name
- * - `$formModel`: Actual form model if form is present (wrapping this value editor)
+ * - `$model`: `string` - Actual model value
+ * - `$name`: `string` - Input name
+ * - `$formModel`: `{}` - Actual form model if form is present (wrapping this value editor)
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
  *
  * Default value: {@link accessNumberValueEditorDefaultOptions}
  */
+/* tslint:disable-next-line:ban-types*/
 /**
  * @ngdoc constant
  * @name accessNumberValueEditorDefaultOptions
@@ -929,8 +951,8 @@
  *
  * Function is invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
  *
- *  - `$model`: Actual model value
- *  - `$staticParams`: Params passed from options
+ *  - `$model`: `string` - Actual model value
+ *  - `$staticParams`: `{}` - Params passed from options
  *
  * @property {object} staticParams Any static params, which are passed to `dataSource` function.
  * @property {string} minLength Pull down popup input string length threshold.
@@ -941,6 +963,7 @@
  *
  * Default value: {@link autocompleteValueEditorDefaultOptions}
  */
+/* tslint:disable-next-line:ban-types*/
 /**
  * @ngdoc constant
  * @name autocompleteValueEditorDefaultOptions
@@ -1169,8 +1192,10 @@
  *  ```
  * Function is invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
  *
- *  - `$requestParameters`: Parameters from {@link CardNumberValueEditorOptions}.requestParameters
- *  - `$additionalParameters`: Some {@link CardNumberValueEditorAdditionalRequestParameters additional parameters}.
+ * | Injectable&nbsp;argument&nbsp;name | Description                                                                         |
+ * | ---------------------------------- | ----------------------------------------------------------------------------------- |
+ * | `$requestParameters`: `{}`               | Parameters from {@link CardNumberValueEditorOptions}.requestParameters              |
+ * | `$additionalParameters`: `CardNumberValueEditorAdditionalRequestParameters`            | Some {@link CardNumberValueEditorAdditionalRequestParameters additional parameters} |
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
@@ -2371,7 +2396,7 @@
  * ```
  * Searching angularjs injectable function. Returns model value in promise.
  *
- * | Injectable argument name | Description                        |
+ * | Injectable&nbsp;argument&nbsp;name | Description                        |
  * | ------------------------ | ---------------------------------- |
  * | `$model`                 | Current model                      |
  * | `$additionalParameters`  | Additional parameters from options |
@@ -2382,7 +2407,7 @@
  * ```
  * Function that calls edit value. Returns new model in promise.
  *
- * | Injectable argument name | Description                        |
+ * | Injectable&nbsp;argument&nbsp;name | Description                        |
  * | ------------------------ | ---------------------------------- |
  * | `$model`                 | Current model                      |
  * | `$additionalParameters`  | Additional parameters from options |
@@ -2392,6 +2417,8 @@
  *
  * Default value: {@link searchableValueEditorDefaultOptions}
  */
+/* tslint:disable-next-line:ban-types*/
+/* tslint:disable-next-line:ban-types*/
 /**
  * @ngdoc constant
  * @name searchableValueEditorDefaultOptions
@@ -2532,15 +2559,18 @@
  * ```
  * Function invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
  *
- * - `$model`: Actual model value
- * - `$name`: Input name
- * - `$formModel`: Actual form model if form is present (wrapping this value editor)
+ * | Injectable&nbsp;argument&nbsp;name | Description                        |
+ * |--------------------------|----------------------------------|
+ * | `$model`: `string`       | Actual model value  |
+ * | `$name`: `string`        | Input name |
+ * | `$formModel`: `{}`       | Actual form model if form is present (wrapping this value editor) |
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
  *
  * Default value: {@link signatureValueEditorDefaultOptions}
  */
+/* tslint:disable-next-line:ban-types*/
 /**
  * @ngdoc constant
  * @name signatureValueEditorDefaultOptions
@@ -3134,30 +3164,39 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *                  fields: [
  *                      {
  *                          label: 'Text',
- *                          type: 'text',
- *                          editorName: 'text',
- *                          validations: {
- *                              required: true
+ *                          fieldName: 'text',
+ *                          editor: {
+ *                              type: 'text',
+ *                              editorName: 'text',
+ *                              validations: {
+ *                                  required: true
+ *                              }
  *                          }
  *                      },
  *                      {
  *                          label: 'Number',
- *                          type: 'number',
- *                          editorName: 'number'
+ *                          fieldName: 'number',
+ *                          editor: {
+ *                              type: 'number',
+ *                              editorName: 'number'
+ *                          }
  *                      },
  *                      {
  *                          label: 'Data',
- *                          type: 'list',
- *                          editorName: 'dates',
- *                          options: {
- *                              subEditorType: 'date',
- *                              newItemPrototype: '',
- *                              subEditorValidations: {
+ *                          fieldName: 'date',
+ *                          editor: {
+ *                              type: 'list',
+ *                              editorName: 'dates',
+ *                              options: {
+ *                                  subEditorType: 'date',
+ *                                  newItemPrototype: '',
+ *                                  subEditorValidations: {
+ *                                      required: true
+ *                                  }
+ *                              },
+ *                              validations: {
  *                                  required: true
  *                              }
- *                          },
- *                          validations: {
- *                              required: true
  *                          }
  *                      }
  *                  ]

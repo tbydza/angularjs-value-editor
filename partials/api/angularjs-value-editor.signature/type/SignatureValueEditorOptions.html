@@ -60,11 +60,28 @@
     <td><pre><code>function dataSource($model: string, $name: string, $formModel: {}, ...args) =&gt; PromiseLike&lt;string[]&gt;
 </code></pre>
 <p>Function invoked via <a href="https://docs.angularjs.org/api/auto/service/$injector#invoke">$injector.invoke</a> with following locals:</p>
-<ul>
-<li><code>$model</code>: Actual model value</li>
-<li><code>$name</code>: Input name</li>
-<li><code>$formModel</code>: Actual form model if form is present (wrapping this value editor)</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Injectable&nbsp;argument&nbsp;name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$model</code>: <code>string</code></td>
+<td>Actual model value</td>
+</tr>
+<tr>
+<td><code>$name</code>: <code>string</code></td>
+<td>Input name</td>
+</tr>
+<tr>
+<td><code>$formModel</code>: <code>{}</code></td>
+<td>Actual form model if form is present (wrapping this value editor)</td>
+</tr>
+</tbody>
+</table>
 </td>
   </tr>
 </table>

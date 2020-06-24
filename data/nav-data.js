@@ -215,6 +215,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "checkboxesValidations",
                 "type": "directive",
                 "href": "api/angularjs-value-editor.acceptable/directive/checkboxesValidations"
+              },
+              {
+                "name": "disableNgAnimate",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.acceptable/directive/disableNgAnimate"
               }
             ]
           },
