@@ -16,6 +16,40 @@ kp-value-editor .has-error .input-group .btn-default {
   border-color: #a94442;
   transition: border-color 0.15s ease-in-out;
 }
+kp-value-editor .has-error .has-not-error .input-group .btn-default {
+  border-color: #ccc;
+  transition: border-color 0.15s ease-in-out;
+}
+kp-value-editor .has-error .has-not-error .help-block,
+kp-value-editor .has-error .has-not-error .control-label,
+kp-value-editor .has-error .has-not-error .radio,
+kp-value-editor .has-error .has-not-error .checkbox,
+kp-value-editor .has-error .has-not-error .radio-inline,
+kp-value-editor .has-error .has-not-error .checkbox-inline,
+kp-value-editor .has-error .has-not-error.radio label,
+kp-value-editor .has-error .has-not-error.checkbox label,
+kp-value-editor .has-error .has-not-error.radio-inline label,
+kp-value-editor .has-error .has-not-error.checkbox-inline label {
+  color: #555555;
+}
+kp-value-editor .has-error .has-not-error .form-control {
+  border-color: #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+kp-value-editor .has-error .has-not-error .form-control:focus {
+  border-color: #b3b3b3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffffff;
+}
+kp-value-editor .has-error .has-not-error .input-group-addon {
+  color: #555555;
+  border-color: #ccc;
+  background-color: #fff;
+}
+kp-value-editor .has-error .has-not-error .form-control-feedback {
+  color: #555555;
+}
 kp-value-editor .validation-helper {
   width: 0;
   height: 0;
@@ -94,14 +128,24 @@ kp-value-editor .error-message.acceptable-checkboxes {
 boolean-value-editor .pretty {
   margin-top: 7px;
 }
+boolean-value-editor .pretty.p-icon label::before,
+boolean-value-editor .pretty.p-icon input:checked ~ .state label::before {
+  border-color: #ccc;
+}
 kp-value-editor ~ .error-message.boolean-checkbox {
   left: 50px;
   right: auto !important;
   top: 5px;
 }
-.has-error boolean-value-editor .pretty label::before {
+kp-value-editor .has-error boolean-value-editor .pretty label::before,
+kp-value-editor .has-error boolean-value-editor .pretty.p-icon input:checked ~ .state label::before {
   border-color: #a94442;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+kp-value-editor .has-error .has-not-error boolean-value-editor .pretty label::before,
+kp-value-editor .has-error .has-not-error boolean-value-editor .pretty.p-icon input:checked ~ .state label::before {
+  border-color: #ccc;
+  box-shadow: none;
 }
 
 html-value-editor .trumbowyg-box.form-control {
@@ -447,6 +491,19 @@ list-value-editor .panel-footer.empty-list-correction {
 list-value-editor .panel-footer.empty-list-correction .btn {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+}
+list-value-editor .btn.add span {
+  margin-left: 5px;
+}
+list-value-editor .list-item {
+  display: flex;
+  flex-direction: row;
+}
+list-value-editor .list-item-content {
+  flex-grow: 1;
+}
+list-value-editor .list-item-delete-button {
+  margin-left: 15px;
 }
 list-value-editor .has-not-error .form-control {
   border-color: #ccc;
