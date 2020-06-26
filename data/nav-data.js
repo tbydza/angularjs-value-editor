@@ -129,9 +129,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "href": "api/angularjs-value-editor/type/KpUniversalFormComponentOptions"
               },
               {
-                "name": "KpUniversalFormComponentSettings",
+                "name": "KpUniversalFormSettings",
                 "type": "type",
-                "href": "api/angularjs-value-editor/type/KpUniversalFormComponentSettings"
+                "href": "api/angularjs-value-editor/type/KpUniversalFormSettings"
               },
               {
                 "name": "TMetaValueEditor",

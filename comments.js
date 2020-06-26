@@ -3114,7 +3114,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *//* tslint:disable:variable-name */
 /*@ngInject*//**
  * @ngdoc type
- * @name KpUniversalFormComponentSettings
+ * @name KpUniversalFormSettings
  * @module angularjs-value-editor
  *
  * @property {ObjectValueEditorField[]} fields Fields definition.
@@ -3130,7 +3130,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @name kpUniversalForm
  * @module angularjs-value-editor
  *
- * @param {KpUniversalFormComponentSettings} formSettings Definition of form content.
+ * @param {KpUniversalFormSettings} formSettings Definition of form content.
  * @param {string=} name Name of the form. Due to internal reason, it must be in accordance with `^[a-zA-Z0-9._]*$` regexp.
  * @param {function(IFormController)=} formController Connecting to controller.
  * @param {function(IFormController)=} formController.$formController Exposed form controller.

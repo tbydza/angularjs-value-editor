@@ -8211,10 +8211,6 @@ var AcceptableRootValueEditorComponentController = /*#__PURE__*/function (_abstr
 
       _get(_getPrototypeOf(AcceptableRootValueEditorComponentController.prototype), "$onInit", this).call(this);
 
-      if (this.options.multiselect && !Array.isArray(this.model)) {
-        this.model = [];
-      }
-
       this.internalAcceptableValues = [this.options.acceptableValue];
       this.treeOptions = {
         nodeChildren: 'children',
@@ -10753,7 +10749,7 @@ KpUniversalFormComponentController.TEMPLATE_URL = __webpack_require__(154);
  * @name kpUniversalForm
  * @module angularjs-value-editor
  *
- * @param {KpUniversalFormComponentSettings} formSettings Definition of form content.
+ * @param {KpUniversalFormSettings} formSettings Definition of form content.
  * @param {string=} name Name of the form. Due to internal reason, it must be in accordance with `^[a-zA-Z0-9._]*$` regexp.
  * @param {function(IFormController)=} formController Connecting to controller.
  * @param {function(IFormController)=} formController.$formController Exposed form controller.
