@@ -63,6 +63,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor/directive",
             "navItems": [
               {
+                "name": "disableNgAnimate",
+                "type": "directive",
+                "href": "api/angularjs-value-editor/directive/disableNgAnimate"
+              },
+              {
                 "name": "patternDescriptionTooltip",
                 "type": "directive",
                 "href": "api/angularjs-value-editor/directive/patternDescriptionTooltip"
@@ -215,11 +220,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "checkboxesValidations",
                 "type": "directive",
                 "href": "api/angularjs-value-editor.acceptable/directive/checkboxesValidations"
-              },
-              {
-                "name": "disableNgAnimate",
-                "type": "directive",
-                "href": "api/angularjs-value-editor.acceptable/directive/disableNgAnimate"
               }
             ]
           },

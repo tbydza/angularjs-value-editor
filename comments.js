@@ -82,6 +82,29 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*//**
+ * @ngdoc directive
+ * @name disableNgAnimate
+ * @module angularjs-value-editor
+ *
+ * @restrict A
+ * @element ui-select
+ *
+ * @description
+ * Fixes bug in ui-select consisting of setting `opacity: 0` and not setting `opacity: 1` if `ngAnimate` is present and disabled by `classNameFilter`.
+ */
+/*@ngInject*/
+/* if true, it force to not using ngAnimate, due to some special technical issues, specially if ngAnimate is present*/
+/* and classNameFilter is set, uiSelect does not showing options.*//**
+ * @ngdoc directive
+ * @name patternDescriptionTooltip
+ * @module angularjs-value-editor
+ *
+ * @requires ^^kpValueEditor
+ *
+ * @description
+ * This directive adds tooltip on input, if valueEditor has defined non-empty localization named `patternDescription`.
+ */
+/*@ngInject*//**
  * Abstract editor class which contains some helpers for managing and simplify template parsing.
  */
 /**
@@ -584,9 +607,7 @@
  * See {@link AbstractValueEditorConfigurationServiceProvider}
  *
  * Default options: {@link acceptableValueEditorDefaultOptions}
- */
-/* if true, it force to not using ngAnimate, due to some special technical issues, specially if ngAnimate is present*/
-/* and classNameFilter is set, uiSelect does not showing options.*//**
+ *//**
  * @ngdoc provider
  * @name acceptableValueEditorLocalizationsServiceProvider
  * @module angularjs-value-editor.acceptable
@@ -765,14 +786,6 @@
  *
  * It adds right version of required validation to acceptable value editor - checkboxes mode.
  *//**
- * @ngdoc directive
- * @name disableNgAnimate
- * @module angularjs-value-editor.acceptable
- *
- * @description
- *
- */
-/*@ngInject*//**
  * @ngdoc filter
  * @name nullAwareFilter
  * @module angularjs-value-editor.acceptable
@@ -3619,16 +3632,6 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * @description
  *
  *//*@ngInject*//**
- * @ngdoc directive
- * @name patternDescriptionTooltip
- * @module angularjs-value-editor
- *
- * @requires ^^kpValueEditor
- *
- * @description
- * This directive adds tooltip on input, if valueEditor has defined non-empty localization named `patternDescription`.
- */
-/*@ngInject*//**
  * @ngdoc type
  * @name TMetaValueEditor
  * @module angularjs-value-editor
