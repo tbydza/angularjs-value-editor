@@ -1610,6 +1610,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "searchTextValueEditorDefaultLocalizations",
                 "type": "constant",
                 "href": "api/angularjs-value-editor.search-text/constant/searchTextValueEditorDefaultLocalizations"
+              },
+              {
+                "name": "searchTextValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.search-text/constant/searchTextValueEditorDefaultOptions"
               }
             ]
           },
@@ -1618,6 +1623,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "type": "section",
             "href": "api/angularjs-value-editor.search-text/provider",
             "navItems": [
+              {
+                "name": "searchTextValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.search-text/provider/searchTextValueEditorConfigurationServiceProvider"
+              },
               {
                 "name": "searchTextValueEditorLocalizationsServiceProvider",
                 "type": "provider",
@@ -1630,6 +1640,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "type": "section",
             "href": "api/angularjs-value-editor.search-text/service",
             "navItems": [
+              {
+                "name": "searchTextValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.search-text/service/searchTextValueEditorConfigurationService"
+              },
               {
                 "name": "searchTextValueEditorLocalizationsService",
                 "type": "service",
@@ -1656,6 +1671,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "SearchTextValueEditorModelExtension",
                 "type": "type",
                 "href": "api/angularjs-value-editor.search-text/type/SearchTextValueEditorModelExtension"
+              },
+              {
+                "name": "SearchTextValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.search-text/type/SearchTextValueEditorOptions"
               }
             ]
           }
@@ -1961,10 +1981,51 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           },
           {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.year/constant",
+            "navItems": [
+              {
+                "name": "yearValueEditorDefaultOptions",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.year/constant/yearValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.year/provider",
+            "navItems": [
+              {
+                "name": "yearValueEditorConfigurationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.year/provider/yearValueEditorConfigurationServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.year/service",
+            "navItems": [
+              {
+                "name": "yearValueEditorConfigurationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.year/service/yearValueEditorConfigurationService"
+              }
+            ]
+          },
+          {
             "name": "type",
             "type": "section",
             "href": "api/angularjs-value-editor.year/type",
             "navItems": [
+              {
+                "name": "YearValueEditorOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.year/type/YearValueEditorOptions"
+              },
               {
                 "name": "YearValueEditorValidations",
                 "type": "type",

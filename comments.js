@@ -2277,6 +2277,52 @@
  *//*@ngInject*/
 /* nothing to require*/
 /* component does not support disabling for this time*//**
+ * @ngdoc type
+ * @name SearchTextValueEditorOptions
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link searchTextValueEditorDefaultOptions}
+ */
+/* tslint:disable-next-line:no-empty-interface*/
+/**
+ * @ngdoc constant
+ * @name searchTextValueEditorDefaultOptions
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ * For description see {@link SearchTextValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name searchTextValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link searchTextValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name searchTextValueEditorConfigurationService
+ * @module angularjs-value-editor.search-text
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link searchTextValueEditorDefaultOptions}
+ *//**
  * @ngdoc provider
  * @name searchTextValueEditorLocalizationsServiceProvider
  * @module angularjs-value-editor.search-text
@@ -2997,7 +3043,53 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *  }
  * ```
  */
-/* .component(VelocityTemplateValueEditorComponent.componentName, VelocityTemplateValueEditorComponent)*//*@ngInject*//* istanbul ignore next */
+/* .component(VelocityTemplateValueEditorComponent.componentName, VelocityTemplateValueEditorComponent)*//*@ngInject*//**
+ * @ngdoc type
+ * @name YearValueEditorOptions
+ * @module angularjs-value-editor.year
+ *
+ * @description
+ * Extends {@link type:ValueEditorOptions}
+ *
+ * Default value: {@link yearValueEditorDefaultOptions}
+ */
+/* tslint:disable-next-line:no-empty-interface*/
+/**
+ * @ngdoc constant
+ * @name yearValueEditorDefaultOptions
+ * @module angularjs-value-editor.year
+ *
+ * @description
+ * For description see {@link YearValueEditorOptions}
+ *
+ * ```javascript
+ * {
+ * }
+ * ```
+ */
+/**
+ * @ngdoc provider
+ * @name yearValueEditorConfigurationServiceProvider
+ * @module angularjs-value-editor.year
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link yearValueEditorDefaultOptions}
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name yearValueEditorConfigurationService
+ * @module angularjs-value-editor.year
+ *
+ * @description
+ *
+ * See {@link AbstractValueEditorConfigurationProvider}
+ *
+ * Default options: {@link yearValueEditorDefaultOptions}
+ *//* istanbul ignore next */
 /**/
 /**
  * @ngdoc component
