@@ -220,6 +220,13 @@ var KpValueEditorComponentController = /*#__PURE__*/function (_ng_model_connecto
       this.optionChangeListeners.push(listener);
     }
   }, {
+    key: "forceCallNgModelViewChangeListeners",
+    value: function forceCallNgModelViewChangeListeners() {
+      this.ngModelController.$viewChangeListeners.forEach(function (callback) {
+        return callback();
+      });
+    }
+  }, {
     key: "generateEditorName",
     value: function generateEditorName() {
       return this.editorId || "".concat(this.type, "_").concat(uuid_generator_1.generateUuid());
@@ -8673,6 +8680,11 @@ var SearchTextValueEditorComponentController = /*#__PURE__*/function (_abstract_
 
       this.normalizeModel();
     }
+  }, {
+    key: "triggerNgChange",
+    value: function triggerNgChange() {
+      this.valueEditorController.forceCallNgModelViewChangeListeners();
+    }
     /* istanbul ignore next */
 
   }, {
@@ -8766,7 +8778,7 @@ SearchTextValueEditorComponent.componentName = 'searchTextValueEditor';
 /***/ (function(module, exports) {
 
 var path = '/value-editor/editors/search-text/search-text.value-editor.tpl.pug';
-var html = "<div class=\"input-group\"><div class=\"input-group-addon input-group-select\"><ui-select ng-model=\"$ctrl.model.extension\" ng-model-options=\"{getterSetter: true}\" search-enabled=\"false\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" tagging=\"tagging\"><ui-select-match>{{$ctrl.localize(($ctrl.extensions | filter: $select.selected)[0])}}</ui-select-match><ui-select-choices repeat=\"$extension in $ctrl.extensions track by $extension\">{{$ctrl.localize($extension)}}</ui-select-choices></ui-select></div><input class=\"form-control\" type=\"text\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.editorName}}\" placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-model=\"$ctrl.model.row\" ng-model-options=\"{ getterSetter: true}\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" pattern-description-tooltip=\"pattern-description-tooltip\" error-messages=\"error-messages\" data-main-input=\"data-main-input\"/></div>";
+var html = "<div class=\"input-group\"><div class=\"input-group-addon input-group-select\"><ui-select ng-model=\"$ctrl.model.extension\" ng-model-options=\"{getterSetter: true}\" ng-change=\"$ctrl.triggerNgChange()\" search-enabled=\"false\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" tagging=\"tagging\"><ui-select-match>{{$ctrl.localize(($ctrl.extensions | filter: $select.selected)[0])}}</ui-select-match><ui-select-choices repeat=\"$extension in $ctrl.extensions track by $extension\">{{$ctrl.localize($extension)}}</ui-select-choices></ui-select></div><input class=\"form-control\" type=\"text\" id=\"{{$ctrl.valueEditorController.editorId}}\" name=\"{{$ctrl.valueEditorController.editorName}}\" placeholder=\"{{$ctrl.valueEditorController.placeholder}}\" ng-model=\"$ctrl.model.row\" ng-model-options=\"{ getterSetter: true}\" ng-change=\"$ctrl.triggerNgChange()\" ng-disabled=\"$ctrl.valueEditorController.isDisabled\" ng-required=\"$ctrl.valueEditorController.validations.required\" ng-minlength=\"$ctrl.valueEditorController.validations.minlength\" ng-maxlength=\"$ctrl.valueEditorController.validations.maxlength\" ng-pattern=\"$ctrl.valueEditorController.validations.pattern\" pattern-description-tooltip=\"pattern-description-tooltip\" error-messages=\"error-messages\" data-main-input=\"data-main-input\"/></div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
