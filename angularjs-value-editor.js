@@ -4155,14 +4155,17 @@ var abstract_value_editor_1 = __webpack_require__(3);
 var luxon_1 = __webpack_require__(12);
 
 var YearValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
+  YearValueEditorComponentController.$inject = ["yearValueEditorConfigurationService"];
+
   _inherits(YearValueEditorComponentController, _abstract_value_edito);
 
   var _super = _createSuper(YearValueEditorComponentController);
 
-  function YearValueEditorComponentController() {
+  /*@ngInject*/
+  function YearValueEditorComponentController(yearValueEditorConfigurationService) {
     _classCallCheck(this, YearValueEditorComponentController);
 
-    return _super.apply(this, arguments);
+    return _super.call(this, yearValueEditorConfigurationService);
   }
 
   _createClass(YearValueEditorComponentController, [{
@@ -8657,19 +8660,19 @@ var SearchTextValueEditorModelExtension;
 })(SearchTextValueEditorModelExtension = exports.SearchTextValueEditorModelExtension || (exports.SearchTextValueEditorModelExtension = {}));
 
 var SearchTextValueEditorComponentController = /*#__PURE__*/function (_abstract_value_edito) {
-  SearchTextValueEditorComponentController.$inject = ["emptyConfigurationService", "searchTextValueEditorLocalizationsService"];
+  SearchTextValueEditorComponentController.$inject = ["searchTextValueEditorConfigurationService", "searchTextValueEditorLocalizationsService"];
 
   _inherits(SearchTextValueEditorComponentController, _abstract_value_edito);
 
   var _super = _createSuper(SearchTextValueEditorComponentController);
 
   /*@ngInject*/
-  function SearchTextValueEditorComponentController(emptyConfigurationService, searchTextValueEditorLocalizationsService) {
+  function SearchTextValueEditorComponentController(searchTextValueEditorConfigurationService, searchTextValueEditorLocalizationsService) {
     var _this;
 
     _classCallCheck(this, SearchTextValueEditorComponentController);
 
-    _this = _super.call(this, emptyConfigurationService, searchTextValueEditorLocalizationsService);
+    _this = _super.call(this, searchTextValueEditorConfigurationService, searchTextValueEditorLocalizationsService);
     _this.searchTextValueEditorLocalizationsService = searchTextValueEditorLocalizationsService;
     _this.extensions = Object.values(SearchTextValueEditorModelExtension);
     return _this;

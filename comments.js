@@ -2364,7 +2364,17 @@
  *      patternDescription: ''
  * }
  * ```
- *//*@ngInject*//**
+ *//*@ngInject*/
+/* set classNameFilter*/
+/*@ngInject*/
+/* tslint:disable-next-line:variable-name*/
+/*@ngInject*/
+/* enable bug workaround*/
+/* noinspection JSUnusedAssignment*/
+/* items should be visible*/
+/* close select*/
+/* disable bug workaround*/
+/* items should be hidden -> buggy behaviour*//**
  * @ngdoc type
  * @name SearchTextValueEditorModelExtension
  * @module angularjs-value-editor.search-text
@@ -3089,7 +3099,8 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * See {@link AbstractValueEditorConfigurationProvider}
  *
  * Default options: {@link yearValueEditorDefaultOptions}
- *//* istanbul ignore next */
+ *//*@ngInject*/
+/* istanbul ignore next */
 /**/
 /**
  * @ngdoc component
