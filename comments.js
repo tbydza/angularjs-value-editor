@@ -1695,7 +1695,6 @@
  *
  * Default options: {@link indexSelectionValueEditorDefaultOptions}
  *//*@ngInject*/
-/* normalize model*/
 /**
  * @ngdoc component
  * @name indexSelectionValueEditor
