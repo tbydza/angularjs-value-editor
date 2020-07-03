@@ -552,6 +552,7 @@
  * @property {number} switchToCheckboxesThreshold If count of options is bigger then this threshold, value editor switches into checkbox mode. If threshold is `0`, value editor forces into checkbox mode. Applicable only for multiselectable, non-reorderable mode.
  * @property {number} showFirstCount If count of options is bigger than this value, value editor shows only given count checkboxes and rest of options is hidden. Applicable only for multiselectable, checkbox mode.
  * @property {boolean} selectedFirst If `true`, selected options will be moved on top of options. Applicable only for multiselectable, checkbox mode.
+ * @property {boolean} modelAsArray If `true`, model will be array also if `multiple = false`. In this case array will contain only one element.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
@@ -659,6 +660,7 @@
 /* + 1 for null selection*/
 /* + 1 for null selection*/
 /* + 1 for null selection*/
+/* 4 because selected options disappears from list*/
 /* set classNameFilter*/
 /*@ngInject*/
 /*@ngInject*/

@@ -1865,10 +1865,10 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
         return [];
       }
 
-      if (!Array.isArray(value)) {
-        return [value];
-      } else {
+      if (Array.isArray(value)) {
         return value;
+      } else {
+        return [value];
       }
     }
   }, {
@@ -1906,7 +1906,13 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
   }, {
     key: "model",
     get: function get() {
-      return _get(_getPrototypeOf(AcceptableValueEditorComponentController.prototype), "model", this);
+      var model = _get(_getPrototypeOf(AcceptableValueEditorComponentController.prototype), "model", this);
+
+      if (!this.options.multiselectable && this.options.modelAsArray && Array.isArray(model)) {
+        return model[0];
+      }
+
+      return model;
     },
     set: function set(value) {
       this.setValidationHelperTouched();
@@ -1914,7 +1920,11 @@ var AcceptableValueEditorComponentController = /*#__PURE__*/function (_abstract_
       if (this.options.multiselectable && this.options.sortModel && Array.isArray(value)) {
         _set(_getPrototypeOf(AcceptableValueEditorComponentController.prototype), "model", value.sort(this.options.sortComparator), this, true);
       } else {
-        _set(_getPrototypeOf(AcceptableValueEditorComponentController.prototype), "model", value, this, true);
+        if (this.options.modelAsArray && !Array.isArray(value)) {
+          this.model = [value];
+        } else {
+          _set(_getPrototypeOf(AcceptableValueEditorComponentController.prototype), "model", value, this, true);
+        }
       }
     }
   }]);
@@ -2147,6 +2157,7 @@ exports.ACCEPTABLE_VALUE_EDITOR_DEFAULT_OPTIONS = {
   sortComparator: undefined,
   sortModel: false,
   switchToCheckboxesThreshold: 13,
+  modelAsArray: false,
   __forceDisableNgAnimate: false
 };
 /**
