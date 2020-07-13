@@ -2034,6 +2034,30 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             ]
           }
         ]
+      },
+      {
+        "name": "angularjs-value-editors.force-settings",
+        "type": "groups",
+        "href": "api/angularjs-value-editors.force-settings",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editors.force-settings/component",
+            "navItems": [
+              {
+                "name": "kpValueEditorForceSetting",
+                "type": "component",
+                "href": "api/angularjs-value-editors.force-settings/component/kpValueEditorForceSetting"
+              },
+              {
+                "name": "kpValueEditorForceSettings",
+                "type": "component",
+                "href": "api/angularjs-value-editors.force-settings/component/kpValueEditorForceSettings"
+              }
+            ]
+          }
+        ]
       }
     ]
   }

@@ -517,6 +517,9 @@
  *//*@ngInject*//* istanbul ignore file */
 /* neni cas... :-(*/
 /**
+ * Taken from https://github.com/wix/angular-tree-control and modified
+ */
+/**
          * @param cssClass - the css class
          * @param addClassProperty - should we wrap the class name with class=""
          */
@@ -2960,87 +2963,7 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
-/*@ngInject*//*
-import ValueEditorComponent, {ValueEditorBindings, ValueEditorValidations} from '../../value-editor.component';
-import AbstractValueEditor, {OptionsChangeDetection} from '../abstract-value-editor';
-import * as angular from 'angular';
-
-import * as ace from 'brace';
-
-console.log(ace);
-
-declare global {
-    interface Window {
-        ace: any;
-    }
-}
-
-
-export class VelocityTemplateValueEditorComponentController extends AbstractValueEditor<string, never> {
-
-    protected onOptionsChange(newOptions: never, oldOptions, whatChanged: OptionsChangeDetection<never>) {
-        //
-    }
-}
-
-/!**
- * @ngdoc component
- * @name velocityTemplateValueEditor
- * @module angularjs-value-editor.velocity-template
- *
- * @requires ng.type.ngModel.NgModelController
- * @requires component:kpValueEditor
- *
- * @description
- * Value editor for velocityTemplate input.
- *
- * Supported options: {@link type:VelocityTemplateValueEditorOptions}
- *
- * Supported validations: {@link type:VelocityTemplateValueEditorValidations}
- *
- * @example
- * <example name="velocityTemplateValueEditorExample" module="velocityTemplateValueEditorExample" frame-no-resize="true">
- *     <file name="index.html">
- *         <main>
- *              <kp-value-editor type="'velocity-template'" ng-model="model"></kp-value-editor>
- *              <div>{{model}}</div>
- *         </main>
- *     </file>
- *     <file name="script.js">
- *         angular.module('velocityTemplateValueEditorExample', ['angularjs-value-editor']);
- *     </file>
- * </example>
- *!/
-export default class VelocityTemplateValueEditorComponent {
-    public static componentName = 'velocityTemplateValueEditor';
-
-    public require = {
-        ngModelController: 'ngModel',
-        valueEditorController: `^${ValueEditorComponent.componentName}`
-    };
-
-    public templateUrl = require('./velocity-template.value-editor.tpl.pug');
-
-    public controller = VelocityTemplateValueEditorComponentController;
-}
-
-/!**
- * @ngdoc type
- * @name VelocityTemplateValueEditorValidations
- * @module angularjs-value-editor.velocity-template
- *
- *
- * @description
- * Extends {@link type:ValueEditorValidations}
- *!/
-export interface VelocityTemplateValueEditorValidations extends ValueEditorValidations {
-    minDate?: number;
-    maxDate?: number;
-}
-
-export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings<never, VelocityTemplateValueEditorValidations> {
-}
-*//*@ngInject*//* import VelocityTemplateValueEditorComponent from './velocity-template.value-editor.component';*/
+/*@ngInject*//*@ngInject*//* import VelocityTemplateValueEditorComponent from './velocity-template.value-editor.component';*/
 /**
  * @ngdoc module
  * @name angularjs-value-editor.velocity-template
@@ -3333,6 +3256,56 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * Options for {@link kpUniversalForm}
  *
  *//* tslint:disable:prefer-const */
+/*@ngInject*//*@ngInject*/
+/**
+ * @ngdoc component
+ * @name kpValueEditorForceSetting
+ * @module angularjs-value-editors.force-settings
+ *
+ * @template OPTIONS
+ * @template VALIDATIONS
+ *
+ * @requires component:kpValueEditorForceSettings
+ *
+ * @param {CustomValueEditorType} type Type of value editor
+ * @param {OPTIONS=} options Options
+ * @param {VALIDATIONS=} validations Validations (not implemented yet)
+ *
+ * @description
+ * This component is used for override options and validations for specified type of value editor. It requires {@link component:kpValueEditorForceSettings}
+ *//**
+ * @ngdoc component
+ * @name kpValueEditorForceSettings
+ * @module angularjs-value-editors.force-settings
+ *
+ * @description
+ *  This component allows to force settings of value-editor.
+ *
+ * @example
+ * <example name="valueEditorForceSettingsExample" module="valueEditorForceSettingsExample" frame-no-resize="true">
+ *   <file name="index.html">
+ *       <main>
+ *            <kp-value-editor-force-settings>
+ *                <kp-value-editor-force-setting type="text" options="{type: 'textarea'}"></kp-value-editor-force-setting>
+ *
+ *                <kp-value-editor type="'text'" ng-model="model" options="{type: 'text'}"></kp-value-editor>
+ *            </kp-value-editor-force-settings>
+ *            <div>{{model}}</div>
+ *       </main>
+ *   </file>
+ *   <file name="script.js">
+ *       angular.module('valueEditorForceSettingsExample', ['angularjs-value-editor']);
+ *   </file>
+ * </example>
+ */
+/* tslint:disable-next-line:max-classes-per-file*//**
+ * @ngdoc module
+ * @name angularjs-value-editors.force-settings
+ * @module angularjs-value-editors.force-settings
+ *
+ * @description
+ *
+ *//* tslint:disable-next-line:variable-name*/
 /*@ngInject*//**
  * @ngdoc provider
  * @name kpValueEditorConfigurationServiceProvider
@@ -3364,6 +3337,9 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  * See {@link kpValueEditorConfigurationServiceProvider}
  *
  *//* Bindings */
+/* settings for specific value editor sub-component*/
+/* required component controllers*/
+/* settings for common kp-value-editor wrapper component*/
 /* Internal */
 /*@ngInject*/
 /* initialization in $onInit section*/
@@ -3804,6 +3780,7 @@ export interface VelocityTemplateValueEditorBindings extends ValueEditorBindings
  *//* istanbul ignore file */
 /* tested by angular team*/
 /* console.log(value);*/
+/* NaN === NaN*/
 /**
  * Modified `angular.equals` function for support function check also.
  *
