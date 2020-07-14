@@ -39,7 +39,7 @@
   
 
   
-  <pre><code>&lt;kp-value-editor-force-setting&#10;    type=&quot;CustomValueEditorType&quot;&#10;    [options=&quot;OPTIONS&quot;]&#10;    [validations=&quot;VALIDATIONS&quot;]&gt;&#10;&lt;/kp-value-editor-force-setting&gt;</code></pre>
+  <pre><code>&lt;kp-value-editor-force-setting&#10;    [type=&quot;CustomValueEditorType&quot;]&#10;    [options=&quot;OPTIONS&quot;]&#10;    [validations=&quot;VALIDATIONS&quot;]&gt;&#10;&lt;/kp-value-editor-force-setting&gt;</code></pre>
   </div>
   
 <section class="api-section">
@@ -59,13 +59,13 @@
       <td>
         type
         
-        
+        <div><em>(optional)</em></div>
       </td>
       <td>
         <span class="label type-hint type-hint-customvalueeditortype"><a href="api/angularjs-value-editor.aliases/type/CustomValueEditorType">CustomValueEditorType</a></span>
       </td>
       <td>
-        <p>Type of value editor</p>
+        <p>Type of value editor. If <code>type</code> is not specified, options will be passed to all editors.</p>
 
         
         

@@ -954,7 +954,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.KpValueEditorForceSettingsComponentController = void 0;
+exports.KpValueEditorForceSettingsComponentController = exports.ALL_TYPES = void 0;
+exports.ALL_TYPES = 'ALL';
 
 var OptionsAndValidations = function OptionsAndValidations(options, validations) {
   _classCallCheck(this, OptionsAndValidations);
@@ -979,9 +980,9 @@ var KpValueEditorForceSettingsComponentController = /*#__PURE__*/function () {
   }, {
     key: "getOptionsForTypeOrEmpty",
     value: function getOptionsForTypeOrEmpty(type) {
-      var _a, _b;
+      var _a, _b, _c, _d;
 
-      return (_b = (_a = this.settings.get(type)) === null || _a === void 0 ? void 0 : _a.options) !== null && _b !== void 0 ? _b : {};
+      return Object.assign({}, (_b = (_a = this.settings.get(exports.ALL_TYPES)) === null || _a === void 0 ? void 0 : _a.options) !== null && _b !== void 0 ? _b : {}, (_d = (_c = this.settings.get(type)) === null || _c === void 0 ? void 0 : _c.options) !== null && _d !== void 0 ? _d : {});
     }
   }, {
     key: "getValidationsForTypeOrEmpty",
@@ -1153,7 +1154,7 @@ AliasesServiceProviderImpl.providerName = 'aliasesService';
 "use strict";
 
 /* istanbul ignore file */
-// tested by angular team
+// tested by angular team ツ
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1161,6 +1162,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.whichPropertiesAreNotEqual = exports.customEquals = void 0;
+/**
+ * Taken from original angular.js file.
+ */
 
 var angular = __webpack_require__(5);
 
@@ -1188,6 +1192,8 @@ function createMap() {
 }
 /**
  * Modified `angular.equals` function for support function check also.
+ *
+ * TODO: Refactor this
  *
  * @param {any} o1
  * @param {any} o2
@@ -7664,6 +7670,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 /**
  * Taken from https://github.com/wix/angular-tree-control and modified
+ * TODO: Refactoring needed.
  */
 
 __webpack_require__(116);
@@ -11017,11 +11024,13 @@ var KpValueEditorForceSettingComponentController = /*#__PURE__*/function () {
   _createClass(KpValueEditorForceSettingComponentController, [{
     key: "$onInit",
     value: function $onInit() {
+      var _a;
+
       if (this.validations) {
         this.$log.warn('Setting of validations is not implemented yet!');
       }
 
-      this.kpValueEditorForceSettingsComponentController.addNewSettings(this.type, this.options, this.validations);
+      this.kpValueEditorForceSettingsComponentController.addNewSettings((_a = this.type) !== null && _a !== void 0 ? _a : kp_value_editor_force_settings_component_1.ALL_TYPES, this.options, this.validations);
     }
   }]);
 
@@ -11039,7 +11048,7 @@ exports.KpValueEditorForceSettingComponentController = KpValueEditorForceSetting
  *
  * @requires component:kpValueEditorForceSettings
  *
- * @param {CustomValueEditorType} type Type of value editor
+ * @param {CustomValueEditorType=} type Type of value editor. If `type` is not specified, options will be passed to all editors.
  * @param {OPTIONS=} options Options
  * @param {VALIDATIONS=} validations Validations (not implemented yet)
  *
@@ -11054,7 +11063,7 @@ var KpValueEditorForceSettingComponent = function KpValueEditorForceSettingCompo
     kpValueEditorForceSettingsComponentController: "^^".concat(kp_value_editor_force_settings_component_1.default.componentName)
   };
   this.bindings = {
-    type: '@',
+    type: '@?',
     options: '<?',
     validations: '<?'
   };
@@ -11340,10 +11349,6 @@ Object.defineProperty(exports, "__esModule", {
 __webpack_require__(161);
 
 var angular = __webpack_require__(5);
-
-function template(strings, customClass, rightPosition, message) {
-  return "<div class=\"error-message not-visible ".concat(customClass, "\" style=\"right: calc(10% + ").concat(rightPosition, "px)\">").concat(message, "</div>");
-}
 /**
  * @ngdoc directive
  * @name errorMessages
@@ -11379,70 +11384,35 @@ var ErrorMessagesDirective = /*#__PURE__*/function () {
           ngModelController = _ref2[0],
           kpValueEditorController = _ref2[1];
 
-      $scope.appendedElements = {}; // <editor-fold defaultstate="collapsed" desc=" Functions... ">
-
-      function getErrorType(index, errorsObject) {
-        var _a;
-
-        return (_a = Object.keys(errorsObject)) === null || _a === void 0 ? void 0 : _a[index];
-      }
-
-      function getErrorsCount(errorsObject) {
-        return Object.keys(errorsObject).length;
-      }
-
-      function getSerializedErrors(errorsObject) {
-        var errors = [];
-
-        for (var i = 0; i < getErrorsCount(errorsObject); i++) {
-          errors.push(getErrorType(i, errorsObject));
-        }
-
-        return errors.sort().reduce(function (previousValue, currentValue) {
-          return previousValue + currentValue;
-        }, '');
-      }
-
-      function arraySubtraction(from, what) {
-        return (from || []).slice().reduce(function (acc, element) {
-          if (!what.includes(element)) {
-            acc.push(element);
-          }
-
-          return acc;
-        }, []);
-      } // </editor-fold>
-
+      $scope.appendedElements = {};
 
       var processErrors = function processErrors() {
         var _a;
 
-        if (ngModelController.$touched || ((_a = kpValueEditorController.valueEditorInstance.options.forceShowErrors) !== null && _a !== void 0 ? _a : false)) {
-          if (getSerializedErrors(ngModelController.$error) !== getSerializedErrors($scope.appendedElements)) {
-            var errorsToRemove = arraySubtraction(Object.keys($scope.appendedElements), Object.keys(ngModelController.$error));
-            var errorsToAdd = arraySubtraction(Object.keys(ngModelController.$error), Object.keys($scope.appendedElements));
-            errorsToRemove.forEach(function (error) {
-              $scope.appendedElements[error].classList.add('not-visible');
+        if ((ngModelController.$touched || ((_a = kpValueEditorController.valueEditorInstance.options.forceShowErrors) !== null && _a !== void 0 ? _a : false)) && getSerializedErrors(ngModelController.$error) !== getSerializedErrors($scope.appendedElements)) {
+          var errorsToRemove = arraySubtraction(Object.keys($scope.appendedElements), Object.keys(ngModelController.$error));
+          var errorsToAdd = arraySubtraction(Object.keys(ngModelController.$error), Object.keys($scope.appendedElements));
+          errorsToRemove.forEach(function (error) {
+            $scope.appendedElements[error].classList.add('not-visible');
 
-              _this.$timeout(function () {
-                var _a;
-
-                (_a = $scope.appendedElements[error]) === null || _a === void 0 ? void 0 : _a.remove();
-                delete $scope.appendedElements[error];
-              }, 150);
-            });
-            errorsToAdd.forEach(function (error, index) {
+            _this.$timeout(function () {
               var _a;
 
-              var element = angular.element(template(_templateObject(), (_a = $attrs.errorMessagesCustomClass) !== null && _a !== void 0 ? _a : '', 20 * index, _this.localize(error)));
-              $scope.appendedElements[error] = element[0];
-              kpValueEditorController.$element.after(element);
+              (_a = $scope.appendedElements[error]) === null || _a === void 0 ? void 0 : _a.remove();
+              delete $scope.appendedElements[error];
+            }, 150);
+          });
+          errorsToAdd.forEach(function (error, index) {
+            var _a;
 
-              _this.$timeout(function () {
-                return element.removeClass('not-visible');
-              });
+            var element = angular.element(template(_templateObject(), (_a = $attrs.errorMessagesCustomClass) !== null && _a !== void 0 ? _a : '', 20 * index, _this.localize(error)));
+            $scope.appendedElements[error] = element[0];
+            kpValueEditorController.$element.after(element);
+
+            _this.$timeout(function () {
+              return element.removeClass('not-visible');
             });
-          }
+          });
         }
 
         return true;
@@ -11465,6 +11435,42 @@ var ErrorMessagesDirective = /*#__PURE__*/function () {
 
 exports.default = ErrorMessagesDirective;
 ErrorMessagesDirective.directiveName = 'errorMessages';
+
+function getErrorType(index, errorsObject) {
+  var _a;
+
+  return (_a = Object.keys(errorsObject)) === null || _a === void 0 ? void 0 : _a[index];
+}
+
+function getErrorsCount(errorsObject) {
+  return Object.keys(errorsObject).length;
+}
+
+function getSerializedErrors(errorsObject) {
+  var errors = [];
+
+  for (var i = 0; i < getErrorsCount(errorsObject); i++) {
+    errors.push(getErrorType(i, errorsObject));
+  }
+
+  return errors.sort().reduce(function (previousValue, currentValue) {
+    return previousValue + currentValue;
+  }, '');
+}
+
+function arraySubtraction(from, what) {
+  return (from || []).slice().reduce(function (acc, element) {
+    if (!what.includes(element)) {
+      acc.push(element);
+    }
+
+    return acc;
+  }, []);
+}
+
+function template(strings, customClass, rightPosition, message) {
+  return "<div class=\"error-message not-visible ".concat(customClass, "\" style=\"right: calc(10% + ").concat(rightPosition, "px)\">").concat(message, "</div>");
+}
 
 /***/ }),
 /* 161 */

@@ -518,6 +518,7 @@
 /* neni cas... :-(*/
 /**
  * Taken from https://github.com/wix/angular-tree-control and modified
+ * TODO: Refactoring needed.
  */
 /**
          * @param cssClass - the css class
@@ -3142,9 +3143,7 @@
  * @description
  *
  */
-/*@ngInject*/
-/* <editor-fold defaultstate="collapsed" desc=" Functions... ">*/
-/* </editor-fold>*//**
+/*@ngInject*//**
  * @ngdoc module
  * @name angularjs-value-editor.error-messages
  * @module angularjs-value-editor.error-messages
@@ -3267,7 +3266,7 @@
  *
  * @requires component:kpValueEditorForceSettings
  *
- * @param {CustomValueEditorType} type Type of value editor
+ * @param {CustomValueEditorType=} type Type of value editor. If `type` is not specified, options will be passed to all editors.
  * @param {OPTIONS=} options Options
  * @param {VALIDATIONS=} validations Validations (not implemented yet)
  *
@@ -3778,11 +3777,16 @@
 /**
  * Make all properties required except properties of ValueEditorOptions
  *//* istanbul ignore file */
-/* tested by angular team*/
+/* tested by angular team ツ*/
+/**
+ * Taken from original angular.js file.
+ */
 /* console.log(value);*/
 /* NaN === NaN*/
 /**
  * Modified `angular.equals` function for support function check also.
+ *
+ * TODO: Refactor this
  *
  * @param {any} o1
  * @param {any} o2
