@@ -10,6 +10,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         "href": "docs",
         "navItems": [
           {
+            "name": "Creating new custom editor",
+            "type": "",
+            "href": "docs/Creating new custom editor"
+          },
+          {
             "name": "Demo",
             "type": "",
             "href": "docs/Demo"
@@ -93,6 +98,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "kpValueEditorConfigurationServiceProvider",
                 "type": "provider",
                 "href": "api/angularjs-value-editor/provider/kpValueEditorConfigurationServiceProvider"
+              },
+              {
+                "name": "kpValueEditorRegistrationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor/provider/kpValueEditorRegistrationServiceProvider"
               }
             ]
           },
@@ -115,6 +125,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "kpValueEditorConfigurationService",
                 "type": "service",
                 "href": "api/angularjs-value-editor/service/kpValueEditorConfigurationService"
+              },
+              {
+                "name": "kpValueEditorRegistrationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor/service/kpValueEditorRegistrationService"
               }
             ]
           },
@@ -1575,6 +1590,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "type": "section",
             "href": "api/angularjs-value-editor.range/type",
             "navItems": [
+              {
+                "name": "RangeValueEditorModel",
+                "type": "type",
+                "href": "api/angularjs-value-editor.range/type/RangeValueEditorModel"
+              },
               {
                 "name": "RangeValueEditorOptions",
                 "type": "type",

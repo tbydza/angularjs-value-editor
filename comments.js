@@ -1,110 +1,4 @@
 /**
- * @ngdoc module
- * @name angularjs-value-editor.aliases
- * @module angularjs-value-editor.aliases
- *
- * @description
- * Support for editor types aliasing
- *//**
- * @ngdoc type
- * @name CustomValueEditorType
- * @module angularjs-value-editor.aliases
- *
- * @requires TValueEditorType
- *
- * @description
- * ```js
- *  type CustomValueEditorType = TValueEditorType | string
- * ```
- */
-/*@ngInject*/
-/**
- * @ngdoc service
- * @name aliasesService
- * @module angularjs-value-editor.aliases
- *
- * @description
- * Service for working with editor aliases.
- */
-/**
-     * @ngdoc method
-     * @name aliasesService#getAlias
-     *
-     * @param {CustomValueEditorType} alias Get alias settings.
-     *
-     * @returns {AliasDefinition} Alias definition.
-     *
-     * @description
-     * Return alias definition.
-     */
-/**
-     * @ngdoc method
-     * @name aliasesService#isAlias
-     *
-     * @param {CustomValueEditorType} type Tested editor type.
-     *
-     * @returns {boolean} `true` if type is alias.
-     *
-     * @description
-     * Test if type is alias.
-     */
-/**
- * @ngdoc provider
- * @name aliasesServiceProvider
- * @module angularjs-value-editor.aliases
- *
- * @description
- * Provider for define aliases.
- */
-/**
-     * @ngdoc method
-     * @name aliasesServiceProvider#addAlias
-     *
-     * @param {CustomValueEditorType} aliasTypeName New alias.
-     * @param {CustomValueEditorType} editorType Existing aliased editor.
-     *
-     * @returns {AliasesServiceProviderBuildOptions}
-     *
-     * @description
-     * Add new alias.
-     */
-/**
-     * @ngdoc method
-     * @name aliasesServiceProvider#removeAlias
-     *
-     * @param {CustomValueEditorType} aliasTypeName Removing alias.
-     *
-     * @description
-     * Remove alias.
-     *//*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*//**
- * @ngdoc directive
- * @name disableNgAnimate
- * @module angularjs-value-editor
- *
- * @restrict A
- * @element ui-select
- *
- * @description
- * Fixes bug in ui-select consisting of setting `opacity: 0` and not setting `opacity: 1` if `ngAnimate` is present and disabled by `classNameFilter`.
- */
-/*@ngInject*/
-/* if true, it force to not using ngAnimate, due to some special technical issues, specially if ngAnimate is present*/
-/* and classNameFilter is set, uiSelect does not showing options.*//**
- * @ngdoc directive
- * @name patternDescriptionTooltip
- * @module angularjs-value-editor
- *
- * @requires ^^kpValueEditor
- *
- * @description
- * This directive adds tooltip on input, if valueEditor has defined non-empty localization named `patternDescription`.
- */
-/*@ngInject*//**
  * Abstract editor class which contains some helpers for managing and simplify template parsing.
  */
 /**
@@ -120,7 +14,31 @@
      */
 /**
      * Updates template
-     *//*@ngInject*/
+     *//**
+ * Abstract base class for general value-editor features.
+ *
+ * @template OPTIONS
+ */
+/* If initial options are not defaults, trigger options change.*/
+/**
+     * This method changes options.
+     * @param {OPTIONS} newOptions
+     * @param {OPTIONS} oldOptions
+     * @param {PropertyChangeDetection} whatChanged
+     */
+/**
+     * Simplifies localization. No need to call localization service.
+     * @param {string} code Message code.
+     * @returns {string} Localized message.
+     */
+/* istanbul ignore else */
+/**
+     * This method is called always, when value editor options is changed with old and new options object merged with default options.
+     * @param {OPTIONS} newOptions New options.
+     * @param {OPTIONS} oldOptions Old options.
+     * @param {PropertyChangeDetection<OPTIONS>} optionsChangeDetection Object whose keys are name of changed properties and value is boolean status of change.
+     */
+/*@ngInject*//*@ngInject*/
 /*@ngInject*/
 /* try to change options via reference*/
 /*@ngInject*/
@@ -315,32 +233,112 @@
  * @description
  * See {@link AbstractValueEditorLocalizationProvider}
  *//**
- * Abstract base class for general value-editor features.
+ * @ngdoc module
+ * @name angularjs-value-editor.aliases
+ * @module angularjs-value-editor.aliases
  *
- * @template OPTIONS
- */
-/* If initial options are not defaults, trigger options change.*/
-/**
-     * This method changes options.
-     * @param {OPTIONS} newOptions
-     * @param {OPTIONS} oldOptions
-     * @param {PropertyChangeDetection} whatChanged
-     */
-/**
-     * Simplifies localization. No need to call localization service.
-     * @param {string} code Message code.
-     * @returns {string} Localized message.
-     */
-/* istanbul ignore else */
-/**
-     * This method is called always, when value editor options is changed with old and new options object merged with default options.
-     * @param {OPTIONS} newOptions New options.
-     * @param {OPTIONS} oldOptions Old options.
-     * @param {PropertyChangeDetection<OPTIONS>} optionsChangeDetection Object whose keys are name of changed properties and value is boolean status of change.
-     */
-/*@ngInject*//**
- * Connects outer required ngModel with inner ngModel
+ * @description
+ * Support for editor types aliasing
  *//**
+ * @ngdoc type
+ * @name CustomValueEditorType
+ * @module angularjs-value-editor.aliases
+ *
+ * @requires TValueEditorType
+ *
+ * @description
+ * ```js
+ *  type CustomValueEditorType = TValueEditorType | string
+ * ```
+ */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name aliasesService
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * Service for working with editor aliases.
+ */
+/**
+     * @ngdoc method
+     * @name aliasesService#getAlias
+     *
+     * @param {CustomValueEditorType} alias Get alias settings.
+     *
+     * @returns {AliasDefinition} Alias definition.
+     *
+     * @description
+     * Return alias definition.
+     */
+/**
+     * @ngdoc method
+     * @name aliasesService#isAlias
+     *
+     * @param {CustomValueEditorType} type Tested editor type.
+     *
+     * @returns {boolean} `true` if type is alias.
+     *
+     * @description
+     * Test if type is alias.
+     */
+/**
+ * @ngdoc provider
+ * @name aliasesServiceProvider
+ * @module angularjs-value-editor.aliases
+ *
+ * @description
+ * Provider for define aliases.
+ */
+/**
+     * @ngdoc method
+     * @name aliasesServiceProvider#addAlias
+     *
+     * @param {CustomValueEditorType} aliasTypeName New alias.
+     * @param {CustomValueEditorType} editorType Existing aliased editor.
+     *
+     * @returns {AliasesServiceProviderBuildOptions}
+     *
+     * @description
+     * Add new alias.
+     */
+/**
+     * @ngdoc method
+     * @name aliasesServiceProvider#removeAlias
+     *
+     * @param {CustomValueEditorType} aliasTypeName Removing alias.
+     *
+     * @description
+     * Remove alias.
+     *//*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//**
+ * @ngdoc directive
+ * @name disableNgAnimate
+ * @module angularjs-value-editor
+ *
+ * @restrict A
+ * @element ui-select
+ *
+ * @description
+ * Fixes bug in ui-select consisting of setting `opacity: 0` and not setting `opacity: 1` if `ngAnimate` is present and disabled by `classNameFilter`.
+ */
+/*@ngInject*/
+/* if true, it force to not using ngAnimate, due to some special technical issues, specially if ngAnimate is present*/
+/* and classNameFilter is set, uiSelect does not showing options.*//**
+ * @ngdoc directive
+ * @name patternDescriptionTooltip
+ * @module angularjs-value-editor
+ *
+ * @requires ^^kpValueEditor
+ *
+ * @description
+ * This directive adds tooltip on input, if valueEditor has defined non-empty localization named `patternDescription`.
+ */
+/*@ngInject*//**
  * @ngdoc directive
  * @name acceptableRootRequiredValidations
  * @module angularjs-value-editor.acceptable-root
@@ -463,6 +461,9 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `any | any[]`
+ *
+ *
  * Value editor for tree selection.
  *
  * It has two aliases:
@@ -507,14 +508,14 @@
  *          });
  *     </file>
  * </example>
- *//**
+ *//*@ngInject*//**
  * @ngdoc module
  * @name angularjs-value-editor.acceptable-root
  * @module angularjs-value-editor.acceptable-root
  *
  * @description
  *
- *//*@ngInject*//* istanbul ignore file */
+ *//* istanbul ignore file */
 /* neni cas... :-(*/
 /**
  * Taken from https://github.com/wix/angular-tree-control and modified
@@ -687,6 +688,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `any`
+ *
  * This component is for selecting value from predefined values.
  * It has two basic modes - single selectable and multi selectable - which are controlled by `multiselectable` option.
  * Multi selectable mode has two visual sub-modes: select-based and checkbox-based which are controlled by `switchToCheckboxesThreshold` option.
@@ -926,6 +929,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for access number input.
  *
  * Supported options: {@link type:AccessNumberValueEditorOptions}
@@ -1046,6 +1051,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for autocompletion input.
  *
  * Supported options: {@link type:AutocompleteValueEditorOptions}
@@ -1160,6 +1167,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `boolean`
+ *
  * Value editor for boolean input.
  *
  * Supported options: {@link type:BooleanValueEditorOptions}
@@ -1311,6 +1320,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for card-number input with possibility to generation from backend.
  *
  * Supported options: {@link type:CardNumberValueEditorOptions}
@@ -1425,6 +1436,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for date input.
  *
  * Supported options: {@link type:DateValueEditorOptions}
@@ -1487,6 +1500,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `any`
+ *
  * Value editor for store any value.
  *
  * Supported options: {@link type:ValueEditorOptions}
@@ -1588,6 +1603,8 @@
  * @requires https://alex-d.github.io/Trumbowyg/documentation/#installation Trumbowyg dependencies and plugins.
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for formatted text input.
  *
  * Component uses <a href="https://alex-d.github.io/Trumbowyg/documentation/#basic-options">Trumbowyg editor</a>,
@@ -1710,6 +1727,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `any`
+ *
  * Value editor for index select.
  *
  * From some unknown reason, model is array.
@@ -1880,6 +1899,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: {@link NumberRangeValueEditorModel}
+ *
  * Value editor for integer number range input.
  *
  * Supported options: {@link type:NumberRangeValueEditorOptions}
@@ -1985,6 +2006,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `number`
+ *
  * Value editor for number input.
  *
  * Supported options: {@link type:NumberValueEditorOptions}
@@ -2136,6 +2159,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for password input.
  *
  * Supported options: {@link type:PasswordValueEditorOptions}
@@ -2243,6 +2268,19 @@
  * Default options: {@link rangeValueEditorDefaultOptions}
  *//* istanbul ignore file */
 /* neni moc co testovat... viz. testy*/
+/**
+ * @ngdoc type
+ * @name RangeValueEditorModel
+ * @module angularjs-value-editor.range
+ *
+ * @description
+ * ```
+ *  interface RangeValueEditorModel {
+ *      from: number;
+ *      to: number;
+ *  }
+ * ```
+ */
 /*@ngInject*/
 /**/
 /**
@@ -2254,6 +2292,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: {@link RangeValueEditorModel}
+ *
  * Value editor for range input.
  *
  * Supported options: {@link type:RangeValueEditorOptions}
@@ -2399,6 +2439,8 @@
  * @name SearchTextValueEditorModel
  * @module angularjs-value-editor.search-text
  *
+ * @requires SearchTextValueEditorModelExtension
+ *
  * @description
  * ```
  * interface SearchTextValueEditorModel {
@@ -2422,6 +2464,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: {@link type:SearchTextValueEditorModel}
+ *
  * Value editor for search-text input with possibility to generation from backend.
  *
  * No options needed.
@@ -2587,6 +2631,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `any`
+ *
  * Value editor for searchable input.
  *
  * Supported options: {@link type:SearchableValueEditorOptions}
@@ -2734,6 +2780,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for signature input.
  *
  * Supported options: {@link type:SignatureValueEditorOptions}
@@ -2886,6 +2934,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `string`
+ *
  * Value editor for text input.
  * Depending on type are four versions:
  * - `text`
@@ -3036,6 +3086,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `number`
+ *
  * Value editor for year input.
  *
  * Supported options: {@link type:YearValueEditorOptions}
@@ -3138,10 +3190,18 @@
  * @name errorMessages
  * @module angularjs-value-editor.error-messages
  *
+ * @priority 1
+ *
+ * @restrict A
+ *
+ * @requires valueEditorErrorMessagesLocalizationsServiceProvider
+ * @requires ngModel
+ *
  * @param {string} errorMessagesCustomClass Custom CSS class to add to error message element.
  *
  * @description
- *
+ * Directive manages showing / hiding errors. Directive is being placed to main input element or element with validations.
+ * It will listen to validation status change and shows/hides localized validation messages.
  */
 /*@ngInject*//**
  * @ngdoc module
@@ -3335,7 +3395,58 @@
  *
  * See {@link kpValueEditorConfigurationServiceProvider}
  *
- *//* Bindings */
+ *//**/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//**
+ * @ngdoc provider
+ * @name kpValueEditorRegistrationServiceProvider
+ * @module angularjs-value-editor
+ *
+ * @description
+ * This provider is user for registering new value editor types.
+ */
+/**
+     * Map<type, selector>
+     */
+/**
+     * @ngdoc method
+     * @name kpValueEditorRegistrationServiceProvider#registerEditor
+     *
+     * @param {CustomValueEditorType} type New value editor type.
+     * @param {string} selector Value editor component element selector.
+     *
+     * @description
+     * Registers new value editor component.
+     *
+     * `type` and `selector` must be unique.
+     */
+/*@ngInject*/
+/**
+ * @ngdoc service
+ * @name kpValueEditorRegistrationService
+ * @module angularjs-value-editor
+ *
+ * @description
+ *
+ */
+/**
+     * @ngdoc method
+     * @name kpValueEditorRegistrationService#getSelectorForType
+     *
+     * @param {CustomValueEditorType} type Value editor type. Aliases are supported.
+     *
+     * @returns {string} Value editor component selector.
+     *
+     * @description
+     * Returns registered value editor component selector for dynamic create HTML tag as editor template.
+     *
+     * If no selector for type is found, it throws error.
+     *//* Bindings */
 /* settings for specific value editor sub-component*/
 /* required component controllers*/
 /* settings for common kp-value-editor wrapper component*/
@@ -3516,6 +3627,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `[]`
+ *
  * Value editor for list input.
  *
  * Supported options: {@link type:ListValueEditorOptions}
@@ -3651,6 +3764,8 @@
  * @requires component:kpValueEditor
  *
  * @description
+ * Model type: `{}`
+ *
  * Value editor for object input.
  *
  * Supported options: {@link type:ObjectValueEditorOptions}
@@ -3806,9 +3921,14 @@
                     !angular.isFunction(o2[key])*/
 /* tslint:disable-next-line:no-unused-expression*/
 /* tslint:disable-next-line:no-unused-expression*//**
+ * Connects outer required ngModel with inner ngModel
+ *//**
  * Generates random pseudo-UUID.
  */
-/* tslint:disable-next-line*//**
+/* tslint:disable-next-line*//*@ngInject*/
+/* Core editors*/
+/* TODO: Move outside of this library - too specific editors*/
+/* Meta editors*//**
  * @ngdoc constant
  * @name loadingSpinnerTemplateUrl
  * @module angularjs-value-editor

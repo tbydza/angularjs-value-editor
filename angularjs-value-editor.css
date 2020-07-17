@@ -68,8 +68,20 @@ acceptable-value-editor ul,
 acceptable-value-editor li {
   list-style-type: none;
 }
-acceptable-value-editor .ui-select-multiple .ui-select-search {
+acceptable-value-editor .ui-select-multiple.ui-select-bootstrap {
+  padding: 0;
+}
+acceptable-value-editor .ui-select-multiple.ui-select-bootstrap .ui-select-search {
+  margin-bottom: 0;
+  margin-left: 3px;
+  height: calc(1.42857143em + 12px);
   cursor: pointer;
+}
+acceptable-value-editor .ui-select-multiple.ui-select-bootstrap .ui-select-match {
+  padding-left: 3px;
+}
+acceptable-value-editor .ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+  margin: 3px 3px 3px 0;
 }
 acceptable-value-editor .av-item {
   height: 32px;
