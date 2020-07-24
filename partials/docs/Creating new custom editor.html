@@ -79,19 +79,20 @@ This object will be later registered as <code>constant</code> into editor module
             super(textValueEditorConfigurationService, textValueEditorLocalizationsService);
         }
 
-        protected onOptionsChange(newOptions: TextValueEditorOptions, oldOptions, whatChanged: PropertyChangeDetection&lt;TextValueEditorOptions&gt;) {
-            //
+        protected get emptyModel(): string {
+            return &#39;&#39;;
         }
 
         ...
 }
 </code></pre>
 <p>The component controller is the most important part of value editor. The most of the things are done in <code>AbstractValueEditorComponentController</code>, so You have to 
-extend Your controller class with <code>AbstractValueEditorComponentController&lt;MODEL_TYPE, XxValueEditorOptions&gt;</code>. </p>
-<p>If Your editor has no options, You don&#39;t need to override constructor, but if need localizations working, You have to pass <code>emptyConfigurationService</code> as first <code>super()</code> argument.
+extend Your controller class with <code>AbstractValueEditorComponentController&lt;MODEL_TYPE, XxxValueEditorOptions&gt;</code>. </p>
+<p>If Your editor has no options, You don&#39;t need to override constructor, but if You need localizations working, You have to pass <code>emptyConfigurationService</code> as first argument to <code>super()</code>.
 Second argument of <code>super()</code> is optional <code>localizationService</code>. </p>
 <p><code>onOptionsChange</code> method is called every time, if option changed. First argument contains new options, second argument contains old options and finally third argument contains object of
-booleans describing what options have been changed.</p>
+booleans describing which options have been changed.
+By default, method does nothing, but if You need some interaction on options change, You can override this method and react on options change.</p>
 <p>Extending abstract class brings You access to these properties:</p>
 <ul>
 <li><code>this.model</code> - model getter/setter</li>

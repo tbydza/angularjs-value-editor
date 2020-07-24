@@ -17,6 +17,7 @@
 <div class="api-profile-description">
   <p>For description see <a href="api/angularjs-value-editor.number-range/type/NumberRangeValueEditorOptions">NumberRangeValueEditorOptions</a></p>
 <pre><code class="lang-javascript">{
+     customEmptyAsNullCheck: ($value: NumberRangeValueEditorModel) =&gt; $value === undefined || $value === null || customEquals($value, {}) || customEquals($value, EMPTY_MODEL)
 }
 </code></pre>
 

@@ -22,6 +22,7 @@
 /* If initial options are not defaults, trigger options change.*/
 /**
      * This method changes options.
+     * This method is called by KpValueEditorComponentController::processOptionsChange(), don't use it by own.
      * @param {OPTIONS} newOptions
      * @param {OPTIONS} oldOptions
      * @param {PropertyChangeDetection} whatChanged
@@ -37,6 +38,11 @@
      * @param {OPTIONS} newOptions New options.
      * @param {OPTIONS} oldOptions Old options.
      * @param {PropertyChangeDetection<OPTIONS>} optionsChangeDetection Object whose keys are name of changed properties and value is boolean status of change.
+     */
+/* tslint:disable-next-line:no-empty*/
+/**
+     * Every editor must have defined empty model. It is important for `emptyAsNull` functionality (for now...).
+     * @returns {MODEL}
      */
 /*@ngInject*//*@ngInject*/
 /*@ngInject*/
@@ -564,6 +570,8 @@
  *
  * Default value: {@link acceptableValueEditorDefaultOptions}
  */
+/* TODO: Refactor to use injector.invoke*/
+/* TODO: Refactor to use injector.invoke*/
 /**
  * @ngdoc constant
  * @name acceptableValueEditorDefaultOptions
@@ -660,6 +668,7 @@
  * }
  * ```
  *//* -1 because validation helper also pass selector test*/
+/* tslint:disable-next-line:no-conditional-assignment*/
 /*@ngInject*/
 /*@ngInject*/
 /* + 1 for null selection*/
@@ -778,7 +787,7 @@
  *          }]);
  *     </file>
  * </example>
- *//**
+ *//*@ngInject*//**
  * @ngdoc module
  * @name angularjs-value-editor.acceptable
  * @module angularjs-value-editor.acceptable
@@ -1040,7 +1049,6 @@
  * ```
  */
 /*@ngInject*/
-/**/
 /* istanbul ignore next */
 /**
  * @ngdoc component
@@ -1196,7 +1204,8 @@
  *
  * @description
  *
- *//*@ngInject*//**
+ *//*@ngInject*/
+/*@ngInject*//**
  * @ngdoc type
  * @name CardNumberValueEditorAdditionalRequestParameters
  * @module angularjs-value-editor.card-number
@@ -1310,7 +1319,6 @@
  * ```
  *//*@ngInject*/
 /*@ngInject*//*@ngInject*/
-/**/
 /**
  * @ngdoc component
  * @name cardNumberValueEditor
@@ -1489,9 +1497,7 @@
  *      type: 'text'
  *  }
  * ```
- *//*@ngInject*//* istanbul ignore next */
-/**/
-/**
+ *//*@ngInject*//**
  * @ngdoc component
  * @name hiddenValueEditor
  * @module angularjs-value-editor.hidden
@@ -1590,7 +1596,6 @@
  *
  * Default options: {@link htmlValueEditorDefaultOptions}
  *//*@ngInject*/
-/**/
 /* IE does not support closest function on DOM*/
 /**
  * @ngdoc component
@@ -1807,9 +1812,11 @@
  *
  * ```javascript
  * {
+ *      customEmptyAsNullCheck: ($value: NumberRangeValueEditorModel) => $value === undefined || $value === null || customEquals($value, {}) || customEquals($value, EMPTY_MODEL)
  * }
  * ```
  */
+/*@ngInject*/
 /**
  * @ngdoc provider
  * @name numberRangeValueEditorConfigurationServiceProvider
@@ -1888,8 +1895,6 @@
  * ```
  */
 /*@ngInject*/
-/* istanbul ignore next */
-/**/
 /**
  * @ngdoc component
  * @name numberRangeValueEditor
@@ -1996,7 +2001,6 @@
  *
  * Default options: {@link numberValueEditorDefaultOptions}
  *//*@ngInject*/
-/**/
 /**
  * @ngdoc component
  * @name numberValueEditor
@@ -2149,7 +2153,6 @@
  * }
  * ```
  *//*@ngInject*/
-/**/
 /**
  * @ngdoc component
  * @name passwordValueEditor
@@ -2282,7 +2285,6 @@
  * ```
  */
 /*@ngInject*/
-/**/
 /**
  * @ngdoc component
  * @name rangeValueEditor
@@ -2342,9 +2344,11 @@
  *
  * ```javascript
  * {
+ *      customEmptyAsNullCheck: ($value) => ($value?.row ?? '').length === 0
  * }
  * ```
  */
+/*@ngInject*/
 /**
  * @ngdoc provider
  * @name searchTextValueEditorConfigurationServiceProvider
@@ -2451,10 +2455,7 @@
  *
  */
 /*@ngInject*/
-/* istanbul ignore next */
-/**/
-/* @ts-ignore*/
-/* this.model.extension is not a member of SearchTextValueEditorModelExtension enum*/
+/* if model.extension is not a member of SearchTextValueEditorModelExtension enum*/
 /**
  * @ngdoc component
  * @name searchTextValueEditor
@@ -2832,6 +2833,10 @@
  *
  * @property {TTextValueEditorType} type Input type. Possible values are `text`, `textarea`, `rich-textarea`.
  * @property {object} aceOptions Options for ACE editor. Applicable only if `type` is `'rich-textarea'`.
+ * @property {string} prefix Non-editable prefix before input element.
+ * @property {string} suffix Non-editable prefix after input element.
+ * @property {boolean} includePrefixAndSuffixToModel If `true`, prefix and suffix will be appended to the model.
+ * @property {boolean} trim If true, model will be trimmed.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
@@ -3075,8 +3080,6 @@
  *
  * Default options: {@link yearValueEditorDefaultOptions}
  *//*@ngInject*/
-/* istanbul ignore next */
-/**/
 /**
  * @ngdoc component
  * @name yearValueEditor
@@ -3395,8 +3398,7 @@
  *
  * See {@link kpValueEditorConfigurationServiceProvider}
  *
- *//**/
-/*@ngInject*/
+ *//*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
@@ -3491,8 +3493,19 @@
  * @name ValueEditorOptions
  * @module angularjs-value-editor
  *
- * @property {boolean=} forceShowErrors Force show validations error messages.
+ * @property {boolean} forceShowErrors Force show validations error messages.
+ * @property {boolean} emptyAsNull If `true`, empty value will be passed as `null` to model.
+ * @property {function} customEmptyAsNullCheck Custom check of empty value. If returns `true` it sign empty value.
+ *  ```
+ *  function ($value, ...args): boolean;
+ *  ```
+ * Function is invoked via [$injector.invoke](https://docs.angularjs.org/api/auto/service/$injector#invoke) with following locals:
+ *
+ * | Injectable&nbsp;argument&nbsp;name | Description                |
+ * | ---------------------------------- | -------------------------- |
+ * | `$value`: `MODEL`                  | Current value-editor model |
  */
+/* tslint:disable-next-line:ban-types*/
 /**
  * @ngdoc type
  * @name ValueEditorBindings
@@ -3510,7 +3523,7 @@
  *
  * @description
  * {@link kpValueEditor} attributes definition.
- *//**//**
+ *//**
  * @ngdoc component
  * @name listRequiredValidation
  * @module angularjs-value-editor.list
@@ -3755,6 +3768,8 @@
  */
 /* if true, it does not render ng-form around nested fields. This functionality use kp-universal-form.*//*@ngInject*/
 /* @ts-ignore Init form with anything*/
+/* Empty object value editor does not give a sense.*/
+/* TODO: Compose empty model by editor configuration*/
 /**
  * @ngdoc component
  * @name objectValueEditor
@@ -3908,6 +3923,7 @@
  *
  * @returns {boolean}
  */
+/* istanbul ignore next */
 /* eslint-disable-next-line no-self-compare*/
 /* NaN === NaN*/
 /* tslint:disable-next-line:no-conditional-assignment*/
@@ -3928,7 +3944,13 @@
 /* tslint:disable-next-line*//*@ngInject*/
 /* Core editors*/
 /* TODO: Move outside of this library - too specific editors*/
-/* Meta editors*//**
+/* Meta editors*//* EDITORS*/
+/* META EDITORS*/
+/* OTHER COMPONENTS*/
+/* DIRECTIVES*/
+/* COMMON SERVICES AND PROVIDERS*/
+/* CONFIG*/
+/**
  * @ngdoc constant
  * @name loadingSpinnerTemplateUrl
  * @module angularjs-value-editor

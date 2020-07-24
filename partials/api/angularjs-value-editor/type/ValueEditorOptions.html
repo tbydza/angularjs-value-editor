@@ -44,6 +44,55 @@
   </tr>
 </table>
   </li>
+  
+  <li id="emptyAsNull">
+    <h3 class="">
+      <span class="title"><code>emptyAsNull</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-boolean"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" _target="blank">Boolean</a></span></td>
+    <td><p>If <code>true</code>, empty value will be passed as <code>null</code> to model.</p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="customEmptyAsNullCheck">
+    <h3 class="">
+      <span class="title"><code>customEmptyAsNullCheck</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">function()</a></span></td>
+    <td><p>Custom check of empty value. If returns <code>true</code> it sign empty value.</p>
+<pre><code>function ($value, ...args): boolean;
+</code></pre>
+<p>Function is invoked via <a href="https://docs.angularjs.org/api/auto/service/$injector#invoke">$injector.invoke</a> with following locals:</p>
+<table>
+<thead>
+<tr>
+<th>Injectable&nbsp;argument&nbsp;name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$value</code>: <code>MODEL</code></td>
+<td>Current value-editor model</td>
+</tr>
+</tbody>
+</table>
+</td>
+  </tr>
+</table>
+  </li>
   </ul>
 
   
