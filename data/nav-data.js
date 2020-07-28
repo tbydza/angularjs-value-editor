@@ -538,6 +538,78 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         ]
       },
       {
+        "name": "angularjs-value-editor.async-validation",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.async-validation",
+        "navItems": [
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.async-validation/constant",
+            "navItems": [
+              {
+                "name": "ASYNC_VALIDATION_DEFAULT_OPTIONS",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.async-validation/constant/ASYNC_VALIDATION_DEFAULT_OPTIONS"
+              }
+            ]
+          },
+          {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.async-validation/directive",
+            "navItems": [
+              {
+                "name": "kpAsyncValidation",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.async-validation/directive/kpAsyncValidation"
+              }
+            ]
+          },
+          {
+            "name": "provider",
+            "type": "section",
+            "href": "api/angularjs-value-editor.async-validation/provider",
+            "navItems": [
+              {
+                "name": "kpAsyncValidationServiceProvider",
+                "type": "provider",
+                "href": "api/angularjs-value-editor.async-validation/provider/kpAsyncValidationServiceProvider"
+              }
+            ]
+          },
+          {
+            "name": "service",
+            "type": "section",
+            "href": "api/angularjs-value-editor.async-validation/service",
+            "navItems": [
+              {
+                "name": "kpAsyncValidationService",
+                "type": "service",
+                "href": "api/angularjs-value-editor.async-validation/service/kpAsyncValidationService"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.async-validation/type",
+            "navItems": [
+              {
+                "name": "KpAsyncValidationOptions",
+                "type": "type",
+                "href": "api/angularjs-value-editor.async-validation/type/KpAsyncValidationOptions"
+              },
+              {
+                "name": "ValidationFunction",
+                "type": "type",
+                "href": "api/angularjs-value-editor.async-validation/type/ValidationFunction"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "angularjs-value-editor.autocomplete",
         "type": "groups",
         "href": "api/angularjs-value-editor.autocomplete",
@@ -917,6 +989,30 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         "type": "groups",
         "href": "api/angularjs-value-editor.exemplar-bar-code",
         "navItems": []
+      },
+      {
+        "name": "angularjs-value-editor.force-settings",
+        "type": "groups",
+        "href": "api/angularjs-value-editor.force-settings",
+        "navItems": [
+          {
+            "name": "component",
+            "type": "section",
+            "href": "api/angularjs-value-editor.force-settings/component",
+            "navItems": [
+              {
+                "name": "kpValueEditorForceSetting",
+                "type": "component",
+                "href": "api/angularjs-value-editor.force-settings/component/kpValueEditorForceSetting"
+              },
+              {
+                "name": "kpValueEditorForceSettings",
+                "type": "component",
+                "href": "api/angularjs-value-editor.force-settings/component/kpValueEditorForceSettings"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "angularjs-value-editor.hidden",
@@ -2050,30 +2146,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "YearValueEditorValidations",
                 "type": "type",
                 "href": "api/angularjs-value-editor.year/type/YearValueEditorValidations"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "angularjs-value-editors.force-settings",
-        "type": "groups",
-        "href": "api/angularjs-value-editors.force-settings",
-        "navItems": [
-          {
-            "name": "component",
-            "type": "section",
-            "href": "api/angularjs-value-editors.force-settings/component",
-            "navItems": [
-              {
-                "name": "kpValueEditorForceSetting",
-                "type": "component",
-                "href": "api/angularjs-value-editors.force-settings/component/kpValueEditorForceSetting"
-              },
-              {
-                "name": "kpValueEditorForceSettings",
-                "type": "component",
-                "href": "api/angularjs-value-editors.force-settings/component/kpValueEditorForceSettings"
               }
             ]
           }

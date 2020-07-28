@@ -1,0 +1,121 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">kpAsyncValidationServiceProvider</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+  <li>
+    <a href="api/angularjs-value-editor.async-validation/service/kpAsyncValidationService">- kpAsyncValidationService</a>
+  </li>
+
+    <li>
+      - provider in module <a href="api/angularjs-value-editor.async-validation">angularjs-value-editor.async-validation</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Provider for async validations.</p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+
+  
+<h2>Methods</h2>
+<ul class="methods">
+  <li id="setValidationFunction">
+    <h3 class="">
+      <span class="title"><p><code>setValidationFunction(validationFunction);</code></p>
+
+</span>
+      
+      
+  
+    </h3>
+    <div><p>Setter for validation function. Validation function is called every time when async validation is triggered.
+Function returns Promise depending on validation result. If validation failed, promise will be rejected.
+Rejection reason should be <code>string</code> which will be displayed as validation error message.</p>
+<p>If validation succeeds, promise will be resolved.</p>
+<p>Validation function is called using <code>Injector.invoke()</code> function, so it accepts some injectable parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Injectable&nbsp;argument&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$model</code></td>
+<td>Current model</td>
+</tr>
+<tr>
+<td><code>$formModel</code></td>
+<td>If <code>sendWholeForm</code> <a href="api/angularjs-value-editor.async-validation/type/KpAsyncValidationOptions">option</a> is true, it contains form model</td>
+</tr>
+<tr>
+<td><code>$additionalParameters</code></td>
+<td>Current model</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments ">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        validationFunction
+        
+        
+      </td>
+      <td>
+        <span class="label type-hint type-hint-validationfunction"><a href="api/angularjs-value-editor.async-validation/type/ValidationFunction">ValidationFunction</a></span>
+      </td>
+      <td>
+        <p>User-specified validation function.</p>
+
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+    
+    
+
+    
+  </li>
+  </ul>
+
+  
+</div>
+
+

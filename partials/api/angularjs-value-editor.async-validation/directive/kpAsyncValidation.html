@@ -1,0 +1,107 @@
+
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">kpAsyncValidation</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+    <li>
+      - directive in module <a href="api/angularjs-value-editor.async-validation">angularjs-value-editor.async-validation</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>This directive adds async validation to value-editors. It works like this:</p>
+<ul>
+<li>User specifies validation using validation definition object {@KpAsyncValidationOptions} in validations section via <code>async</code> key (validation name).</li>
+<li>User sets async validation function via <a href="api/angularjs-value-editor.async-validation/provider/kpAsyncValidationServiceProvider">kpAsyncValidationServiceProvider</a><code>.setValidationFunction</code>.</li>
+<li>When validation is triggered, it will make function call with injected arguments and expects <code>Promise</code> with result.</li>
+<li>If promise is fulfilled, nothing happens, but if not, directive expects in error reason <code>string</code> with error message to display.</li>
+</ul>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+  <h2 id="dependencies">Dependencies</h2>
+  <ul>
+    <li><a href="ngModel">ngModel</a></li><li><a href="KpValueEditorComponent">KpValueEditorComponent</a></li><li><a href="ErrorMessagesDirective">ErrorMessagesDirective</a></li>
+  </ul>
+  
+
+  
+<h2>Directive Info</h2>
+<ul>
+	
+	<li>This directive executes at priority level 0.</li>
+	
+</ul>
+
+
+<h2 id="usage">Usage</h2>
+<div class="usage">
+	
+	<ul>
+		<li>as attribute:
+			<pre><code>&lt;ANY data-kp-async-validation&gt;&#10;&#9;...&#10;&lt;/ANY&gt;</code></pre>
+		</li>
+		
+</div>
+
+
+
+
+
+
+
+  
+  <h2 id="example">Example</h2><p>
+
+<plnkr-opener example-path="examples/example-KpAsyncValidationDirectiveExample"></plnkr-opener>
+<div class="runnable-example"
+    path="examples/example-KpAsyncValidationDirectiveExample"
+    frame-id="example-KpAsyncValidationDirectiveExample"
+    name="KpAsyncValidationDirectiveExample"
+    module="KpAsyncValidationDirectiveExample"
+    frame-no-resize="true">
+
+  <md-content>
+    <md-tabs md-dynamic-height="false" md-border-bottom>
+    
+      <md-tab label="index.html">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="index.html"language="html"type="html">
+          <pre><code>&lt;main&gt;&#10;    &lt;kp-value-editor type=&quot;&#39;text&#39;&quot; ng-model=&quot;model&quot; validations=&quot;{async: {additionalParameters: &#39;Some additional params&#39;}}&quot;&gt;&lt;/kp-value-editor&gt;&#10;&lt;/main&gt;</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+      <md-tab label="script.js">
+        <md-content class="md-padding">
+          <div class="runnable-example-file" name="script.js"language="js"type="js">
+          <pre><code>angular.module(&#39;KpAsyncValidationDirectiveExample&#39;, [&#39;angularjs-value-editor&#39;])&#10;.config([&#39;kpAsyncValidationServiceProvider&#39;, function(kpAsyncValidationServiceProvider) {&#10;    kpAsyncValidationServiceProvider.setValidationFunction([&#39;$model&#39;, &#39;$additionalParameters&#39;, &#39;$timeout&#39;, function($model, $additionalParameters, $timeout) {&#10;        return new Promise((resolve, reject) =&gt; {&#10;            const delay = (Math.round(Math.random() * 1000) + 500);&#10;            const yesNo = Math.round(Math.random() * 100) % 2 === 0;&#10;&#10;            const result = yesNo ? resolve : reject.bind(null, `Sybila said that ${($model || &#39;&#39;).length !== 0 ? $model : &#39;&lt;empty&gt;&#39;} is invalid...`);&#10;&#10;            $timeout(result, delay);&#10;        });&#10;    }]);&#10;}]);</code></pre>
+          </div>
+        </md-content>
+      </md-tab>
+    
+    </md-tabs>
+  </md-content>
+  <iframe class="runnable-example-frame" src="examples/example-KpAsyncValidationDirectiveExample/index.html" name="example-KpAsyncValidationDirectiveExample" id="example-KpAsyncValidationDirectiveExample"></iframe>
+</div>
+
+
+
+</p>
+
+</div>
+
+

@@ -1,0 +1,116 @@
+
+
+<h1>
+  <code>angularjs-value-editor.async-validation</code>
+</h1>
+
+
+
+
+<div class="component-breakdown">
+  <h2>Module Components</h2>
+  
+  <div>
+    <h3 class="component-heading" id="directive">Directive</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.async-validation/directive/kpAsyncValidation">kpAsyncValidation</a></td>
+        <td><p>This directive adds async validation to value-editors. It works like this:</p>
+<ul>
+<li>User specifies validation using validation definition object {@KpAsyncValidationOptions} in validations section via <code>async</code> key (validation name).</li>
+<li>User sets async validation function via <a href="api/angularjs-value-editor.async-validation/provider/kpAsyncValidationServiceProvider">kpAsyncValidationServiceProvider</a><code>.setValidationFunction</code>.</li>
+<li>When validation is triggered, it will make function call with injected arguments and expects <code>Promise</code> with result.</li>
+<li>If promise is fulfilled, nothing happens, but if not, directive expects in error reason <code>string</code> with error message to display.</li>
+</ul>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="type">Type</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.async-validation/type/KpAsyncValidationOptions">KpAsyncValidationOptions</a></td>
+        <td><p>Async validation parameters.</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.async-validation/type/ValidationFunction">ValidationFunction</a></td>
+        <td><pre><code>type ValidationFunction = Injectable&lt;((...args: any[]) =&gt; IPromise&lt;string&gt;)&gt;;
+</code></pre>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="constant">Constant</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.async-validation/constant/ASYNC_VALIDATION_DEFAULT_OPTIONS">ASYNC_VALIDATION_DEFAULT_OPTIONS</a></td>
+        <td><p>Default async validation parameters value.</p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="service">Service</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.async-validation/service/kpAsyncValidationService">kpAsyncValidationService</a></td>
+        <td><p>Service for async validations.</p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="provider">Provider</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.async-validation/provider/kpAsyncValidationServiceProvider">kpAsyncValidationServiceProvider</a></td>
+        <td><p>Provider for async validations.</p>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+  
+</div>
+
+
+
+
+

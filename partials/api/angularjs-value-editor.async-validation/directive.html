@@ -1,0 +1,29 @@
+
+<h1>Directive components in <code>angularjs-value-editor.async-validation</code></h1>
+
+
+
+<div class="component-breakdown">
+  <div>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor.async-validation/directive/kpAsyncValidation">kpAsyncValidation</a></td>
+        <td><p>This directive adds async validation to value-editors. It works like this:</p>
+<ul>
+<li>User specifies validation using validation definition object {@KpAsyncValidationOptions} in validations section via <code>async</code> key (validation name).</li>
+<li>User sets async validation function via <a href="api/angularjs-value-editor.async-validation/provider/kpAsyncValidationServiceProvider">kpAsyncValidationServiceProvider</a><code>.setValidationFunction</code>.</li>
+<li>When validation is triggered, it will make function call with injected arguments and expects <code>Promise</code> with result.</li>
+<li>If promise is fulfilled, nothing happens, but if not, directive expects in error reason <code>string</code> with error message to display.</li>
+</ul>
+</td>
+      </tr>
+      
+    </table>
+  </div>
+</div>
+

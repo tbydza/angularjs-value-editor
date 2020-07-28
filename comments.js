@@ -55,20 +55,22 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*//**
- * @ngdoc provider
- * @name AbstractValueEditorConfigurationProvider
+ * @ngdoc service
+ * @name AbstractValueEditorConfigurationService
  * @module angularjs-value-editor
  *
  * @template CONFIGURATION
  *
- * @description
- * Abstract provider for configuring editors options.
+ * @abstract
  *
- * Generic parameter `CONFIGURATION` is current value editor options type.
+ * @description
+ * Abstract service for configuring editors options.
+ *
+ * The generic parameter `CONFIGURATION` is current value editor options type.
  */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorConfigurationProvider#forAlias
+     * @name AbstractValueEditorConfigurationService#forAlias
      * @module angularjs-value-editor
      *
      * @param {CustomValueEditorType} alias Alias
@@ -80,7 +82,7 @@
      */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorConfigurationProvider#getDefaults
+     * @name AbstractValueEditorConfigurationService#getDefaults
      * @module angularjs-value-editor
      *
      * @returns {DefaultOptions<CONFIGURATION>} Default value editor options.
@@ -91,7 +93,7 @@
      */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorConfigurationProvider#getConfiguration
+     * @name AbstractValueEditorConfigurationService#getConfiguration
      * @module angularjs-value-editor
      *
      * @returns {DefaultOptions<CONFIGURATION>} Current value editor options.
@@ -101,7 +103,7 @@
      */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorConfigurationProvider#setConfiguration
+     * @name AbstractValueEditorConfigurationService#setConfiguration
      * @module angularjs-value-editor
      *
      * @param {Partial<CONFIGURATION>} configuration New value editor configuration.
@@ -112,14 +114,39 @@
      * Sets new value editor configuration.
      */
 /**
- * @ngdoc service
- * @name AbstractValueEditorConfigurationService
+     * @ngdoc method
+     * @name AbstractValueEditorConfigurationService#setAliasedConfiguration
+     * @module angularjs-value-editor
+     *
+     * @param {CustomValueEditorType} alias Alias
+     * @param {Partial<CONFIGURATION>} configuration New value editor configuration.
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Complete new value editor configuration for specified alias.
+     *
+     * @description
+     * Sets new value editor configuration for specific alias.
+     */
+/**
+     * @ngdoc method
+     * @name AbstractValueEditorConfigurationService#getAliasedConfiguration
+     * @module angularjs-value-editor
+     *
+     * @param {CustomValueEditorType} alias Alias
+     *
+     * @returns {DefaultOptions<CONFIGURATION>} Complete value editor configuration for specified alias.
+     *
+     * @description
+     * Get value editor configuration for specific alias.
+     */
+/**
+ * @ngdoc provider
+ * @name AbstractValueEditorConfigurationProvider
  * @module angularjs-value-editor
  *
- * @abstract
+ * @template CONFIGURATION
  *
  * @description
- * See {@link AbstractValueEditorConfigurationProvider}
+ * All methods from {@link AbstractValueEditorConfigurationService} is available in this provider.
  */
 /**
  * @ngdoc type
@@ -163,18 +190,16 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*//**
- * @ngdoc provider
- * @name AbstractValueEditorLocalizationProvider
+ * @ngdoc service
+ * @name AbstractValueEditorLocalizationService
  * @module angularjs-value-editor
  *
- * @abstract
- *
  * @description
- * Generic provider for value editor localizations.
+ * Generic service for value editor localizations.
  */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorLocalizationProvider#setLocalization
+     * @name AbstractValueEditorLocalizationService#setLocalization
      * @module angularjs-value-editor
      *
      * @param {string} code Message code.
@@ -185,7 +210,7 @@
      */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorLocalizationProvider#setAll
+     * @name AbstractValueEditorLocalizationService#setAll
      * @module angularjs-value-editor
      *
      * @param {ValueEditorLocalizations} localizations
@@ -195,7 +220,7 @@
      */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorLocalizationProvider#getLocalization
+     * @name AbstractValueEditorLocalizationService#getLocalization
      * @module angularjs-value-editor
      *
      * @param {string} code Wanted localization code.
@@ -207,7 +232,7 @@
      */
 /**
      * @ngdoc method
-     * @name AbstractValueEditorLocalizationProvider#getAll
+     * @name AbstractValueEditorLocalizationService#getAll
      * @module angularjs-value-editor
      *
      * @returns {ValueEditorLocalizations} All messages.
@@ -215,6 +240,16 @@
      * @description
      * Returns all localization messages.
      */
+/**
+ * @ngdoc provider
+ * @name AbstractValueEditorLocalizationProvider
+ * @module angularjs-value-editor
+ *
+ * @abstract
+ *
+ * @description
+ * All methods from {@link AbstractValueEditorLocalizationService} work well in this provider.
+ */
 /**
  * @ngdoc type
  * @name ValueEditorLocalizations
@@ -228,16 +263,6 @@
  *          [key: string]: string;
  *      }
  * ```
- */
-/**
- * @ngdoc service
- * @name AbstractValueEditorLocalizationService
- * @module angularjs-value-editor
- *
- * @abstract
- *
- * @description
- * See {@link AbstractValueEditorLocalizationProvider}
  *//**
  * @ngdoc module
  * @name angularjs-value-editor.aliases
@@ -3214,7 +3239,148 @@
  * @description
  *
  *//* tslint:disable:variable-name */
-/*@ngInject*//**
+/*@ngInject*//* tslint:disable-next-line:variable-name*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/* @ts-ignore*//**
+ * @ngdoc directive
+ * @name kpAsyncValidation
+ * @module angularjs-value-editor.async-validation
+ *
+ * @restrict A
+ *
+ * @requires ngModel
+ * @requires KpValueEditorComponent
+ * @requires ErrorMessagesDirective
+ *
+ * @params {KpAsyncValidationOptions} kpAsyncValidation Validation options.
+ *
+ * @description
+ * This directive adds async validation to value-editors. It works like this:
+ *  - User specifies validation using validation definition object {@KpAsyncValidationOptions} in validations section via `async` key (validation name).
+ *  - User sets async validation function via {@link kpAsyncValidationServiceProvider}`.setValidationFunction`.
+ *  - When validation is triggered, it will make function call with injected arguments and expects `Promise` with result.
+ *  - If promise is fulfilled, nothing happens, but if not, directive expects in error reason `string` with error message to display.
+ *
+ * @example
+ * <example name="KpAsyncValidationDirectiveExample" module="KpAsyncValidationDirectiveExample" frame-no-resize="true">
+ *     <file name="index.html">
+ *         <main>
+ *             <kp-value-editor type="'text'" ng-model="model" validations="{async: {additionalParameters: 'Some additional params'}}"></kp-value-editor>
+ *         </main>
+ *     </file>
+ *     <file name="script.js">
+ *         angular.module('KpAsyncValidationDirectiveExample', ['angularjs-value-editor'])
+ *          .config(['kpAsyncValidationServiceProvider', function(kpAsyncValidationServiceProvider) {
+ *              kpAsyncValidationServiceProvider.setValidationFunction(['$model', '$additionalParameters', '$timeout', function($model, $additionalParameters, $timeout) {
+ *                  return new Promise((resolve, reject) => {
+ *                      const delay = (Math.round(Math.random() * 1000) + 500);
+ *                      const yesNo = Math.round(Math.random() * 100) % 2 === 0;
+ *
+ *                      const result = yesNo ? resolve : reject.bind(null, `Sybila said that ${($model || '').length !== 0 ? $model : '<empty>'} is invalid...`);
+ *
+ *                      $timeout(result, delay);
+ *                  });
+ *              }]);
+ *          }]);
+ *     </file>
+ * </example>
+ */
+/*@ngInject*/
+/**
+ * @ngdoc type
+ * @name KpAsyncValidationOptions
+ * @module angularjs-value-editor.async-validation
+ *
+ * @property {boolean} sendWholeForm If `true` into validation function will be injectable whole wrapping form as `$formModel` argument.
+ * @property {any} additionalParameters Any values passed into validation function as injectable `$additionalParameters` argument.
+ *
+ * @description
+ * Async validation parameters.
+ */
+/**
+ * @ngdoc constant
+ * @name ASYNC_VALIDATION_DEFAULT_OPTIONS
+ * @module angularjs-value-editor.async-validation
+ *
+ * @description
+ * Default async validation parameters value.
+ *
+ * ```
+ *  {
+ *      additionalParameters: undefined,
+ *      sendWholeForm: false
+ *  }
+ * ```
+ *//**
+ * @ngdoc module
+ * @name angularjs-value-editor.async-validation
+ * @module angularjs-value-editor.async-validation
+ *
+ * @description
+ *
+ *//**
+ * @ngdoc type
+ * @name ValidationFunction
+ * @module angularjs-value-editor.async-validation
+ *
+ * @description
+ * ```
+ * type ValidationFunction = Injectable<((...args: any[]) => IPromise<string>)>;
+ * ```
+ */
+/* tslint:disable-next-line:ban-types*/
+/**
+ * @ngdoc service
+ * @name kpAsyncValidationService
+ * @module angularjs-value-editor.async-validation
+ *
+ * @description
+ * Service for async validations.
+ */
+/**
+     * @ngdoc method
+     * @name kpAsyncValidationService#getValidationsFunction
+     *
+     * @returns {ValidationFunction} Custom validation function.
+     *
+     * @description
+     * Method returns user-specified async validation function.
+     */
+/**
+ * @ngdoc provider
+ * @name kpAsyncValidationServiceProvider
+ * @module angularjs-value-editor.async-validation
+ *
+ * @description
+ * Provider for async validations.
+ */
+/**
+     * @ngdoc method
+     * @name kpAsyncValidationServiceProvider#setValidationFunction
+     *
+     * @param {ValidationFunction} validationFunction User-specified validation function.
+     *
+     * @description
+     * Setter for validation function. Validation function is called every time when async validation is triggered.
+     * Function returns Promise depending on validation result. If validation failed, promise will be rejected.
+     * Rejection reason should be `string` which will be displayed as validation error message.
+     *
+     * If validation succeeds, promise will be resolved.
+     *
+     * Validation function is called using `Injector.invoke()` function, so it accepts some injectable parameters.
+     *
+     * | Injectable&nbsp;argument&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description                                                                           |
+     * | ------------------------ | ----------------------------------------------------------------------------------------------- |
+     * | `$model`                 | Current model                                                                                   |
+     * | `$formModel`             | If `sendWholeForm` {@link type:KpAsyncValidationOptions option} is true, it contains form model |
+     * | `$additionalParameters`  | Current model                                                                                   |
+     *//**
  * @ngdoc type
  * @name KpUniversalFormSettings
  * @module angularjs-value-editor
@@ -3322,7 +3488,7 @@
 /**
  * @ngdoc component
  * @name kpValueEditorForceSetting
- * @module angularjs-value-editors.force-settings
+ * @module angularjs-value-editor.force-settings
  *
  * @template OPTIONS
  * @template VALIDATIONS
@@ -3338,7 +3504,7 @@
  *//**
  * @ngdoc component
  * @name kpValueEditorForceSettings
- * @module angularjs-value-editors.force-settings
+ * @module angularjs-value-editor.force-settings
  *
  * @description
  *  This component allows to force settings of value-editor.
@@ -3362,8 +3528,8 @@
  */
 /* tslint:disable-next-line:max-classes-per-file*//**
  * @ngdoc module
- * @name angularjs-value-editors.force-settings
- * @module angularjs-value-editors.force-settings
+ * @name angularjs-value-editor.force-settings
+ * @module angularjs-value-editor.force-settings
  *
  * @description
  *
@@ -3373,31 +3539,46 @@
  * @name kpValueEditorConfigurationServiceProvider
  * @module angularjs-value-editor
  *
- * @property {boolean} debugMode Enable / disable debug mode. It show / hide information section below value editor.
- * @property {boolean} preciseWatchForOptionsChanges It enables deep watching for changes in value editors options.
- * If watching for changes is not needed, it's recommended set it to `false` due to high system requirements.
- * (It makes deep equal of options in each digest cycle).
+ * @description
+ * Provider for {@link kpValueEditorConfigurationService}
+ */
+/**
+     * @ngdoc method
+     * @name kpValueEditorConfigurationServiceProvider#setDebugMode
+     *
+     * @param {boolean} isEnabled
+     *
+     * @description
+     * Enable / disable debug mode. It show / hide information section below value editor.
+     */
+/**
+     * @ngdoc method
+     * @name kpValueEditorConfigurationServiceProvider#setDebugMode
+     *
+     * @param {boolean} preciseWatchForOptionsChanges
+     *
+     * @description
+     * It enables deep watching for changes in value editors options.
+     * If watching for changes is not needed, it's recommended set it to `false` due to high system requirements.
+     * (It makes deep equal of options in each digest cycle).
+     */
+/**
+ * @ngdoc service
+ * @name kpValueEditorConfigurationService
+ * @module angularjs-value-editor
+ *
+ * @property {boolean} debugMode Show debug information
+ * @property {boolean} preciseWatchForOptionsChanges
  *
  * @description
- * * Default options:
+ *
+ * Default options:
  * ```
  *  {
  *      debugMode: false,
  *      preciseWatchForOptionsChanges: false
  *  }
  * ```
- *
- * Provider for {@link kpValueEditorConfigurationService}
- */
-/**
- * @ngdoc service
- * @name kpValueEditorConfigurationService
- * @module angularjs-value-editor
- *
- * @description
- *
- * See {@link kpValueEditorConfigurationServiceProvider}
- *
  *//*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
@@ -3486,7 +3667,8 @@
  * @name ValueEditorValidations
  * @module angularjs-value-editor
  *
- * @property {boolean=} required Optional required validation.
+ * @property {boolean} required Optional required validation.
+ * @property {KpAsyncValidationOptions} async Boolean or definition for remote validation.
  */
 /**
  * @ngdoc type

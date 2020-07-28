@@ -11,48 +11,6 @@
   <h2>Module Components</h2>
   
   <div>
-    <h3 class="component-heading" id="provider">Provider</h3>
-    <table class="definition-table">
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/provider/AbstractValueEditorConfigurationProvider">AbstractValueEditorConfigurationProvider</a></td>
-        <td><p>Abstract provider for configuring editors options.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider">AbstractValueEditorLocalizationProvider</a></td>
-        <td><p>Generic provider for value editor localizations.</p>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/provider/kpValueEditorConfigurationServiceProvider">kpValueEditorConfigurationServiceProvider</a></td>
-        <td><ul>
-<li>Default options:<pre><code>{
-   debugMode: false,
-   preciseWatchForOptionsChanges: false
-}
-</code></pre>
-</li>
-</ul>
-</td>
-      </tr>
-      
-      <tr>
-        <td><a href="api/angularjs-value-editor/provider/kpValueEditorRegistrationServiceProvider">kpValueEditorRegistrationServiceProvider</a></td>
-        <td><p>This provider is user for registering new value editor types.</p>
-</td>
-      </tr>
-      
-    </table>
-  </div>
-  
-  <div>
     <h3 class="component-heading" id="service">Service</h3>
     <table class="definition-table">
       <tr>
@@ -62,25 +20,65 @@
       
       <tr>
         <td><a href="api/angularjs-value-editor/service/AbstractValueEditorConfigurationService">AbstractValueEditorConfigurationService</a></td>
-        <td><p>See <a href="api/angularjs-value-editor/provider/AbstractValueEditorConfigurationProvider">AbstractValueEditorConfigurationProvider</a></p>
+        <td><p>Abstract service for configuring editors options.</p>
 </td>
       </tr>
       
       <tr>
         <td><a href="api/angularjs-value-editor/service/AbstractValueEditorLocalizationService">AbstractValueEditorLocalizationService</a></td>
-        <td><p>See <a href="api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider">AbstractValueEditorLocalizationProvider</a></p>
+        <td><p>Generic service for value editor localizations.</p>
 </td>
       </tr>
       
       <tr>
         <td><a href="api/angularjs-value-editor/service/kpValueEditorConfigurationService">kpValueEditorConfigurationService</a></td>
-        <td><p>See <a href="api/angularjs-value-editor/provider/kpValueEditorConfigurationServiceProvider">kpValueEditorConfigurationServiceProvider</a></p>
+        <td><p>Default options:</p>
+<pre><code>{
+    debugMode: false,
+    preciseWatchForOptionsChanges: false
+}
+</code></pre>
 </td>
       </tr>
       
       <tr>
         <td><a href="api/angularjs-value-editor/service/kpValueEditorRegistrationService">kpValueEditorRegistrationService</a></td>
         <td></td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div>
+    <h3 class="component-heading" id="provider">Provider</h3>
+    <table class="definition-table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor/provider/AbstractValueEditorConfigurationProvider">AbstractValueEditorConfigurationProvider</a></td>
+        <td><p>All methods from <a href="api/angularjs-value-editor/service/AbstractValueEditorConfigurationService">AbstractValueEditorConfigurationService</a> is available in this provider.</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor/provider/AbstractValueEditorLocalizationProvider">AbstractValueEditorLocalizationProvider</a></td>
+        <td><p>All methods from <a href="api/angularjs-value-editor/service/AbstractValueEditorLocalizationService">AbstractValueEditorLocalizationService</a> work well in this provider.</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor/provider/kpValueEditorConfigurationServiceProvider">kpValueEditorConfigurationServiceProvider</a></td>
+        <td><p>Provider for <a href="api/angularjs-value-editor/service/kpValueEditorConfigurationService">kpValueEditorConfigurationService</a></p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><a href="api/angularjs-value-editor/provider/kpValueEditorRegistrationServiceProvider">kpValueEditorRegistrationServiceProvider</a></td>
+        <td><p>This provider is user for registering new value editor types.</p>
+</td>
       </tr>
       
     </table>
