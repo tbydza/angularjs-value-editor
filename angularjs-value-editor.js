@@ -11080,7 +11080,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__143__;
 /***/ (function(module, exports) {
 
 var path = '/value-editor/editors/range/range.value-editor.tpl.pug';
-var html = "<div class=\"curent-value\">{{currentValueTemplate}}</div><td-slider ng-model=\"$ctrl.internalModel\" ng-model-options=\"{ getterSetter: true}\" slider-model-transformer=\"$ctrl.options.extremesAsNull\" min=\"$ctrl.options.min\" max=\"$ctrl.options.max\" snap=\"$ctrl.options.snap\" snap-points=\"$ctrl.options.snapPoints\" pit-points=\"$ctrl.options.pitPoints\" on-values-updated=\"$from = $values[0]; $to = $values[1]\" kp-async-validation=\"$ctrl.valueEditorController.validations.async\" data-main-input=\"data-main-input\"></td-slider>";
+var html = "<div class=\"curent-value\">{{currentValueTemplate}}</div><td-slider ng-model=\"$ctrl.internalModel\" ng-model-options=\"{ getterSetter: true}\" slider-model-transformer=\"$ctrl.options.extremesAsNull\" min=\"$ctrl.options.min\" max=\"$ctrl.options.max\" snap=\"$ctrl.options.snap\" snap-points=\"$ctrl.options.snapPoints\" pit-points=\"$ctrl.options.pitPoints\" on-values-updated=\"$from = $values[0]; $to = $values[1]\" data-main-input=\"data-main-input\"></td-slider>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 

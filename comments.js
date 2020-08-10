@@ -546,7 +546,7 @@
  *
  * @description
  *
- *//* istanbul ignore file */
+ *//*@ngInject*//* istanbul ignore file */
 /* neni cas... :-(*/
 /**
  * Taken from https://github.com/wix/angular-tree-control and modified
