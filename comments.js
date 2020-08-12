@@ -383,7 +383,7 @@
  *
  * @template MODEL
  *
- * @property {MODEL} acceptableValue Tree of acceptable values. Every node should has array of child nodes in property `children`.
+ * @property {MODEL} acceptableValue Tree of acceptable values. Every node should have array of child nodes in property `children`.
  * @property {boolean} multiselect If `true`, it will be multiselectable.
  * @property {MODEL[]} disabledItems Disabled items.
  * @property {function(MODEL, MODEL): boolean} equalityComparator Same as {@link type:AcceptableValueEditorOptions#equalityComparator}
@@ -2693,6 +2693,7 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
+/*@ngInject*/
 /*@ngInject*//**
  * @ngdoc type
  * @name SignatureValueEditorOptions
@@ -4152,7 +4153,7 @@
 /* &&
                     !angular.isFunction(o2[key])*/
 /* tslint:disable-next-line:no-unused-expression*/
-/* tslint:disable-next-line:no-unused-expression*//**
+/* tslint:disable-next-line:no-unused-expression*//* tslint:disable:no-empty *//* function should be last element*//**
  * Connects outer required ngModel with inner ngModel
  *//**
  * Generates random pseudo-UUID.
