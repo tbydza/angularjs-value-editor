@@ -39,7 +39,7 @@
   
 
   
-  <pre><code>&lt;kp-value-editor-force-setting&#10;    [type=&quot;CustomValueEditorType&quot;]&#10;    [options=&quot;OPTIONS&quot;]&#10;    [validations=&quot;VALIDATIONS&quot;]&gt;&#10;&lt;/kp-value-editor-force-setting&gt;</code></pre>
+  <pre><code>&lt;kp-value-editor-force-setting&#10;    [type=&quot;CustomValueEditorType&quot;]&#10;    [options=&quot;OPTIONS&quot;]&#10;    [validations=&quot;VALIDATIONS&quot;]&#10;    [strategy=&quot;KpValueEditorForceSettingsMergeStrategy&quot;]&gt;&#10;&lt;/kp-value-editor-force-setting&gt;</code></pre>
   </div>
   
 <section class="api-section">
@@ -100,6 +100,23 @@
       </td>
       <td>
         <p>Validations (not implemented yet)</p>
+
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        strategy
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        <span class="label type-hint type-hint-kpvalueeditorforcesettingsmergestrategy"><a href="api/angularjs-value-editor.force-settings/type/KpValueEditorForceSettingsMergeStrategy">KpValueEditorForceSettingsMergeStrategy</a></span>
+      </td>
+      <td>
+        <p>If some option is object, this param specifies merge strategy.</p>
 
         
         

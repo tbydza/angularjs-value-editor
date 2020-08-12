@@ -38,13 +38,13 @@ This object will be later registered as <code>constant</code> into editor module
     public static readonly providerName = &#39;textValueEditorConfigurationService&#39;;
 
     /*@ngInject*/
-    constructor(aliasesServiceProvider, textValueEditorDefaultOptions: DefaultOptions&lt;TextValueEditorOptions&gt;) {
-        super(aliasesServiceProvider, textValueEditorDefaultOptions);
+    constructor(kpValueEditorAliasesServiceProvider, textValueEditorDefaultOptions: DefaultOptions&lt;TextValueEditorOptions&gt;) {
+        super(kpValueEditorAliasesServiceProvider, textValueEditorDefaultOptions);
     }
 }
 </code></pre>
 <p> Provider has to extend <code>AbstractValueEditorConfigurationProvider&lt;XxxValueEditorOptions&gt;</code>. All functionality is implemented in this abstract class.</p>
-<p> You should only write correctly constructor injections. It needs <code>aliasesServiceProvider</code> and default settings injected with constant name.</p>
+<p> You should only write correctly constructor injections. It needs <code>kpValueEditorAliasesServiceProvider</code> and default settings injected with constant name.</p>
 </li>
 <li><p><code>interface TextValueEditorConfigurationService</code> service</p>
 <p> Configuration service interface</p>

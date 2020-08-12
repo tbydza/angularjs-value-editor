@@ -270,7 +270,12 @@
  *
  * @description
  * Support for editor types aliasing
- *//**
+ *//*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*//**
  * @ngdoc type
  * @name CustomValueEditorType
  * @module angularjs-value-editor.aliases
@@ -285,7 +290,7 @@
 /*@ngInject*/
 /**
  * @ngdoc service
- * @name aliasesService
+ * @name kpValueEditorAliasesService
  * @module angularjs-value-editor.aliases
  *
  * @description
@@ -293,7 +298,7 @@
  */
 /**
      * @ngdoc method
-     * @name aliasesService#getAlias
+     * @name kpValueEditorAliasesService#getAlias
      *
      * @param {CustomValueEditorType} alias Get alias settings.
      *
@@ -304,7 +309,7 @@
      */
 /**
      * @ngdoc method
-     * @name aliasesService#isAlias
+     * @name kpValueEditorAliasesService#isAlias
      *
      * @param {CustomValueEditorType} type Tested editor type.
      *
@@ -315,7 +320,7 @@
      */
 /**
  * @ngdoc provider
- * @name aliasesServiceProvider
+ * @name kpValueEditorAliasesServiceProvider
  * @module angularjs-value-editor.aliases
  *
  * @description
@@ -323,7 +328,7 @@
  */
 /**
      * @ngdoc method
-     * @name aliasesServiceProvider#addAlias
+     * @name kpValueEditorAliasesServiceProvider#addAlias
      *
      * @param {CustomValueEditorType} aliasTypeName New alias.
      * @param {CustomValueEditorType} editorType Existing aliased editor.
@@ -335,18 +340,13 @@
      */
 /**
      * @ngdoc method
-     * @name aliasesServiceProvider#removeAlias
+     * @name kpValueEditorAliasesServiceProvider#removeAlias
      *
      * @param {CustomValueEditorType} aliasTypeName Removing alias.
      *
      * @description
      * Remove alias.
-     *//*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*//**
+     *//**
  * @ngdoc directive
  * @name disableNgAnimate
  * @module angularjs-value-editor
@@ -1516,7 +1516,7 @@
  * @module angularjs-value-editor.exemplar-bar-code
  *
  * @description
- * `exemplar-bar-code` value editor is only {@link aliasesService alias} for {@link textValueEditor text-value-editor} with default {@link TextValueEditorOptions options}:
+ * `exemplar-bar-code` value editor is only {@link kpValueEditorAliasesService alias} for {@link textValueEditor text-value-editor} with default {@link TextValueEditorOptions options}:
  * ```
  *  {
  *      type: 'text'
@@ -3051,7 +3051,7 @@
  * @module angularjs-value-editor.velocity-template
  *
  * @description
- * `velocity-template` value editor is only {@link aliasesService alias} for {@link textValueEditor text-value-editor} with default {@link TextValueEditorOptions options}:
+ * `velocity-template` value editor is only {@link kpValueEditorAliasesService alias} for {@link textValueEditor text-value-editor} with default {@link TextValueEditorOptions options}:
  * ```
  *  {
  *      type: 'rich-textarea'
@@ -3499,9 +3499,34 @@
  * @param {CustomValueEditorType=} type Type of value editor. If `type` is not specified, options will be passed to all editors.
  * @param {OPTIONS=} options Options
  * @param {VALIDATIONS=} validations Validations (not implemented yet)
+ * @param {KpValueEditorForceSettingsMergeStrategy=} strategy If some option is object, this param specifies merge strategy.
  *
  * @description
  * This component is used for override options and validations for specified type of value editor. It requires {@link component:kpValueEditorForceSettings}
+ */
+/**
+ * @ngdoc type
+ * @name KpValueEditorForceSettingsMergeStrategy
+ * @module angularjs-value-editor.force-settings
+ *
+ * @description
+ * ```
+ *  type KpValueEditorForceSettingsMergeStrategy = 'overwrite' | 'merge';
+ * ```
+ *
+ * Default value: {@link DEFAULT_MERGE_STRATEGY}.
+ */
+/**
+ * @ngdoc constant
+ * @name DEFAULT_MERGE_STRATEGY
+ * @module angularjs-value-editor.force-settings
+ *
+ * @description
+ * Default value for {@link KpValueEditorForceSettingsMergeStrategy}
+ *
+ * ```
+ *  const DEFAULT_MERGE_STRATEGY: KpValueEditorForceSettingsMergeStrategy = 'overwrite';
+ * ```
  *//**
  * @ngdoc component
  * @name kpValueEditorForceSettings
@@ -3535,6 +3560,14 @@
  * @description
  *
  *//* tslint:disable-next-line:variable-name*/
+/*@ngInject*/
+/* @ts-ignore*/
+/*@ngInject*/
+/* @ts-ignore*/
+/*@ngInject*/
+/* @ts-ignore*/
+/*@ngInject*/
+/* @ts-ignore*/
 /*@ngInject*//**
  * @ngdoc provider
  * @name kpValueEditorConfigurationServiceProvider

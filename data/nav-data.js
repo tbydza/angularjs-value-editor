@@ -505,9 +505,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.aliases/provider",
             "navItems": [
               {
-                "name": "aliasesServiceProvider",
+                "name": "kpValueEditorAliasesServiceProvider",
                 "type": "provider",
-                "href": "api/angularjs-value-editor.aliases/provider/aliasesServiceProvider"
+                "href": "api/angularjs-value-editor.aliases/provider/kpValueEditorAliasesServiceProvider"
               }
             ]
           },
@@ -517,9 +517,9 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.aliases/service",
             "navItems": [
               {
-                "name": "aliasesService",
+                "name": "kpValueEditorAliasesService",
                 "type": "service",
-                "href": "api/angularjs-value-editor.aliases/service/aliasesService"
+                "href": "api/angularjs-value-editor.aliases/service/kpValueEditorAliasesService"
               }
             ]
           },
@@ -1009,6 +1009,30 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "kpValueEditorForceSettings",
                 "type": "component",
                 "href": "api/angularjs-value-editor.force-settings/component/kpValueEditorForceSettings"
+              }
+            ]
+          },
+          {
+            "name": "constant",
+            "type": "section",
+            "href": "api/angularjs-value-editor.force-settings/constant",
+            "navItems": [
+              {
+                "name": "DEFAULT_MERGE_STRATEGY",
+                "type": "constant",
+                "href": "api/angularjs-value-editor.force-settings/constant/DEFAULT_MERGE_STRATEGY"
+              }
+            ]
+          },
+          {
+            "name": "type",
+            "type": "section",
+            "href": "api/angularjs-value-editor.force-settings/type",
+            "navItems": [
+              {
+                "name": "KpValueEditorForceSettingsMergeStrategy",
+                "type": "type",
+                "href": "api/angularjs-value-editor.force-settings/type/KpValueEditorForceSettingsMergeStrategy"
               }
             ]
           }
