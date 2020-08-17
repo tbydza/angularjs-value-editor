@@ -5570,8 +5570,6 @@ SearchableValueEditorComponent.valueEditorType = 'searchable';
 /* istanbul ignore file */
 // neni moc co testovat... viz. testy
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -5591,6 +5589,18 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 
 var __classPrivateFieldGet = this && this.__classPrivateFieldGet || function (receiver, privateMap) {
   if (!privateMap.has(receiver)) {
@@ -5619,6 +5629,8 @@ exports.RangeValueEditorComponentController = void 0;
 var abstract_template_value_editor_1 = __webpack_require__(7);
 
 var abstract_value_editor_component_1 = __webpack_require__(2);
+
+var bind_decorator_1 = __webpack_require__(6);
 
 var TEMPLATE_NAME_PREFIX = 'value-editor.rangeValueEditor';
 
@@ -5652,11 +5664,51 @@ var RangeValueEditorComponentController = /*#__PURE__*/function (_abstract_templ
       }
     }
   }, {
+    key: "setFrom",
+    value: function setFrom(from) {
+      if (this.isValidValue(from)) {
+        this.internalModel = Object.assign({}, this.internalModel, {
+          from: this.applyExtremesAsNullOption(from)
+        });
+      }
+    }
+  }, {
+    key: "setTo",
+    value: function setTo(to) {
+      if (this.isValidValue(to)) {
+        this.internalModel = Object.assign({}, this.internalModel, {
+          to: this.applyExtremesAsNullOption(to)
+        });
+      }
+    }
+  }, {
     key: "getTemplateModel",
     value: function getTemplateModel() {
       return {
         currentValueTemplate: this.options.currentValueTemplate
       };
+    }
+  }, {
+    key: "isValidValue",
+    value: function isValidValue(value) {
+      if (typeof value !== 'number') return false;
+      if (Number.isNaN(value)) return false;
+      if (value < this.options.min || value > this.options.max) return false;
+      return true;
+    }
+  }, {
+    key: "applyExtremesAsNullOption",
+    value: function applyExtremesAsNullOption(value) {
+      if (this.options.extremesAsNull && (value === this.options.min || value === this.options.max)) return null;
+      return value;
+    }
+  }, {
+    key: "internalModel",
+    get: function get() {
+      return __classPrivateFieldGet(this, _internalModel);
+    },
+    set: function set(value) {
+      this.model = value;
     }
   }, {
     key: "emptyModel",
@@ -5669,22 +5721,19 @@ var RangeValueEditorComponentController = /*#__PURE__*/function (_abstract_templ
         to: this.options.max
       };
     }
-  }, {
-    key: "internalModel",
-    get: function get() {
-      return __classPrivateFieldGet(this, _internalModel);
-    },
-    set: function set(value) {
-      this.model = value;
-    }
   }]);
 
   return RangeValueEditorComponentController;
 }(abstract_template_value_editor_1.default);
 
-exports.RangeValueEditorComponentController = RangeValueEditorComponentController;
 _internalModel = new WeakMap();
 RangeValueEditorComponentController.TEMPLATE_URL = __webpack_require__(142);
+
+__decorate([bind_decorator_1.default], RangeValueEditorComponentController.prototype, "setFrom", null);
+
+__decorate([bind_decorator_1.default], RangeValueEditorComponentController.prototype, "setTo", null);
+
+exports.RangeValueEditorComponentController = RangeValueEditorComponentController;
 /**
  * @ngdoc component
  * @name rangeValueEditor
@@ -5705,13 +5754,22 @@ RangeValueEditorComponentController.TEMPLATE_URL = __webpack_require__(142);
  * @example
  * <example name="rangeValueEditorExample" module="rangeValueEditorExample" frame-no-resize="true">
  *     <file name="index.html">
- *         <main>
- *              <kp-value-editor type="'range'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+ *         <main ng-controller="controller as $ctrl">
+ *              <kp-value-editor type="'range'" ng-model="model" options="$ctrl.options"></kp-value-editor>
  *              <div>Model: {{model}}</div>
  *         </main>
  *     </file>
  *     <file name="script.js">
  *         angular.module('rangeValueEditorExample', ['angularjs-value-editor'])
+ *          .controller('controller', class {
+ *              options = {
+ *                  currentValueTemplate: `
+ *                      <input type="number" ng-model="$from" ng-change="$setFrom($from)" min="{{$options.min}}" max="{{$options.max}}">
+ *                      -
+ *                      <input type="number" ng-model="$to" ng-change="$setTo($to)" min="{{$options.min}}" max="{{$options.max}}">
+ *                  `
+ *              };
+ *          });
  *     </file>
  * </example>
  */
@@ -11023,7 +11081,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__141__;
 /***/ (function(module, exports) {
 
 var path = '/value-editor/editors/range/range.value-editor.tpl.pug';
-var html = "<div class=\"curent-value\">{{currentValueTemplate}}</div><td-slider ng-model=\"$ctrl.internalModel\" ng-model-options=\"{ getterSetter: true}\" slider-model-transformer=\"$ctrl.options.extremesAsNull\" min=\"$ctrl.options.min\" max=\"$ctrl.options.max\" snap=\"$ctrl.options.snap\" snap-points=\"$ctrl.options.snapPoints\" pit-points=\"$ctrl.options.pitPoints\" on-values-updated=\"$from = $values[0]; $to = $values[1]\" data-main-input=\"data-main-input\"></td-slider>";
+var html = "\\{\\{$setFrom = $ctrl.setFrom; ''\\}\\}\n\\{\\{$setTo = $ctrl.setTo; ''\\}\\}\n\\{\\{$options = $ctrl.options; ''\\}\\}<div class=\"curent-value\">{{currentValueTemplate}}</div><td-slider ng-model=\"$ctrl.internalModel\" ng-model-options=\"{ getterSetter: true}\" slider-model-transformer=\"$ctrl.options.extremesAsNull\" min=\"$ctrl.options.min\" max=\"$ctrl.options.max\" snap=\"$ctrl.options.snap\" snap-points=\"$ctrl.options.snapPoints\" pit-points=\"$ctrl.options.pitPoints\" on-values-updated=\"$from = $values[0]; $to = $values[1]\" data-main-input=\"data-main-input\"></td-slider>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
@@ -11070,7 +11128,7 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(1);
  * {
  *     extremesAsNull: true,
  *     min: 0,
- *     max: 0,
+ *     max: 100,
  *     snap: false,
  *     snapPoints: undefined,
  *     pitPoints: undefined,
@@ -11083,7 +11141,7 @@ var abstract_value_editor_configuration_provider_1 = __webpack_require__(1);
 exports.RANGE_VALUE_EDITOR_DEFAULT_OPTIONS = {
   extremesAsNull: true,
   min: 0,
-  max: 0,
+  max: 100,
   snap: false,
   snapPoints: undefined,
   pitPoints: undefined,

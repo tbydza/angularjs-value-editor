@@ -66,7 +66,7 @@
       <md-tab label="index.html">
         <md-content class="md-padding">
           <div class="runnable-example-file" name="index.html"language="html"type="html">
-          <pre><code>&lt;main&gt;&#10;     &lt;kp-value-editor type=&quot;&#39;range&#39;&quot; ng-model=&quot;model&quot; options=&quot;{withConfirmation: true}&quot;&gt;&lt;/kp-value-editor&gt;&#10;     &lt;div&gt;Model: {{model}}&lt;/div&gt;&#10;&lt;/main&gt;</code></pre>
+          <pre><code>&lt;main ng-controller=&quot;controller as $ctrl&quot;&gt;&#10;     &lt;kp-value-editor type=&quot;&#39;range&#39;&quot; ng-model=&quot;model&quot; options=&quot;$ctrl.options&quot;&gt;&lt;/kp-value-editor&gt;&#10;     &lt;div&gt;Model: {{model}}&lt;/div&gt;&#10;&lt;/main&gt;</code></pre>
           </div>
         </md-content>
       </md-tab>
@@ -74,7 +74,7 @@
       <md-tab label="script.js">
         <md-content class="md-padding">
           <div class="runnable-example-file" name="script.js"language="js"type="js">
-          <pre><code>angular.module(&#39;rangeValueEditorExample&#39;, [&#39;angularjs-value-editor&#39;])</code></pre>
+          <pre><code>angular.module(&#39;rangeValueEditorExample&#39;, [&#39;angularjs-value-editor&#39;])&#10;.controller(&#39;controller&#39;, class {&#10;    options = {&#10;        currentValueTemplate: `&#10;            &lt;input type=&quot;number&quot; ng-model=&quot;$from&quot; ng-change=&quot;$setFrom($from)&quot; min=&quot;{{$options.min}}&quot; max=&quot;{{$options.max}}&quot;&gt;&#10;            -&#10;            &lt;input type=&quot;number&quot; ng-model=&quot;$to&quot; ng-change=&quot;$setTo($to)&quot; min=&quot;{{$options.min}}&quot; max=&quot;{{$options.max}}&quot;&gt;&#10;        `&#10;    };&#10;});</code></pre>
           </div>
         </md-content>
       </md-tab>

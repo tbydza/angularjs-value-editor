@@ -2160,7 +2160,15 @@
  * @property {boolean} snap If `true` handlers will snap to defined `snapPoints`.
  * @property {number[]} snapPoints Definition of snap points.
  * @property {number[]} pitPoints Definition where to be placed pits.
- * @property {string} currentValueTemplate Template of displaying current value of slider model above slider. From a to values are accessible via `$from` resp. `$to` variables.
+ * @property {string} currentValueTemplate Template for displaying current value of slider model above slider.
+ *
+ * | Template&nbsp;variable | Description                         |
+ * |------------------------|-------------------------------------|
+ * | `$from`                | From value                          |
+ * | `$to`                  | To value                            |
+ * | `$options`             | Options                             |
+ * | `$setFrom(value)`      | Function for setting **from** value |
+ * | `$setTo(value)`        | Function for setting **to** value   |
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
@@ -2179,7 +2187,7 @@
  * {
  *     extremesAsNull: true,
  *     min: 0,
- *     max: 0,
+ *     max: 100,
  *     snap: false,
  *     snapPoints: undefined,
  *     pitPoints: undefined,
@@ -2245,13 +2253,22 @@
  * @example
  * <example name="rangeValueEditorExample" module="rangeValueEditorExample" frame-no-resize="true">
  *     <file name="index.html">
- *         <main>
- *              <kp-value-editor type="'range'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+ *         <main ng-controller="controller as $ctrl">
+ *              <kp-value-editor type="'range'" ng-model="model" options="$ctrl.options"></kp-value-editor>
  *              <div>Model: {{model}}</div>
  *         </main>
  *     </file>
  *     <file name="script.js">
  *         angular.module('rangeValueEditorExample', ['angularjs-value-editor'])
+ *          .controller('controller', class {
+ *              options = {
+ *                  currentValueTemplate: `
+ *                      <input type="number" ng-model="$from" ng-change="$setFrom($from)" min="{{$options.min}}" max="{{$options.max}}">
+ *                      -
+ *                      <input type="number" ng-model="$to" ng-change="$setTo($to)" min="{{$options.min}}" max="{{$options.max}}">
+ *                  `
+ *              };
+ *          });
  *     </file>
  * </example>
  *//**
@@ -2263,7 +2280,7 @@
  *
  *//*@ngInject*/
 /* nothing to require*/
-/* component does not support disabling for this time*//**
+/* component td-slider does not support disabling for this time*//**
  * @ngdoc type
  * @name SearchTextValueEditorOptions
  * @module angularjs-value-editor.search-text

@@ -32,8 +32,8 @@
   
 </head>
 <body ng-app="rangeValueEditorExample">
-  <main>
-     <kp-value-editor type="'range'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+  <main ng-controller="controller as $ctrl">
+     <kp-value-editor type="'range'" ng-model="model" options="$ctrl.options"></kp-value-editor>
      <div>Model: {{model}}</div>
 </main>
 </body>
