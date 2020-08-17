@@ -568,7 +568,8 @@
 /* we can fix this to work with the link transclude function with angular 1.2.6. as for angular 1.2.0 we need*/
 /* to keep using the compile function*/
 /* Rendering template for the current node*/
-/* create a scope for the transclusion, whos parent is the parent of the tree control*//**
+/* create a scope for the transclusion, whos parent is the parent of the tree control*//* tslint:disable:ban-types */
+/**
  * @ngdoc type
  * @name AcceptableValueEditorOptions
  * @module angularjs-value-editor.acceptable
@@ -578,25 +579,44 @@
  * @property {VALUE[]} acceptableValues Array of predefined values.
  * @property {boolean} multiselectable If true, value editor will accept multiple values and init model as empty array if not.
  * @property {string} optionsTemplate Angular template for displaying options. Current option is accessible via `$item` variable name.
- * @property {string} singleSelectedValueTemplate Angular template for displaying selected value in single select mode. Current option is accessible via `$select.selected` variable name.
- * @property {string} multiSelectedValueTemplate Angular template for displaying selected value in multiple select mode. Current option is accessible via `$item` variable name.
- * @property {function(VALUE, VALUE): boolean} equalityComparator Custom equality comparator.
+ * @property {Injectable<Function>} equalityComparator
+ * ```
+ * function(...args: any[]) => boolean
+ * ```
+ * Custom equality comparator as angularjs injectable function.
+ *
+ * | Injectable&nbsp;argument&nbsp;name | Description  |
+ * | ------------------------ | ---------------------- |
+ * | `$element1`  | Element 1                          |
+ * | `$element2`  | Element 2                          |
+ *
  * @property {boolean} searchable If true, select component will have search input. Applicable only for select mode.
  * @property {boolean} reorderable If true, multi-select component will have capability for manual ordering selected items. Applicable only for multiple select mode.
- * @property {function(VALUE, VALUE): number} sortComparator If defined, options will be sorted using this comparator function.
+ * @property {Injectable<Function>} sortComparator
+ * ```
+ * function(...args: any[]) => number
+ * ```
+ *
+ * If defined, options will be sorted using this comparator function.
+ * Angularjs injectable function.
+ *
+ * | Injectable&nbsp;argument&nbsp;name | Description  |
+ * | ------------------------ | ---------------------- |
+ * | `$element1`  | Element 1                          |
+ * | `$element2`  | Element 2                          |
+ *
  * @property {boolean} sortModel It true, model will be sorted using `comparator`. Applicable only for multiselectable mode.
- * @property {number} switchToCheckboxesThreshold If count of options is bigger then this threshold, value editor switches into checkbox mode. If threshold is `0`, value editor forces into checkbox mode. Applicable only for multiselectable, non-reorderable mode.
+ * @property {number} switchToBlockModeThreshold If count of options is bigger than threshold, value editor switches into block mode. If threshold is `0`, value editor forces into block mode.
  * @property {number} showFirstCount If count of options is bigger than this value, value editor shows only given count checkboxes and rest of options is hidden. Applicable only for multiselectable, checkbox mode.
  * @property {boolean} selectedFirst If `true`, selected options will be moved on top of options. Applicable only for multiselectable, checkbox mode.
  * @property {boolean} modelAsArray If `true`, model will be array also if `multiple = false`. In this case array will contain only one element.
+ * @property {boolean} allowSelectNull If `true`, single selectable editors will allow select null option or deselect selected.
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
  *
  * Default value: {@link acceptableValueEditorDefaultOptions}
  */
-/* TODO: Refactor to use injector.invoke*/
-/* TODO: Refactor to use injector.invoke*/
 /**
  * @ngdoc constant
  * @name acceptableValueEditorDefaultOptions
@@ -607,23 +627,25 @@
  *
  * ```javascript
  *  {
- *      cssClasses: ['form-control'],
  *      acceptableValues: [],
  *      multiselectable: false,
  *      searchable: true,
  *      optionsTemplate: '{{$item}}',
  *      singleSelectedValueTemplate: '{{$select.selected}}',
  *      multiSelectedValueTemplate: '{{$item}}',
- *      equalityComparator: angular.equals,
+ *      equalityComparator: \/*@ngInject*\/ ($element1, $element2) => angular.equals($element1, $element2),
  *      reorderable: false,
  *      showFirstCount: 0,
  *      selectedFirst: false,
  *      sortComparator: undefined,
  *      sortModel: false,
- *      switchToCheckboxesThreshold: 13
+ *      switchToCheckboxesThreshold: 13,
+ *      modelAsArray: false,
+ *      allowSelectNull: false
  *  }
  * ```
  */
+/*@ngInject*/
 /**
  * @ngdoc provider
  * @name acceptableValueEditorConfigurationServiceProvider
@@ -697,9 +719,13 @@
 /*@ngInject*/
 /*@ngInject*/
 /* + 1 for null selection*/
-/* + 1 for null selection*/
-/* + 1 for null selection*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
 /* 4 because selected options disappears from list*/
+/*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
 /* set classNameFilter*/
 /*@ngInject*/
 /*@ngInject*/
@@ -712,7 +738,18 @@
 /* disable bug workaround*/
 /* items should be hidden -> buggy behaviour*/
 /* TODO: Add some localizations and placeholder tests*//*@ngInject*/
+/**
+     * For block single selectable
+     * @param {VALUE} item
+     * @returns {boolean}
+     */
 /* trigger model sort by calling its setter and setting same value*/
+/**
+     * For checkboxes
+     * @param {VALUE} item
+     * @returns {boolean}
+     * @private
+     */
 /**
  * @ngdoc component
  * @name acceptableValueEditor
@@ -740,16 +777,15 @@
  *                  acceptableValues: $ctrl.acceptableValues,
  *                  multiselectable: $ctrl.multiselectable,
  *                  optionsTemplate: $ctrl.optionsTemplate,
- *                  singleSelectedValueTemplate: $ctrl.singleSelectedValueTemplate,
- *                  multiSelectedValueTemplate: $ctrl.multiSelectedValueTemplate,
  *                  searchable: $ctrl.searchable,
  *                  reorderable: $ctrl.reorderable,
  *                  showFirstCount: $ctrl.showFirstCount,
  *                  selectedFirst: $ctrl.selectedFirst,
  *                  sortModel: $ctrl.sortModel,
- *                  switchToCheckboxesThreshold: $ctrl.switchToCheckboxesThreshold,
  *                  sortComparator: $ctrl.sortComparator,
- *                  equalityComparator: $ctrl.equalityComparator
+ *                  equalityComparator: $ctrl.equalityComparator,
+ *                  modelAsArray: $ctrl.modelAsArray,
+ *                  switchToBlockModeThreshold: $ctrl.switchToBlockModeThreshold
  *              }" placeholder="'Select...'">
  *              </kp-value-editor>
  *              <div>Model: {{model}}</div>
@@ -759,18 +795,15 @@
  *              Settings:
  *              <div>multiselectable: <input type="checkbox" ng-model="$ctrl.multiselectable"></div>
  *              <div>optionsTemplate: <input type="text" ng-model="$ctrl.optionsTemplate"></div>
- *              <div>singleSelectedValueTemplate: <input type="text" ng-model="$ctrl.singleSelectedValueTemplate"></div>
- *              <div>multiSelectedValueTemplate: <input type="text" ng-model="$ctrl.multiSelectedValueTemplate"></div>
  *              <div>searchable: <input type="checkbox" ng-model="$ctrl.searchable"></div>
  *              <div>reorderable: <input type="checkbox" ng-model="$ctrl.reorderable"></div>
  *              <div>showFirstCount: <input type="number" ng-model="$ctrl.showFirstCount"></div>
  *              <div>selectedFirst: <input type="checkbox" ng-model="$ctrl.selectedFirst"></div>
  *              <div>sortModel: <input type="checkbox" ng-model="$ctrl.sortModel"></div>
- *              <div>switchToCheckboxesThreshold: <input type="number" ng-model="$ctrl.switchToCheckboxesThreshold"></div>
+ *              <div>switchToBlockModeThreshold: <input type="number" ng-model="$ctrl.switchToBlockModeThreshold"></div>
  *              <div>sortComparator: <input type="text" ng-model="$ctrl.sortComparatorString" ng-change="$ctrl.evalComparators()"></div>
  *              <div>equalityComparator: <input type="text" ng-model="$ctrl.equalityComparatorString" ng-change="$ctrl.evalComparators()"></div>
- *              OPTS:
- *              <div>{{$ctrl.multiselectable | json}}</div>
+ *              <div>modelAsArray: <input type="checkbox" ng-model="$ctrl.modelAsArray"></div>
  *         </main>
  *     </file>
  *     <file name="script.js">
@@ -778,14 +811,13 @@
  *          .controller('demoController', ['acceptableValueEditorDefaultOptions', class {
  *              multiselectable;
  *              optionsTemplate;
- *              singleSelectedValueTemplate;
- *              multiSelectedValueTemplate;
  *              searchable;
  *              reorderable;
  *              showFirstCount;
  *              selectedFirst;
  *              sortModel;
- *              switchToCheckboxesThreshold;
+ *              switchToBlockModeThreshold;
+ *              modelAsArray;
  *              sortComparatorString = `(e1, e2) => ((e1 || {x: ''}).x || '').localeCompare((e2 || {x: ''}).x) * -1`;
  *              equalityComparatorString = '(e1, e2) => e1.x === e2.x';
  *
@@ -1431,7 +1463,6 @@
  *
  * ```javascript
  *  {
- *      cssClasses: ['form-control'],
  *      maximumGranularity: 'day',
  *      viewFormat: 'd.L.y'
  *  }
@@ -1693,122 +1724,6 @@
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*/
 /* noinspection JSUnusedLocalSymbols*//**
- * @ngdoc type
- * @name IndexSelectionValueEditorOptions
- * @module angularjs-value-editor.index-selection
- *
- * @template ID
- * @template VALUE
- *
- * @property {VALUE[]} items Array of predefined values.
- * @property {string} optionsTemplate Angular template for displaying options. Current option is accessible via `$item` variable name.
- * @property {function(ID, VALUE): boolean} equalityComparator If defined, options will compared with this comparator. It is comparing model and selecting item.
- *
- * @description
- * Extends {@link type:ValueEditorOptions}
- *
- * Default value: {@link indexSelectionValueEditorDefaultOptions}
- */
-/**
- * @ngdoc constant
- * @name indexSelectionValueEditorDefaultOptions
- * @module angularjs-value-editor.index-selection
- *
- * @description
- * For description see {@link IndexSelectionValueEditorOptions}
- *
- * ```javascript
- *  {
- *      items: [],
- *      optionsTemplate: '{{$item}}',
- *      equalityComparator: (model, item) => angular.equals(Array.isArray(model) ? model[0] : model, item.id)
- *  }
- * ```
- */
-/**
- * @ngdoc provider
- * @name indexSelectionValueEditorConfigurationServiceProvider
- * @module angularjs-value-editor.index-selection
- *
- * @description
- *
- * See {@link AbstractValueEditorConfigurationProvider}
- *
- * Default options: {@link indexSelectionValueEditorDefaultOptions}
- */
-/*@ngInject*/
-/**
- * @ngdoc service
- * @name indexSelectionValueEditorConfigurationService
- * @module angularjs-value-editor.index-selection
- *
- * @description
- *
- * See {@link AbstractValueEditorConfigurationProvider}
- *
- * Default options: {@link indexSelectionValueEditorDefaultOptions}
- *//*@ngInject*/
-/**
- * @ngdoc component
- * @name indexSelectionValueEditor
- * @module angularjs-value-editor.index-selection
- *
- * @requires ng.type.ngModel.NgModelController
- * @requires component:kpValueEditor
- *
- * @description
- * Model type: `any`
- *
- * Value editor for index select.
- *
- * From some unknown reason, model is array.
- *
- * Supported options: {@link type:ValueEditorOptions}
- *
- * Supported validations: {@link type:ValueEditorValidations}
- *
- * @example
- * <example name="indexSelectionValueEditorExample" module="indexSelectionValueEditorExample" frame-no-resize="true">
- *     <file name="index.html">
- *         <main ng-controller="demoController as dc">
- *              <kp-value-editor type="'index-selection'" ng-model="model" options="{items: dc.items, optionsTemplate: '{{$item.text}}'}"></kp-value-editor>
- *              <div>Model: {{model}}</div>
- *         </main>
- *     </file>
- *     <file name="script.js">
- *         angular.module('indexSelectionValueEditorExample', ['angularjs-value-editor'])
- *         .controller('demoController', class {
- *              items = [
- *                {
- *                    id: 1,
- *                    text: 'one'
- *                },
- *                {
- *                    id: 2,
- *                    text: 'two'
- *                },
- *                {
- *                    id: 3,
- *                    text: 'three'
- *                },
- *                {
- *                    id: 4,
- *                    text: 'four'
- *                }
- *            ];
- *         });
- *     </file>
- * </example>
- *//**
- * @ngdoc module
- * @name angularjs-value-editor.index-selection
- * @module angularjs-value-editor.index-selection
- *
- * @description
- *
- *//*@ngInject*/
-/*@ngInject*/
-/* @ts-ignore*//**
  * @ngdoc directive
  * @name numberRangeValidations
  * @module angularjs-value-editor.number-range
@@ -4109,7 +4024,6 @@
  *      'acceptable' |
  *      'year' |
  *      'card-number' |
- *      'index-selection' |
  *      'autocomplete' |
  *      'password' |
  *      'signature' |

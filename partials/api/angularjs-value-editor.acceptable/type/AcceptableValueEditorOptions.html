@@ -79,38 +79,6 @@
 </table>
   </li>
   
-  <li id="singleSelectedValueTemplate">
-    <h3 class="">
-      <span class="title"><code>singleSelectedValueTemplate</code></span>
-      
-      
-  
-    </h3>
-    <table class="variables-matrix return-arguments">
-  <tr>
-    <td><span class="label type-hint type-hint-string"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" _target="blank">String</a></span></td>
-    <td><p>Angular template for displaying selected value in single select mode. Current option is accessible via <code>$select.selected</code> variable name.</p>
-</td>
-  </tr>
-</table>
-  </li>
-  
-  <li id="multiSelectedValueTemplate">
-    <h3 class="">
-      <span class="title"><code>multiSelectedValueTemplate</code></span>
-      
-      
-  
-    </h3>
-    <table class="variables-matrix return-arguments">
-  <tr>
-    <td><span class="label type-hint type-hint-string"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" _target="blank">String</a></span></td>
-    <td><p>Angular template for displaying selected value in multiple select mode. Current option is accessible via <code>$item</code> variable name.</p>
-</td>
-  </tr>
-</table>
-  </li>
-  
   <li id="equalityComparator">
     <h3 class="">
       <span class="title"><code>equalityComparator</code></span>
@@ -120,8 +88,28 @@
     </h3>
     <table class="variables-matrix return-arguments">
   <tr>
-    <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">VALUE): boolean function(VALUE, VALUE): boolean</a></span></td>
-    <td><p>Custom equality comparator.</p>
+    <td><span class="label type-hint type-hint-injectable"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">Injectable.&lt;function()&gt;</a></span></td>
+    <td><pre><code>function(...args: any[]) =&gt; boolean
+</code></pre>
+<p>Custom equality comparator as angularjs injectable function.</p>
+<table>
+<thead>
+<tr>
+<th>Injectable&nbsp;argument&nbsp;name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$element1</code></td>
+<td>Element 1</td>
+</tr>
+<tr>
+<td><code>$element2</code></td>
+<td>Element 2</td>
+</tr>
+</tbody>
+</table>
 </td>
   </tr>
 </table>
@@ -168,8 +156,29 @@
     </h3>
     <table class="variables-matrix return-arguments">
   <tr>
-    <td><span class="label type-hint type-hint-function"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">VALUE): number function(VALUE, VALUE): number</a></span></td>
-    <td><p>If defined, options will be sorted using this comparator function.</p>
+    <td><span class="label type-hint type-hint-injectable"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" _target="blank">Injectable.&lt;function()&gt;</a></span></td>
+    <td><pre><code>function(...args: any[]) =&gt; number
+</code></pre>
+<p>If defined, options will be sorted using this comparator function.
+Angularjs injectable function.</p>
+<table>
+<thead>
+<tr>
+<th>Injectable&nbsp;argument&nbsp;name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$element1</code></td>
+<td>Element 1</td>
+</tr>
+<tr>
+<td><code>$element2</code></td>
+<td>Element 2</td>
+</tr>
+</tbody>
+</table>
 </td>
   </tr>
 </table>
@@ -191,9 +200,9 @@
 </table>
   </li>
   
-  <li id="switchToCheckboxesThreshold">
+  <li id="switchToBlockModeThreshold">
     <h3 class="">
-      <span class="title"><code>switchToCheckboxesThreshold</code></span>
+      <span class="title"><code>switchToBlockModeThreshold</code></span>
       
       
   
@@ -201,7 +210,7 @@
     <table class="variables-matrix return-arguments">
   <tr>
     <td><span class="label type-hint type-hint-number"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" _target="blank">Number</a></span></td>
-    <td><p>If count of options is bigger then this threshold, value editor switches into checkbox mode. If threshold is <code>0</code>, value editor forces into checkbox mode. Applicable only for multiselectable, non-reorderable mode.</p>
+    <td><p>If count of options is bigger than threshold, value editor switches into block mode. If threshold is <code>0</code>, value editor forces into block mode.</p>
 </td>
   </tr>
 </table>
@@ -250,6 +259,22 @@
   <tr>
     <td><span class="label type-hint type-hint-boolean"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" _target="blank">Boolean</a></span></td>
     <td><p>If <code>true</code>, model will be array also if <code>multiple = false</code>. In this case array will contain only one element.</p>
+</td>
+  </tr>
+</table>
+  </li>
+  
+  <li id="allowSelectNull">
+    <h3 class="">
+      <span class="title"><code>allowSelectNull</code></span>
+      
+      
+  
+    </h3>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><span class="label type-hint type-hint-boolean"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" _target="blank">Boolean</a></span></td>
+    <td><p>If <code>true</code>, single selectable editors will allow select null option or deselect selected.</p>
 </td>
   </tr>
 </table>

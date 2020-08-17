@@ -37,16 +37,15 @@
          acceptableValues: $ctrl.acceptableValues,
          multiselectable: $ctrl.multiselectable,
          optionsTemplate: $ctrl.optionsTemplate,
-         singleSelectedValueTemplate: $ctrl.singleSelectedValueTemplate,
-         multiSelectedValueTemplate: $ctrl.multiSelectedValueTemplate,
          searchable: $ctrl.searchable,
          reorderable: $ctrl.reorderable,
          showFirstCount: $ctrl.showFirstCount,
          selectedFirst: $ctrl.selectedFirst,
          sortModel: $ctrl.sortModel,
-         switchToCheckboxesThreshold: $ctrl.switchToCheckboxesThreshold,
          sortComparator: $ctrl.sortComparator,
-         equalityComparator: $ctrl.equalityComparator
+         equalityComparator: $ctrl.equalityComparator,
+         modelAsArray: $ctrl.modelAsArray,
+         switchToBlockModeThreshold: $ctrl.switchToBlockModeThreshold
      }" placeholder="'Select...'">
      </kp-value-editor>
      <div>Model: {{model}}</div>
@@ -56,18 +55,15 @@
      Settings:
      <div>multiselectable: <input type="checkbox" ng-model="$ctrl.multiselectable"></div>
      <div>optionsTemplate: <input type="text" ng-model="$ctrl.optionsTemplate"></div>
-     <div>singleSelectedValueTemplate: <input type="text" ng-model="$ctrl.singleSelectedValueTemplate"></div>
-     <div>multiSelectedValueTemplate: <input type="text" ng-model="$ctrl.multiSelectedValueTemplate"></div>
      <div>searchable: <input type="checkbox" ng-model="$ctrl.searchable"></div>
      <div>reorderable: <input type="checkbox" ng-model="$ctrl.reorderable"></div>
      <div>showFirstCount: <input type="number" ng-model="$ctrl.showFirstCount"></div>
      <div>selectedFirst: <input type="checkbox" ng-model="$ctrl.selectedFirst"></div>
      <div>sortModel: <input type="checkbox" ng-model="$ctrl.sortModel"></div>
-     <div>switchToCheckboxesThreshold: <input type="number" ng-model="$ctrl.switchToCheckboxesThreshold"></div>
+     <div>switchToBlockModeThreshold: <input type="number" ng-model="$ctrl.switchToBlockModeThreshold"></div>
      <div>sortComparator: <input type="text" ng-model="$ctrl.sortComparatorString" ng-change="$ctrl.evalComparators()"></div>
      <div>equalityComparator: <input type="text" ng-model="$ctrl.equalityComparatorString" ng-change="$ctrl.evalComparators()"></div>
-     OPTS:
-     <div>{{$ctrl.multiselectable | json}}</div>
+     <div>modelAsArray: <input type="checkbox" ng-model="$ctrl.modelAsArray"></div>
 </main>
 </body>
 </html>

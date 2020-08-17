@@ -4,14 +4,13 @@ angular.module('acceptableValueEditorExample', ['angularjs-value-editor'])
  .controller('demoController', ['acceptableValueEditorDefaultOptions', class {
      multiselectable;
      optionsTemplate;
-     singleSelectedValueTemplate;
-     multiSelectedValueTemplate;
      searchable;
      reorderable;
      showFirstCount;
      selectedFirst;
      sortModel;
-     switchToCheckboxesThreshold;
+     switchToBlockModeThreshold;
+     modelAsArray;
      sortComparatorString = `(e1, e2) => ((e1 || {x: ''}).x || '').localeCompare((e2 || {x: ''}).x) * -1`;
      equalityComparatorString = '(e1, e2) => e1.x === e2.x';
 
