@@ -17,6 +17,9 @@
 <div class="api-profile-description">
   <p>Directive manages showing / hiding errors. Directive is being placed to main input element or element with validations.
 It will listen to validation status change and shows/hides localized validation messages.</p>
+<p>If value-editor&#39;s parent has not <code>position: relative</code>, this directive adds wrapper with styled <code>position: relative</code>.
+This is done, because displaying error messages without relative positioned parent element caused wrong positioning of message.
+<a href="api/angularjs-value-editor/provider/kpValueEditorConfigurationServiceProvider">kpValueEditor</a> has option <code>disableAutoWrapping</code> which controls this behaviour.</p>
 
 </div>
 

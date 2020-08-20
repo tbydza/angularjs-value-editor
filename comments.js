@@ -1262,7 +1262,8 @@
  * @description
  *
  *//*@ngInject*/
-/*@ngInject*//**
+/*@ngInject*//* tslint:disable:ban-types */
+/**
  * @ngdoc type
  * @name CardNumberValueEditorAdditionalRequestParameters
  * @module angularjs-value-editor.card-number
@@ -2770,6 +2771,13 @@
  * @description
  *
  *//*@ngInject*//**
+ * @ngdoc directive
+ * @name prefixSuffixModelAdder
+ * @module angularjs-value-editor.text
+ *
+ * @description
+ * This directive adds prefix and suffix to model if they are set together with `includePrefixAndSuffixToModel`.
+ *//**
  * @ngdoc type
  * @name TTextValueEditorType
  * @module angularjs-value-editor.text
@@ -2813,9 +2821,13 @@
  *  {
  *      type: 'text',
  *      aceOptions: {
- *          useWrapMode: false,
- *          showGutter: true
- *      }
+ *             useWrapMode: false,
+ *             showGutter: true
+ *         },
+ *      prefix: undefined,
+ *      suffix: undefined,
+ *      includePrefixAndSuffixToModel: false,
+ *      trim: false
  *  }
  * ```
  */
@@ -2972,12 +2984,7 @@
  * ```
  *  (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
  * ```
- *//*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*/
-/*@ngInject*//*@ngInject*//* import VelocityTemplateValueEditorComponent from './velocity-template.value-editor.component';*/
+ *//*@ngInject*//*@ngInject*//* import VelocityTemplateValueEditorComponent from './velocity-template.value-editor.component';*/
 /**
  * @ngdoc module
  * @name angularjs-value-editor.velocity-template
@@ -3163,7 +3170,12 @@
  * @description
  * Directive manages showing / hiding errors. Directive is being placed to main input element or element with validations.
  * It will listen to validation status change and shows/hides localized validation messages.
+ *
+ * If value-editor's parent has not `position: relative`, this directive adds wrapper with styled `position: relative`.
+ * This is done, because displaying error messages without relative positioned parent element caused wrong positioning of message.
+ * {@link kpValueEditorConfigurationServiceProvider kpValueEditor} has option `disableAutoWrapping` which controls this behaviour.
  */
+/*@ngInject*/
 /*@ngInject*//**
  * @ngdoc module
  * @name angularjs-value-editor.error-messages
@@ -3530,6 +3542,15 @@
      * (It makes deep equal of options in each digest cycle).
      */
 /**
+     * @ngdoc method
+     * @name kpValueEditorConfigurationServiceProvider#setDisableAutoWrapping
+     *
+     * @param {boolean} disableAutoWrapping
+     *
+     * @description
+     * If `true`, {@link errorMessages} directive will not wrap value editor, if its parent element isn't relatively positioned.
+     */
+/**
  * @ngdoc service
  * @name kpValueEditorConfigurationService
  * @module angularjs-value-editor
@@ -3673,15 +3694,6 @@
  * @description
  * {@link kpValueEditor} attributes definition.
  *//**
- * @ngdoc component
- * @name listRequiredValidation
- * @module angularjs-value-editor.list
- *
- * @param {boolean} enabled Is validation enabled?
- *
- * @description
- * Helper for required validation for {@link component:ListValueEditorComponent list value editor}
- *//**
  * @ngdoc type
  * @name ListValueEditorOptions
  * @module angularjs-value-editor.list
@@ -3779,6 +3791,15 @@
  *     remove: 'Remove'
  * }
  * ```
+ *//**
+ * @ngdoc component
+ * @name listValueEditorValidations
+ * @module angularjs-value-editor.list
+ *
+ * @requires ^^kpValueEditor
+ *
+ * @description
+ * Helper for required validation for {@link component:ListValueEditorComponent list value editor}
  *//*@ngInject*/
 /**
  * @ngdoc component
@@ -3795,13 +3816,13 @@
  *
  * Supported options: {@link type:ListValueEditorOptions}
  *
- * Supported validations: {@link type:TextValueEditorValidations}
+ * Supported validations: {@link type:ListValueEditorValidations}
  *
  * @example
  * <example name="listValueEditorExample" module="listValueEditorExample" frame-no-resize="true">
  *     <file name="index.html">
  *         <main>
- *              <kp-value-editor type="'list'" ng-model="model" options="{withConfirmation: true}"></kp-value-editor>
+ *              <kp-value-editor type="'list'" ng-model="model" validations="{maxCount: 3}"></kp-value-editor>
  *              <div>Model: {{model}}</div>
  *         </main>
  *     </file>
@@ -3809,6 +3830,16 @@
  *         angular.module('listValueEditorExample', ['angularjs-value-editor'])
  *     </file>
  * </example>
+ */
+/**
+ * @ngdoc type
+ * @name ListValueEditorValidations
+ * @module angularjs-value-editor.list
+ *
+ * @property {number} maxCount Maximum count of items.
+ *
+ * @description
+ * Extends {@link type:ValueEditorValidations}
  *//**
  * @ngdoc module
  * @name angularjs-value-editor.list

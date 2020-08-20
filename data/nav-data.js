@@ -1135,14 +1135,14 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "href": "api/angularjs-value-editor.list/component",
             "navItems": [
               {
-                "name": "listRequiredValidation",
-                "type": "component",
-                "href": "api/angularjs-value-editor.list/component/listRequiredValidation"
-              },
-              {
                 "name": "listValueEditor",
                 "type": "component",
                 "href": "api/angularjs-value-editor.list/component/listValueEditor"
+              },
+              {
+                "name": "listValueEditorValidations",
+                "type": "component",
+                "href": "api/angularjs-value-editor.list/component/listValueEditorValidations"
               }
             ]
           },
@@ -1211,6 +1211,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "ListValueEditorOptions",
                 "type": "type",
                 "href": "api/angularjs-value-editor.list/type/ListValueEditorOptions"
+              },
+              {
+                "name": "ListValueEditorValidations",
+                "type": "type",
+                "href": "api/angularjs-value-editor.list/type/ListValueEditorValidations"
               }
             ]
           }
@@ -1964,6 +1969,18 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "textValueEditorDefaultOptions",
                 "type": "constant",
                 "href": "api/angularjs-value-editor.text/constant/textValueEditorDefaultOptions"
+              }
+            ]
+          },
+          {
+            "name": "directive",
+            "type": "section",
+            "href": "api/angularjs-value-editor.text/directive",
+            "navItems": [
+              {
+                "name": "prefixSuffixModelAdder",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.text/directive/prefixSuffixModelAdder"
               }
             ]
           },
