@@ -1981,6 +1981,16 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "prefixSuffixModelAdder",
                 "type": "directive",
                 "href": "api/angularjs-value-editor.text/directive/prefixSuffixModelAdder"
+              },
+              {
+                "name": "prefixedMaxlength",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.text/directive/prefixedMaxlength"
+              },
+              {
+                "name": "prefixedMinlength",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.text/directive/prefixedMinlength"
               }
             ]
           },

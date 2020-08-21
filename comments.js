@@ -1446,13 +1446,8 @@
  *
  * @description
  * Extends {@link type:ValueEditorOptions}
- * Default value:
- * ```javascript
- *  {
- *      maximumGranularity: 'day',
- *      viewFormat: 'd.L.y'
- *  }
- * ```
+ *
+ * Defaults: {@link dateValueEditorDefaultOptions}
  */
 /**
  * @ngdoc constant
@@ -1465,7 +1460,8 @@
  * ```javascript
  *  {
  *      maximumGranularity: 'day',
- *      viewFormat: 'd.L.y'
+ *      viewFormat: 'd.L.y',
+ *      onlyDate: false
  *  }
  * ```
  */
@@ -2778,6 +2774,26 @@
  * @description
  * This directive adds prefix and suffix to model if they are set together with `includePrefixAndSuffixToModel`.
  *//**
+ * @ngdoc directive
+ * @name prefixedMaxlength
+ * @module angularjs-value-editor.text
+ *
+ * @param {number} prefixedMaxlength Length
+ *
+ * @description
+ * Prefix and suffix aware maxlength validation.
+ */
+/*@ngInject*//**
+ * @ngdoc directive
+ * @name prefixedMinlength
+ * @module angularjs-value-editor.text
+ *
+ * @param {number} prefixedMinlength Length
+ *
+ * @description
+ * Prefix and suffix aware minlength validation.
+ */
+/*@ngInject*//**
  * @ngdoc type
  * @name TTextValueEditorType
  * @module angularjs-value-editor.text
@@ -2965,7 +2981,8 @@
  *
  * @description
  * Extends {@link type:ValueEditorValidations}
- *//**
+ */
+/* Only for localizations*//**
  * @ngdoc module
  * @name angularjs-value-editor.text
  * @module angularjs-value-editor.text
