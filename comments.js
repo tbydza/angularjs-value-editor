@@ -376,7 +376,8 @@
  *
  * @description
  *
- *//**
+ *//* tslint:disable:ban-types */
+/**
  * @ngdoc type
  * @name AcceptableRootValueEditorOptions
  * @module angularjs-value-editor.acceptable-root
@@ -386,7 +387,17 @@
  * @property {MODEL} acceptableValue Tree of acceptable values. Every node should have array of child nodes in property `children`.
  * @property {boolean} multiselect If `true`, it will be multiselectable.
  * @property {MODEL[]} disabledItems Disabled items.
- * @property {function(MODEL, MODEL): boolean} equalityComparator Same as {@link type:AcceptableValueEditorOptions#equalityComparator}
+ * @property {Injectable<Function>} equalityComparator
+ * ```
+ * function(...args: any[]) => boolean
+ * ```
+ * Custom equality comparator as angularjs injectable function.
+ *
+ * | Injectable&nbsp;argument&nbsp;name | Description  |
+ * | ------------------------ | ---------------------- |
+ * | `$element1`  | Element 1                          |
+ * | `$element2`  | Element 2                          |
+ *
  * @property {string} optionsTemplate Angular template for displaying value in tree. Current option is accessible via `$node` variable name.
  *
  * @description
@@ -412,6 +423,7 @@
  *  }
  * ```
  */
+/*@ngInject*/
 /**
  * @ngdoc provider
  * @name acceptableRootValueEditorConfigurationServiceProvider
@@ -736,8 +748,7 @@
 /* items should be visible*/
 /* close select*/
 /* disable bug workaround*/
-/* items should be hidden -> buggy behaviour*/
-/* TODO: Add some localizations and placeholder tests*//*@ngInject*/
+/* items should be hidden -> buggy behaviour*//*@ngInject*/
 /**
      * For block single selectable
      * @param {VALUE} item
