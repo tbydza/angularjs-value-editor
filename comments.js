@@ -3231,6 +3231,11 @@
  */
 /*@ngInject*/
 /**
+     * If validation fired, current model contains old currentProperty value, because
+     * validation is fired BEFORE model update.
+     * So I must update validating property current value by myself...
+     */
+/**
  * @ngdoc type
  * @name KpAsyncValidationOptions
  * @module angularjs-value-editor.async-validation
