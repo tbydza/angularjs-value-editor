@@ -854,6 +854,11 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
                 "name": "dateValueEditor",
                 "type": "component",
                 "href": "api/angularjs-value-editor.date/component/dateValueEditor"
+              },
+              {
+                "name": "dateValueEditor",
+                "type": "component",
+                "href": "api/angularjs-value-editor.date/component/dateValueEditor"
               }
             ]
           },
@@ -2069,50 +2074,14 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
         "href": "api/angularjs-value-editor.year",
         "navItems": [
           {
-            "name": "component",
+            "name": "directive",
             "type": "section",
-            "href": "api/angularjs-value-editor.year/component",
+            "href": "api/angularjs-value-editor.year/directive",
             "navItems": [
               {
-                "name": "yearValueEditor",
-                "type": "component",
-                "href": "api/angularjs-value-editor.year/component/yearValueEditor"
-              }
-            ]
-          },
-          {
-            "name": "constant",
-            "type": "section",
-            "href": "api/angularjs-value-editor.year/constant",
-            "navItems": [
-              {
-                "name": "yearValueEditorDefaultOptions",
-                "type": "constant",
-                "href": "api/angularjs-value-editor.year/constant/yearValueEditorDefaultOptions"
-              }
-            ]
-          },
-          {
-            "name": "provider",
-            "type": "section",
-            "href": "api/angularjs-value-editor.year/provider",
-            "navItems": [
-              {
-                "name": "yearValueEditorConfigurationServiceProvider",
-                "type": "provider",
-                "href": "api/angularjs-value-editor.year/provider/yearValueEditorConfigurationServiceProvider"
-              }
-            ]
-          },
-          {
-            "name": "service",
-            "type": "section",
-            "href": "api/angularjs-value-editor.year/service",
-            "navItems": [
-              {
-                "name": "yearValueEditorConfigurationService",
-                "type": "service",
-                "href": "api/angularjs-value-editor.year/service/yearValueEditorConfigurationService"
+                "name": "yearParser",
+                "type": "directive",
+                "href": "api/angularjs-value-editor.year/directive/yearParser"
               }
             ]
           },
@@ -2121,11 +2090,6 @@ angular.module('docApp').constant('DOCS_NAVIGATION', {
             "type": "section",
             "href": "api/angularjs-value-editor.year/type",
             "navItems": [
-              {
-                "name": "YearValueEditorOptions",
-                "type": "type",
-                "href": "api/angularjs-value-editor.year/type/YearValueEditorOptions"
-              },
               {
                 "name": "YearValueEditorValidations",
                 "type": "type",

@@ -3027,80 +3027,45 @@
  * ```
  */
 /* .component(VelocityTemplateValueEditorComponent.componentName, VelocityTemplateValueEditorComponent)*//*@ngInject*//**
- * @ngdoc type
- * @name YearValueEditorOptions
+ * @ngdoc directive
+ * @name yearParser
  * @module angularjs-value-editor.year
  *
- * @description
- * Extends {@link type:ValueEditorOptions}
+ * @requires ngModel
  *
- * Default value: {@link yearValueEditorDefaultOptions}
- */
-/* tslint:disable-next-line:no-empty-interface*/
-/**
- * @ngdoc constant
- * @name yearValueEditorDefaultOptions
- * @module angularjs-value-editor.year
+ * @restrict A
+ * @priority 100
  *
  * @description
- * For description see {@link YearValueEditorOptions}
- *
- * ```javascript
- * {
- * }
- * ```
- */
-/**
- * @ngdoc provider
- * @name yearValueEditorConfigurationServiceProvider
- * @module angularjs-value-editor.year
- *
- * @description
- *
- * See {@link AbstractValueEditorConfigurationProvider}
- *
- * Default options: {@link yearValueEditorDefaultOptions}
- */
-/*@ngInject*/
-/**
- * @ngdoc service
- * @name yearValueEditorConfigurationService
- * @module angularjs-value-editor.year
- *
- * @description
- *
- * See {@link AbstractValueEditorConfigurationProvider}
- *
- * Default options: {@link yearValueEditorDefaultOptions}
- *//*@ngInject*/
-/**
+ * Directive transforms text value to number.
+ *//**
  * @ngdoc component
- * @name yearValueEditor
- * @module angularjs-value-editor.year
+ * @name dateValueEditor
+ * @module angularjs-value-editor.date
  *
  * @requires ng.type.ngModel.NgModelController
  * @requires component:kpValueEditor
  *
  * @description
- * Model type: `number`
+ * Model type: `string`
  *
- * Value editor for year input.
+ * Value editor for date input.
  *
- * Supported options: {@link type:YearValueEditorOptions}
+ * Supported options: {@link type:DateValueEditorOptions}
  *
- * Supported validations: {@link type:YearValueEditorValidations}
+ * Supported validations: {@link type:DateValueEditorValidations}
  *
  * @example
- * <example name="yearValueEditorExample" module="yearValueEditorExample" frame-no-resize="true">
+ * <example name="dateValueEditorExample" module="dateValueEditorExample" frame-no-resize="true">
  *     <file name="index.html">
  *         <main>
- *              <kp-value-editor type="'year'" ng-model="model"></kp-value-editor>
+ *              <kp-value-editor type="'date'" ng-model="model"></kp-value-editor>
  *              <div>{{model}}</div>
  *         </main>
  *     </file>
  *     <file name="script.js">
  *         luxon.Settings.defaultLocale = luxon.DateTime.local().resolvedLocaleOpts().locale;
- *         angular.module('yearValueEditorExample', ['angularjs-value-editor']);
+ *         angular.module('dateValueEditorExample', ['angularjs-value-editor']);
  *     </file>
  * </example>
  */
