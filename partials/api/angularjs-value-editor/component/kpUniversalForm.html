@@ -34,7 +34,7 @@
   
 
   
-  <pre><code>&lt;kp-universal-form&#10;    form-settings=&quot;KpUniversalFormSettings&quot;&#10;    [name=&quot;string&quot;]&#10;    [form-controller=&quot;&quot;]&#10;    [on-submit=&quot;&quot;]&#10;    [labels-width=&quot;ObjectValueEditorLabelsWidth&quot;]&#10;    [force-show-errors]&#10;    [options=&quot;KpUniversalFormComponentOptions&quot;]&gt;&#10;&lt;/kp-universal-form&gt;</code></pre>
+  <pre><code>&lt;kp-universal-form&#10;    form-settings=&quot;KpUniversalFormSettings&quot;&#10;    [name=&quot;string&quot;]&#10;    [form-controller=&quot;&quot;]&#10;    [on-submit=&quot;&quot;]&#10;    [labels-width=&quot;ObjectValueEditorLabelsWidth&quot;]&#10;    [force-show-errors]&#10;    [options=&quot;KpUniversalFormComponentOptions&quot;]&#10;    [async-validations-model=&quot;&quot;]&gt;&#10;&lt;/kp-universal-form&gt;</code></pre>
   </div>
   
 <section class="api-section">
@@ -223,6 +223,23 @@
       </td>
       <td>
         <p>Specific options for universal form.</p>
+
+        
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        asyncValidationsModel
+        
+        <div><em>(optional)</em></div>
+      </td>
+      <td>
+        <span class="label type-hint type-hint-object"><a href="{">{</a>= {}=}</span>
+      </td>
+      <td>
+        <p>Specify model for async validations. If defined, all async validations with set <code>wholeForm = true</code> use this model.</p>
 
         
         
