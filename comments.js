@@ -34,6 +34,14 @@
      */
 /* istanbul ignore else */
 /**
+     * Return `true` if model is empty.
+     *
+     * @template MODEL
+     *
+     * @param {MODEL=} modelValue You can insert custom model value. If not specified, internal model used.
+     * @return {boolean}
+     */
+/**
      * This method is called always, when value editor options is changed with old and new options object merged with default options.
      * @param {OPTIONS} newOptions New options.
      * @param {OPTIONS} oldOptions Old options.
@@ -3183,6 +3191,9 @@
 /*@ngInject*/
 /*@ngInject*/
 /*@ngInject*/
+/*@ngInject*/
+/*@ngInject*/
+/* @ts-ignore*/
 /*@ngInject*/
 /*@ngInject*/
 /* @ts-ignore*/
