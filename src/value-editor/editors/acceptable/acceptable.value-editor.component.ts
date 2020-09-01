@@ -168,7 +168,7 @@ export class AcceptableValueEditorComponentController<VALUE> extends AbstractTem
             whichOptionIsChanged.sortComparator ||
             whichOptionIsChanged.reorderable ||
             whichOptionIsChanged.acceptableValues ||
-            whichOptionIsChanged.switchToBlockModeThreshold ||
+            whichOptionIsChanged.switchToInlineModeThreshold ||
             whichOptionIsChanged.selectedFirst) {
 
             this.baseTemplateUrl = this.getTemplateUrl();
@@ -259,7 +259,7 @@ export class AcceptableValueEditorComponentController<VALUE> extends AbstractTem
     }
 
     private getTemplateUrl(): string {
-        const isBlock = this.options.acceptableValues.length > this.options.switchToBlockModeThreshold;
+        const isBlock = this.options.switchToInlineModeThreshold === 0 || this.options.acceptableValues.length < this.options.switchToInlineModeThreshold;
 
         if (isBlock && this.options.multiselectable) return AcceptableValueEditorComponentController.MULTIPLE_BLOCK_TEMPLATE_URL;
 

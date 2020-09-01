@@ -67,7 +67,6 @@ class CheckboxesController {
             item.click();
         }
     }
-
 }
 
 describe('acceptable-value-editor', () => {
@@ -96,7 +95,12 @@ describe('acceptable-value-editor', () => {
         describe('single selectable inline', () => {
 
             it('should change model on input', () => {
-                valueEditorMocker.create('acceptable', {options: {acceptableValues: ACCEPTABLE_VALUES}});
+                valueEditorMocker.create('acceptable', {
+                    options: {
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
+                    }
+                });
                 const uiSelect = valueEditorMocker.getInputElement<HTMLElement>();
                 const controller = new UISelectController(uiSelect);
 
@@ -106,7 +110,12 @@ describe('acceptable-value-editor', () => {
             });
 
             it('should change value if model changed', () => {
-                valueEditorMocker.create('acceptable', {options: {acceptableValues: ACCEPTABLE_VALUES}});
+                valueEditorMocker.create('acceptable', {
+                    options: {
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
+                    }
+                });
 
                 $scope.model = {value: 'c'};
                 $scope.$apply();
@@ -117,7 +126,12 @@ describe('acceptable-value-editor', () => {
             });
 
             it('should change options if acceptableValues are changed', () => {
-                valueEditorMocker.create('acceptable', {options: {acceptableValues: ACCEPTABLE_VALUES}});
+                valueEditorMocker.create('acceptable', {
+                    options: {
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
+                    }
+                });
 
                 $scope.$apply();
 
@@ -135,7 +149,12 @@ describe('acceptable-value-editor', () => {
             });
 
             it('should change options template', () => {
-                valueEditorMocker.create('acceptable', {options: {acceptableValues: ACCEPTABLE_VALUES}});
+                valueEditorMocker.create('acceptable', {
+                    options: {
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
+                    }
+                });
 
                 let option3 = new UISelectController(valueEditorMocker.getInputElement()).openUiSelect().getOptionsText()[3];
 
@@ -150,7 +169,12 @@ describe('acceptable-value-editor', () => {
             });
 
             it('should change singleSelectedValueTemplate', () => {
-                valueEditorMocker.create('acceptable', {options: {acceptableValues: ACCEPTABLE_VALUES}});
+                valueEditorMocker.create('acceptable', {
+                    options: {
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
+                    }
+                });
 
                 $scope.model = {value: 'c'};
                 $scope.$apply();
@@ -168,7 +192,12 @@ describe('acceptable-value-editor', () => {
             });
 
             it('should have working searchable option', () => {
-                valueEditorMocker.create('acceptable', {options: {acceptableValues: ACCEPTABLE_VALUES}});
+                valueEditorMocker.create('acceptable', {
+                    options: {
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
+                    }
+                });
 
                 let uiSelectController = new UISelectController(valueEditorMocker.getInputElement());
 
@@ -193,7 +222,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     editorName: 'acceptable',
                     options: {
-                        acceptableValues: ACCEPTABLE_VALUES
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
                     },
                     validations: {
                         required: true
@@ -215,6 +245,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5,
                         allowSelectNull: true
                     }
                 });
@@ -227,8 +258,13 @@ describe('acceptable-value-editor', () => {
 
             it('should not has null option if component is singleselect and not required', () => {
                 valueEditorMocker.create('acceptable', {
-                    options: {acceptableValues: ACCEPTABLE_VALUES},
-                    validations: {required: true}
+                    options: {
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5
+                    },
+                    validations: {
+                        required: true
+                    }
                 });
 
                 const count = new UISelectController(valueEditorMocker.getInputElement()).openUiSelect().getOptionsCount();
@@ -240,6 +276,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5,
                         allowSelectNull: true
                     }
                 });
@@ -260,6 +297,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5,
                         modelAsArray: true
                     }
                 });
@@ -276,6 +314,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5,
                         modelAsArray: true
                     }
                 });
@@ -292,6 +331,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 5,
                         allowSelectNull: true,
                         modelAsArray: true
                     }
@@ -316,7 +356,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        switchToBlockModeThreshold: 0
+                        switchToInlineModeThreshold: 0
                     }
                 });
 
@@ -329,7 +369,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        switchToBlockModeThreshold: 0
+                        switchToInlineModeThreshold: 0
                     }
                 });
 
@@ -345,7 +385,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        switchToBlockModeThreshold: 0
+                        switchToInlineModeThreshold: 0
                     }
                 });
 
@@ -366,7 +406,7 @@ describe('acceptable-value-editor', () => {
                     editorName: 'acceptable',
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        switchToBlockModeThreshold: 0
+                        switchToInlineModeThreshold: 0
                     },
                     validations: {
                         required: true
@@ -384,7 +424,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        switchToBlockModeThreshold: 0,
+                        switchToInlineModeThreshold: 0,
                         allowSelectNull: true
                     }
                 });
@@ -402,7 +442,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        switchToBlockModeThreshold: 0,
+                        switchToInlineModeThreshold: 0,
                         allowSelectNull: true
                     },
                     validations: {
@@ -424,7 +464,7 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
                         modelAsArray: true,
-                        switchToBlockModeThreshold: 0
+                        switchToInlineModeThreshold: 0
                     }
                 });
 
@@ -438,7 +478,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        modelAsArray: true, switchToBlockModeThreshold: 0
+                        modelAsArray: true, switchToInlineModeThreshold: 0
                     }
                 });
 
@@ -454,7 +494,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        switchToBlockModeThreshold: 0,
+                        switchToInlineModeThreshold: 0,
                         allowSelectNull: true,
                         modelAsArray: true
                     }
@@ -473,7 +513,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
                 const uiSelect = valueEditorMocker.getInputElement<HTMLElement>();
@@ -488,7 +529,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -504,7 +546,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -527,7 +570,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -547,7 +591,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -570,7 +615,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -598,6 +644,7 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
                         multiselectable: true,
+                        switchToInlineModeThreshold: 1,
                         sortComparator: /*@ngInject*/ ($element1, $element2) => $element1.value.localeCompare($element2.value) * -1
                     }
                 });
@@ -608,6 +655,7 @@ describe('acceptable-value-editor', () => {
                 $scope.$apply(() => {
                     changeWholeOptions({
                         multiselectable: true,
+                        switchToInlineModeThreshold: 1,
                         acceptableValues: ACCEPTABLE_VALUES,
                         sortComparator: undefined
                     });
@@ -622,7 +670,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -632,6 +681,7 @@ describe('acceptable-value-editor', () => {
                 $scope.$apply(() => {
                     changeWholeOptions({
                         multiselectable: true,
+                        switchToInlineModeThreshold: 1,
                         acceptableValues: ACCEPTABLE_VALUES,
                         sortComparator: /*@ngInject*/ ($element1, $element2) => $element1.value.localeCompare($element2.value) * -1
                     });
@@ -645,6 +695,7 @@ describe('acceptable-value-editor', () => {
                     changeWholeOptions({
                         multiselectable: true,
                         acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 1,
                         sortComparator: /*@ngInject*/ ($element1, $element2) => $element1.value.localeCompare($element2.value) * -1,
                         sortModel: true
                     });
@@ -659,7 +710,8 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     editorName: 'multiacceptable',
                     options: {
-                        acceptableValues: ACCEPTABLE_VALUES
+                        acceptableValues: ACCEPTABLE_VALUES,
+                        switchToInlineModeThreshold: 1
                     },
                     validations: {
                         required: true
@@ -683,6 +735,7 @@ describe('acceptable-value-editor', () => {
                         options: {
                             acceptableValues: ACCEPTABLE_VALUES,
                             multiselectable: true,
+                            switchToInlineModeThreshold: 1,
                             sortModel: true
                         }
                     });
@@ -695,7 +748,8 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
                         modelAsArray: true,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -714,7 +768,8 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
                         modelAsArray: true,
-                        multiselectable: true
+                        multiselectable: true,
+                        switchToInlineModeThreshold: 1
                     }
                 });
 
@@ -731,6 +786,7 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
                         multiselectable: true,
+                        switchToInlineModeThreshold: 1,
                         emptyAsNull: true
                     }
                 }, true);
@@ -752,7 +808,7 @@ describe('acceptable-value-editor', () => {
 
         describe('multi selectable checkboxes', () => {
 
-            it('should switch to checkboxes', () => {
+            it('should switch to inline mode', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
@@ -760,22 +816,21 @@ describe('acceptable-value-editor', () => {
                     }
                 });
 
-                const uiSelect = valueEditorMocker.getInputElement<HTMLElement>();
-                expect(uiSelect.classList.contains('ui-select-bootstrap')).toBe(true);
-
-                $scope.options.switchToBlockModeThreshold = 5;
-                $scope.$apply();
-
                 const checkboxes = valueEditorMocker.getInputElement<HTMLElement>();
                 expect(checkboxes.classList.contains('checkboxes-mode')).toBe(true);
+
+                $scope.options.switchToInlineModeThreshold = 5;
+                $scope.$apply();
+
+                const uiSelect = valueEditorMocker.getInputElement<HTMLElement>();
+                expect(uiSelect.classList.contains('ui-select-bootstrap')).toBe(true);
             });
 
             it('should change model on input', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     }
                 });
 
@@ -790,8 +845,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     }
                 });
 
@@ -807,8 +861,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     }
                 });
 
@@ -831,8 +884,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     }
                 });
 
@@ -853,7 +905,6 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
                         multiselectable: true,
-                        switchToBlockModeThreshold: 5,
                         sortComparator: /*@ngInject*/ ($element1, $element2) => $element1.value.localeCompare($element2.value) * -1
                     }
                 });
@@ -865,7 +916,6 @@ describe('acceptable-value-editor', () => {
                     changeWholeOptions({
                         multiselectable: true,
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        switchToBlockModeThreshold: 5,
                         sortComparator: undefined
                     });
                     $scope.model = [];
@@ -879,8 +929,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     }
                 });
 
@@ -891,7 +940,6 @@ describe('acceptable-value-editor', () => {
                     changeWholeOptions({
                         multiselectable: true,
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        switchToBlockModeThreshold: 5,
                         sortComparator: /*@ngInject*/ ($element1, $element2) => $element1.value.localeCompare($element2.value) * -1
                     });
                     $scope.model = [];
@@ -904,7 +952,6 @@ describe('acceptable-value-editor', () => {
                     changeWholeOptions({
                         multiselectable: true,
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        switchToBlockModeThreshold: 5,
                         sortComparator: /*@ngInject*/ ($element1, $element2) => $element1.value.localeCompare($element2.value) * -1,
                         sortModel: true
                     });
@@ -919,8 +966,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     }
                 });
 
@@ -947,7 +993,6 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
                         multiselectable: true,
-                        switchToBlockModeThreshold: 5,
                         sortComparator: undefined
                     }
                 });
@@ -958,7 +1003,6 @@ describe('acceptable-value-editor', () => {
                 $scope.$apply(() => changeWholeOptions({
                         acceptableValues: ACCEPTABLE_VALUES,
                         multiselectable: true,
-                        switchToBlockModeThreshold: 5,
                         selectedFirst: true,
                         sortComparator: undefined
                     })
@@ -972,8 +1016,7 @@ describe('acceptable-value-editor', () => {
                 valueEditorMocker.create('acceptable', {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     }
                 });
 
@@ -989,8 +1032,7 @@ describe('acceptable-value-editor', () => {
                     editorName: 'acceptable',
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES.slice(),
-                        multiselectable: true,
-                        switchToBlockModeThreshold: 5
+                        multiselectable: true
                     },
                     validations: {
                         required: true
@@ -1012,7 +1054,6 @@ describe('acceptable-value-editor', () => {
                     options: {
                         acceptableValues: ACCEPTABLE_VALUES,
                         multiselectable: true,
-                        switchToBlockModeThreshold: 5,
                         emptyAsNull: true
                     }
                 }, true);
@@ -1057,6 +1098,7 @@ describe('acceptable-value-editor', () => {
             valueEditorMocker.create('acceptable', {
                 options: {
                     acceptableValues: ACCEPTABLE_VALUES,
+                    switchToInlineModeThreshold: 1,
                     // enable bug workaround
                     __forceDisableNgAnimate: true
                 } as AcceptableValueEditorOptions<any> & UndocumentedDisableNgAnimateValueEditorInternalOption
