@@ -5,11 +5,18 @@ main.container(ng-controller="labController as $ctrl")
 
         ng-model="$ctrl.model"
 
+        form-controller="$ctrl.form = $formController"
+
         async-validations-model="$ctrl.model"
     )
+    .row
+        .col-lg-6
+            div Input
+            pre {{$ctrl.form.personBirthDate | json}}
+        .col-lg-6
+            div Datepicker
+            pre {{$ctrl.form.pica | json}}
+
     div Model:
     pre {{$ctrl.model | json}}
-
-    div Form:
-    pre {{$ctrl.form | json}}
 

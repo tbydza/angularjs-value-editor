@@ -74,10 +74,10 @@ export class DateValueEditorComponentController extends AbstractValueEditorCompo
     }
 
     @bind
-    private onlyDateParser(modelValue: string): string {
-        if (!this.options.onlyDate) return modelValue;
+    private onlyDateParser(viewValue: string): string {
+        if (!this.options.onlyDate) return viewValue;
 
-        return DateTime.fromISO(modelValue).toISO();
+        return DateTime.fromISO(viewValue).toISO();
     }
 }
 
