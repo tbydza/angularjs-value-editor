@@ -129,4 +129,13 @@ describe('date-value-editor', () => {
         expect($scope.model).toBeNull();
     });
 
+    it('should not have any errors', () => {
+        valueEditorMocker.create('date', {editorName: 'date'});
+
+        valueEditorMocker.getInputElement<HTMLInputElement>().value = '22.2.1995';
+        valueEditorMocker.triggerHandlerOnInput('input');
+
+        expect($scope.form.$error).toEqual({});
+    });
+
 });

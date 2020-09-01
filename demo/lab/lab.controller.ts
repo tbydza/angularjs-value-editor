@@ -4,33 +4,26 @@ export default class LabController {
     public static readonly controllerName = 'labController';
 
     public model = {
-        accessNumber: 'fr',
-        acquisitionYear: 3,
-        bla: 'abl',
-        something: [1, 2, 3, 4, 5]
+        personDegree: '',
+        personSuffixDegree: '',
+        personFirstName: 'First name',
+        personLastName: 'Last name',
+        personBirthDate: undefined,
+        emails: [{value: 'em@i.l'}],
+        phoneNumbers: [{value: '609112567'}],
+        username: 'Nasername',
+        newPassword: 'hesloheslo'
     };
 
     public options = {
+        'id': null,
+        'text': 'Registrace',
         'fields': [{
-            'label': 'Přír.č.',
-            'fieldName': 'accessNumber',
+            'label': 'Datum narození',
+            'fieldName': 'personBirthDate',
             'editor': {
-                'options': {'canDoAction': true},
-                'validations': {
-                    'async': {
-                        'additionalParameters': {
-                            'validationPathUrl': '/api/exemplars/validity/accessNumber'
-                        },
-                        sendWholeForm: true
-                    },
-                    'maxlength': 30
-                },
-                'type': 'access-number'
+                'type': 'date'
             }
-        }, {
-            'label': 'Rok přírůstku',
-            'fieldName': 'acquisitionYear',
-            'editor': {'type': 'year', validations: {required: true}}
         }]
     };
 
@@ -39,4 +32,4 @@ export default class LabController {
             sendWholeForm: true
         }
     } as ValueEditorValidations;
-}
+};
