@@ -43,7 +43,7 @@ import {UndocumentedDisableNgAnimateValueEditorInternalOption} from '../../commo
  * | `$element2`  | Element 2                          |
  *
  * @property {boolean} sortModel It true, model will be sorted using `comparator`. Applicable only for multiselectable mode.
- * @property {number} switchToBlockModeThreshold If count of options is bigger than threshold, value editor switches into block mode. If threshold is `0`, value editor forces into block mode.
+ * @property {number} switchToInlineModeThreshold If count of options is bigger than threshold, value editor switches into inline mode. If threshold is `0`, value editor never switch to inline mode.
  * @property {number} showFirstCount If count of options is bigger than this value, value editor shows only given count checkboxes and rest of options is hidden. Applicable only for multiselectable, checkbox mode.
  * @property {boolean} selectedFirst If `true`, selected options will be moved on top of options. Applicable only for multiselectable, checkbox mode.
  * @property {boolean} modelAsArray If `true`, model will be array also if `multiple = false`. In this case array will contain only one element.
@@ -63,7 +63,7 @@ export interface AcceptableValueEditorOptions<VALUE> extends ValueEditorOptions 
     reorderable?: boolean;
     sortComparator?: Injectable<Function | ((...args: any[]) => number | undefined)>;
     sortModel?: boolean;
-    switchToBlockModeThreshold?: number;
+    switchToInlineModeThreshold?: number;
     showFirstCount?: number;
     selectedFirst?: boolean;
     modelAsArray?: boolean;
@@ -84,15 +84,13 @@ export interface AcceptableValueEditorOptions<VALUE> extends ValueEditorOptions 
  *      multiselectable: false,
  *      searchable: true,
  *      optionsTemplate: '{{$item}}',
- *      singleSelectedValueTemplate: '{{$select.selected}}',
- *      multiSelectedValueTemplate: '{{$item}}',
  *      equalityComparator: \/*@ngInject*\/ ($element1, $element2) => angular.equals($element1, $element2),
  *      reorderable: false,
  *      showFirstCount: 0,
  *      selectedFirst: false,
  *      sortComparator: undefined,
  *      sortModel: false,
- *      switchToCheckboxesThreshold: 13,
+ *      switchToInlineModeThreshold: 13,
  *      modelAsArray: false,
  *      allowSelectNull: false
  *  }
@@ -109,7 +107,7 @@ export const ACCEPTABLE_VALUE_EDITOR_DEFAULT_OPTIONS: DefaultOptions<AcceptableV
     selectedFirst: false,
     sortComparator: undefined,
     sortModel: false,
-    switchToBlockModeThreshold: 13,
+    switchToInlineModeThreshold: 13,
     modelAsArray: false,
     allowSelectNull: false,
     __forceDisableNgAnimate: false

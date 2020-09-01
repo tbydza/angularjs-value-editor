@@ -162,7 +162,7 @@ export default class DemoController {
                         'two',
                         'three'
                     ],
-                    switchToBlockModeThreshold: 0,
+                    switchToInlineModeThreshold: 0,
                     allowSelectNull: true,
                     __forceDisableNgAnimate: true
                 } as AcceptableValueEditorOptions<string> & UndocumentedDisableNgAnimateValueEditorInternalOption
@@ -205,7 +205,7 @@ export default class DemoController {
                         'two',
                         'three'
                     ],
-                    switchToBlockModeThreshold: 1,
+                    switchToInlineModeThreshold: 1,
                     showFirstCount: 2
                 } as AcceptableValueEditorOptions<string>
             }
