@@ -60,6 +60,11 @@ type ValidationsToLocalizations<VALIDATIONS> = {
  * @property {string} minDate
  * @property {string} maxDate
  * @property {string} 'list-required'
+ * @property {string} 'max-count'
+ * @property {string} 'passwords-equals'
+ * @property {string}  email
+ * @property {string}  url
+ * @property {string}  notBlank
  *
  * @description
  * Default localizations: {@link valueEditorErrorMessagesDefaultLocalizations}
@@ -88,6 +93,9 @@ export interface ValueEditorErrorMessagesLocalizations extends ValueEditorLocali
     'list-required';
     'max-count';
     'passwords-equals';
+    email;
+    url;
+    notBlank;
 }
 
 /**
@@ -99,6 +107,7 @@ export interface ValueEditorErrorMessagesLocalizations extends ValueEditorLocali
  * ```
  * {
  *  required: 'This field is required',
+ *  async: 'Error',
  *  minlength: 'Too short',
  *  maxlength: 'Too long',
  *  pattern: 'Input does not match pattern',
@@ -109,7 +118,12 @@ export interface ValueEditorErrorMessagesLocalizations extends ValueEditorLocali
  *  toBiggerThanFrom: 'To is higher than from',
  *  minDate: 'Date is too in past',
  *  maxDate: 'Date is too in future',
- *  'list-required': 'List cannot be empty'
+ *  'list-required': 'List cannot be empty',
+ *  'max-count': 'Too many items',
+ *  'passwords-equals': 'Passwords do not match',
+ *  email: 'Not a valid e-mail address',
+ *  url: 'Not a valid URL',
+ *  notBlank: 'Input can not have only blank characters'
  * }
  * ```
  */
@@ -130,5 +144,6 @@ export const VALUE_EDITOR_ERROR_MESSAGES_DEFAULT_LOCALIZATIONS: Readonly<ValueEd
     'max-count': 'Too many items',
     'passwords-equals': 'Passwords do not match',
     email: 'Not a valid e-mail address',
-    url: 'Not a valid URL'
+    url: 'Not a valid URL',
+    notBlank: 'Input can not have only blank characters'
 });

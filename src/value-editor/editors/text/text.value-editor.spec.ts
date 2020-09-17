@@ -264,6 +264,37 @@ describe('text-value-editor', () => {
             expect($scope.form.text.$error).toEqual({maxlength: true});
         });
 
+        it('should have working notBlank validation', () => {
+            valueEditorMocker.create('text', {editorName: 'text', validations: {notBlank: true}});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '   ';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            $scope.$apply();
+
+            expect($scope.form.text.$error).toEqual({notBlank: true});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '    hello';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = 'hello     ';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '   hello     hi';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+        });
+
     });
 
     describe('type: textarea', () => {
@@ -407,6 +438,37 @@ describe('text-value-editor', () => {
             expect($scope.model).toBeNull();
         });
 
+        it('should have working notBlank validation', () => {
+            valueEditorMocker.create('text', {editorName: 'text', options: {type: 'textarea'}, validations: {notBlank: true}});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '   ';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            $scope.$apply();
+
+            expect($scope.form.text.$error).toEqual({notBlank: true});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '    hello';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = 'hello     ';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '   hello     hi';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+
+            valueEditorMocker.getInputElement<HTMLInputElement>().value = '';
+            valueEditorMocker.triggerHandlerOnInput('input');
+
+            expect($scope.form.text.$error).toEqual({});
+        });
+
     });
 
     describe('type: rich-textarea', () => {
@@ -538,6 +600,35 @@ describe('text-value-editor', () => {
             valueEditorMocker.getInputElement<HTMLDivElement>().querySelector('textarea').dispatchEvent(blurEvent);
 
             expect($scope.form.text.$touched).toBe(true);
+        });
+
+        it('should have working notBlank validation', () => {
+            valueEditorMocker.create('text', {editorName: 'text', options: {type: 'rich-textarea'}, validations: {notBlank: true}});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('   ');
+            $scope.$apply();
+
+            expect($scope.form.text.$error).toEqual({notBlank: true});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('    hello');
+            $scope.$apply();
+
+            expect($scope.form.text.$error).toEqual({});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('hello      ');
+            $scope.$apply();
+
+            expect($scope.form.text.$error).toEqual({});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('    hello       hi');
+            $scope.$apply();
+
+            expect($scope.form.text.$error).toEqual({});
+
+            (window as any).ace.edit(valueEditorMocker.getInputElement()).setValue('');
+            $scope.$apply();
+
+            expect($scope.form.text.$error).toEqual({});
         });
     });
 
