@@ -48,6 +48,10 @@ export class TextValueEditorComponentController extends AbstractValueEditorCompo
         }
     }
 
+    public get validations(): TextValueEditorValidations {
+        return this.valueEditorController.validations;
+    }
+
     protected get emptyModel(): string {
         return '';
     }
@@ -184,6 +188,7 @@ export default class TextValueEditorComponent extends AbstractValueEditorCompone
  * @property {number=} minlength Min length.
  * @property {number=} maxlength Max length.
  * @property {string=} pattern Regexp pattern.
+ * @property {boolean=} notBlank Not blank (only whitespace) validation
  *
  * @description
  * Extends {@link type:ValueEditorValidations}
@@ -192,6 +197,7 @@ export interface TextValueEditorValidations extends ValueEditorValidations {
     minlength?: number;
     maxlength?: number;
     pattern?: string | RegExp;
+    notBlank?: boolean;
 
     // Only for localizations
     readonly url?: never;
